@@ -1,0 +1,31 @@
+{
+"manifest_version": 3,
+"name": "Get Access Token",
+"description":"Get Access Token",
+"version": "1.0",
+"icons":{"16":"icon.png"},
+"action":{
+"default_title":"Click me",
+"default_popup":"popup.html"
+},
+"permissions": [
+    "tabs",
+    "storage",
+    "identity",
+    "cookies","webNavigation","activeTab"
+], "options_page": "options.html",
+"background" : {
+    "service_worker" : "background.js"
+},
+"chrome_url_overrides":{
+  "newtab": "newTab.html"
+},
+
+"content_scripts": [
+    {
+      "js": ["contentScript.js"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "host_permissions": ["https://*/*", "http://*/*"]
+}

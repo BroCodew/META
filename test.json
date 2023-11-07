@@ -1,0 +1,31 @@
+{
+    "manifest_version": 3,
+    "name": "Learn Reactjs Extension",
+    "version": "1.0",
+    "permissions": [
+      "activeTab",
+      "cookies", 
+      "downloads",
+      "notifications", "downloads",
+      "downloads.open",
+      "downloads.shelf",
+      "scripting",
+      "storage"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": "icon.png"
+    },
+    "content_scripts": [
+      {
+        "js": ["popup.js"],
+        "matches": ["<all_urls>"]
+      }
+    ],
+    "host_permissions": ["<all_urls>"]
+   
+   
+  }

@@ -1,0 +1,39 @@
+.optionContainer {
+  background-color: #fdfdfd;
+  //   height: 100vh;
+  //   width: 100vw;
+  //   display: block;
+  overflow-x: auto; /* Kích hoạt thanh cuộn ngang */
+  white-space: nowrap;
+  border-radius: 10px;
+}
+.optionHeader {
+  //   background-color: #1a0a72;
+  color: #000;
+}
+.optionTitle {
+  text-align: center;
+  border: 1px 0 solid #000 !important;
+  box-shadow: 2px 2px 2px 2px#888888;
+  color: rgb(51 51 51) !important;
+  background-color: #fdfdfd;
+  font-size: 15px !important;
+  line-height: 19.6px;
+}
+.optionValue {
+  text-align: center;
+  border: 1px 0 solid #000 !important;
+  box-shadow: 2px 2px 2px 2px#888888;
+  color: rgb(102 102 102) !important;
+  background-color: #fdfdfd;
+}
+.optionButton {
+  background-color: rgb(149 208 58) !important;
+  box-shadow: rgb(151 65 252 / 0.2) 0px 15px 30px -5px;
+  color: rgb(255 255 255) !important;
+  //   background-color: #000 !important;
+}
+.optionDrawer {
+  background-color: rgb(149 208 58) !important;
+  box-shadow: rgb(151 65 252 / 0.2) 0px 15px 30px -5px;
+}
