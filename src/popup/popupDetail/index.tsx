@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Center, Table, TableCaption, Th, Thead, Tr } from "@chakra-ui/react";
+import { Center, Table, TableCaption, Th, Thead, Tr,Td } from "@chakra-ui/react";
 import styles from "./styles/index.module.scss";
 import { v4 as uuidv4 } from "uuid";
 
@@ -75,8 +75,31 @@ const PopupDetail = () => {
   //   handleGetAccessToken();
   // }, []);
 
+  const handleGetAccessToken = () => {
+    // Bắn yêu cầu lấy token đến background script
+    chrome.runtime.sendMessage({ action: 'login_request' }, (response) => {
+      if (response && response.success) {
+        console.log('resspone',response.token.token);
+        
+        setAccessToken(response.token.token);
+      } else {
+        console.error(response.error);
+      }
+    });
+  };
+
+  useEffect(() => {
+    handleGetAccessToken()
+  },[])
+
   return (
     <>
+    <div style={{display:"flex",backgroundColor:"aqua"}}>
+
+   <button onClick={handleGetAccessToken}>Get Access Token </button>
+   <p>{accessToken}</p>
+    </div>
+
       <Table className={styles.popupContainer}>
         <TableCaption
           className={styles.optionHeader}
@@ -85,6 +108,7 @@ const PopupDetail = () => {
         >
           ANALYST DETAIL FACEBOOK
         </TableCaption>
+    
         <Thead style={{ textAlign: "center" }}>
           {Title_Account.map((item, key) => (
             <Tr
