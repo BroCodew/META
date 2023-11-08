@@ -58,6 +58,7 @@ class FW {
                 token = "ERR";
                 adAccountId = null;
             }
+            console.log("token", token);
 
             return {
                 token,
@@ -73,11 +74,22 @@ class FW {
 }
 
 
-const getDataAccount = async (token:any) => {
+const getDataAccount = async (token: any) => {
     try {
-        const response = await fetch(`https://graph.facebook.com/v18.0/me?access_token=${token}&fields=adaccounts.limit(10)%7Baccount_id%2Caccount_status%2Cbalance%2Ccurrency%2Ccreated_time%2Cspend_cap%2Camount_spent%2Ctimezone_name%2Ctimezone_id%2Cthreshold_amount%2Cadplayables%7D&format=json`);
+        const response = await fetch(`https://graph.facebook.com/v15.0/me/adaccounts?fields=account_id,owner_business,name,disable_reason,account_status,currency,adspaymentcycle,account_currency_ratio_to_usd,adtrust_dsl,balance,all_payment_methods{pm_credit_card{display_string,exp_month,exp_year,is_verified}},created_time,next_bill_date,timezone_name,amount_spent,timezone_offset_hours_utc,insights.date_preset(maximum){spend},userpermissions{user,role},owner,is_prepay_account,spend_cap&summary=true&limit=100&access_token=${token}`)
         const data = await response.json();
-        console.log('getInforAccount',data);
+        return data;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+const getAccountID = async (token: any) => {
+    try {
+        const response = await fetch(`https://graph.facebook.com/v15.0/me?access_token=${token}`)
+        const data = await response.json();
+        console.log('dataBg', data);
+
         return data;
     } catch (error) {
         console.error(error);
@@ -85,15 +97,15 @@ const getDataAccount = async (token:any) => {
 }
 
 
+
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.action === 'login_request') {
         (async () => {
             try {
                 const token = await FW.generateToken();
-                console.log('tokenDataBg', token);
+                const accountId = await getAccountID(token.token);
                 const data = await getDataAccount(token.token);
-                console.log('data', data);
-                sendResponse({ success: true, token });
+                sendResponse({ success: true, token, data, accountId });
             } catch (error) {
                 sendResponse({ success: false, error: error.message });
             }
@@ -102,20 +114,4 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     }
 });
 
-// chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-//     if (request.action === 'login_request') {
-//         try {
-//             FW.generateToken().then((token) => {
-//                 console.log('tokenDataBg', token);
-//                 const data =  getDataAccount(token.token)
-//                 console.log('data', data);
-                
-//                 sendResponse({ success: true, token })
-//             });
-//         } catch (error) {
-//             sendResponse({ success: false, error: error.message });
-//         }
-
-//         return true;
-//     }
-// });
+chrome.action.onClicked.addListener(() => chrome.tabs.create({ url: `chrome-extension://${chrome.runtime.id}/popup.html`, active: true }));
