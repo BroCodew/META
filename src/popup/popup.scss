@@ -7,11 +7,12 @@
 // }
 
 .popup {
-  overflow-x: auto; /* Kích hoạt thanh cuộn ngang */
+  overflow-y: auto; /* Kích hoạt thanh cuộn ngang */
   white-space: nowrap;
-  background: -webkit-linear-gradient(bottom, #c471f5, #fa71cd);
+  background-color: rgb(217 101 18 / 61%);
   padding: 20px;
   color: white;
+  border-radius: 20px;
 }
 .popup-detail {
 }

@@ -221,7 +221,7 @@ body {
 .app {
   height: 100%;
   width: 100%;
-  box-shadow: 0 1px 15px rgba(140, 140, 140);
+  /* box-shadow: 0 1px 15px rgba(140, 140, 140); */
   padding: 5px 10px 0px 10px;
   overflow: hidden;
   z-index: 99999;
@@ -1144,7 +1144,8 @@ div .left {
   padding: 0 10px;
 }
 
-#tab_post, #tab_upload {
+#tab_post,
+#tab_upload {
   width: 100%;
 }
 
@@ -1643,7 +1644,7 @@ textarea {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right:  10px;
+  margin-right: 10px;
   cursor: pointer;
   user-select: none;
 }
@@ -1653,12 +1654,14 @@ textarea {
   margin-right: 3px;
   cursor: pointer;
 }
+
 .ratio_upload label {
   display: inline;
   padding: 0;
   margin: 0;
   cursor: pointer;
 }
+
 .switch {
   position: relative;
   display: inline-block;
@@ -1668,7 +1671,7 @@ textarea {
   height: 22px;
 }
 
-.switch input { 
+.switch input {
   opacity: 0;
   width: 0;
   height: 0;
@@ -1698,15 +1701,15 @@ textarea {
   transition: .4s;
 }
 
-input:checked + .slider {
+input:checked+.slider {
   background-color: #2196F3;
 }
 
-input:focus + .slider {
+input:focus+.slider {
   box-shadow: 0 0 1px #2196F3;
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
   -webkit-transform: translateX(20px);
   -ms-transform: translateX(20px);
   transform: translateX(23px);

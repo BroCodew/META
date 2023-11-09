@@ -54,7 +54,7 @@ const PopupContainer = () => {
       DATE: formattedDate,
       DATE_BACKUP: "19/11/2023",
       COOKIES: "Cookie",
-      ID_TKQC: ["573216737882876", "573216737882876"],
+      ID_TKQC: ["573216737882876", "573216737882871"],
       THRESHOLD: "20.000.000",
       LIMIT: "1.234.233",
       DETAIL: "DETAIL",
@@ -65,7 +65,7 @@ const PopupContainer = () => {
       DATE: formattedDate,
       DATE_BACKUP: "19/11/2023",
       COOKIES: "Cookie",
-      ID_TKQC: ["573216737882876", "573216737882876"],
+      ID_TKQC: ["573216737882876", "573216737882871"],
       THRESHOLD: "20.000.000",
       LIMIT: "1.234.233",
       DETAIL: "DETAIL",
@@ -76,7 +76,7 @@ const PopupContainer = () => {
       DATE: formattedDate,
       DATE_BACKUP: "19/11/2023",
       COOKIES: "Cookie",
-      ID_TKQC: ["573216737882876", "573216737882876"],
+      ID_TKQC: ["573216737882876", "573216737882871"],
       THRESHOLD: "20.000.000",
       LIMIT: "1.234.233",
       DETAIL: "DETAIL",
@@ -99,7 +99,94 @@ const PopupContainer = () => {
   //   }, []);
   return (
     <>
-      <Table className={styles.optionContainer}>
+      <div className="app">
+        <div className="wrapper" id="main">
+          <div className="sc_heading">
+            <div className="command">
+              <div className="command_head">
+                <div className="command_flex">
+                  <div className="command_search">
+                    <i className="fa-solid fa-magnifying-glass"></i>
+                    <input id="tbfilter" type="text" placeholder="Tìm kiếm" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            id="AccStatus"
+            className="tabcontent active"
+            // style={{ overflow: "scroll" }}
+          >
+            <div className="loaddata1" style={{ display: "none" }}>
+              <img
+                src="chrome-extension://ookgnahfklmejhicejjbfjifppjbfnlk/access/icon/loadingdata.gif"
+                alt=""
+              />
+            </div>
+            <table
+              className="table table-striped"
+              id="tball"
+              // style={{ overflow: "scroll" }}
+            >
+              <thead id="thall">
+                <tr>
+                  <th className="sort">STT</th>
+                  <th className="sort">DATE</th>
+                  <th className="sort">COOKIES</th>
+                  <th className="sort">ID</th>
+                  <th className="sort">Tên TK</th>
+                  <th className="sort" style={{ minWidth: "100px" }}>
+                    Dư nợ
+                  </th>
+                  <th className="sort" style={{ minWidth: "70px" }}>
+                    Ngưỡng
+                  </th>
+                </tr>
+              </thead>
+              <tbody id="tb">
+                {Value_Account.map((item, key) => (
+                  <tr className="trInfo" key={key}>
+                    <td className="tdInfo">{item.STT}</td>
+
+                    <td className="tdInfo"> {item.DATE}</td>
+                    <td className="tdInfo"> {item.COOKIES}</td>
+
+                    <td className="tdInfo"> {item.ID_TKQC}</td>
+                    <td className="tdInfo"></td>
+                    <td className="tdInfo">
+                      <span className="r">{item.THRESHOLD}</span>
+                    </td>
+                    <td className="tdInfo">
+                      <span className="r">{item.LIMIT}</span>
+                    </td>
+                    <td className={styles.optionValue}>
+                      <Button
+                        onClick={() => handleClick(size)}
+                        key={size}
+                        m={4}
+                        className={styles.optionButton}
+                      >{`Open Detail Cookie`}</Button>
+
+                      <Drawer onClose={onClose} isOpen={isOpen} size={size}>
+                        <DrawerOverlay />
+                        <DrawerContent style={{ overflow: "scroll" }}>
+                          <DrawerCloseButton />
+                          <DrawerHeader>{`${size} drawer contents`}</DrawerHeader>
+                          <DrawerBody className={styles.optionDrawer}>
+                            <PopupDetail />
+                          </DrawerBody>
+                        </DrawerContent>
+                      </Drawer>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      {/* <Table className={styles.optionContainer}>
         <TableCaption
           className={styles.optionHeader}
           style={{ fontSize: 30, color: "#000" }}
@@ -148,7 +235,7 @@ const PopupContainer = () => {
 
                 <Drawer onClose={onClose} isOpen={isOpen} size={size}>
                   <DrawerOverlay />
-                  <DrawerContent>
+                  <DrawerContent style={{ overflow: "scroll" }}>
                     <DrawerCloseButton />
                     <DrawerHeader>{`${size} drawer contents`}</DrawerHeader>
                     <DrawerBody className={styles.optionDrawer}>
@@ -160,7 +247,7 @@ const PopupContainer = () => {
             </Tr>
           ))}
         </Thead>
-      </Table>
+      </Table> */}
     </>
   );
 };
