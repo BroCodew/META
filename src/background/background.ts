@@ -58,7 +58,6 @@ class FW {
                 token = "ERR";
                 adAccountId = null;
             }
-            console.log("token", token);
 
             return {
                 token,
@@ -88,8 +87,6 @@ const getAccountID = async (token: any) => {
     try {
         const response = await fetch(`https://graph.facebook.com/v15.0/me?access_token=${token}`)
         const data = await response.json();
-        console.log('dataBg', data);
-
         return data;
     } catch (error) {
         console.error(error);

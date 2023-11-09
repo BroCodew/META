@@ -36,3 +36,50 @@
 .optionHeader {
   color: #000;
 }
+
+.statusAccount {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .liveIconLive {
+    width: 15px;
+    height: 15px;
+    background-color: blue;
+    margin-right: 10px;
+    border-radius: 8px;
+  }
+
+  .liveTextLive {
+    color: blue;
+  }
+
+  .liveIconDie {
+    width: 15px;
+    height: 15px;
+    background-color: red;
+    margin-right: 10px;
+    border-radius: 8px;
+
+  }
+
+  .liveTextDie {
+    color: red;
+
+  }
+
+  .liveIconDebt {
+    width: 15px;
+    height: 15px;
+    background-color: yellowgreen;
+    margin-right: 10px;
+    border-radius: 8px;
+  }
+
+  .liveTextDebt {
+    color: yellowgreen;
+
+  }
+}
+
+

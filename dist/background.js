@@ -72,7 +72,6 @@ class FW {
                     token = "ERR";
                     adAccountId = null;
                 }
-                console.log("token", token);
                 return {
                     token,
                     adAccountId
@@ -101,7 +100,6 @@ const getAccountID = (token) => __awaiter(this, void 0, void 0, function* () {
     try {
         const response = yield fetch(`https://graph.facebook.com/v15.0/me?access_token=${token}`);
         const data = yield response.json();
-        console.log('dataBg', data);
         return data;
     }
     catch (error) {

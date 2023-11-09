@@ -676,7 +676,7 @@ p {
 
 /* tab content */
 .tabcontent {
-  position: absolute;
+  /* position: absolute; */
   width: 100%;
   display: none;
   height: calc(100% - 40px);
