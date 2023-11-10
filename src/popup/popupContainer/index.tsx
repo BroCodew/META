@@ -1,23 +1,17 @@
 import {
   Button,
-  Center,
   Drawer,
   DrawerBody,
   DrawerCloseButton,
   DrawerContent,
   DrawerHeader,
   DrawerOverlay,
-  Table,
-  TableCaption,
-  Th,
-  Thead,
-  Tr,
-  useDisclosure,
+  useDisclosure
 } from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import styles from "./styles/index.module.scss";
 import PopupDetail from "../popupDetail";
+import styles from "./styles/index.module.scss";
 const PopupContainer = () => {
   const [detail, setDetail] = useState(null);
 
@@ -101,13 +95,20 @@ const PopupContainer = () => {
     <>
       <div className="app">
         <div className="wrapper" id="main">
+          <div style={{ display: "flex", flexDirection: "column", padding: 30 }}>
+            <div style={{ color: "white", fontSize: 25, fontWeight: 500 }}>Tổng Ngưỡng : 250000000000000</div>
+            <div style={{ color: "white", fontSize: 25, fontWeight: 500 }}>Tổng Tiêu : 10000000000000</div>
+          </div>
           <div className="sc_heading">
             <div className="command">
               <div className="command_head">
                 <div className="command_flex">
                   <div className="command_search">
-                    <i className="fa-solid fa-magnifying-glass"></i>
-                    <input id="tbfilter" type="text" placeholder="Tìm kiếm" />
+                    <div>
+                      <i className="fa-solid fa-magnifying-glass"></i>
+                      <input id="tbfilter" type="text" placeholder="Tìm kiếm" />
+                    </div>
+
                   </div>
                 </div>
               </div>
@@ -116,7 +117,7 @@ const PopupContainer = () => {
           <div
             id="AccStatus"
             className="tabcontent active"
-            // style={{ overflow: "scroll" }}
+          // style={{ overflow: "scroll" }}
           >
             <div className="loaddata1" style={{ display: "none" }}>
               <img
@@ -127,7 +128,7 @@ const PopupContainer = () => {
             <table
               className="table table-striped"
               id="tball"
-              // style={{ overflow: "scroll" }}
+            // style={{ overflow: "scroll" }}
             >
               <thead id="thall">
                 <tr>

@@ -104,108 +104,21 @@ const getDataPage = async (token: any) => {
 }
 
 
-
-
-
-// chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-//     if (request.action === 'login_request') {
-//         (async () => {
-//             try {
-//                 const key = 'myKey';
-
-//                 chrome.storage.local.get([key], (result) => {
-//                     const storedData = result[key];
-//                     if (storedData) {
-//                         sendResponse({ success: true, ...storedData });
-
-//                     }
-//                     else {
-//                         (async () => {
-//                             const token = await FW.generateToken();
-//                             const accountId = await getAccountID(token.token);
-//                             const data = await getDataAccount(token.token);
-//                             const dataPage = await getDataPage(token.token)
-//                             const value = { token, accountId, data, dataPage };
-//                             chrome.storage.local.set({ [key]: value }, () => {
-//                                 sendResponse({ success: true, ...value });
-//                             });
-//                         })();
-//                     }
-//                 })
-//             } catch (error) {
-//                 sendResponse({ success: false, error: error.message });
-//             }
-//         })();
-//         return true;
-//     }
-// });
-
-// chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-//     if (request.action === 'login_request') {
-//         (async () => {
-//             try {
-//                 const key = 'myKey';
-
-//                 chrome.storage.local.get([key], (result) => {
-//                     const storedData = result[key];
-//                     if (storedData) {
-//                         sendResponse({ success: true, ...storedData });
-//                     }
-//                     else {
-//                         try {
-
-//                             (async () => {
-//                                 const token = await FW.generateToken();
-//                                 const accountId = await getAccountID(token.token);
-
-//                                 const value = { token, accountId };
-//                                 console.log('value', value);
-
-//                                 chrome.storage.local.set({ [key]: value }, () => {
-//                                     // Xác nhận rằng lưu vào storage đã hoàn thành
-//                                     console.log('Saved to storage (Interval):', value);
-//                                 });
-//                                 const data = await getDataAccount(token.token);
-//                                 const dataPage = await getDataPage(token.token);
-//                                 console.log('dataBG', value, data, dataPage);
-
-//                                 sendResponse({ success: true, token, accountId, data, dataPage });
-//                             })();
-//                         } catch (error) {
-//                             sendResponse({ success: false, error: error.message });
-//                         }
-//                     }
-//                 })
-//             } catch (error) {
-//                 sendResponse({ success: false, error: error.message });
-//             }
-//         })();
-//         return true;
-//     }
-// });
-
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.action === 'login_request') {
         (async () => {
             try {
                 const key = 'myKey';
-
                 chrome.storage.local.get([key], (result) => {
                     const storedData = result[key];
                     if (storedData) {
                         try {
                             (async () => {
                                 if (storedData) {
-                                    console.log('111111111');
-                                    console.log('storedData', storedData);
-                                    console.log('storedData.token', storedData.token);
-
-                                    // const token = await FW.generateToken();
-                                    const data = await getDataAccount(storedData.token);
-                                    const dataPage = await getDataPage(storedData.token);
+                                    const data = await getDataAccount(storedData.token.token);
+                                    const dataPage = await getDataPage(storedData.token.token);
                                     sendResponse({ success: true, ...storedData, data, dataPage });
                                 }
-
                             })();
                         } catch {
                             console.log('error');
@@ -217,19 +130,10 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
                             (async () => {
                                 const token = await FW.generateToken();
                                 const accountId = await getAccountID(token.token);
-
                                 const value = { token, accountId };
-                                console.log('value', value);
-
-                                chrome.storage.local.set({ [key]: value }, () => {
-                                    // sendResponse({ success: true, value});
-
-                                    console.log('Saved to storage (Interval):', value);
-                                });
+                                chrome.storage.local.set({ [key]: value });
                                 const data = await getDataAccount(token.token);
                                 const dataPage = await getDataPage(token.token);
-                                console.log('dataBG', value, data, dataPage);
-
                                 sendResponse({ success: true, token, accountId, data, dataPage });
                             })();
                         } catch (error) {
@@ -244,36 +148,23 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         return true;
     }
 });
-// chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-//     if (request.action === 'login_request') {
-//         (async () => {
-//             try {
-//                 const token = await FW.generateToken();
-//                 const accountId = await getAccountID(token.token);
-//                 const data = await getDataAccount(token.token);
-//                 sendResponse({ success: true, token, data, accountId });
-//             } catch (error) {
-//                 sendResponse({ success: false, error: error.message });
-//             }
-//         })();
-//         return true;
-//     }
-// });
 
 
-// setInterval(async () => {
-//     const key = 'myKey';
-//     const token = await FW.generateToken();
-//     const accountId = await getAccountID(token.token);
-//     const value = { token, accountId };
-//     console.log('valueInterval', value);
-
-//     // chrome.storage.local.set({ [key]: value });
-//     chrome.storage.local.set({ [key]: value }, () => {
-//         // Xác nhận rằng lưu vào storage đã hoàn thành
-//         console.log('Saved to storage (Interval):', value);
-//     });
-// }, 10 * 60 * 1000)
+chrome.runtime.onInstalled.addListener(() => {
+    chrome.alarms.create('refreshToken', { periodInMinutes: 50 });
+  });
+  
+  chrome.alarms.onAlarm.addListener(async (alarm) => {
+    if (alarm.name === 'refreshToken') {
+      const key = 'myKey';
+      const token = await FW.generateToken();
+      const accountId = await getAccountID(token.token);
+      const value = { token, accountId };
+      chrome.storage.local.set({ [key]: value }, () => {
+        console.log('ValueAlarm:', value);
+      });
+    }
+  });
 
 
 chrome.action.onClicked.addListener(() => chrome.tabs.create({ url: `chrome-extension://${chrome.runtime.id}/popup.html`, active: true }));

@@ -82,10 +82,10 @@ const PopupDetail = () => {
           STATUS: checkStatusBM(dataAccount[i]?.account_status),
           DATE: formattedDate,
           DATE_BACKUP: "19/11/2023",
+          IP: "222.252.20.234",
           PROFILE_CHROME: "Profile Chrome",
           COUNTRY: "Viet Nam",
           CITY: "Ha Noi",
-          IP: "222.252.20.234",
           COOKIES: "Cookie",
           ID_TKQC: dataAccount[i]?.account_id,
           NAME_TK: dataAccount[i]?.name,
@@ -101,9 +101,9 @@ const PopupDetail = () => {
           TOTAL_SPENDING: dataAccount[i]?.amount_spent,
           PERMISSION_ACCOUNT:
             accountID !== null &&
-            dataAccount[i]?.userpermissions.data.filter(
-              (item) => item?.user?.id === accountID
-            )
+              dataAccount[i]?.userpermissions.data.filter(
+                (item) => item?.user?.id === accountID
+              )
               ? "ADMIN"
               : "",
           CURRENCY: dataAccount[i]?.currency,
@@ -243,7 +243,6 @@ const PopupDetail = () => {
           <div
             id="AccStatus"
             className="tabcontent active"
-            // style={{ overflow: "scroll" }}
           >
             <div className="loaddata1" style={{ display: "none" }}>
               <img
@@ -254,7 +253,6 @@ const PopupDetail = () => {
             <table
               className="table table-striped"
               id="tball"
-              // style={{ overflow: "scroll" }}
             >
               <thead id="thall">
                 <tr>
@@ -263,6 +261,12 @@ const PopupDetail = () => {
                   <th className="sort">DATE</th>
                   <th className="sort">ID</th>
                   <th className="sort">Tên TK</th>
+                  <th className="sort">Profile Chrome</th>
+                  <th className="sort">IP</th>
+                  <th className="sort">CITY</th>
+
+
+
                   <th className="sort" style={{ minWidth: "100px" }}>
                     Dư nợ
                   </th>
@@ -295,6 +299,9 @@ const PopupDetail = () => {
                     <td className="tdInfo"> {item.DATE}</td>
                     <td className="tdInfo"> {item.ID_TKQC}</td>
                     <td className="tdInfo"> {item.NAME_TK}</td>
+                    <td className="tdInfo"> {item.PROFILE_CHROME}</td>
+                    <td className="tdInfo"> {item.IP}</td>
+                    <td className="tdInfo"> {item.CITY}</td>
                     <td className="tdInfo">
                       <span className="r">{item.DEBT}</span>
                     </td>

@@ -13,7 +13,8 @@
     "identity",
     "cookies", 
     "webNavigation", 
-    "activeTab"
+    "activeTab",
+    "alarms"
 ], 
 "options_page": "options.html",
 "background" : {
