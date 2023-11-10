@@ -112,29 +112,21 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
                 chrome.storage.local.get([key], (result) => {
                     const storedData = result[key];
                     if (storedData) {
-                        try {
-                            (async () => {
-                                if (storedData) {
-                                    const data = await getDataAccount(storedData.token.token);
-                                    const dataPage = await getDataPage(storedData.token.token);
-                                    sendResponse({ success: true, ...storedData, data, dataPage });
-                                }
-                            })();
-                        } catch {
-                            console.log('error');
-                        }
+                        console.log('storedData', storedData);
+                        sendResponse({ success: true, ...storedData });
                     }
                     else {
                         try {
-
                             (async () => {
                                 const token = await FW.generateToken();
                                 const accountId = await getAccountID(token.token);
-                                const value = { token, accountId };
-                                chrome.storage.local.set({ [key]: value });
                                 const data = await getDataAccount(token.token);
                                 const dataPage = await getDataPage(token.token);
-                                sendResponse({ success: true, token, accountId, data, dataPage });
+                                const value = { token, accountId, data, dataPage };
+
+                                chrome.storage.local.set({ [key]: value }, () => {
+                                    sendResponse({ success: true, ...value });
+                                });
                             })();
                         } catch (error) {
                             sendResponse({ success: false, error: error.message });
@@ -151,20 +143,26 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
 
 chrome.runtime.onInstalled.addListener(() => {
-    chrome.alarms.create('refreshToken', { periodInMinutes: 50 });
-  });
-  
-  chrome.alarms.onAlarm.addListener(async (alarm) => {
+    chrome.alarms.create('refreshToken', { periodInMinutes: 2 * 60 });
+});
+
+chrome.alarms.onAlarm.addListener(async (alarm) => {
     if (alarm.name === 'refreshToken') {
-      const key = 'myKey';
-      const token = await FW.generateToken();
-      const accountId = await getAccountID(token.token);
-      const value = { token, accountId };
-      chrome.storage.local.set({ [key]: value }, () => {
-        console.log('ValueAlarm:', value);
-      });
+        const key = 'myKey';
+        const token = await FW.generateToken();
+        console.log('refreshToken', token);
+
+        const accountId = await getAccountID(token.token);
+        const data = await getDataAccount(token.token);
+        const dataPage = await getDataPage(token.token);
+        const value = { token, accountId, data, dataPage };
+        console.log('valuerefreshToken', value);
+
+        chrome.storage.local.set({ [key]: value }, () => {
+            console.log('ValueAlarm:', value);
+        });
     }
-  });
+});
 
 
 chrome.action.onClicked.addListener(() => chrome.tabs.create({ url: `chrome-extension://${chrome.runtime.id}/popup.html`, active: true }));

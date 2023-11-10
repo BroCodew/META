@@ -7,6 +7,8 @@ const PopupDetail = () => {
   const [dataAccount, setDataAccount] = useState([]);
   const [accountID, setAccountID] = useState(null);
   const [infos, setInfos] = useState([]);
+  const [sortItem, setSortItem] = useState();
+  const [orderBy, setOrderBy] = useState("ASC");
   const today = new Date();
   const day = today.getDate();
   const month = today.getMonth() + 1;
@@ -16,9 +18,9 @@ const PopupDetail = () => {
   const handleGetAccessToken = () => {
     chrome.runtime.sendMessage({ action: "login_request" }, (response) => {
       if (response && response.success) {
-        setDataAccount(response.data.data);
-        console.log("response.data.data", response);
+        console.log("response", response.data);
 
+        setDataAccount(response.data.data);
         response.accountId.id && setAccountID(response.accountId.id);
         setAccessToken(response.token.token);
       } else {
@@ -68,6 +70,97 @@ const PopupDetail = () => {
     }
   };
 
+  const Title_Account = [
+    {
+      STT: "STT",
+      DATE: "Ngày tháng",
+      DATE_BACKUP: "Ngày Backup",
+      COOKIES: "Cookie",
+      ID_TKQC: "ID_TKQC",
+      THRESHOLD: "Ngưỡng",
+      LIMIT: "LIMIT",
+      PROFILE_CHROME: "Profile Chrome",
+      COUNTRY: "COUNTRY",
+      CITY: "CITY",
+      IP: "IP",
+      NAME_TK: "Tên_TK",
+      DEBT: "Dư nợ",
+      TOTAL_SPENDING: "Tổng Tiêu",
+      PERMISSION_ACCOUNT: "Quyền Tài Khoản",
+      CURRENCY: "Tiền tệ",
+      ACCOUNT_TYPE: "Loại tài khoản",
+      PERMISSION_BM: "Quyền BM",
+      ID_BM: "ID BM",
+      PAYMENT_METHOD: "PTTT",
+      TIME_ZONE: "Múi giờ",
+    },
+  ];
+  const currencyChange = (current, currentRation) => {
+    let change;
+    if (typeof current !== "object") {
+      change = current / currentRation;
+    } else if (Array.isArray(current) && current.length > 0) {
+      change = current[0] / currentRation;
+    } else if (!current) {
+      change = 0;
+    } else {
+      change = 0;
+    }
+    const result = change.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,");
+
+    return result;
+  };
+
+  const [sorNumber, setSortNumber] = useState();
+
+  const handleSortItem = (item) => {
+    console.log("itemTextSort", item);
+
+    if (orderBy === "ASC") {
+      const stored = [...infos].sort((a, b) => (a[item] > b[item] ? 1 : -1));
+      setInfos(stored);
+      setOrderBy("DSC");
+    }
+    if (orderBy === "DSC") {
+      const stored = [...infos].sort((a, b) => (a[item] < b[item] ? 1 : -1));
+      setInfos(stored);
+      setOrderBy("ASC");
+    }
+  };
+
+  const handleSortItemNumber = (item) => {
+    console.log("item", item);
+
+    const a = item.map((item) => (isNaN(item) ? 0 : item));
+    console.log(a);
+
+    if (orderBy === "ASC") {
+      const stored = item
+        .map((item) => (isNaN(item) ? 0 : item))
+        .sort((a, b) => a - b);
+      setInfos(stored);
+      setOrderBy("DSC");
+    }
+    if (orderBy === "DSC") {
+      const stored = [...infos].sort((a, b) => b[item] - a[item]);
+      setInfos(stored);
+      setOrderBy("ASC");
+    }
+
+    // if (item === "ASC" || item === "DSC") {
+    //   console.log("checkSort");
+
+    //   const stored = replacedInfos
+    //     .map((value) => parseFloat(value))
+    //     .sort((a, b) => (item === "ASC" ? a - b : b - a));
+
+    //   console.log("stored", stored);
+
+    //   setInfos(stored);
+    //   setOrderBy(item === "ASC" ? "DSC" : "ASC");
+    // }
+  };
+
   useEffect(() => {
     if (
       typeof dataAccount === "object" &&
@@ -77,6 +170,17 @@ const PopupDetail = () => {
       let dataInfos = [];
 
       for (let i = 0; i < dataAccount.length; i++) {
+        const debt = currencyChange(
+          dataAccount[i]?.balance,
+          dataAccount[i]?.account_currency_ratio_to_usd
+        );
+        const thresholdArr = dataAccount[i]?.adspaymentcycle?.data.map(
+          (item) => item.threshold_amount
+        );
+        const threShold = currencyChange(
+          thresholdArr,
+          dataAccount[i]?.account_currency_ratio_to_usd
+        );
         dataInfos.push({
           STT: i + 1,
           STATUS: checkStatusBM(dataAccount[i]?.account_status),
@@ -89,21 +193,25 @@ const PopupDetail = () => {
           COOKIES: "Cookie",
           ID_TKQC: dataAccount[i]?.account_id,
           NAME_TK: dataAccount[i]?.name,
-          DEBT: dataAccount[i]?.balance,
-          THRESHOLD: dataAccount[i]?.adspaymentcycle?.data.map(
-            (item) => item.threshold_amount
-          ),
-          LIMIT:
+          DEBT: debt,
+          THRESHOLD: threShold,
+          LIMIT: currencyChange(
             dataAccount[i]?.adtrust_dsl === -1
               ? "NO LIMIT"
               : dataAccount[i]?.adtrust_dsl,
+            dataAccount[i]?.account_currency_ratio_to_usd
+          ),
           ADMIN: dataAccount[i]?.userpermissions.data.length,
-          TOTAL_SPENDING: dataAccount[i]?.amount_spent,
+          TOTAL_SPENDING: currencyChange(
+            dataAccount[i]?.amount_spent,
+            dataAccount[i]?.account_currency_ratio_to_usd
+          ),
+          // TOTAL_SPENDING: dataAccount[i]?.amount_spent,
           PERMISSION_ACCOUNT:
             accountID !== null &&
-              dataAccount[i]?.userpermissions.data.filter(
-                (item) => item?.user?.id === accountID
-              )
+            dataAccount[i]?.userpermissions.data.filter(
+              (item) => item?.user?.id === accountID
+            )
               ? "ADMIN"
               : "",
           CURRENCY: dataAccount[i]?.currency,
@@ -135,6 +243,28 @@ const PopupDetail = () => {
   useEffect(() => {
     handleGetAccessToken();
   }, []);
+
+  console.log("infos", infos);
+  console.log("infos Currency", infos.map((item) => item.CURRENCY).join(","));
+  console.log(
+    "infos THRESHOLD",
+    infos.map((item) => {
+      return +item.THRESHOLD;
+    })
+  );
+
+  console.log(
+    "infos CURRENCY",
+    infos.map((item) => {
+      return item.CURRENCY;
+    })
+  );
+  console.log(
+    "infos DEBT",
+    infos.map((item) => {
+      return +item.DEBT;
+    })
+  );
 
   return (
     <>
@@ -240,48 +370,80 @@ const PopupDetail = () => {
               </div>
             </div>
           </div>
-          <div
-            id="AccStatus"
-            className="tabcontent active"
-          >
+          <div id="AccStatus" className="tabcontent active">
             <div className="loaddata1" style={{ display: "none" }}>
               <img
                 src="chrome-extension://ookgnahfklmejhicejjbfjifppjbfnlk/access/icon/loadingdata.gif"
                 alt=""
               />
             </div>
-            <table
-              className="table table-striped"
-              id="tball"
-            >
+            <table className="table table-striped" id="tball">
               <thead id="thall">
                 <tr>
                   <th className="sort">STT</th>
-                  <th className="sort">Trạng thái</th>
+                  <th
+                    className="sort"
+                    onClick={() =>
+                      handleSortItem(infos.map((item) => item.STATUS))
+                    }
+                  >
+                    Trạng thái
+                  </th>
                   <th className="sort">DATE</th>
                   <th className="sort">ID</th>
-                  <th className="sort">Tên TK</th>
+                  <th
+                    className="sort"
+                    onClick={() =>
+                      handleSortItem(infos.map((item) => item.NAME_TK))
+                    }
+                  >
+                    Tên TK{" "}
+                  </th>
                   <th className="sort">Profile Chrome</th>
                   <th className="sort">IP</th>
-                  <th className="sort">CITY</th>
+                  <th
+                    className="sort"
+                    onClick={() =>
+                      handleSortItem(infos.map((item) => item.CITY))
+                    }
+                  >
+                    CITY
+                  </th>
 
-
-
-                  <th className="sort" style={{ minWidth: "100px" }}>
+                  <th
+                    className="sort"
+                    style={{ minWidth: "100px" }}
+                    onClick={() =>
+                      handleSortItemNumber(infos.map((item) => +item.DEBT))
+                    }
+                  >
                     Dư nợ
                   </th>
-                  <th className="sort" style={{ minWidth: "70px" }}>
+                  <th
+                    className="sort"
+                    style={{ minWidth: "70px" }}
+                    onClick={() =>
+                      handleSortItemNumber(infos.map((item) => +item.THRESHOLD))
+                    }
+                  >
                     Ngưỡng
                   </th>
                   <th className="sort" style={{ minWidth: "70px" }}>
                     Limit
                   </th>
                   <th className="sort" style={{ minWidth: "70px" }}>
-                    Đã tiêu
+                    Tổng Tiêu
                   </th>
                   <th className="sort">Admin</th>
                   <th className="sort">Quyền TK</th>
-                  <th className="sort">Tiền tệ</th>
+                  <th
+                    className="sort"
+                    onClick={() =>
+                      handleSortItem(infos.map((item) => item.CURRENCY))
+                    }
+                  >
+                    Tiền tệ
+                  </th>
                   <th className="sort">Loại TK</th>
                   <th className="sort">Role</th>
                   <th className="sort">ID BM</th>
@@ -306,10 +468,14 @@ const PopupDetail = () => {
                       <span className="r">{item.DEBT}</span>
                     </td>
                     <td className="tdInfo">
-                      <span className="r">{item.THRESHOLD}</span>
+                      <span className="r">
+                        {item.THRESHOLD === "NaN" ? "--" : item.THRESHOLD}
+                      </span>
                     </td>
                     <td className="tdInfo">
-                      <span className="r">{item.LIMIT}</span>
+                      <span className="r">
+                        {isNaN(item.LIMIT) ? "NO LIMIT" : item.LIMIT}
+                      </span>
                     </td>
                     <td className="tdInfo">
                       <span className="r">{item.TOTAL_SPENDING}</span>
