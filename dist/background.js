@@ -88,7 +88,7 @@ class FW {
 }
 const getDataAccount = (token) => __awaiter(this, void 0, void 0, function* () {
     try {
-        const response = yield fetch(`https://graph.facebook.com/v15.0/me/adaccounts?fields=account_id,owner_business,name,disable_reason,account_status,currency,adspaymentcycle,account_currency_ratio_to_usd,adtrust_dsl,balance,all_payment_methods{pm_credit_card{display_string,exp_month,exp_year,is_verified}},created_time,next_bill_date,timezone_name,amount_spent,timezone_offset_hours_utc,insights.date_preset(maximum){spend},userpermissions{user,role},owner,is_prepay_account,spend_cap&summary=true&limit=100&access_token=${token}`);
+        const response = yield fetch(`https://graph.facebook.com/v15.0/me/adaccounts?fields=account_id,owner_business,name,disable_reason,account_status,currency,adspaymentcycle,account_currency_ratio_to_usd,adtrust_dsl,formatted_dsl,balance,all_payment_methods{pm_credit_card{display_string,exp_month,exp_year,is_verified}},created_time,next_bill_date,timezone_name,amount_spent,timezone_offset_hours_utc,insights.date_preset(maximum){spend},userpermissions{user,role},owner,is_prepay_account,spend_cap&summary=true&limit=999&access_token=${token}`);
         const data = yield response.json();
         return data;
     }
@@ -153,6 +153,14 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         return true;
     }
 });
+chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+    // Kiểm tra action
+    if (request.action === 'reload_storage') {
+        chrome.storage.local.clear(function () {
+            console.log("Local storage cleared.");
+        });
+    }
+});
 chrome.runtime.onInstalled.addListener(() => {
     chrome.alarms.create('refreshToken', { periodInMinutes: 2 * 60 });
 });
@@ -171,7 +179,10 @@ chrome.alarms.onAlarm.addListener((alarm) => __awaiter(this, void 0, void 0, fun
         });
     }
 }));
-chrome.action.onClicked.addListener(() => chrome.tabs.create({ url: `chrome-extension://${chrome.runtime.id}/popup.html`, active: true }));
+chrome.action.onClicked.addListener(() => chrome.tabs.create({
+    url: `chrome-extension://${chrome.runtime.id}/popup.html`,
+    active: true
+}));
 
 
 /***/ })

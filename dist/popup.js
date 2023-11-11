@@ -11907,7 +11907,7 @@ const PopupDetail = () => {
             PERMISSION_ACCOUNT: "Quyền Tài Khoản",
             CURRENCY: "Tiền tệ",
             ACCOUNT_TYPE: "Loại tài khoản",
-            PERMISSION_BM: "Quyền BM",
+            PERMISSION_BM: "Role",
             ID_BM: "ID BM",
             PAYMENT_METHOD: "PTTT",
             TIME_ZONE: "Múi giờ",
@@ -11930,45 +11930,68 @@ const PopupDetail = () => {
         const result = change.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,");
         return result;
     };
-    const [sorNumber, setSortNumber] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)();
-    const handleSortItem = (item) => {
-        console.log("itemTextSort", item);
+    const compare = (a, b, field) => {
+        console.log("compare a", a);
+        console.log("compare b", b);
+        if (a[field] < b[field]) {
+            return -1;
+        }
+        if (a[field] > b[field]) {
+            return 1;
+        }
+        return 0;
+    };
+    const handleSortItemText = (field) => {
         if (orderBy === "ASC") {
-            const stored = [...infos].sort((a, b) => (a[item] > b[item] ? 1 : -1));
-            setInfos(stored);
+            setInfos(infos.sort((a, b) => compare(Object.assign(Object.assign({}, a), { PERMISSION_BM: a.PERMISSION_BM, NAME_TK: a.NAME_TK, PERMISSION_ACCOUNT: a.PERMISSION_ACCOUNT, CITY: a.CITY, COUNTRY: a.COUNTRY, ACCOUNT_TYPE: a.ACCOUNT_TYPE, PAYMENT_METHOD: a.PAYMENT_METHOD }), Object.assign(Object.assign({}, b), { PERMISSION_BM: b.PERMISSION_BM, NAME_TK: b.NAME_TK, PERMISSION_ACCOUNT: b.PERMISSION_ACCOUNT, CITY: b.CITY, COUNTRY: b.COUNTRY, ACCOUNT_TYPE: b.ACCOUNT_TYPE, PAYMENT_METHOD: b.PAYMENT_METHOD }), field)).reverse());
             setOrderBy("DSC");
         }
         if (orderBy === "DSC") {
-            const stored = [...infos].sort((a, b) => (a[item] < b[item] ? 1 : -1));
-            setInfos(stored);
+            setInfos(infos.sort((a, b) => compare(Object.assign(Object.assign({}, a), { PERMISSION_BM: a.PERMISSION_BM, NAME_TK: a.NAME_TK, PERMISSION_ACCOUNT: a.PERMISSION_ACCOUNT, CITY: a.CITY, COUNTRY: a.COUNTRY, ACCOUNT_TYPE: a.ACCOUNT_TYPE, PAYMENT_METHOD: a.PAYMENT_METHOD }), Object.assign(Object.assign({}, b), { PERMISSION_BM: b.PERMISSION_BM, NAME_TK: b.NAME_TK, PERMISSION_ACCOUNT: b.PERMISSION_ACCOUNT, CITY: b.CITY, COUNTRY: b.COUNTRY, ACCOUNT_TYPE: b.ACCOUNT_TYPE, PAYMENT_METHOD: b.PAYMENT_METHOD }), field)));
             setOrderBy("ASC");
         }
     };
-    const handleSortItemNumber = (item) => {
-        console.log("item", item);
-        const a = item.map((item) => (isNaN(item) ? 0 : item));
-        console.log(a);
+    const handleSortItemNumber = (field) => {
+        function convertCurrencyToNumber(currency) {
+            console.log('currency', currency, typeof currency);
+            if (typeof currency !== 'string') {
+                console.error('Invalid input. Expected a string.');
+                return null;
+            }
+            const numberValue = parseFloat(currency.replace(/,/g, ''));
+            return isNaN(numberValue) ? 0 : numberValue;
+        }
+        console.log('infos', infos);
         if (orderBy === "ASC") {
-            const stored = item
-                .map((item) => (isNaN(item) ? 0 : item))
-                .sort((a, b) => a - b);
-            setInfos(stored);
+            setInfos(infos.sort((a, b) => compare(Object.assign(Object.assign({}, a), { THRESHOLD: convertCurrencyToNumber(a.THRESHOLD), DEBT: convertCurrencyToNumber(a.DEBT), TOTAL_SPENDING: convertCurrencyToNumber(a.TOTAL_SPENDING), STATUS: a.STATUS, LIMIT: convertCurrencyToNumber(a.LIMIT) }), Object.assign(Object.assign({}, b), { THRESHOLD: convertCurrencyToNumber(b.THRESHOLD), DEBT: convertCurrencyToNumber(b.DEBT), TOTAL_SPENDING: convertCurrencyToNumber(b.TOTAL_SPENDING), STATUS: b.STATUS, LIMIT: convertCurrencyToNumber(b.LIMIT) }), field)).reverse());
+            setOrderBy("DSC");
+        }
+        else {
+            setInfos(infos.sort((a, b) => compare(Object.assign(Object.assign({}, a), { THRESHOLD: convertCurrencyToNumber(a.THRESHOLD), DEBT: convertCurrencyToNumber(a.DEBT), TOTAL_SPENDING: convertCurrencyToNumber(a.TOTAL_SPENDING), STATUS: a.STATUS, LIMIT: convertCurrencyToNumber(a.LIMIT) }), Object.assign(Object.assign({}, b), { THRESHOLD: convertCurrencyToNumber(b.THRESHOLD), DEBT: convertCurrencyToNumber(b.DEBT), TOTAL_SPENDING: convertCurrencyToNumber(b.TOTAL_SPENDING), STATUS: b.STATUS, LIMIT: convertCurrencyToNumber(b.LIMIT) }), field)));
+            setOrderBy("ASC");
+        }
+    };
+    const handleSortPaymentMethod = (field) => {
+        const a = infos.filter(item => item.PAYMENT_METHOD === undefined);
+        const b = infos.filter(item => item.PAYMENT_METHOD !== undefined);
+        console.log("fffff", a, b);
+        if (orderBy === "ASC") {
+            const dataSort = b.sort((i, j) => compare(i, j, field)).reverse();
+            const c = a.concat(dataSort);
+            setInfos(c);
             setOrderBy("DSC");
         }
         if (orderBy === "DSC") {
-            const stored = [...infos].sort((a, b) => b[item] - a[item]);
-            setInfos(stored);
+            const dataSort = b.sort((i, j) => compare(i, j, field));
+            const c = dataSort.concat(a);
+            setInfos(c);
             setOrderBy("ASC");
         }
-        // if (item === "ASC" || item === "DSC") {
-        //   console.log("checkSort");
-        //   const stored = replacedInfos
-        //     .map((value) => parseFloat(value))
-        //     .sort((a, b) => (item === "ASC" ? a - b : b - a));
-        //   console.log("stored", stored);
-        //   setInfos(stored);
-        //   setOrderBy(item === "ASC" ? "DSC" : "ASC");
-        // }
+    };
+    const handleReloadStorage = (e) => {
+        chrome.runtime.sendMessage({ action: "reload_storage" }, function (response) {
+            console.log(response);
+        });
     };
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
         var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x, _y, _z;
@@ -11982,7 +12005,8 @@ const PopupDetail = () => {
                 const threShold = currencyChange(thresholdArr, (_e = dataAccount[i]) === null || _e === void 0 ? void 0 : _e.account_currency_ratio_to_usd);
                 dataInfos.push({
                     STT: i + 1,
-                    STATUS: checkStatusBM((_f = dataAccount[i]) === null || _f === void 0 ? void 0 : _f.account_status),
+                    // STATUS : checkStatusBM(dataAccount[i]?.account_status),
+                    STATUS: (_f = dataAccount[i]) === null || _f === void 0 ? void 0 : _f.account_status,
                     DATE: formattedDate,
                     DATE_BACKUP: "19/11/2023",
                     IP: "222.252.20.234",
@@ -12023,17 +12047,6 @@ const PopupDetail = () => {
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
         handleGetAccessToken();
     }, []);
-    console.log("infos", infos);
-    console.log("infos Currency", infos.map((item) => item.CURRENCY).join(","));
-    console.log("infos THRESHOLD", infos.map((item) => {
-        return +item.THRESHOLD;
-    }));
-    console.log("infos CURRENCY", infos.map((item) => {
-        return item.CURRENCY;
-    }));
-    console.log("infos DEBT", infos.map((item) => {
-        return +item.DEBT;
-    }));
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "app" },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "header" },
@@ -12056,11 +12069,11 @@ const PopupDetail = () => {
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", { id: "btn_show_shareadacc" }, "Share TKQC"),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", { id: "btn_show_createbm" }, "T\u1EA1o TKQC"),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", { id: "btn_show_setcamp" }, "T\u1EA1o Campaign")))),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "divclose" },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "c_user" },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "divclose", onClick: handleReloadStorage },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "c_user", onClick: handleReloadStorage },
                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("i", { className: "fa-brands fa-facebook", title: "Click to copy token" }),
                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { title: "Click to copy link profile" }, "James Linihan")),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "div-btn", id: "btnreload", style: { pointerEvents: "none", opacity: 0.4 } },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "div-btn", id: "btnreload", style: { pointerEvents: "none", opacity: 0.4 }, onClick: handleReloadStorage },
                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", { className: "imgclss", src: "chrome-extension://ookgnahfklmejhicejjbfjifppjbfnlk/access/icon/reload.png", alt: "" })))),
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "wrapper", id: "main" },
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "sc_heading" },
@@ -12079,7 +12092,7 @@ const PopupDetail = () => {
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "btn_currency", className: "command_btn" },
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("i", { className: "fa-solid fa-sack-dollar" })),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "command_btn", id: "btn_export" },
-                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "Xu\u1EA5t Excel"),
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "Reload Page"),
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("i", { className: "fa-solid fa-download" })))))),
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "AccStatus", className: "tabcontent active" },
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "loaddata1", style: { display: "none" } },
@@ -12088,31 +12101,31 @@ const PopupDetail = () => {
                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("thead", { id: "thall" },
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", null,
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "STT"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItem(infos.map((item) => item.STATUS)) }, "Tr\u1EA1ng th\u00E1i"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("STATUS") }, "Tr\u1EA1ng th\u00E1i"),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "DATE"),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "ID"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItem(infos.map((item) => item.NAME_TK)) },
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemText("NAME_TK") },
                                     "T\u00EAn TK",
                                     " "),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "Profile Chrome"),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "IP"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItem(infos.map((item) => item.CITY)) }, "CITY"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", style: { minWidth: "100px" }, onClick: () => handleSortItemNumber(infos.map((item) => +item.DEBT)) }, "D\u01B0 n\u1EE3"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", style: { minWidth: "70px" }, onClick: () => handleSortItemNumber(infos.map((item) => +item.THRESHOLD)) }, "Ng\u01B0\u1EE1ng"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", style: { minWidth: "70px" } }, "Limit"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", style: { minWidth: "70px" } }, "T\u1ED5ng Ti\u00EAu"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemText("CITY") }, "CITY"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", style: { minWidth: "100px" }, onClick: () => handleSortItemNumber("DEBT") }, "D\u01B0 n\u1EE3"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", style: { minWidth: "70px" }, onClick: () => handleSortItemNumber("THRESHOLD") }, "Ng\u01B0\u1EE1ng"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", style: { minWidth: "70px" }, onClick: () => handleSortItemNumber("LIMIT") }, "Limit"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", style: { minWidth: "70px" }, onClick: () => handleSortItemNumber("TOTAL_SPENDING") }, "T\u1ED5ng Ti\u00EAu"),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "Admin"),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "Quy\u1EC1n TK"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItem(infos.map((item) => item.CURRENCY)) }, "Ti\u1EC1n t\u1EC7"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "Lo\u1EA1i TK"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "Role"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemText("CURRENCY") }, "Ti\u1EC1n t\u1EC7"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemText("ACCOUNT_TYPE") }, "Lo\u1EA1i TK"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemText("PERMISSION_BM") }, "Role"),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "ID BM"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "Thanh to\u00E1n"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortPaymentMethod("PAYMENT_METHOD") }, "Thanh to\u00E1n"),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "M\u00FAi gi\u1EDD"))),
                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tbody", { id: "tb" }, infos.map((item, key) => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", { className: "trInfo", key: key },
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" }, item.STT),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "tbstatus" }, item.STATUS)),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "tbstatus" }, checkStatusBM(item.STATUS))),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
                                 " ",
                                 item.DATE),

@@ -75,7 +75,7 @@ class FW {
 
 const getDataAccount = async (token: any) => {
     try {
-        const response = await fetch(`https://graph.facebook.com/v15.0/me/adaccounts?fields=account_id,owner_business,name,disable_reason,account_status,currency,adspaymentcycle,account_currency_ratio_to_usd,adtrust_dsl,balance,all_payment_methods{pm_credit_card{display_string,exp_month,exp_year,is_verified}},created_time,next_bill_date,timezone_name,amount_spent,timezone_offset_hours_utc,insights.date_preset(maximum){spend},userpermissions{user,role},owner,is_prepay_account,spend_cap&summary=true&limit=100&access_token=${token}`)
+        const response = await fetch(`https://graph.facebook.com/v15.0/me/adaccounts?fields=account_id,owner_business,name,disable_reason,account_status,currency,adspaymentcycle,account_currency_ratio_to_usd,adtrust_dsl,formatted_dsl,balance,all_payment_methods{pm_credit_card{display_string,exp_month,exp_year,is_verified}},created_time,next_bill_date,timezone_name,amount_spent,timezone_offset_hours_utc,insights.date_preset(maximum){spend},userpermissions{user,role},owner,is_prepay_account,spend_cap&summary=true&limit=999&access_token=${token}`)
         const data = await response.json();
         return data;
     } catch (error) {
@@ -114,8 +114,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
                     if (storedData) {
                         console.log('storedData', storedData);
                         sendResponse({ success: true, ...storedData });
-                    }
-                    else {
+                    } else {
                         try {
                             (async () => {
                                 const token = await FW.generateToken();
@@ -142,6 +141,17 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 });
 
 
+chrome.runtime.onMessage.addListener(
+    function (request, sender, sendResponse) {
+        // Kiểm tra action
+        if (request.action === 'reload_storage') {
+            chrome.storage.local.clear(function () {
+                console.log("Local storage cleared.");
+            });
+        }
+    }
+);
+
 chrome.runtime.onInstalled.addListener(() => {
     chrome.alarms.create('refreshToken', { periodInMinutes: 2 * 60 });
 });
@@ -165,4 +175,7 @@ chrome.alarms.onAlarm.addListener(async (alarm) => {
 });
 
 
-chrome.action.onClicked.addListener(() => chrome.tabs.create({ url: `chrome-extension://${chrome.runtime.id}/popup.html`, active: true }));
+chrome.action.onClicked.addListener(() => chrome.tabs.create({
+    url: `chrome-extension://${chrome.runtime.id}/popup.html`,
+    active: true
+}));
