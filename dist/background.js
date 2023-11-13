@@ -106,7 +106,7 @@ const getAccountID = (token) => __awaiter(this, void 0, void 0, function* () {
         console.error(error);
     }
 });
-const getDataPage = (token) => __awaiter(this, void 0, void 0, function* () {
+const getDataPageSale = (token) => __awaiter(this, void 0, void 0, function* () {
     try {
         const response = yield fetch(`https://graph.facebook.com/v15.0/me?fields=accounts.limit(40){id,name,verification_status,is_published,ad_campaign,roles{id,%20tasks},is_promotable,is_restricted,parent_page,promotion_eligible,fan_count,followers_count,has_transitioned_to_new_page_experience,picture}&access_token=${token}`);
         const data = yield response.json();
@@ -133,7 +133,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
                                 const token = yield FW.generateToken();
                                 const accountId = yield getAccountID(token.token);
                                 const data = yield getDataAccount(token.token);
-                                const dataPage = yield getDataPage(token.token);
+                                const dataPage = yield getDataPageSale(token.token);
                                 const value = { token, accountId, data, dataPage };
                                 chrome.storage.local.set({ [key]: value }, () => {
                                     sendResponse(Object.assign({ success: true }, value));
@@ -171,7 +171,7 @@ chrome.alarms.onAlarm.addListener((alarm) => __awaiter(this, void 0, void 0, fun
         console.log('refreshToken', token);
         const accountId = yield getAccountID(token.token);
         const data = yield getDataAccount(token.token);
-        const dataPage = yield getDataPage(token.token);
+        const dataPage = yield getDataPageSale(token.token);
         const value = { token, accountId, data, dataPage };
         console.log('valuerefreshToken', value);
         chrome.storage.local.set({ [key]: value }, () => {
