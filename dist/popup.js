@@ -11830,16 +11830,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/index.module.scss */ "./src/popup/popupDetail/styles/index.module.scss");
 /* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! uuid */ "./node_modules/uuid/dist/esm-browser/v4.js");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/layout/dist/chunk-ZHMYA64R.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/switch/dist/chunk-VTV6N5LE.mjs");
+
 
 
 
 const PopupDetail = () => {
     const [accessToken, setAccessToken] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("");
     const [dataAccount, setDataAccount] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
+    const [dataAccountOriginal, setDataAccountOriginal] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
     const [accountID, setAccountID] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
     const [infos, setInfos] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
     const [sortItem, setSortItem] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)();
     const [orderBy, setOrderBy] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("ASC");
+    const [changeCurrency, setChangeCurrency] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
     const today = new Date();
     const day = today.getDate();
     const month = today.getMonth() + 1;
@@ -11849,6 +11854,7 @@ const PopupDetail = () => {
         chrome.runtime.sendMessage({ action: "login_request" }, (response) => {
             if (response && response.success) {
                 console.log("response", response.data);
+                setDataAccountOriginal(response.data.data);
                 setDataAccount(response.data.data);
                 response.accountId.id && setAccountID(response.accountId.id);
                 setAccessToken(response.token.token);
@@ -11897,13 +11903,13 @@ const PopupDetail = () => {
             ID_TKQC: "ID_TKQC",
             THRESHOLD: "Ngưỡng",
             LIMIT: "LIMIT",
+            DEBT: "Dư nợ",
+            TOTAL_SPENDING: "Tổng Tiêu",
             PROFILE_CHROME: "Profile Chrome",
             COUNTRY: "COUNTRY",
             CITY: "CITY",
             IP: "IP",
             NAME_TK: "Tên_TK",
-            DEBT: "Dư nợ",
-            TOTAL_SPENDING: "Tổng Tiêu",
             PERMISSION_ACCOUNT: "Quyền Tài Khoản",
             CURRENCY: "Tiền tệ",
             ACCOUNT_TYPE: "Loại tài khoản",
@@ -11930,9 +11936,20 @@ const PopupDetail = () => {
         const result = change.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,");
         return result;
     };
+    function convertCurrencyToNumber(value) {
+        if (typeof value === 'number') {
+            return value;
+        }
+        else if (typeof value === 'string') {
+            const sanitizedValue = value.replace(/[^0-9.-]/g, ''); // Loại bỏ tất cả các ký tự không phải số hoặc dấu chấm
+            const numberValue = parseFloat(sanitizedValue);
+            return isNaN(numberValue) ? 0 : numberValue;
+        }
+        else {
+            return 0; // Hoặc giá trị mặc định tùy thuộc vào yêu cầu của bạn
+        }
+    }
     const compare = (a, b, field) => {
-        console.log("compare a", a);
-        console.log("compare b", b);
         if (a[field] < b[field]) {
             return -1;
         }
@@ -11940,6 +11957,18 @@ const PopupDetail = () => {
             return 1;
         }
         return 0;
+    };
+    const handleSortItemNumber = (field) => {
+        console.log('infos', infos);
+        if (orderBy === "ASC") {
+            setInfos(infos.sort((a, b) => compare(Object.assign(Object.assign({}, a), { THRESHOLD: convertCurrencyToNumber(a.THRESHOLD), DEBT: convertCurrencyToNumber(a.DEBT), TOTAL_SPENDING: convertCurrencyToNumber(a.TOTAL_SPENDING), STATUS: a.STATUS, LIMIT: convertCurrencyToNumber(a.LIMIT) }), Object.assign(Object.assign({}, b), { THRESHOLD: convertCurrencyToNumber(b.THRESHOLD), DEBT: convertCurrencyToNumber(b.DEBT), TOTAL_SPENDING: convertCurrencyToNumber(b.TOTAL_SPENDING), STATUS: b.STATUS, LIMIT: convertCurrencyToNumber(b.LIMIT) }), field)).reverse());
+            setOrderBy("DSC");
+        }
+        else {
+            setInfos(infos.sort((a, b) => compare(Object.assign(Object.assign({}, a), { THRESHOLD: convertCurrencyToNumber(a.THRESHOLD), DEBT: convertCurrencyToNumber(a.DEBT), TOTAL_SPENDING: convertCurrencyToNumber(a.TOTAL_SPENDING), STATUS: a.STATUS, LIMIT: convertCurrencyToNumber(a.LIMIT) }), Object.assign(Object.assign({}, b), { THRESHOLD: convertCurrencyToNumber(b.THRESHOLD), DEBT: convertCurrencyToNumber(b.DEBT), TOTAL_SPENDING: convertCurrencyToNumber(b.TOTAL_SPENDING), STATUS: b.STATUS, LIMIT: convertCurrencyToNumber(b.LIMIT) }), field)));
+            setOrderBy("ASC");
+        }
+        console.log('infos', infos.map(item => item.THRESHOLD), infos.map(item => typeof item.THRESHOLD));
     };
     const handleSortItemText = (field) => {
         if (orderBy === "ASC") {
@@ -11951,30 +11980,9 @@ const PopupDetail = () => {
             setOrderBy("ASC");
         }
     };
-    const handleSortItemNumber = (field) => {
-        function convertCurrencyToNumber(currency) {
-            console.log('currency', currency, typeof currency);
-            if (typeof currency !== 'string') {
-                console.error('Invalid input. Expected a string.');
-                return null;
-            }
-            const numberValue = parseFloat(currency.replace(/,/g, ''));
-            return isNaN(numberValue) ? 0 : numberValue;
-        }
-        console.log('infos', infos);
-        if (orderBy === "ASC") {
-            setInfos(infos.sort((a, b) => compare(Object.assign(Object.assign({}, a), { THRESHOLD: convertCurrencyToNumber(a.THRESHOLD), DEBT: convertCurrencyToNumber(a.DEBT), TOTAL_SPENDING: convertCurrencyToNumber(a.TOTAL_SPENDING), STATUS: a.STATUS, LIMIT: convertCurrencyToNumber(a.LIMIT) }), Object.assign(Object.assign({}, b), { THRESHOLD: convertCurrencyToNumber(b.THRESHOLD), DEBT: convertCurrencyToNumber(b.DEBT), TOTAL_SPENDING: convertCurrencyToNumber(b.TOTAL_SPENDING), STATUS: b.STATUS, LIMIT: convertCurrencyToNumber(b.LIMIT) }), field)).reverse());
-            setOrderBy("DSC");
-        }
-        else {
-            setInfos(infos.sort((a, b) => compare(Object.assign(Object.assign({}, a), { THRESHOLD: convertCurrencyToNumber(a.THRESHOLD), DEBT: convertCurrencyToNumber(a.DEBT), TOTAL_SPENDING: convertCurrencyToNumber(a.TOTAL_SPENDING), STATUS: a.STATUS, LIMIT: convertCurrencyToNumber(a.LIMIT) }), Object.assign(Object.assign({}, b), { THRESHOLD: convertCurrencyToNumber(b.THRESHOLD), DEBT: convertCurrencyToNumber(b.DEBT), TOTAL_SPENDING: convertCurrencyToNumber(b.TOTAL_SPENDING), STATUS: b.STATUS, LIMIT: convertCurrencyToNumber(b.LIMIT) }), field)));
-            setOrderBy("ASC");
-        }
-    };
     const handleSortPaymentMethod = (field) => {
         const a = infos.filter(item => item.PAYMENT_METHOD === undefined);
         const b = infos.filter(item => item.PAYMENT_METHOD !== undefined);
-        console.log("fffff", a, b);
         if (orderBy === "ASC") {
             const dataSort = b.sort((i, j) => compare(i, j, field)).reverse();
             const c = a.concat(dataSort);
@@ -11988,6 +11996,85 @@ const PopupDetail = () => {
             setOrderBy("ASC");
         }
     };
+    const formatCurrencyNormal = (value) => {
+        if (typeof value === 'number') {
+            return value.toLocaleString('en-US');
+        }
+        if (typeof value !== 'string') {
+            return "--";
+        }
+        const cleanedValue = value.replace(/[.,]/g, '');
+        const numberValue = Number(cleanedValue);
+        if (isNaN(numberValue)) {
+            return "--";
+        }
+        else {
+            return numberValue.toLocaleString('en-US');
+        }
+    };
+    const handleChangeCurrency = () => {
+        if (changeCurrency === false) {
+            const debt = dataAccountOriginal.map((item) => formatCurrencyNormal(item.balance));
+            const limit = dataAccountOriginal.map((item) => item.adtrust_dsl === -1 ? "--" : formatCurrencyNormal(item.adtrust_dsl));
+            const total_spending = dataAccountOriginal.map((item) => formatCurrencyNormal(item.amount_spent));
+            const threshold_amount = dataAccountOriginal.flatMap((item) => {
+                if (item.adspaymentcycle && item.adspaymentcycle.data) {
+                    return item.adspaymentcycle.data.map((cycleItem) => {
+                        // Kiểm tra giá trị của cycleItem.threshold_amount
+                        console.log('cycleItem.threshold_amount', cycleItem.threshold_amount);
+                        // Kiểm tra nếu là chuỗi, chuyển đổi thành số và định dạng tiền tệ
+                        const thresholdAmountValue = typeof cycleItem.threshold_amount === "string" ?
+                            formatCurrencyNormal(parseFloat(cycleItem.threshold_amount.replace(/,/g, ''))) :
+                            cycleItem.threshold_amount;
+                        console.log('thresholdAmountValue', thresholdAmountValue);
+                        return thresholdAmountValue;
+                    });
+                }
+                else {
+                    return "--";
+                }
+            });
+            console.log("infoshandleChangeCurrency", infos);
+            console.log("threshold_amount", threshold_amount);
+            console.log("debt", debt);
+            console.log("limit", limit);
+            console.log("total_spending", total_spending);
+            setInfos((prevState) => {
+                const newState = prevState.map((item, index) => (Object.assign(Object.assign({}, item), { DEBT: debt[index], TOTAL_SPENDING: total_spending[index], LIMIT: limit[index], THRESHOLD: threshold_amount[index] })));
+                return newState;
+            });
+            setChangeCurrency(!changeCurrency);
+        }
+        else {
+            const debt = dataAccountOriginal.map((item) => currencyChange(item.balance, item.account_currency_ratio_to_usd));
+            const limit = dataAccountOriginal.map((item) => item.adtrust_dsl === -1 ? "--" : currencyChange(item.adtrust_dsl, item.account_currency_ratio_to_usd));
+            const total_spending = dataAccountOriginal.map((item) => currencyChange(item.amount_spent, item.account_currency_ratio_to_usd));
+            const ratioValue = dataAccountOriginal.map((item) => item.account_currency_ratio_to_usd);
+            const threshold_amount = dataAccountOriginal.flatMap((item) => {
+                if (item.adspaymentcycle && item.adspaymentcycle.data) {
+                    return item.adspaymentcycle.data.map((cycleItem) => {
+                        return cycleItem.threshold_amount;
+                    });
+                }
+                else {
+                    return "--";
+                }
+            });
+            const result = threshold_amount.map((value, index) => currencyChange(value, ratioValue[index]));
+            console.log('aaaaaaaaaaaaaaaaaaaaaaa', result);
+            console.log('ratioValue', ratioValue);
+            console.log('kqqqqqqqqqq', threshold_amount);
+            setInfos((prevState) => {
+                const newState = prevState.map((item, index) => {
+                    return Object.assign(Object.assign({}, item), { DEBT: debt[index], TOTAL_SPENDING: total_spending[index], LIMIT: limit[index], THRESHOLD: result[index] });
+                });
+                return newState;
+            });
+            setChangeCurrency(!changeCurrency);
+        }
+    };
+    console.log('dataAccountOriginal', dataAccountOriginal);
+    console.log('infosOutside', infos);
     const handleReloadStorage = (e) => {
         chrome.runtime.sendMessage({ action: "reload_storage" }, function (response) {
             console.log(response);
@@ -12018,27 +12105,26 @@ const PopupDetail = () => {
                     NAME_TK: (_h = dataAccount[i]) === null || _h === void 0 ? void 0 : _h.name,
                     DEBT: debt,
                     THRESHOLD: threShold,
-                    LIMIT: currencyChange(((_j = dataAccount[i]) === null || _j === void 0 ? void 0 : _j.adtrust_dsl) === -1
-                        ? "NO LIMIT"
-                        : (_k = dataAccount[i]) === null || _k === void 0 ? void 0 : _k.adtrust_dsl, (_l = dataAccount[i]) === null || _l === void 0 ? void 0 : _l.account_currency_ratio_to_usd),
-                    ADMIN: (_m = dataAccount[i]) === null || _m === void 0 ? void 0 : _m.userpermissions.data.length,
-                    TOTAL_SPENDING: currencyChange((_o = dataAccount[i]) === null || _o === void 0 ? void 0 : _o.amount_spent, (_p = dataAccount[i]) === null || _p === void 0 ? void 0 : _p.account_currency_ratio_to_usd),
+                    LIMIT: currencyChange((_j = dataAccount[i]) === null || _j === void 0 ? void 0 : _j.adtrust_dsl, (_k = dataAccount[i]) === null || _k === void 0 ? void 0 : _k.account_currency_ratio_to_usd),
+                    ADMIN: (_l = dataAccount[i]) === null || _l === void 0 ? void 0 : _l.userpermissions.data.length,
+                    TOTAL_SPENDING: currencyChange((_m = dataAccount[i]) === null || _m === void 0 ? void 0 : _m.amount_spent, (_o = dataAccount[i]) === null || _o === void 0 ? void 0 : _o.account_currency_ratio_to_usd),
                     // TOTAL_SPENDING: dataAccount[i]?.amount_spent,
                     PERMISSION_ACCOUNT: accountID !== null &&
-                        ((_q = dataAccount[i]) === null || _q === void 0 ? void 0 : _q.userpermissions.data.filter((item) => { var _a; return ((_a = item === null || item === void 0 ? void 0 : item.user) === null || _a === void 0 ? void 0 : _a.id) === accountID; }))
+                        ((_p = dataAccount[i]) === null || _p === void 0 ? void 0 : _p.userpermissions.data.filter((item) => { var _a; return ((_a = item === null || item === void 0 ? void 0 : item.user) === null || _a === void 0 ? void 0 : _a.id) === accountID; }))
                         ? "ADMIN"
                         : "",
-                    CURRENCY: (_r = dataAccount[i]) === null || _r === void 0 ? void 0 : _r.currency,
+                    CURRENCY: (_q = dataAccount[i]) === null || _q === void 0 ? void 0 : _q.currency,
                     ACCOUNT_TYPE: dataAccount[i].hasOwnProperty("owner_business")
                         ? "BM"
                         : "CN",
-                    PERMISSION_BM: checkAuthorBM((_s = dataAccount[i]) === null || _s === void 0 ? void 0 : _s.userpermissions.data.filter((item) => item === null || item === void 0 ? void 0 : item.user).map((item, index) => {
+                    PERMISSION_BM: checkAuthorBM((_r = dataAccount[i]) === null || _r === void 0 ? void 0 : _r.userpermissions.data.filter((item) => item === null || item === void 0 ? void 0 : item.user).map((item, index) => {
                         return item === null || item === void 0 ? void 0 : item.role.toString();
                     })),
-                    ID_BM: (_u = (_t = dataAccount[i]) === null || _t === void 0 ? void 0 : _t.owner_business) === null || _u === void 0 ? void 0 : _u.id,
-                    PAYMENT_METHOD: (_x = (_w = (_v = dataAccount[i]) === null || _v === void 0 ? void 0 : _v.all_payment_methods) === null || _w === void 0 ? void 0 : _w.pm_credit_card) === null || _x === void 0 ? void 0 : _x.data.map((item) => item === null || item === void 0 ? void 0 : item.display_string),
-                    TIME_ZONE: `${(_y = dataAccount[i]) === null || _y === void 0 ? void 0 : _y.timezone_offset_hours_utc}  -  ${(_z = dataAccount[i]) === null || _z === void 0 ? void 0 : _z.timezone_name} `,
+                    ID_BM: (_t = (_s = dataAccount[i]) === null || _s === void 0 ? void 0 : _s.owner_business) === null || _t === void 0 ? void 0 : _t.id,
+                    PAYMENT_METHOD: (_w = (_v = (_u = dataAccount[i]) === null || _u === void 0 ? void 0 : _u.all_payment_methods) === null || _v === void 0 ? void 0 : _v.pm_credit_card) === null || _w === void 0 ? void 0 : _w.data.map((item) => item === null || item === void 0 ? void 0 : item.display_string),
+                    TIME_ZONE: `${(_x = dataAccount[i]) === null || _x === void 0 ? void 0 : _x.timezone_offset_hours_utc}  -  ${(_y = dataAccount[i]) === null || _y === void 0 ? void 0 : _y.timezone_name} `,
                     ID: (0,uuid__WEBPACK_IMPORTED_MODULE_2__["default"])(),
+                    CURRENCY_RATIO_USD: (_z = dataAccount[i]) === null || _z === void 0 ? void 0 : _z.account_currency_ratio_to_usd
                 });
             }
             setInfos(dataInfos);
@@ -12089,8 +12175,9 @@ const PopupDetail = () => {
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("i", { className: "fa-solid fa-magnifying-glass" }),
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", { id: "tbfilter", type: "text", placeholder: "T\u00ECm ki\u1EBFm" }))),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "command_flex" },
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "btn_currency", className: "command_btn" },
-                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("i", { className: "fa-solid fa-sack-dollar" })),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__.Stack, { direction: 'row' },
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__.Switch, { onChange: handleChangeCurrency, colorScheme: 'teal', size: 'lg' }),
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "Change Currency")),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "command_btn", id: "btn_export" },
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "Reload Page"),
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("i", { className: "fa-solid fa-download" })))))),
@@ -12149,7 +12236,7 @@ const PopupDetail = () => {
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, item.THRESHOLD === "NaN" ? "--" : item.THRESHOLD)),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, isNaN(item.LIMIT) ? "NO LIMIT" : item.LIMIT)),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, item.LIMIT < 1 || item.LIMIT === "--" ? "NO LIMIT" : item.LIMIT)),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, item.TOTAL_SPENDING)),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
@@ -12438,7 +12525,7 @@ module.exports = "data:image/svg+xml;charset=utf8,%3Csvg xmlns=%27http://www.w3.
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["vendors-node_modules_react-dom_client_js","vendors-node_modules_css-loader_dist_runtime_api_js-node_modules_css-loader_dist_runtime_getU-4c9780"], () => (__webpack_require__("./src/popup/popup.tsx")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["vendors-node_modules_react-dom_client_js","vendors-node_modules_css-loader_dist_runtime_api_js-node_modules_css-loader_dist_runtime_getU-e8443d"], () => (__webpack_require__("./src/popup/popup.tsx")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

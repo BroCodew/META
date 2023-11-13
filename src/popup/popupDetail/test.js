@@ -1,29 +1,10 @@
-const handleSortPaymentMethod = (field) => {
-
-    if (orderBy === "ASC") {
-        setInfos(infos.sort((a, b) => compare({
-            ...a,
-            PAYMENT_METHOD: typeof a.PAYMENT_METHOD === "string" ? a.PAYMENT_METHOD : "a",
-        }, {
-            ...b,
-            PAYMENT_METHOD: typeof b.PAYMENT_METHOD === "string" ? b.PAYMENT_METHOD : "a",
-
-        }, field)).reverse());
-        setOrderBy("DSC");
+function convertCurrencyToNumber(currency) {
+    if (typeof currency !== 'string') {
+        console.error('Invalid input. Expected a string.');
+        return null;
     }
-    if (orderBy === "DSC") {
-        setInfos(infos.sort((a, b) => compare({
-            ...a,
-            PAYMENT_METHOD: typeof a.PAYMENT_METHOD === "string" ? a.PAYMENT_METHOD : "a",
-        }, {
-            ...b,
-            PAYMENT_METHOD: typeof b.PAYMENT_METHOD === "string" ? b.PAYMENT_METHOD : "a",
+    const numberValue = parseFloat(currency.replace(/,/g, ''));
+    return isNaN(numberValue) ? 0 : numberValue;
+}
 
-        }, field)));
-        setOrderBy("ASC");
-    }
-};
-
-const valuePaymentMethods = ["qưeqwe", undefined, "ewrer", "sf"]
-
-handleSortPaymentMethod(valuePaymentMethods)
+console.log(convertCurrencyToNumber("23,000"))
