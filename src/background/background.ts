@@ -113,7 +113,6 @@ chrome.runtime.onMessage.addListener(( request, sender, sendResponse ) => {
                 chrome.storage.local.get([key], ( result ) => {
                     const storedData = result[key];
                     if (storedData) {
-                        console.log('storedData', storedData);
                         sendResponse({ success : true, ...storedData });
                     } else {
                         try {

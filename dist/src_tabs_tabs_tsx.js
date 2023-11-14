@@ -633,8 +633,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/layout/dist/chunk-ZHMYA64R.mjs");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/switch/dist/chunk-VTV6N5LE.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/layout/dist/chunk-ZHMYA64R.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/switch/dist/chunk-VTV6N5LE.mjs");
+/* harmony import */ var _static_icon_NotVerified__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../static/icon/NotVerified */ "./src/static/icon/NotVerified.tsx");
+/* harmony import */ var _static_icon_Verified__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../static/icon/Verified */ "./src/static/icon/Verified.tsx");
+
+
 
 
 const PopupDetailPageSale = () => {
@@ -644,31 +648,74 @@ const PopupDetailPageSale = () => {
     const year = today.getFullYear();
     const formattedDate = `${day}/${month}/${year}`;
     const [dataPageSale, setDataPageSale] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
+    const [accountId, setAccountId] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
     const [infos, setInfos] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
+    const [orderBy, setOrderBy] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("DSC");
     const handleGetData = () => {
         chrome.runtime.sendMessage({ action: "login_request" }, (response) => {
             console.log('responsepageSale', response.dataPage.accounts);
             if (response && response.success) {
+                setAccountId(response.accountId.id);
+                console.log('setDataPageSale', response.dataPage);
+                console.log('setDataPageSale', response.dataPage.accounts);
                 setDataPageSale(response.dataPage.accounts.data);
             }
         });
     };
-    const handleChangeDataRaw = () => {
-        if (typeof dataPageSale === "object") {
-            let dataInfos = [];
-            for (let i = 0; i < dataPageSale.length; i++) {
-                dataInfos.push({
-                    STT: dataPageSale[i],
-                    AVATAR: dataPageSale[i].map(item => item.picture.data.url),
-                    ID: dataPageSale[i].map(item => item.ID),
-                    NAME_PAGE: dataPageSale[i].map(item => item.name),
-                    VERIFIED: dataPageSale[i].map(item => item.verification_status),
-                    LIKES: dataPageSale[i].map(item => item.fan_count),
-                    FOLLOWERS: dataPageSale[i].map(item => item.followers_count),
-                });
-            }
+    console.log('dataPageSale', dataPageSale);
+    const compareData = (a, b, field) => {
+        if (a[field] < b[field]) {
+            return 1;
+        }
+        else if (a[field] > b[field]) {
+            return -1;
+        }
+        else {
+            return 0;
         }
     };
+    const handleSortItemNumber = (field) => {
+        const compareField = (a, b) => compareData(a, b, field);
+        setInfos((prevInfos) => {
+            const sortedInfos = [...prevInfos].sort(compareField);
+            // Nếu đang là ASC, đảo ngược mảng
+            if (orderBy === "ASC") {
+                sortedInfos.reverse();
+                setOrderBy('DSC');
+            }
+            else {
+                setOrderBy('ASC');
+            }
+            return sortedInfos;
+        });
+    };
+    const handleChangeDataRaw = () => {
+        var _a;
+        if (typeof dataPageSale === "object" && Array.isArray(dataPageSale) && accountId !== null) {
+            let dataInfos = [];
+            for (let i = 0; i < dataPageSale.length; i++) {
+                const hasPermissionPost = dataPageSale[i].roles.data.some(item => item.id === accountId && item.tasks.includes("CREATE_CONTENT"));
+                dataInfos.push({
+                    STT: i + 1,
+                    AVATAR: (_a = dataPageSale[i]) === null || _a === void 0 ? void 0 : _a.picture.data.url,
+                    ID: dataPageSale[i].id,
+                    NAME_PAGE: dataPageSale[i].name,
+                    VERIFIED: dataPageSale[i].verification_status,
+                    LIKES: dataPageSale[i].fan_count,
+                    FOLLOWERS: dataPageSale[i].followers_count,
+                    PERMISSION_POST: hasPermissionPost,
+                    ADS: dataPageSale[i].is_promotable,
+                    // ADS_COUNT : dataPageSale
+                    ADS_COUNT: ''
+                });
+            }
+            setInfos(dataInfos);
+        }
+    };
+    console.log('infos', infos);
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        handleChangeDataRaw();
+    }, [dataPageSale, accountId]);
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
         handleGetData();
     }, []);
@@ -697,8 +744,8 @@ const PopupDetailPageSale = () => {
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("i", { className: "fa-solid fa-magnifying-glass" }),
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", { id: "tbfilter", type: "text", placeholder: "T\u00ECm ki\u1EBFm" }))),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "command_flex" },
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_1__.Stack, { direction: 'row' },
-                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.Switch, { colorScheme: 'teal', size: 'lg' }),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__.Stack, { direction: 'row' },
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__.Switch, { colorScheme: 'teal', size: 'lg' }),
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "Change Currency")),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "command_btn", id: "btn_export" },
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "Reload Page"),
@@ -714,43 +761,40 @@ const PopupDetailPageSale = () => {
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "ID"),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "T\u00EAn Page"),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "Verified"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "Profile Chrome"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "IP"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "Likes"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", style: { minWidth: "100px" } }, "Followers"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", style: { minWidth: "70px" } }, "Quy\u1EC1n \u0111\u0103ng"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", style: { minWidth: "70px" } }, "Qu\u1EA3ng c\u00E1o"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("LIKES") }, "Likes"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", style: { minWidth: "100px" }, onClick: () => handleSortItemNumber("FOLLOWERS") }, "Followers"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", style: { minWidth: "70px" }, onClick: () => handleSortItemNumber("PERMISSION_POST") }, "Quy\u1EC1n \u0111\u0103ng"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", style: { minWidth: "70px" }, onClick: () => handleSortItemNumber("ADS") }, "Qu\u1EA3ng c\u00E1o"),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", style: { minWidth: "70px" } }, "ADS Count"))),
                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tbody", { id: "tb" }, infos.map((item, key) => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", { className: "trInfo", key: key },
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" }, item.STT),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "tbstatus" }, item.STATUS)),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "tbstatus" },
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", { src: item.AVATAR, alt: "" }))),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
                                 " ",
-                                item.DATE),
+                                item.ID),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
                                 " ",
-                                item.ID_TKQC),
+                                item.NAME_PAGE),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
                                 " ",
-                                item.NAME_TK),
+                                item.VERIFIED === "not_verified" ?
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null,
+                                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_static_icon_NotVerified__WEBPACK_IMPORTED_MODULE_1__.NotVerified, null)) : react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_static_icon_Verified__WEBPACK_IMPORTED_MODULE_2__.Verified, null)),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
                                 " ",
-                                item.PROFILE_CHROME),
+                                item.LIKES),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
                                 " ",
-                                item.IP),
+                                item.FOLLOWERS),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
                                 " ",
-                                item.CITY),
+                                item.PERMISSION_POST === true ? "true" : "false"),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, item.DEBT)),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, item.ADS === true ? 'true' : "false")),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, item.THRESHOLD === "NaN" ? "--" : item.THRESHOLD)),
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, item.THRESHOLD === "NaN" ? "--" : item.THRESHOLD)),
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, item.THRESHOLD === "NaN" ? "--" : item.THRESHOLD))))))))))));
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, item.ADS_COUNT))))))))))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PopupDetailPageSale);
 
@@ -793,7 +837,6 @@ const PopupDetailAD = () => {
     const handleGetAccessToken = () => {
         chrome.runtime.sendMessage({ action: "login_request" }, (response) => {
             if (response && response.success) {
-                console.log("response", response.data);
                 setDataAccountOriginal(response.data.data);
                 setDataAccount(response.data.data);
                 response.accountId.id && setAccountID(response.accountId.id);
@@ -1193,7 +1236,6 @@ const PopupDetail = () => {
     const handleGetAccessToken = () => {
         chrome.runtime.sendMessage({ action: "login_request" }, (response) => {
             if (response && response.success) {
-                console.log("response", response.data);
                 setDataAccountOriginal(response.data.data);
                 setDataAccount(response.data.data);
                 response.accountId.id && setAccountID(response.accountId.id);
@@ -1307,7 +1349,6 @@ const PopupDetail = () => {
             setInfos(infos.sort((a, b) => compare(Object.assign(Object.assign({}, a), { THRESHOLD: convertCurrencyToNumber(a.THRESHOLD), DEBT: convertCurrencyToNumber(a.DEBT), TOTAL_SPENDING: convertCurrencyToNumber(a.TOTAL_SPENDING), STATUS: a.STATUS, LIMIT: convertCurrencyToNumber(a.LIMIT) }), Object.assign(Object.assign({}, b), { THRESHOLD: convertCurrencyToNumber(b.THRESHOLD), DEBT: convertCurrencyToNumber(b.DEBT), TOTAL_SPENDING: convertCurrencyToNumber(b.TOTAL_SPENDING), STATUS: b.STATUS, LIMIT: convertCurrencyToNumber(b.LIMIT) }), field)));
             setOrderBy("ASC");
         }
-        console.log('infos', infos.map(item => item.THRESHOLD), infos.map(item => typeof item.THRESHOLD));
     };
     const handleSortItemText = (field) => {
         if (orderBy === "ASC") {
@@ -1462,7 +1503,7 @@ const PopupDetail = () => {
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__.Tabs, { variant: 'soft-rounded', colorScheme: 'green' },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_6__.TabList, { className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].popupTabList },
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__.Tab, null, "AD"),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__.Tab, null, "BM"),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__.Tab, null, "PAGE"),
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__.Tab, null, "Three")),
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.TabPanels, null,
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_9__.TabPanel, null,
@@ -1473,6 +1514,52 @@ const PopupDetail = () => {
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "three!"))))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PopupDetail);
+
+
+/***/ }),
+
+/***/ "./src/static/icon/NotVerified.tsx":
+/*!*****************************************!*\
+  !*** ./src/static/icon/NotVerified.tsx ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   NotVerified: () => (/* binding */ NotVerified)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+const NotVerified = () => {
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", { fill: "#000000", version: "1.1", id: "Capa_1", xmlns: "http://www.w3.org/2000/svg", width: "10px", height: "10px", viewBox: "0 0 342.508 342.508" },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("g", null,
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { d: "M171.254,0C76.837,0,0.003,76.819,0.003,171.248c0,94.428,76.829,171.26,171.251,171.26\r\n\tc94.438,0,171.251-76.826,171.251-171.26C342.505,76.819,265.697,0,171.254,0z M245.371,136.161l-89.69,89.69\r\n\tc-2.693,2.69-6.242,4.048-9.758,4.048c-3.543,0-7.059-1.357-9.761-4.048l-39.007-39.007c-5.393-5.398-5.393-14.129,0-19.521\r\n\tc5.392-5.392,14.123-5.392,19.516,0l29.252,29.262l79.944-79.948c5.381-5.386,14.111-5.386,19.504,0\r\n\tC250.764,122.038,250.764,130.769,245.371,136.161z" }))));
+};
+
+
+/***/ }),
+
+/***/ "./src/static/icon/Verified.tsx":
+/*!**************************************!*\
+  !*** ./src/static/icon/Verified.tsx ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Verified: () => (/* binding */ Verified)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+const Verified = () => {
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24", id: "check" },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("g", { transform: "translate(0 -1028.362)" },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("circle", { cx: "12", cy: "1040.362", r: "12", fill: "#50b748" }),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { fill: "#10a711", d: "M14.525 23.717a12 12 0 0 0 .686-.154 12 12 0 0 0 1.137-.38 12 12 0 0 0 1.095-.488 12 12 0 0 0 1.041-.597 12 12 0 0 0 .975-.698 12 12 0 0 0 .902-.793 12 12 0 0 0 .817-.877 12 12 0 0 0 .726-.955 12 12 0 0 0 .627-1.021 12 12 0 0 0 .522-1.08 12 12 0 0 0 .412-1.127 12 12 0 0 0 .26-1.016l-7.13-7.129a6.473 6.473 0 0 0-4.593-1.906 6.482 6.482 0 0 0-4.598 1.906 6.494 6.494 0 0 0 0 9.194l7.121 7.12z", color: "#000", "font-family": "sans-serif", "font-weight": "400", transform: "translate(0 1028.362)" }),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { fill: "#fff", d: "M8.504 2c1.662 0 3.324.635 4.596 1.906a6.494 6.494 0 0 1 0 9.194 6.494 6.494 0 0 1-9.194 0 6.494 6.494 0 0 1 0-9.194A6.482 6.482 0 0 1 8.504 2Zm2.96 4.502a.503.503 0 0 0-.26.103L7.55 9.345 5.857 7.653c-.367-.382-1.09.34-.707.707l2 2a.517.517 0 0 0 .653.047l4-3c.336-.245.129-.898-.287-.904a.5.5 0 0 0-.051 0z", color: "#000", "font-family": "sans-serif", "font-weight": "400", overflow: "visible", transform: "translate(3.497 1031.859)" }))));
+};
 
 
 /***/ }),

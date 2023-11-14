@@ -21,7 +21,6 @@ const PopupDetailAD = () => {
     const handleGetAccessToken = () => {
         chrome.runtime.sendMessage({ action : "login_request" }, ( response ) => {
             if (response && response.success) {
-                console.log("response", response.data);
                 setDataAccountOriginal(response.data.data);
                 setDataAccount(response.data.data);
                 response.accountId.id && setAccountID(response.accountId.id);

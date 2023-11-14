@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {Stack, Switch} from "@chakra-ui/react";
+import {NotVerified} from "../../../static/icon/NotVerified";
+import {Verified} from "../../../static/icon/Verified";
 
 const PopupDetailPageSale = () => {
     const today = new Date();
@@ -10,40 +12,86 @@ const PopupDetailPageSale = () => {
 
     const [dataPageSale, setDataPageSale] = useState([])
     const [accountId, setAccountId] = useState(null)
-    const [infos, setInfos] = useState([]);
+    const [infos, setInfos] = useState<any>([]);
+    const [orderBy, setOrderBy] = useState("DSC")
 
     const handleGetData = () => {
-        chrome.runtime.sendMessage({ action : "login_request" }, ( response ) => {
+        chrome.runtime.sendMessage({ action : "login_request" }, (response) => {
             console.log('responsepageSale', response.dataPage.accounts)
             if (response && response.success) {
                 setAccountId(response.accountId.id)
+                console.log('setDataPageSale', response.dataPage)
+                console.log('setDataPageSale', response.dataPage.accounts)
                 setDataPageSale(response.dataPage.accounts.data)
             }
         })
     }
+    console.log('dataPageSale', dataPageSale)
+
+    const compareData = (a, b, field) => {
+        if (a[field] < b[field]) {
+            return 1;
+        } else if (a[field] > b[field]) {
+            return -1;
+        } else {
+            return 0;
+        }
+    };
+
+
+    const handleSortItemNumber = (field) => {
+
+        const compareField = (a, b) => compareData(a, b, field);
+        
+        setInfos((prevInfos) => {
+            const sortedInfos = [...prevInfos].sort(compareField);
+
+            // Nếu đang là ASC, đảo ngược mảng
+            if (orderBy === "ASC") {
+                sortedInfos.reverse();
+                setOrderBy('DSC')
+            } else {
+                setOrderBy('ASC')
+
+            }
+
+            return sortedInfos;
+        });
+    };
+
 
     const handleChangeDataRaw = () => {
-        if (typeof dataPageSale === "object" && accountId !== null) {
+        if (typeof dataPageSale === "object" && Array.isArray(dataPageSale) && accountId !== null) {
             let dataInfos = [];
+
             for (let i = 0; i < dataPageSale.length; i++) {
+                const hasPermissionPost = dataPageSale[i].roles.data.some(item => item.id === accountId && item.tasks.includes("CREATE_CONTENT"));
+
 
                 dataInfos.push({
-                    STT : dataPageSale[i],
-                    AVATAR : dataPageSale[i].map(item => item.picture.data.url),
-                    ID : dataPageSale[i].map(item => item.ID),
-                    NAME_PAGE : dataPageSale[i].map(item => item.name),
-                    VERIFIED : dataPageSale[i].map(item => item.verification_status),
-                    LIKES : dataPageSale[i].map(item => item.fan_count),
-                    FOLLOWERS : dataPageSale[i].map(item => item.followers_count),
-                    PERMISSION_POST : dataPageSale[i].map(item => item.roles.data.find(item => item.id === accountId)),
-                    ADS : dataPageSale[i].map(item => item.is_promotable),
-                    ADS_COUNT : dataPageSale
+                    STT : i + 1,
+                    AVATAR : dataPageSale[i]?.picture.data.url,
+                    ID : dataPageSale[i].id,
+                    NAME_PAGE : dataPageSale[i].name,
+                    VERIFIED : dataPageSale[i].verification_status,
+                    LIKES : dataPageSale[i].fan_count,
+                    FOLLOWERS : dataPageSale[i].followers_count,
+                    PERMISSION_POST : hasPermissionPost,
+                    ADS : dataPageSale[i].is_promotable,
+                    // ADS_COUNT : dataPageSale
+                    ADS_COUNT : ''
                 })
             }
+            setInfos(dataInfos)
 
         }
 
     }
+
+    console.log('infos', infos)
+    useEffect(() => {
+        handleChangeDataRaw()
+    }, [dataPageSale, accountId]);
 
     useEffect(() => {
         handleGetData()
@@ -114,11 +162,9 @@ const PopupDetailPageSale = () => {
                                 >
                                     Verified
                                 </th>
-                                <th className="sort">Profile Chrome</th>
-                                <th className="sort">IP</th>
                                 <th
                                     className="sort"
-
+                                    onClick={() => handleSortItemNumber("LIKES")}
                                 >
                                     Likes
                                 </th>
@@ -126,19 +172,19 @@ const PopupDetailPageSale = () => {
                                 <th
                                     className="sort"
                                     style={{ minWidth : "100px" }}
-
+                                    onClick={() => handleSortItemNumber("FOLLOWERS")}
                                 >
                                     Followers
                                 </th>
                                 <th
                                     className="sort"
                                     style={{ minWidth : "70px" }}
-
+                                    onClick={() => handleSortItemNumber("PERMISSION_POST")}
                                 >
                                     Quyền đăng
                                 </th>
                                 <th className="sort" style={{ minWidth : "70px" }}
-
+                                    onClick={() => handleSortItemNumber("ADS")}
                                 >
                                     Quảng cáo
                                 </th>
@@ -151,42 +197,28 @@ const PopupDetailPageSale = () => {
                             </tr>
                             </thead>
                             <tbody id="tb">
-                            {infos.map(( item, key ) => (
+                            {infos.map((item, key) => (
                                 <tr className="trInfo" key={key}>
                                     <td className="tdInfo">{item.STT}</td>
                                     <td className="tdInfo">
-                                        <div className="tbstatus">{item.STATUS}</div>
+                                        <div className="tbstatus">
+                                            <img src={item.AVATAR} alt=""/>
+                                        </div>
                                     </td>
-                                    <td className="tdInfo"> {item.DATE}</td>
-                                    <td className="tdInfo"> {item.ID_TKQC}</td>
-                                    <td className="tdInfo"> {item.NAME_TK}</td>
-                                    <td className="tdInfo"> {item.PROFILE_CHROME}</td>
-                                    <td className="tdInfo"> {item.IP}</td>
-                                    <td className="tdInfo"> {item.CITY}</td>
+                                    <td className="tdInfo"> {item.ID}</td>
+                                    <td className="tdInfo"> {item.NAME_PAGE}</td>
+                                    <td className="tdInfo"> {item.VERIFIED === "not_verified" ?
+                                        <div><NotVerified/></div> : <Verified/>}</td>
+                                    <td className="tdInfo"> {item.LIKES}</td>
+                                    <td className="tdInfo"> {item.FOLLOWERS}</td>
+                                    <td className="tdInfo"> {item.PERMISSION_POST === true ? "true" : "false"}</td>
                                     <td className="tdInfo">
-                                        <span className="r">{item.DEBT}</span>
-                                    </td>
-                                    <td className="tdInfo">
-                                        <span className="r">
-                                            {item.THRESHOLD === "NaN" ? "--" : item.THRESHOLD}
-
-
-                                        </span>
+                                        <span className="r">{item.ADS === true ? 'true' : "false"}</span>
                                     </td>
                                     <td className="tdInfo">
-                                        <span className="r">
-                                            {item.THRESHOLD === "NaN" ? "--" : item.THRESHOLD}
-
-
-                                        </span>
+                                        <span className="r">{item.ADS_COUNT}</span>
                                     </td>
-                                    <td className="tdInfo">
-                                        <span className="r">
-                                            {item.THRESHOLD === "NaN" ? "--" : item.THRESHOLD}
 
-
-                                        </span>
-                                    </td>
 
                                 </tr>
                             ))}
