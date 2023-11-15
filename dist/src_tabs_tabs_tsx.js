@@ -650,7 +650,7 @@ const PopupDetailPageSale = () => {
     const [dataPageSale, setDataPageSale] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
     const [accountId, setAccountId] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
     const [infos, setInfos] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
-    const [orderBy, setOrderBy] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("DSC");
+    const [orderBy, setOrderBy] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1);
     const handleGetData = () => {
         chrome.runtime.sendMessage({ action: "login_request" }, (response) => {
             console.log('responsepageSale', response.dataPage.accounts);
@@ -665,10 +665,10 @@ const PopupDetailPageSale = () => {
     console.log('dataPageSale', dataPageSale);
     const compareData = (a, b, field) => {
         if (a[field] < b[field]) {
-            return 1;
+            return -1;
         }
         else if (a[field] > b[field]) {
-            return -1;
+            return 1;
         }
         else {
             return 0;
@@ -676,19 +676,64 @@ const PopupDetailPageSale = () => {
     };
     const handleSortItemNumber = (field) => {
         const compareField = (a, b) => compareData(a, b, field);
-        setInfos((prevInfos) => {
-            const sortedInfos = [...prevInfos].sort(compareField);
-            // Nếu đang là ASC, đảo ngược mảng
-            if (orderBy === "ASC") {
-                sortedInfos.reverse();
-                setOrderBy('DSC');
-            }
-            else {
-                setOrderBy('ASC');
-            }
-            return sortedInfos;
-        });
+        if (orderBy === 1) {
+            setInfos((pre) => {
+                const storeData = [...pre].sort(compareField);
+                setOrderBy(0);
+                return storeData.reverse();
+            });
+        }
+        else {
+            setInfos((pre) => {
+                const storeData = [...pre].sort(compareField);
+                setOrderBy(1);
+                return storeData;
+            });
+        }
+        // setInfos ((prevInfos) => {
+        //     const sortedInfos = [...prevInfos].sort (compareField);
+        //     setOrderBy (!orderBy)
+        //     console.log ('orderBy', orderBy)
+        //     return orderBy === true ? sortedInfos : sortedInfos.reverse ();
+        // });
     };
+    // const handleSortItemNumber = (field) => {
+    //
+    //     if (orderBy === 1) {
+    //         setInfos (infos.sort ((a, b) => compareData ({
+    //             ...a,
+    //             LIKES: a.LIKES,
+    //             PERMISSION_POST: a.PERMISSION_POST,
+    //             ADS: a.ADS,
+    //
+    //         }, {
+    //             ...b,
+    //             LIKES: b.LIKES,
+    //             PERMISSION_POST: b.PERMISSION_POST,
+    //             ADS: b.ADS,
+    //
+    //         }, field)).reverse ());
+    //         setOrderBy (0)
+    //     } else {
+    //         setInfos (infos.sort ((a, b) => compareData ({
+    //             ...a,
+    //             LIKES: a.LIKES,
+    //             PERMISSION_POST: a.PERMISSION_POST,
+    //             ADS: a.ADS,
+    //
+    //
+    //         }, {
+    //             ...b,
+    //             LIKES: b.LIKES,
+    //             PERMISSION_POST: b.PERMISSION_POST,
+    //             ADS: b.ADS,
+    //
+    //
+    //         }, field)));
+    //         setOrderBy (1)
+    //     }
+    //
+    // };
     const handleChangeDataRaw = () => {
         var _a;
         if (typeof dataPageSale === "object" && Array.isArray(dataPageSale) && accountId !== null) {
@@ -703,8 +748,8 @@ const PopupDetailPageSale = () => {
                     VERIFIED: dataPageSale[i].verification_status,
                     LIKES: dataPageSale[i].fan_count,
                     FOLLOWERS: dataPageSale[i].followers_count,
-                    PERMISSION_POST: hasPermissionPost,
-                    ADS: dataPageSale[i].is_promotable,
+                    PERMISSION_POST: hasPermissionPost ? 0 : 1,
+                    ADS: dataPageSale[i].is_promotable === true ? 0 : 1,
                     // ADS_COUNT : dataPageSale
                     ADS_COUNT: ''
                 });
@@ -790,9 +835,9 @@ const PopupDetailPageSale = () => {
                                 item.FOLLOWERS),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
                                 " ",
-                                item.PERMISSION_POST === true ? "true" : "false"),
+                                item.PERMISSION_POST === 0 ? "true" : "false"),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, item.ADS === true ? 'true' : "false")),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, item.ADS === 1 ? 'false' : "true")),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, item.ADS_COUNT))))))))))));
 };
