@@ -11093,7 +11093,8 @@ ___CSS_LOADER_EXPORT___.push([module.id, `@charset "UTF-8";
   padding: 20px;
   color: white;
   border-radius: 20px;
-}`, "",{"version":3,"sources":["webpack://./src/popup/popup.scss"],"names":[],"mappings":"AAAA,gBAAgB;AAQhB;EACE,gBAAA,EAAA,+BAAA;EACA,mBAAA;EACA,0CAAA;EACA,aAAA;EACA,YAAA;EACA,mBAAA;AANF","sourcesContent":["// body {\r\n//   display: flex;\r\n//   justify-content: center;\r\n//   align-items: center;\r\n//   height: 100vh;\r\n//   margin: 0;\r\n// }\r\n\r\n.popup {\r\n  overflow-y: auto; /* Kích hoạt thanh cuộn ngang */\r\n  white-space: nowrap;\r\n  background-color: rgb(217 101 18 / 61%);\r\n  padding: 20px;\r\n  color: white;\r\n  border-radius: 20px;\r\n}\r\n.popup-detail {\r\n}\r\n"],"sourceRoot":""}]);
+  height: 100vh;
+}`, "",{"version":3,"sources":["webpack://./src/popup/popup.scss"],"names":[],"mappings":"AAAA,gBAAgB;AAQhB;EACE,gBAAA,EAAA,+BAAA;EACA,mBAAA;EACA,0CAAA;EACA,aAAA;EACA,YAAA;EACA,mBAAA;EACA,aAAA;AANF","sourcesContent":["// body {\r\n//   display: flex;\r\n//   justify-content: center;\r\n//   align-items: center;\r\n//   height: 100vh;\r\n//   margin: 0;\r\n// }\r\n\r\n.popup {\r\n  overflow-y: auto; /* Kích hoạt thanh cuộn ngang */\r\n  white-space: nowrap;\r\n  background-color: rgb(217 101 18 / 61%);\r\n  padding: 20px;\r\n  color: white;\r\n  border-radius: 20px;\r\n  height: 100vh;\r\n}\r\n\r\n.popup-detail {\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

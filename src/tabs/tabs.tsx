@@ -13,11 +13,12 @@ const Tab = () => {
                     <li>
                         <Link to="/popup.html">HOME</Link>
                     </li>
-                    <li>
-                        <Link to="/popup.html/detail">DETAIL</Link>
-                    </li>
+                    {/*<li>*/}
+                    {/*    <Link to="/popup.html/detail">DETAIL</Link>*/}
+                    {/*</li>*/}
                 </ul>
                 <Routes>
+                    <Route path="/" element={<PopupContainer/>}/>
                     <Route path="/popup.html" element={<PopupContainer/>}/>
                     <Route path="/popup.html/detail/:id" element={<PopupDetail/>}/>
                 </Routes>

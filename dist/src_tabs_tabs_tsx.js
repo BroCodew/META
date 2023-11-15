@@ -475,12 +475,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/button/dist/chunk-UVUR7MCU.mjs");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! uuid */ "./node_modules/uuid/dist/esm-browser/v4.js");
-/* harmony import */ var _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/index.module.scss */ "./src/popup/popupContainer/styles/index.module.scss");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/index.module.scss */ "./src/popup/popupContainer/styles/index.module.scss");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/button/dist/chunk-UVUR7MCU.mjs");
 
 
 
@@ -488,6 +488,12 @@ __webpack_require__.r(__webpack_exports__);
 
 const PopupContainer = () => {
     const [detailParam, setDetailParam] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+    const [dataAccount, setDataAccount] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
+    const [dataAccountOriginal, setDataAccountOriginal] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
+    const [accountID, setAccountID] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+    const [infos, setInfos] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
+    const [orderBy, setOrderBy] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1);
+    const [changeCurrency, setChangeCurrency] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
     const today = new Date();
     const day = today.getDate();
     const month = today.getMonth() + 1;
@@ -496,15 +502,6 @@ const PopupContainer = () => {
     const navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_2__.useNavigate)();
     let { id } = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_2__.useParams)();
     console.log('idParam', id);
-    const handleNavigateDetail = () => {
-        setDetailParam(cookieFake.c_user);
-    };
-    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-        // Kiểm tra nếu detailParam có giá trị thì thực hiện chuyển trang
-        if (detailParam) {
-            navigate(`/popup.html/detail/${detailParam}`);
-        }
-    }, [detailParam]);
     const cookieFake = {
         sb: "SS9PZR4H9YpW0G7pgFEHXWgs",
         datr: "SS9PZYqNyaQ8Wgxg8cL3Mtdd",
@@ -525,15 +522,22 @@ const PopupContainer = () => {
         presence: "C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1699859937792%2C%22v%22%3A1%7D",
         wd: "1920x498"
     };
+    const coverCookieToString = (cookies) => {
+        return Object.entries(cookies)
+            .map(([key, value]) => `${key}=${value}`)
+            .join(";");
+    };
+    console.log("cookiesFake2", coverCookieToString(cookiesFake2));
     const Title_Account = {
         STT: "STT",
         DATE: "Ngày tháng",
         DATE_BACKUP: "Ngày Backup",
         COOKIES: "Cookie",
         ID_TKQC: "ID_TKQC",
-        THRESHOLD: "Ngưỡng",
-        LIMIT: "Limit",
-        DETAIL: "DETAIL",
+        THRESHOLD_TOTAL: "Tổng Ngưỡng",
+        LIMIT_TOTAL: "Tổng Limit",
+        BM_TOTAL: "Tổng BM",
+        DEBT_TOTAL: "Tổng Dư Nợ",
     };
     const Value_Account = [
         {
@@ -570,6 +574,287 @@ const PopupContainer = () => {
             ID: (0,uuid__WEBPACK_IMPORTED_MODULE_3__["default"])(),
         },
     ];
+    const handleGetAccessToken = () => {
+        chrome.runtime.sendMessage({ action: "login_request" }, (response) => {
+            if (response && response.success) {
+                setDataAccountOriginal(response.data.data);
+                setDataAccount(response.data.data);
+                response.accountId.id && setAccountID(response.accountId.id);
+            }
+            else {
+                console.error(response.error);
+            }
+        });
+    };
+    const handleNavigateDetail = () => {
+        setDetailParam(cookieFake.c_user);
+    };
+    const Title_Account1 = [
+        {
+            STT: "STT",
+            DATE: "Ngày tháng",
+            COOKIES: "Cookie",
+            ID_TKQC: "ID",
+            NAME_TK: "Tên TK",
+            LIMIT: "LIMIT",
+            TOTAL_ACCOUNT_ADS: "Tổng TKQC",
+            TOTAL_BM: "Tổng BM",
+            TOTAL_THRESHOLD: "Tổng Ngưỡng",
+            DEBT_TOTAL: "Tổng Dư Nợ",
+            TOTAL_SPENDING: "Tổng Tiêu",
+            PROFILE_CHROME: "Profile Chrome",
+            COUNTRY: "COUNTRY",
+            CITY: "CITY",
+            IP: "IP",
+            PERMISSION_ACCOUNT: "Quyền Tài Khoản",
+            CURRENCY: "Tiền tệ",
+            ACCOUNT_TYPE: "Loại tài khoản",
+            PERMISSION_BM: "Role",
+            ID_BM: "ID BM",
+            PAYMENT_METHOD: "PTTT",
+            TIME_ZONE: "Múi giờ",
+        },
+    ];
+    const currencyChange = (current, currentRation) => {
+        let change;
+        if (typeof current !== "object") {
+            change = current / currentRation;
+        }
+        else if (Array.isArray(current) && current.length > 0) {
+            change = current[0] / currentRation;
+        }
+        else if (!current) {
+            change = 0;
+        }
+        else {
+            change = 0;
+        }
+        const result = change.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,");
+        return result;
+    };
+    function convertCurrencyToNumber(value) {
+        if (typeof value === 'number') {
+            return value;
+        }
+        else if (typeof value === 'string') {
+            const sanitizedValue = value.replace(/[^0-9.-]/g, ''); // Loại bỏ tất cả các ký tự không phải số hoặc dấu chấm
+            const numberValue = parseFloat(sanitizedValue);
+            return isNaN(numberValue) ? 0 : numberValue;
+        }
+        else {
+            return 0; // Hoặc giá trị mặc định tùy thuộc vào yêu cầu của bạn
+        }
+    }
+    const compareData = (a, b, field) => {
+        if (a[field] < b[field]) {
+            return -1;
+        }
+        else if (a[field] > b[field]) {
+            return 1;
+        }
+        else {
+            return 0;
+        }
+    };
+    const handleSortItemNumber = (field) => {
+        const compareField = (a, b) => compareData(a, b, field);
+        if (orderBy === 1) {
+            setInfos((pre) => {
+                const storeData = [...pre].sort(compareField);
+                setOrderBy(0);
+                return storeData.reverse();
+            });
+        }
+        else {
+            setInfos((pre) => {
+                const storeData = [...pre].sort(compareField);
+                setOrderBy(1);
+                return storeData;
+            });
+        }
+    };
+    const formatCurrencyNormal = (value) => {
+        if (typeof value === 'number') {
+            return value.toLocaleString('en-US');
+        }
+        if (typeof value !== 'string') {
+            return "--";
+        }
+        const cleanedValue = value.replace(/[.,]/g, '');
+        const numberValue = Number(cleanedValue);
+        if (isNaN(numberValue)) {
+            return "--";
+        }
+        else {
+            return numberValue.toLocaleString('en-US');
+        }
+    };
+    const handleChangeCurrency = () => {
+        if (changeCurrency === false) {
+            const debt = dataAccountOriginal.map((item) => formatCurrencyNormal(item.balance));
+            const limit = dataAccountOriginal.map((item) => item.adtrust_dsl === -1 ? "--" : formatCurrencyNormal(item.adtrust_dsl));
+            const total_spending = dataAccountOriginal.map((item) => formatCurrencyNormal(item.amount_spent));
+            const threshold_amount = dataAccountOriginal.flatMap((item) => {
+                if (item.adspaymentcycle && item.adspaymentcycle.data) {
+                    return item.adspaymentcycle.data.map((cycleItem) => {
+                        const thresholdAmountValue = typeof cycleItem.threshold_amount === "string" ?
+                            formatCurrencyNormal(parseFloat(cycleItem.threshold_amount.replace(/,/g, ''))) :
+                            cycleItem.threshold_amount;
+                        return thresholdAmountValue;
+                    });
+                }
+                else {
+                    return "--";
+                }
+            });
+            setInfos((prevState) => {
+                const newState = prevState.map((item, index) => (Object.assign(Object.assign({}, item), { DEBT: debt[index], TOTAL_SPENDING: total_spending[index], LIMIT: limit[index], THRESHOLD: threshold_amount[index] })));
+                return newState;
+            });
+            setChangeCurrency(!changeCurrency);
+        }
+        else {
+            const debt = dataAccountOriginal.map((item) => currencyChange(item.balance, item.account_currency_ratio_to_usd));
+            const limit = dataAccountOriginal.map((item) => item.adtrust_dsl === -1 ? "--" : currencyChange(item.adtrust_dsl, item.account_currency_ratio_to_usd));
+            const total_spending = dataAccountOriginal.map((item) => currencyChange(item.amount_spent, item.account_currency_ratio_to_usd));
+            const ratioValue = dataAccountOriginal.map((item) => item.account_currency_ratio_to_usd);
+            const threshold_amount = dataAccountOriginal.flatMap((item) => {
+                if (item.adspaymentcycle && item.adspaymentcycle.data) {
+                    return item.adspaymentcycle.data.map((cycleItem) => {
+                        return cycleItem.threshold_amount;
+                    });
+                }
+                else {
+                    return "--";
+                }
+            });
+            const result = threshold_amount.map((value, index) => currencyChange(value, ratioValue[index]));
+            setInfos((prevState) => {
+                const newState = prevState.map((item, index) => {
+                    return Object.assign(Object.assign({}, item), { DEBT: debt[index], TOTAL_SPENDING: total_spending[index], LIMIT: limit[index], THRESHOLD: result[index] });
+                });
+                return newState;
+            });
+            setChangeCurrency(!changeCurrency);
+        }
+    };
+    const handleReloadStorage = (e) => {
+        window.location.reload();
+        chrome.runtime.sendMessage({ action: "reload_storage" }, function (response) {
+            console.log(response);
+        });
+    };
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        // Kiểm tra nếu detailParam có giá trị thì thực hiện chuyển trang
+        if (detailParam) {
+            navigate(`/popup.html/detail/${detailParam}`);
+        }
+    }, [detailParam]);
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r;
+        if (typeof dataAccount === "object" &&
+            accountID !== null &&
+            dataAccount.length > 0) {
+            let dataInfos = [];
+            for (let i = 0; i < dataAccount.length; i++) {
+                const debt = currencyChange((_a = dataAccount[i]) === null || _a === void 0 ? void 0 : _a.balance, (_b = dataAccount[i]) === null || _b === void 0 ? void 0 : _b.account_currency_ratio_to_usd);
+                const thresholdArr = (_d = (_c = dataAccount[i]) === null || _c === void 0 ? void 0 : _c.adspaymentcycle) === null || _d === void 0 ? void 0 : _d.data.map((item) => item.threshold_amount);
+                const threShold = currencyChange(thresholdArr, (_e = dataAccount[i]) === null || _e === void 0 ? void 0 : _e.account_currency_ratio_to_usd);
+                dataInfos.push({
+                    STT: i + 1,
+                    STATUS: (_f = dataAccount[i]) === null || _f === void 0 ? void 0 : _f.account_status,
+                    DATE: formattedDate,
+                    DATE_BACKUP: "19/11/2023",
+                    IP: "222.252.20.234",
+                    PROFILE_CHROME: "Profile Chrome",
+                    COUNTRY: "Viet Nam",
+                    CITY: "Ha Noi",
+                    COOKIES: "Cookie",
+                    ID_TKQC: (_g = dataAccount[i]) === null || _g === void 0 ? void 0 : _g.account_id,
+                    NAME_TK: (_h = dataAccount[i]) === null || _h === void 0 ? void 0 : _h.name,
+                    DEBT: debt,
+                    THRESHOLD: threShold,
+                    LIMIT: currencyChange((_j = dataAccount[i]) === null || _j === void 0 ? void 0 : _j.adtrust_dsl, (_k = dataAccount[i]) === null || _k === void 0 ? void 0 : _k.account_currency_ratio_to_usd),
+                    ADMIN: (_l = dataAccount[i]) === null || _l === void 0 ? void 0 : _l.userpermissions.data.length,
+                    TOTAL_SPENDING: currencyChange((_m = dataAccount[i]) === null || _m === void 0 ? void 0 : _m.amount_spent, (_o = dataAccount[i]) === null || _o === void 0 ? void 0 : _o.account_currency_ratio_to_usd),
+                    // TOTAL_SPENDING: dataAccount[i]?.amount_spent,
+                    PERMISSION_ACCOUNT: accountID !== null &&
+                        ((_p = dataAccount[i]) === null || _p === void 0 ? void 0 : _p.userpermissions.data.filter((item) => { var _a; return ((_a = item === null || item === void 0 ? void 0 : item.user) === null || _a === void 0 ? void 0 : _a.id) === accountID; }))
+                        ? "ADMIN"
+                        : "",
+                    ID_BM: (_r = (_q = dataAccount[i]) === null || _q === void 0 ? void 0 : _q.owner_business) === null || _r === void 0 ? void 0 : _r.id,
+                    ID: (0,uuid__WEBPACK_IMPORTED_MODULE_3__["default"])(),
+                });
+            }
+            const cookieFake = {
+                sb: "SS9PZR4H9YpW0G7pgFEHXWgs",
+                datr: "SS9PZYqNyaQ8Wgxg8cL3Mtdd",
+                locale: "vi_VN",
+                c_user: "100045983811887",
+                xs: "34%3A9F64PgFRQVSDMw%3A2%3A1699688308%3A-1%3A7939%3A%3AAcWO44l763FnAPpvkN9cYoCfIO-2F_E5LAQLpiwz8w",
+                wd: "1020x923",
+                fr: "1LV2cQ5w7OjeQXY13.AWXbduuHs9y3L7UcnilsG_2AQFk.BlUan_.xm.AAA.0.0.BlUayT.AWVwG62htzQ",
+                presence: "C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1699851417154%2C%22v%22%3A1%7D"
+            };
+            const cookiesFake2 = {
+                sb: "g7xBZfn1sHbLcaZAfEeHY5LY",
+                datr: "g7xBZZTQlGTHLaOKnQN8wBa6",
+                locale: "vi_VN",
+                c_user: "100054281226202",
+                xs: "45%3A57SenU0v_LLjCA%3A2%3A1699859925%3A-1%3A8014",
+                fr: "1oXA4eTQubQwmjx1g.AWWxRWaqyxwSTScfDG99HhgGhf0.BlT0iO.WF.AAA.0.0.BlUc3W.AWXDDEmPepI",
+                presence: "C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1699859937792%2C%22v%22%3A1%7D",
+                wd: "1920x498"
+            };
+            dataInfos = [
+                {
+                    STT: 1,
+                    DATE: formattedDate,
+                    COOKIES: "Cookie",
+                    ID_TKQC: 573216737882876,
+                    NAME_TK: "Jenny",
+                    TOTAL_ACCOUNT_ADS: 4,
+                    TOTAL_BM: 20,
+                    TOTAL_SPENDING: 1234233,
+                    TOTAL_THRESHOLD: 2313120,
+                    DEBT_TOTAL: 2035556,
+                    DETAIL: "DETAIL",
+                    ID: (0,uuid__WEBPACK_IMPORTED_MODULE_3__["default"])(),
+                },
+                {
+                    STT: 2,
+                    DATE: formattedDate,
+                    COOKIES: cookieFake.c_user,
+                    ID_TKQC: 573216737882871,
+                    NAME_TK: "ADAM",
+                    TOTAL_ACCOUNT_ADS: 9,
+                    TOTAL_BM: 1,
+                    TOTAL_SPENDING: 1234233,
+                    TOTAL_THRESHOLD: 555005,
+                    DEBT_TOTAL: 56555213321,
+                    ID: (0,uuid__WEBPACK_IMPORTED_MODULE_3__["default"])(),
+                },
+                {
+                    STT: 3,
+                    DATE: formattedDate,
+                    COOKIES: cookiesFake2.c_user,
+                    NAME_TK: "Charles",
+                    ID_TKQC: 573216737882871,
+                    TOTAL_ACCOUNT_ADS: 199,
+                    TOTAL_BM: 150,
+                    TOTAL_SPENDING: 1234233,
+                    TOTAL_THRESHOLD: 65656000,
+                    DEBT_TOTAL: 54212312,
+                    DETAIL: "DETAIL",
+                    ID: (0,uuid__WEBPACK_IMPORTED_MODULE_3__["default"])(),
+                },
+            ];
+            setInfos(dataInfos);
+        }
+    }, [dataAccount, accountID]);
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        handleGetAccessToken();
+    }, []);
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "app" },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "wrapper", id: "main" },
@@ -591,32 +876,225 @@ const PopupContainer = () => {
                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("thead", { id: "thall" },
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", null,
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "STT"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "DATE"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("DATE") }, "DATE"),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "COOKIES"),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "ID"),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "T\u00EAn TK"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", style: { minWidth: "100px" } }, "D\u01B0 n\u1EE3"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", style: { minWidth: "70px" } }, "Ng\u01B0\u1EE1ng"))),
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tbody", { id: "tb" }, Value_Account.map((item, key) => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", { className: "trInfo", key: key },
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("TOTAL_ACCOUNT_ADS") }, "T\u1ED5ng TKQC"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("TOTAL_BM") }, "T\u1ED5ng BM"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("TOTAL_SPENDING") }, "T\u1ED5ng Ti\u00EAu"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("TOTAL_THRESHOLD") }, "T\u1ED5ng Ng\u01B0\u1EE1ng"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", style: { minWidth: "100px" }, onClick: () => handleSortItemNumber("DEBT_TOTAL") }, "T\u1ED5ng D\u01B0 n\u1EE3"))),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tbody", { id: "tb" }, infos.map((item, key) => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", { className: "trInfo", key: key },
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" }, item.STT),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
                                 " ",
                                 item.DATE),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, item.COOKIES),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "COPY")),
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo", style: { textAlign: "left", overflow: "hidden" } },
                                 " ",
-                                item.COOKIES),
+                                accountID),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
                                 " ",
-                                item.ID_TKQC),
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" }),
+                                item.NAME_TK),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, item.THRESHOLD)),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, item.TOTAL_ACCOUNT_ADS)),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, item.LIMIT)),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, item.TOTAL_BM)),
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, item.TOTAL_SPENDING)),
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, item.TOTAL_THRESHOLD)),
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, item.DEBT_TOTAL)),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].optionValue },
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__.Button, { onClick: handleNavigateDetail, m: 4, className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].optionButton }, `Open Detail Cookie`))))))))))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PopupContainer);
+
+
+/***/ }),
+
+/***/ "./src/popup/popupDetail/detailBM/index.tsx":
+/*!**************************************************!*\
+  !*** ./src/popup/popupDetail/detailBM/index.tsx ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/layout/dist/chunk-ZHMYA64R.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/switch/dist/chunk-VTV6N5LE.mjs");
+/* harmony import */ var _detailPage_styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../detailPage/styles/index.module.scss */ "./src/popup/popupDetail/detailPage/styles/index.module.scss");
+
+
+
+const PopupDetailBM = () => {
+    const today = new Date();
+    const day = today.getDate();
+    const month = today.getMonth() + 1;
+    const year = today.getFullYear();
+    const formattedDate = `${day}/${month}/${year}`;
+    const [dataBM, setDataBM] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
+    const [accountId, setAccountId] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+    const [infos, setInfos] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
+    const [orderBy, setOrderBy] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1);
+    const checkStatusBM = (status) => {
+        return status === true ? (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: _detailPage_styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].statusAccount },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: _detailPage_styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].liveIconLive }),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: _detailPage_styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].liveTextLive }, "LIVE"))) : (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: _detailPage_styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].statusAccount },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: _detailPage_styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].liveIconDie }),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: _detailPage_styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].liveTextDie }, "DIE")));
+    };
+    const handleGetData = () => {
+        chrome.runtime.sendMessage({ action: "login_request" }, (response) => {
+            if (response && response.success) {
+                setAccountId(response.accountId.id);
+                setDataBM(response.dataBM.data);
+            }
+        });
+    };
+    const compareData = (a, b, field) => {
+        if (a[field] < b[field]) {
+            return -1;
+        }
+        else if (a[field] > b[field]) {
+            return 1;
+        }
+        else {
+            return 0;
+        }
+    };
+    const handleSortItemNumber = (field) => {
+        const compareField = (a, b) => compareData(a, b, field);
+        if (orderBy === 1) {
+            setInfos((pre) => {
+                const storeData = [...pre].sort(compareField);
+                setOrderBy(0);
+                return storeData.reverse();
+            });
+        }
+        else {
+            setInfos((pre) => {
+                const storeData = [...pre].sort(compareField);
+                setOrderBy(1);
+                return storeData;
+            });
+        }
+    };
+    function convertDateFormat(inputDateString) {
+        // Chuyển đổi thành đối tượng Date
+        var dateObject = new Date(inputDateString);
+        // Lấy thông tin ngày, tháng, năm
+        var day = dateObject.getDate();
+        var month = dateObject.getMonth() + 1; // Tháng bắt đầu từ 0
+        var year = dateObject.getFullYear(); // Lấy năm đầy đủ 4 chữ số
+        // Định dạng lại ngày tháng theo dd/mm/yyyy
+        var formattedDay = day < 10 ? '0' + day : day;
+        var formattedMonth = month < 10 ? '0' + month : month;
+        var formattedYear = year;
+        var formattedDate = `${formattedDay}/${formattedMonth}/${formattedYear}`;
+        return formattedDate;
+    }
+    const handleChangeDataRaw = () => {
+        var _a;
+        if (typeof dataBM === "object" && Array.isArray(dataBM) && accountId !== null) {
+            let dataInfos = [];
+            for (let i = 0; i < dataBM.length; i++) {
+                dataInfos.push({
+                    STT: i + 1,
+                    STATUS: (_a = dataBM[i]) === null || _a === void 0 ? void 0 : _a.allow_page_management_in_www,
+                    ID: dataBM[i].id,
+                    NAME: dataBM[i].name,
+                    LEVEL: 1,
+                    LIMIT: dataBM[i].can_use_extended_credit,
+                    TIME: dataBM[i].timezone_id,
+                    CREATED_TIME: dataBM[i].created_time,
+                });
+            }
+            setInfos(dataInfos);
+        }
+    };
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        handleChangeDataRaw();
+    }, [dataBM, accountId]);
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        handleGetData();
+    }, []);
+    const Title_Account = [
+        {
+            STT: "STT",
+            STATUS: "STATUS",
+            ID: "ID",
+            NAME: "TÊN",
+            LEVEL: "LEVEL",
+            LIMIT: "LIMIT",
+            TIME: "Múi giờ",
+            CREATED_TIME: "Ngày tạo",
+        },
+    ];
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "app" },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "wrapper", id: "main" },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "sc_heading" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "command" },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "command_head" },
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "command_flex" },
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "command_search" },
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("i", { className: "fa-solid fa-magnifying-glass" }),
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", { id: "tbfilter", type: "text", placeholder: "T\u00ECm ki\u1EBFm" }))),
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "command_flex" },
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.Stack, { direction: 'row' },
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__.Switch, { colorScheme: 'teal', size: 'lg' }),
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "Change Currency")),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "command_btn", id: "btn_export" },
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "Reload Page"),
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("i", { className: "fa-solid fa-download" })))))),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "AccStatus", className: "tabcontent active" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "loaddata1", style: { display: "none" } },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", { src: "chrome-extension://ookgnahfklmejhicejjbfjifppjbfnlk/access/icon/loadingdata.gif", alt: "" })),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("table", { className: "table table-striped", id: "tball" },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("thead", { id: "thall" },
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", null,
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "STT"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "STATUS"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "ID"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "T\u00EAn Page"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", style: { minWidth: "100px" }, onClick: () => handleSortItemNumber("FOLLOWERS") }, "LEVEL"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", style: { minWidth: "70px" }, onClick: () => handleSortItemNumber("PERMISSION_POST") }, "LIMIT"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", style: { minWidth: "70px" }, onClick: () => handleSortItemNumber("ADS") }, "M\u00FAi gi\u1EDD"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", style: { minWidth: "70px" }, onClick: () => handleSortItemNumber("CREATED_TIME") }, "Ng\u00E0y t\u1EA1o"))),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tbody", { id: "tb" }, infos.map((item, key) => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", { className: "trInfo", key: key },
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" }, item.STT),
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" }, checkStatusBM(item.STATUS)),
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo", style: { color: "blue" } },
+                                " ",
+                                item.ID),
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
+                                " ",
+                                item.NAME),
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
+                                " ",
+                                item.LEVEL),
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
+                                " ",
+                                item.LIMIT === false ? 'false' : 0,
+                                " "),
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
+                                " ",
+                                item.TIME,
+                                " : unknown"),
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
+                                " ",
+                                convertDateFormat(item.CREATED_TIME))))))))))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PopupDetailBM);
 
 
 /***/ }),
@@ -650,19 +1128,15 @@ const PopupDetailPageSale = () => {
     const [dataPageSale, setDataPageSale] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
     const [accountId, setAccountId] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
     const [infos, setInfos] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
-    const [orderBy, setOrderBy] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1);
+    const [orderBy, setOrderBy] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1); //asc
     const handleGetData = () => {
         chrome.runtime.sendMessage({ action: "login_request" }, (response) => {
-            console.log('responsepageSale', response.dataPage.accounts);
             if (response && response.success) {
                 setAccountId(response.accountId.id);
-                console.log('setDataPageSale', response.dataPage);
-                console.log('setDataPageSale', response.dataPage.accounts);
                 setDataPageSale(response.dataPage.accounts.data);
             }
         });
     };
-    console.log('dataPageSale', dataPageSale);
     const compareData = (a, b, field) => {
         if (a[field] < b[field]) {
             return -1;
@@ -690,50 +1164,7 @@ const PopupDetailPageSale = () => {
                 return storeData;
             });
         }
-        // setInfos ((prevInfos) => {
-        //     const sortedInfos = [...prevInfos].sort (compareField);
-        //     setOrderBy (!orderBy)
-        //     console.log ('orderBy', orderBy)
-        //     return orderBy === true ? sortedInfos : sortedInfos.reverse ();
-        // });
     };
-    // const handleSortItemNumber = (field) => {
-    //
-    //     if (orderBy === 1) {
-    //         setInfos (infos.sort ((a, b) => compareData ({
-    //             ...a,
-    //             LIKES: a.LIKES,
-    //             PERMISSION_POST: a.PERMISSION_POST,
-    //             ADS: a.ADS,
-    //
-    //         }, {
-    //             ...b,
-    //             LIKES: b.LIKES,
-    //             PERMISSION_POST: b.PERMISSION_POST,
-    //             ADS: b.ADS,
-    //
-    //         }, field)).reverse ());
-    //         setOrderBy (0)
-    //     } else {
-    //         setInfos (infos.sort ((a, b) => compareData ({
-    //             ...a,
-    //             LIKES: a.LIKES,
-    //             PERMISSION_POST: a.PERMISSION_POST,
-    //             ADS: a.ADS,
-    //
-    //
-    //         }, {
-    //             ...b,
-    //             LIKES: b.LIKES,
-    //             PERMISSION_POST: b.PERMISSION_POST,
-    //             ADS: b.ADS,
-    //
-    //
-    //         }, field)));
-    //         setOrderBy (1)
-    //     }
-    //
-    // };
     const handleChangeDataRaw = () => {
         var _a;
         if (typeof dataPageSale === "object" && Array.isArray(dataPageSale) && accountId !== null) {
@@ -748,16 +1179,64 @@ const PopupDetailPageSale = () => {
                     VERIFIED: dataPageSale[i].verification_status,
                     LIKES: dataPageSale[i].fan_count,
                     FOLLOWERS: dataPageSale[i].followers_count,
-                    PERMISSION_POST: hasPermissionPost ? 0 : 1,
-                    ADS: dataPageSale[i].is_promotable === true ? 0 : 1,
-                    // ADS_COUNT : dataPageSale
-                    ADS_COUNT: ''
+                    PERMISSION_POST: hasPermissionPost ? 1 : 0,
+                    ADS: dataPageSale[i].is_promotable ? 1 : 0,
+                    ADS_COUNT: 0
                 });
             }
+            // dataInfos = [
+            //     {
+            //         STT : 1,
+            //         AVATAR : "https://t4.ftcdn.net/jpg/05/49/98/39/360_F_549983970_bRCkYfk0P6PP5fKbMhZMIb07mCJ6esXL.jpg",
+            //         ID : 1,
+            //         NAME_PAGE : "a",
+            //         VERIFIED : true,
+            //         LIKES : 1,
+            //         FOLLOWERS : 1,
+            //         PERMISSION_POST : true,
+            //         ADS : 1,
+            //         ADS_COUNT : 0
+            //     },
+            //     {
+            //         STT : 2,
+            //         AVATAR : "https://t4.ftcdn.net/jpg/05/49/98/39/360_F_549983970_bRCkYfk0P6PP5fKbMhZMIb07mCJ6esXL.jpg",
+            //         ID : 2,
+            //         NAME_PAGE : "g",
+            //         VERIFIED : true,
+            //         LIKES : 100,
+            //         FOLLOWERS : 99,
+            //         PERMISSION_POST : true,
+            //         ADS : 6,
+            //         ADS_COUNT : 0
+            //     },
+            //     {
+            //         STT : 3,
+            //         AVATAR : "https://t4.ftcdn.net/jpg/05/49/98/39/360_F_549983970_bRCkYfk0P6PP5fKbMhZMIb07mCJ6esXL.jpg",
+            //         ID : 5,
+            //         NAME_PAGE : "d",
+            //         VERIFIED : true,
+            //         LIKES : 50,
+            //         FOLLOWERS : 60,
+            //         PERMISSION_POST : true,
+            //         ADS : 3,
+            //         ADS_COUNT : 1
+            //     },
+            //     {
+            //         STT : 4,
+            //         AVATAR : "https://t4.ftcdn.net/jpg/05/49/98/39/360_F_549983970_bRCkYfk0P6PP5fKbMhZMIb07mCJ6esXL.jpg",
+            //         ID : 3,
+            //         NAME_PAGE : "d",
+            //         VERIFIED : true,
+            //         LIKES : 89,
+            //         FOLLOWERS : 60,
+            //         PERMISSION_POST : true,
+            //         ADS : 4,
+            //         ADS_COUNT : 1
+            //     }
+            // ]
             setInfos(dataInfos);
         }
     };
-    console.log('infos', infos);
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
         handleChangeDataRaw();
     }, [dataPageSale, accountId]);
@@ -835,9 +1314,9 @@ const PopupDetailPageSale = () => {
                                 item.FOLLOWERS),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
                                 " ",
-                                item.PERMISSION_POST === 0 ? "true" : "false"),
+                                item.PERMISSION_POST === 1 ? "true" : "false"),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, item.ADS === 1 ? 'false' : "true")),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, item.ADS === 1 ? 'true' : 'false')),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, item.ADS_COUNT))))))))))));
 };
@@ -1169,28 +1648,28 @@ const PopupDetailAD = () => {
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("table", { className: "table table-striped", id: "tball" },
                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("thead", { id: "thall" },
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", null,
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "STT"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("STT") }, "STT"),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("STATUS") }, "Tr\u1EA1ng th\u00E1i"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "DATE"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "ID"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("DATE") }, "DATE"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("ID_TKQC") }, "ID"),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemText("NAME_TK") },
                                     "T\u00EAn TK",
                                     " "),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "Profile Chrome"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "IP"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemText("PROFILE_CHROME") }, "Profile Chrome"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("IP") }, "IP"),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemText("CITY") }, "CITY"),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", style: { minWidth: "100px" }, onClick: () => handleSortItemNumber("DEBT") }, "D\u01B0 n\u1EE3"),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", style: { minWidth: "70px" }, onClick: () => handleSortItemNumber("THRESHOLD") }, "Ng\u01B0\u1EE1ng"),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", style: { minWidth: "70px" }, onClick: () => handleSortItemNumber("LIMIT") }, "Limit"),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", style: { minWidth: "70px" }, onClick: () => handleSortItemNumber("TOTAL_SPENDING") }, "T\u1ED5ng Ti\u00EAu"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "Admin"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "Quy\u1EC1n TK"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("ADMIN") }, "Admin"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemText("PERMISSION_ACCOUNT") }, "Quy\u1EC1n TK"),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemText("CURRENCY") }, "Ti\u1EC1n t\u1EC7"),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemText("ACCOUNT_TYPE") }, "Lo\u1EA1i TK"),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemText("PERMISSION_BM") }, "Role"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "ID BM"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("ID_BM") }, "ID BM"),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortPaymentMethod("PAYMENT_METHOD") }, "Thanh to\u00E1n"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "M\u00FAi gi\u1EDD"))),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("TIME_ZONE") }, "M\u00FAi gi\u1EDD"))),
                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tbody", { id: "tb" }, infos.map((item, key) => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", { className: "trInfo", key: key },
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" }, item.STT),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
@@ -1201,7 +1680,7 @@ const PopupDetailAD = () => {
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
                                 " ",
                                 item.ID_TKQC),
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo", style: { textAlign: "left", overflow: "hidden" } },
                                 " ",
                                 item.NAME_TK),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
@@ -1251,14 +1730,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/index.module.scss */ "./src/popup/popupDetail/styles/index.module.scss");
-/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! uuid */ "./node_modules/uuid/dist/esm-browser/v4.js");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/tabs/dist/chunk-GTRZJDIL.mjs");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/tabs/dist/chunk-BXDFYXZJ.mjs");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/tabs/dist/chunk-IAXSQ4X2.mjs");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/tabs/dist/chunk-4YMKQ5D4.mjs");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/tabs/dist/chunk-KGTDXOFZ.mjs");
+/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! uuid */ "./node_modules/uuid/dist/esm-browser/v4.js");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/tabs/dist/chunk-GTRZJDIL.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/tabs/dist/chunk-BXDFYXZJ.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/tabs/dist/chunk-IAXSQ4X2.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/tabs/dist/chunk-4YMKQ5D4.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/tabs/dist/chunk-KGTDXOFZ.mjs");
 /* harmony import */ var _detailPage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./detailPage */ "./src/popup/popupDetail/detailPage/index.tsx");
 /* harmony import */ var _detailPageSale__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./detailPageSale */ "./src/popup/popupDetail/detailPageSale/index.tsx");
+/* harmony import */ var _detailBM__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./detailBM */ "./src/popup/popupDetail/detailBM/index.tsx");
+
 
 
 
@@ -1534,7 +2015,7 @@ const PopupDetail = () => {
                     ID_BM: (_t = (_s = dataAccount[i]) === null || _s === void 0 ? void 0 : _s.owner_business) === null || _t === void 0 ? void 0 : _t.id,
                     PAYMENT_METHOD: (_w = (_v = (_u = dataAccount[i]) === null || _u === void 0 ? void 0 : _u.all_payment_methods) === null || _v === void 0 ? void 0 : _v.pm_credit_card) === null || _w === void 0 ? void 0 : _w.data.map((item) => item === null || item === void 0 ? void 0 : item.display_string),
                     TIME_ZONE: `${(_x = dataAccount[i]) === null || _x === void 0 ? void 0 : _x.timezone_offset_hours_utc}  -  ${(_y = dataAccount[i]) === null || _y === void 0 ? void 0 : _y.timezone_name} `,
-                    ID: (0,uuid__WEBPACK_IMPORTED_MODULE_4__["default"])(),
+                    ID: (0,uuid__WEBPACK_IMPORTED_MODULE_5__["default"])(),
                     CURRENCY_RATIO_USD: (_z = dataAccount[i]) === null || _z === void 0 ? void 0 : _z.account_currency_ratio_to_usd
                 });
             }
@@ -1545,18 +2026,18 @@ const PopupDetail = () => {
         handleGetAccessToken();
     }, []);
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__.Tabs, { variant: 'soft-rounded', colorScheme: 'green' },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_6__.TabList, { className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].popupTabList },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__.Tab, null, "AD"),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__.Tab, null, "PAGE"),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__.Tab, null, "Three")),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.TabPanels, null,
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_9__.TabPanel, null,
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_6__.Tabs, { variant: 'soft-rounded', colorScheme: 'green' },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__.TabList, { className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].popupTabList },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Tab, null, "AD"),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Tab, null, "BM"),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Tab, null, "PAGE")),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_9__.TabPanels, null,
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_10__.TabPanel, { style: { padding: 0 } },
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_detailPage__WEBPACK_IMPORTED_MODULE_2__["default"], null)),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_9__.TabPanel, null,
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_detailPageSale__WEBPACK_IMPORTED_MODULE_3__["default"], null)),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_9__.TabPanel, null,
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "three!"))))));
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_10__.TabPanel, null,
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_detailBM__WEBPACK_IMPORTED_MODULE_4__["default"], null)),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_10__.TabPanel, null,
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_detailPageSale__WEBPACK_IMPORTED_MODULE_3__["default"], null))))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PopupDetail);
 
@@ -1636,10 +2117,9 @@ const Tab = () => {
             " ",
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", null,
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, { to: "/popup.html" }, "HOME")),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, { to: "/popup.html/detail" }, "DETAIL"))),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, { to: "/popup.html" }, "HOME"))),
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Routes, null,
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Route, { path: "/", element: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_popup_popupContainer__WEBPACK_IMPORTED_MODULE_1__["default"], null) }),
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Route, { path: "/popup.html", element: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_popup_popupContainer__WEBPACK_IMPORTED_MODULE_1__["default"], null) }),
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Route, { path: "/popup.html/detail/:id", element: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_popup_popupDetail__WEBPACK_IMPORTED_MODULE_2__["default"], null) })))));
 };

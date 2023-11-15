@@ -1,0 +1,95 @@
+.optionTitle {
+  text-align: center;
+  border: 1px solid #000 !important;
+  box-shadow: 2px 2px 2px 2px #888888;
+  color: rgb(51 51 51) !important;
+  background-color: #fdfdfd;
+  font-size: 15px !important;
+  line-height: 19.6px;
+}
+
+.optionValue {
+  text-align: center;
+  border: 1px solid #000 !important;
+  box-shadow: 2px 2px 2px 2px #888888;
+  color: rgb(102 102 102) !important;
+  background-color: #fdfdfd;
+}
+
+.accessToken {
+  border-radius: 10px;
+  color: #000;
+  font-size: 20px;
+  width: 180px;
+  height: 50px;
+  background-color: aquamarine;
+}
+
+.popupContainer {
+  // height: 100vh;
+  // width: 100vw;
+  margin: 50px !important;
+}
+
+.optionHeader {
+  color: #000;
+}
+
+.statusAccount {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .liveIconLive {
+    width: 15px;
+    height: 15px;
+    background-color: blue;
+    margin-right: 10px;
+    border-radius: 8px;
+  }
+
+  .liveTextLive {
+    color: blue;
+  }
+
+  .liveIconDie {
+    width: 15px;
+    height: 15px;
+    background-color: red;
+    margin-right: 10px;
+    border-radius: 8px;
+
+  }
+
+  .liveTextDie {
+    color: red;
+
+  }
+
+  .liveIconDebt {
+    width: 15px;
+    height: 15px;
+    background-color: yellowgreen;
+    margin-right: 10px;
+    border-radius: 8px;
+  }
+
+  .liveTextDebt {
+    color: yellowgreen;
+
+  }
+}
+
+.popupTabList {
+  background-color: #f8fdfc;
+  color: #07a06b;
+  font-weight: bold;
+  border-bottom: 1px solid rgba(230, 232, 236, .8);
+  border-radius: 20px;
+}
+
+.tdInfo {
+  text-align: left;
+}
+
+

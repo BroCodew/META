@@ -26,14 +26,12 @@ class FW {
                     adAccountId = response.split('adAccountId: \\"')[1].split('\\"')[0];
                 }
             }
-
             if (!adAccountId) {
                 return {
                     token : "ERR",
                     adAccountId : null
                 };
             }
-
             response = await HW.send({
                 method : "GET",
                 url : `https://adsmanager.facebook.com/adsmanager/onboarding?act=${adAccountId}&breakdown_regrouping=0`
@@ -53,12 +51,10 @@ class FW {
                     token = response.split('window.__accessToken="')[1].split('"')[0];
                 }
             }
-
             if (!token) {
                 token = "ERR";
                 adAccountId = null;
             }
-
             return {
                 token,
                 adAccountId
@@ -98,6 +94,19 @@ const getDataPageSale = async ( token: any ) => {
     try {
         const response = await fetch(`https://graph.facebook.com/v15.0/me?fields=accounts.limit(40){id,name,verification_status,is_published,ad_campaign,roles{id,%20tasks},is_promotable,is_restricted,parent_page,promotion_eligible,fan_count,followers_count,has_transitioned_to_new_page_experience,picture}&access_token=${token}`)
         const data = await response.json();
+        console.log("getDataPageSale", data)
+        return data;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+const getDataBM = async ( token: any ) => {
+    console.log("ffff")
+    try {
+        const response = await fetch(`https://graph.facebook.com/v15.0/me/businesses?fields=id,created_time,is_disabled_for_integrity_reasons,sharing_eligibility_status,allow_page_management_in_www,can_use_extended_credit,name,timezone_id,timezone_offset_hours_utc,verification_status,owned_ad_accounts{id,currency,timezone_offset_hours_utc,timezone_name}&access_token=${token}`)
+        const data = await response.json();
+        console.log("getDataBM", data)
         return data;
     } catch (error) {
         console.error(error);
@@ -121,8 +130,9 @@ chrome.runtime.onMessage.addListener(( request, sender, sendResponse ) => {
                                 const accountId = await getAccountID(token.token);
                                 const data = await getDataAccount(token.token);
                                 const dataPage = await getDataPageSale(token.token);
-                                const value = { token, accountId, data, dataPage };
-
+                                const dataBM = await getDataBM(token.token);
+                                const value = { token, accountId, data, dataPage, dataBM };
+                                console.log('valueContainer', value)
                                 chrome.storage.local.set({ [key] : value }, () => {
                                     sendResponse({ success : true, ...value });
                                 });
@@ -143,7 +153,6 @@ chrome.runtime.onMessage.addListener(( request, sender, sendResponse ) => {
 
 chrome.runtime.onMessage.addListener(
     function ( request, sender, sendResponse ) {
-        // Kiểm tra action
         if (request.action === 'reload_storage') {
             chrome.storage.local.clear(function () {
                 console.log("Local storage cleared.");
@@ -161,11 +170,12 @@ chrome.alarms.onAlarm.addListener(async ( alarm ) => {
         const key = 'myKey';
         const token = await FW.generateToken();
         console.log('refreshToken', token);
-
         const accountId = await getAccountID(token.token);
         const data = await getDataAccount(token.token);
         const dataPage = await getDataPageSale(token.token);
-        const value = { token, accountId, data, dataPage };
+        const dataBM = await getDataBM(token.token);
+
+        const value = { token, accountId, data, dataPage, dataBM };
         console.log('valuerefreshToken', value);
 
         chrome.storage.local.set({ [key] : value }, () => {

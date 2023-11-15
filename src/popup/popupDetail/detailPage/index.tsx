@@ -442,7 +442,12 @@ const PopupDetailAD = () => {
                         <table className="table table-striped" id="tball">
                             <thead id="thall">
                             <tr>
-                                <th className="sort">STT</th>
+                                <th className="sort"
+                                    onClick={() =>
+                                        handleSortItemNumber("STT")
+                                    }
+                                >STT
+                                </th>
                                 <th
                                     className="sort"
                                     onClick={() =>
@@ -451,18 +456,37 @@ const PopupDetailAD = () => {
                                 >
                                     Trạng thái
                                 </th>
-                                <th className="sort">DATE</th>
-                                <th className="sort">ID</th>
+                                <th className="sort"
+                                    onClick={() =>
+                                        handleSortItemNumber("DATE")
+                                    }
+                                >DATE
+                                </th>
+                                <th className="sort"
+                                    onClick={() =>
+                                        handleSortItemNumber("ID_TKQC")
+                                    }
+                                >ID
+                                </th>
                                 <th
                                     className="sort"
+
                                     onClick={() =>
                                         handleSortItemText("NAME_TK")
                                     }
                                 >
                                     Tên TK{" "}
                                 </th>
-                                <th className="sort">Profile Chrome</th>
-                                <th className="sort">IP</th>
+                                <th className="sort" onClick={() =>
+                                    handleSortItemText("PROFILE_CHROME")
+                                }>Profile Chrome
+                                </th>
+                                <th className="sort"
+                                    onClick={() =>
+                                        handleSortItemNumber("IP")
+                                    }
+                                >IP
+                                </th>
                                 <th
                                     className="sort"
                                     onClick={() =>
@@ -504,8 +528,17 @@ const PopupDetailAD = () => {
                                 >
                                     Tổng Tiêu
                                 </th>
-                                <th className="sort">Admin</th>
-                                <th className="sort">Quyền TK</th>
+                                <th className="sort"
+                                    onClick={() =>
+                                        handleSortItemNumber("ADMIN")
+                                    }
+                                >Admin
+                                </th>
+                                <th className="sort"
+                                    onClick={() =>
+                                        handleSortItemText("PERMISSION_ACCOUNT")
+                                    }>Quyền TK
+                                </th>
                                 <th
                                     className="sort"
                                     onClick={() =>
@@ -524,12 +557,22 @@ const PopupDetailAD = () => {
                                     }
                                 >Role
                                 </th>
-                                <th className="sort">ID BM</th>
+                                <th className="sort"
+                                    onClick={() =>
+                                        handleSortItemNumber("ID_BM")
+                                    }
+                                >ID BM
+                                </th>
                                 <th className="sort" onClick={() =>
                                     handleSortPaymentMethod("PAYMENT_METHOD")
                                 }>Thanh toán
                                 </th>
-                                <th className="sort">Múi giờ</th>
+                                <th className="sort"
+                                    onClick={() =>
+                                        handleSortItemNumber("TIME_ZONE")
+                                    }
+                                >Múi giờ
+                                </th>
                             </tr>
                             </thead>
                             <tbody id="tb">
@@ -541,7 +584,8 @@ const PopupDetailAD = () => {
                                     </td>
                                     <td className="tdInfo"> {item.DATE}</td>
                                     <td className="tdInfo"> {item.ID_TKQC}</td>
-                                    <td className="tdInfo"> {item.NAME_TK}</td>
+                                    <td className="tdInfo"
+                                        style={{ textAlign : "left", overflow : "hidden" }}> {item.NAME_TK}</td>
                                     <td className="tdInfo"> {item.PROFILE_CHROME}</td>
                                     <td className="tdInfo"> {item.IP}</td>
                                     <td className="tdInfo"> {item.CITY}</td>
