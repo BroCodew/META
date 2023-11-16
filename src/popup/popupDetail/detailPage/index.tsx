@@ -8,17 +8,21 @@ const PopupDetailAD = () => {
     const [accessToken, setAccessToken] = useState("");
     const [dataAccount, setDataAccount] = useState([]);
     const [dataAccountOriginal, setDataAccountOriginal] = useState([]);
-
     const [accountID, setAccountID] = useState(null);
     const [infos, setInfos] = useState([]);
     const [orderBy, setOrderBy] = useState("ASC");
     const [changeCurrency, setChangeCurrency] = useState(false);
+    const [filteredList, setFilteredList] = useState(infos);
     const today = new Date();
     const day = today.getDate();
     const month = today.getMonth() + 1;
     const year = today.getFullYear();
     const formattedDate = `${day}/${month}/${year}`;
 
+
+    useEffect(() => {
+        setFilteredList(infos)
+    }, [infos]);
     const handleGetAccessToken = () => {
         chrome.runtime.sendMessage({ action : "login_request" }, ( response ) => {
             if (response && response.success) {
@@ -72,32 +76,6 @@ const PopupDetailAD = () => {
                 return "DRAFT";
         }
     };
-
-    const Title_Account = [
-        {
-            STT : "STT",
-            DATE : "Ngày tháng",
-            DATE_BACKUP : "Ngày Backup",
-            COOKIES : "Cookie",
-            ID_TKQC : "ID_TKQC",
-            THRESHOLD : "Ngưỡng",//threshold_amount//infos:string//dataAccount:number
-            LIMIT : "LIMIT", //adtrust_dsl//infos:string//dataAccount:number
-            DEBT : "Dư nợ",//balance//infos:string//dataAccount:string
-            TOTAL_SPENDING : "Tổng Tiêu",//amount_spent//infos:string//dataAccount:string
-            PROFILE_CHROME : "Profile Chrome",
-            COUNTRY : "COUNTRY",
-            CITY : "CITY",
-            IP : "IP",
-            NAME_TK : "Tên_TK",
-            PERMISSION_ACCOUNT : "Quyền Tài Khoản",
-            CURRENCY : "Tiền tệ",
-            ACCOUNT_TYPE : "Loại tài khoản",
-            PERMISSION_BM : "Role",
-            ID_BM : "ID BM",
-            PAYMENT_METHOD : "PTTT",
-            TIME_ZONE : "Múi giờ",
-        },
-    ];
 
 
     const currencyChange = ( current, currentRation ) => {
@@ -180,7 +158,7 @@ const PopupDetailAD = () => {
             setInfos(infos.sort(( a, b ) => compare({
                 ...a,
                 PERMISSION_BM : a.PERMISSION_BM,
-                NAME_TK : a.NAME_TK,
+                NAME_TK_AD : a.NAME_TK_AD,
                 PERMISSION_ACCOUNT : a.PERMISSION_ACCOUNT,
                 CITY : a.CITY,
                 COUNTRY : a.COUNTRY,
@@ -189,7 +167,7 @@ const PopupDetailAD = () => {
             }, {
                 ...b,
                 PERMISSION_BM : b.PERMISSION_BM,
-                NAME_TK : b.NAME_TK,
+                NAME_TK_AD : b.NAME_TK_AD,
                 PERMISSION_ACCOUNT : b.PERMISSION_ACCOUNT,
                 CITY : b.CITY,
                 COUNTRY : b.COUNTRY,
@@ -201,7 +179,7 @@ const PopupDetailAD = () => {
         if (orderBy === "DSC") {
             setInfos(infos.sort(( a, b ) => compare({
                 ...a, PERMISSION_BM : a.PERMISSION_BM,
-                NAME_TK : a.NAME_TK,
+                NAME_TK_AD : a.NAME_TK_AD,
                 PERMISSION_ACCOUNT : a.PERMISSION_ACCOUNT,
                 CITY : a.CITY,
                 COUNTRY : a.COUNTRY,
@@ -210,7 +188,7 @@ const PopupDetailAD = () => {
             }, {
                 ...b,
                 PERMISSION_BM : b.PERMISSION_BM,
-                NAME_TK : b.NAME_TK,
+                NAME_TK_AD : b.NAME_TK_AD,
                 PERMISSION_ACCOUNT : b.PERMISSION_ACCOUNT,
                 CITY : b.CITY,
                 COUNTRY : b.COUNTRY,
@@ -347,15 +325,15 @@ const PopupDetailAD = () => {
                 dataInfos.push({
                     STT : i + 1,
                     STATUS : dataAccount[i]?.account_status,
-                    DATE : formattedDate,
+                    DATE_AD : formattedDate,
                     DATE_BACKUP : "19/11/2023",
                     IP : "222.252.20.234",
                     PROFILE_CHROME : "Profile Chrome",
                     COUNTRY : "Viet Nam",
                     CITY : "Ha Noi",
                     COOKIES : "Cookie",
-                    ID_TKQC : dataAccount[i]?.account_id,
-                    NAME_TK : dataAccount[i]?.name,
+                    ID_TKQC_AD : dataAccount[i]?.account_id,
+                    NAME_TK_AD : dataAccount[i]?.name,
                     DEBT : debt,
                     THRESHOLD : threShold,
                     LIMIT : currencyChange(
@@ -415,7 +393,8 @@ const PopupDetailAD = () => {
                         <div className="command">
                             <div className="command_head" style={{ backgroundColor : "#023302" }}>
                                 <div className="command_flex">
-                                    <SearchBar/>
+                                    <SearchBar filteredList={filteredList} infos={infos}
+                                               setFilteredList={setFilteredList}/>
                                 </div>
                                 <div className="command_flex">
                                     <Stack direction='row'>
@@ -462,7 +441,7 @@ const PopupDetailAD = () => {
                                 </th>
                                 <th className="sort"
                                     onClick={() =>
-                                        handleSortItemNumber("ID_TKQC")
+                                        handleSortItemNumber("ID_TKQC_AD")
                                     }
                                 >ID
                                 </th>
@@ -470,7 +449,7 @@ const PopupDetailAD = () => {
                                     className="sort"
 
                                     onClick={() =>
-                                        handleSortItemText("NAME_TK")
+                                        handleSortItemText("NAME_TK_AD")
                                     }
                                 >
                                     Tên TK{" "}
@@ -574,16 +553,16 @@ const PopupDetailAD = () => {
                             </tr>
                             </thead>
                             <tbody id="tb">
-                            {infos.map(( item, key ) => (
+                            {filteredList.map(( item, key ) => (
                                 <tr className="trInfo" key={key}>
                                     <td className="tdInfo">{item.STT}</td>
                                     <td className="tdInfo">
                                         <div className="tbstatus">{checkStatusBM(item.STATUS)}</div>
                                     </td>
-                                    <td className="tdInfo"> {item.DATE}</td>
-                                    <td className="tdInfo"> {item.ID_TKQC}</td>
+                                    <td className="tdInfo"> {item.DATE_AD}</td>
+                                    <td className="tdInfo"> {item.ID_TKQC_AD}</td>
                                     <td className="tdInfo"
-                                        style={{ textAlign : "left", overflow : "hidden" }}> {item.NAME_TK}</td>
+                                        style={{ textAlign : "left", overflow : "hidden" }}> {item.NAME_TK_AD}</td>
                                     <td className="tdInfo"> {item.PROFILE_CHROME}</td>
                                     <td className="tdInfo"> {item.IP}</td>
                                     <td className="tdInfo"> {item.CITY}</td>

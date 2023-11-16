@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {v4 as uuidv4} from "uuid";
-import {useNavigate, useParams} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import styles from "./styles/index.module.scss";
 import {Button, Checkbox, Stack} from "@chakra-ui/react";
 import {CopyToClipboard} from 'react-copy-to-clipboard';
@@ -19,97 +19,22 @@ const PopupContainer = () => {
 
     const [changeCurrency, setChangeCurrency] = useState(false);
     const [copied, setCopied] = useState(Array(infos.length).fill(false));
-    const [checkCopy, setCheckCopy] = useState(false);
+    const [filteredList, setFilteredList] = useState(infos);
     const today = new Date();
     const day = today.getDate();
     const month = today.getMonth() + 1;
     const year = today.getFullYear();
     const formattedDate = `${day}/${month}/${year}`;
     const navigate = useNavigate();
-    let { id } = useParams();
 
-    console.log('idParam', id)
+    console.log('filteredList', filteredList)
 
-
-    const cookieFake = {
-        sb : "SS9PZR4H9YpW0G7pgFEHXWgs",
-        datr : "SS9PZYqNyaQ8Wgxg8cL3Mtdd",
-        locale : "vi_VN",
-        c_user : "100045983811887",
-        xs : "34%3A9F64PgFRQVSDMw%3A2%3A1699688308%3A-1%3A7939%3A%3AAcWO44l763FnAPpvkN9cYoCfIO-2F_E5LAQLpiwz8w",
-        wd : "1020x923",
-        fr : "1LV2cQ5w7OjeQXY13.AWXbduuHs9y3L7UcnilsG_2AQFk.BlUan_.xm.AAA.0.0.BlUayT.AWVwG62htzQ",
-        presence : "C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1699851417154%2C%22v%22%3A1%7D"
-    }
-
-    const cookiesFake2 = {
-        sb : "g7xBZfn1sHbLcaZAfEeHY5LY",
-        datr : "g7xBZZTQlGTHLaOKnQN8wBa6",
-        locale : "vi_VN",
-        c_user : "100054281226202",
-        xs : "45%3A57SenU0v_LLjCA%3A2%3A1699859925%3A-1%3A8014",
-        fr : "1oXA4eTQubQwmjx1g.AWWxRWaqyxwSTScfDG99HhgGhf0.BlT0iO.WF.AAA.0.0.BlUc3W.AWXDDEmPepI",
-        presence : "C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1699859937792%2C%22v%22%3A1%7D",
-        wd : "1920x498"
-    }
 
     const coverCookieToString = ( cookies ) => {
         return Object.entries(cookies)
             .map(( [key, value] ) => `${key}=${value}`)
             .join(";");
     };
-
-    console.log("cookiesFake2", coverCookieToString(cookiesFake2))
-
-    const Title_Account =
-        {
-            STT : "STT",
-            DATE : "Ngày tháng",
-            DATE_BACKUP : "Ngày Backup",
-            COOKIES : "Cookie",
-            ID_TKQC : "ID_TKQC",
-            THRESHOLD_TOTAL : "Tổng Ngưỡng",
-            LIMIT_TOTAL : "Tổng Limit",
-            BM_TOTAL : "Tổng BM",
-            DEBT_TOTAL : "Tổng Dư Nợ",
-        }
-    ;
-
-    const Value_Account = [
-        {
-            STT : 1,
-            DATE : formattedDate,
-            DATE_BACKUP : "19/11/2023",
-            COOKIES : "Cookie",
-            ID_TKQC : ["573216737882876", "573216737882871"],
-            THRESHOLD : "20.000.000",
-            LIMIT : "1.234.233",
-            DETAIL : "DETAIL",
-            ID : uuidv4(),
-        },
-        {
-            STT : 1,
-            DATE : formattedDate,
-            DATE_BACKUP : "19/11/2023",
-            COOKIES : cookieFake.c_user,
-            ID_TKQC : ["573216737882876", "573216737882871"],
-            THRESHOLD : "20.000.000",
-            LIMIT : "1.234.233",
-            DETAIL : "DETAIL",
-            ID : uuidv4(),
-        },
-        {
-            STT : 1,
-            DATE : formattedDate,
-            DATE_BACKUP : "19/11/2023",
-            COOKIES : cookiesFake2.c_user,
-            ID_TKQC : ["573216737882876", "573216737882871"],
-            THRESHOLD : "20.000.000",
-            LIMIT : "1.234.233",
-            DETAIL : "DETAIL",
-            ID : uuidv4(),
-        },
-    ];
 
 
     const handleGetAccessToken = () => {
@@ -124,40 +49,20 @@ const PopupContainer = () => {
         });
     };
 
-
+    const cookieFake = {
+        sb : "SS9PZR4H9YpW0G7pgFEHXWgs",
+        datr : "SS9PZYqNyaQ8Wgxg8cL3Mtdd",
+        locale : "vi_VN",
+        c_user : "100045983811887",
+        xs : "34%3A9F64PgFRQVSDMw%3A2%3A1699688308%3A-1%3A7939%3A%3AAcWO44l763FnAPpvkN9cYoCfIO-2F_E5LAQLpiwz8w",
+        wd : "1020x923",
+        fr : "1LV2cQ5w7OjeQXY13.AWXbduuHs9y3L7UcnilsG_2AQFk.BlUan_.xm.AAA.0.0.BlUayT.AWVwG62htzQ",
+        presence : "C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1699851417154%2C%22v%22%3A1%7D"
+    }
     const handleNavigateDetail = () => {
         setDetailParam(cookieFake.c_user)
 
     };
-
-    const Title_Account1 = [
-        {
-            STT : "STT",
-            DATE : "Ngày tháng",
-            COOKIES : "Cookie",
-            ID_TKQC : "ID",
-            NAME_TK : "Tên TK",//threshold_amount//infos:string//dataAccount:number
-            LIMIT : "LIMIT", //adtrust_dsl//infos:string//dataAccount:number
-            TOTAL_ACCOUNT_ADS : "Tổng TKQC",
-            TOTAL_BM : "Tổng BM",
-            TOTAL_THRESHOLD : "Tổng Ngưỡng",
-
-
-            DEBT_TOTAL : "Tổng Dư Nợ",//balance//infos:string//dataAccount:string
-            TOTAL_SPENDING : "Tổng Tiêu",//amount_spent//infos:string//dataAccount:string
-            PROFILE_CHROME : "Profile Chrome",
-            COUNTRY : "COUNTRY",
-            CITY : "CITY",
-            IP : "IP",
-            PERMISSION_ACCOUNT : "Quyền Tài Khoản",
-            CURRENCY : "Tiền tệ",
-            ACCOUNT_TYPE : "Loại tài khoản",
-            PERMISSION_BM : "Role",
-            ID_BM : "ID BM",
-            PAYMENT_METHOD : "PTTT",
-            TIME_ZONE : "Múi giờ",
-        },
-    ];
 
 
     const currencyChange = ( current, currentRation ) => {
@@ -236,7 +141,7 @@ const PopupContainer = () => {
         if (changeCurrency === false) {
             const debt = dataAccountOriginal.map(( item ) => formatCurrencyNormal(item.balance));
             const limit = dataAccountOriginal.map(( item ) => item.adtrust_dsl === -1 ? "--" : formatCurrencyNormal(item.adtrust_dsl));
-            const total_spending = dataAccountOriginal.map(( item ) => formatCurrencyNormal(item.amount_spent));
+            const TOTAL_SPENDING_HOME = dataAccountOriginal.map(( item ) => formatCurrencyNormal(item.amount_spent));
             const threshold_amount: any[] = dataAccountOriginal.flatMap(( item ) => {
                 if (item.adspaymentcycle && item.adspaymentcycle.data) {
                     return item.adspaymentcycle.data.map(( cycleItem ) => {
@@ -253,7 +158,7 @@ const PopupContainer = () => {
                 const newState = prevState.map(( item, index ) => ({
                     ...item,
                     DEBT : debt[index],
-                    TOTAL_SPENDING : total_spending[index],
+                    TOTAL_SPENDING_HOME : TOTAL_SPENDING_HOME[index],
                     LIMIT : limit[index],
                     THRESHOLD : threshold_amount[index]
                 }));
@@ -265,7 +170,7 @@ const PopupContainer = () => {
 
             const debt = dataAccountOriginal.map(( item ) => currencyChange(item.balance, item.account_currency_ratio_to_usd));
             const limit = dataAccountOriginal.map(( item ) => item.adtrust_dsl === -1 ? "--" : currencyChange(item.adtrust_dsl, item.account_currency_ratio_to_usd));
-            const total_spending = dataAccountOriginal.map(( item ) => currencyChange(item.amount_spent, item.account_currency_ratio_to_usd));
+            const TOTAL_SPENDING_HOME = dataAccountOriginal.map(( item ) => currencyChange(item.amount_spent, item.account_currency_ratio_to_usd));
             const ratioValue = dataAccountOriginal.map(( item ) => item.account_currency_ratio_to_usd);
             const threshold_amount = dataAccountOriginal.flatMap(( item ) => {
                 if (item.adspaymentcycle && item.adspaymentcycle.data) {
@@ -282,7 +187,7 @@ const PopupContainer = () => {
                     return {
                         ...item,
                         DEBT : debt[index],
-                        TOTAL_SPENDING : total_spending[index],
+                        TOTAL_SPENDING_HOME : TOTAL_SPENDING_HOME[index],
                         LIMIT : limit[index],
                         THRESHOLD : result[index]
                     };
@@ -344,8 +249,8 @@ const PopupContainer = () => {
                 //         COUNTRY: "Viet Nam",
                 //         CITY: "Ha Noi",
                 //         COOKIES: "Cookie",
-                //         ID_TKQC: dataAccount[i]?.account_id,
-                //         NAME_TK: dataAccount[i]?.name,
+                //         ID_TKQC_HOME: dataAccount[i]?.account_id,
+                //         NAME_TK_HOME: dataAccount[i]?.name,
                 //         DEBT: debt,
                 //         THRESHOLD: threShold,
                 //         LIMIT: currencyChange (
@@ -353,7 +258,7 @@ const PopupContainer = () => {
                 //             dataAccount[i]?.account_currency_ratio_to_usd
                 //         ),
                 //         ADMIN: dataAccount[i]?.userpermissions.data.length,
-                //         TOTAL_SPENDING: currencyChange (
+                //         TOTAL_SPENDING_HOME: currencyChange (
                 //             dataAccount[i]?.amount_spent,
                 //             dataAccount[i]?.account_currency_ratio_to_usd
                 //         ),
@@ -385,13 +290,13 @@ const PopupContainer = () => {
                 dataInfos = [
                     {
                         STT : 1,
-                        DATE : formattedDate,
+                        DATE_HOME : formattedDate,
                         COOKIES : "Cookie",
-                        ID_TKQC : 573216737882876,
-                        NAME_TK : "Jenny",
+                        ID_TKQC_HOME : 573216737882876,
+                        NAME_TK_HOME : "Jenny",
                         TOTAL_ACCOUNT_ADS : 4,
                         TOTAL_BM : 20,
-                        TOTAL_SPENDING : 1234233,
+                        TOTAL_SPENDING_HOME : 1234233,
                         TOTAL_THRESHOLD : 2313120,
                         DEBT_TOTAL : 2035556,
                         DETAIL : "DETAIL",
@@ -399,26 +304,26 @@ const PopupContainer = () => {
                     },
                     {
                         STT : 2,
-                        DATE : formattedDate,
-                        COOKIES : cookieFake.c_user,
-                        ID_TKQC : 573216737882871,
-                        NAME_TK : "ADAM",
+                        DATE_HOME : formattedDate,
+                        COOKIES : 15610562311,
+                        ID_TKQC_HOME : 8573216737882871,
+                        NAME_TK_HOME : "ADAM",
                         TOTAL_ACCOUNT_ADS : 9,
                         TOTAL_BM : 1,
-                        TOTAL_SPENDING : 1234233,
+                        TOTAL_SPENDING_HOME : 1234233,
                         TOTAL_THRESHOLD : 555005,
                         DEBT_TOTAL : 56555213321,
                         ID : uuidv4(),
                     },
                     {
                         STT : 3,
-                        DATE : formattedDate,
+                        DATE_HOME : formattedDate,
                         COOKIES : cookiesFake2.c_user,
-                        NAME_TK : "Charles",
-                        ID_TKQC : 573216737882871,
+                        NAME_TK_HOME : "Charles",
+                        ID_TKQC_HOME : 4573216737882871,
                         TOTAL_ACCOUNT_ADS : 199,
                         TOTAL_BM : 150,
-                        TOTAL_SPENDING : 1234233,
+                        TOTAL_SPENDING_HOME : 1234233,
                         TOTAL_THRESHOLD : 65656000,
                         DEBT_TOTAL : 54212312,
                         DETAIL : "DETAIL",
@@ -434,13 +339,16 @@ const PopupContainer = () => {
     useEffect(() => {
         handleGetAccessToken();
     }, []);
+    useEffect(() => {
+        setFilteredList(infos)
+    }, [infos]);
     return (
         <>
             <div className="app">
                 <div className="wrapper" id="main">
 
                     <div className="sc_heading" style={{ marginBottom : "20px", backgroundColor : "transparent" }}>
-                        <SearchBar/>
+                        <SearchBar filteredList={filteredList} infos={infos} setFilteredList={setFilteredList}/>
                     </div>
                     <div
                         id="AccStatus"
@@ -461,11 +369,11 @@ const PopupContainer = () => {
                             <tr>
                                 <th className="sort">STT</th>
                                 <th className="sort"
-                                    onClick={() => handleSortItemNumber("DATE")}
+                                    onClick={() => handleSortItemNumber("DATE_HOME")}
                                 >DATE
                                 </th>
                                 <th className="sort">COOKIES</th>
-                                <th className="sort">ID</th>
+                                <th className="sort" onClick={() => handleSortItemNumber("ID_TKQC_HOME")}>ID</th>
                                 <th className="sort">Tên TK</th>
                                 <th className="sort"
                                     onClick={() => handleSortItemNumber("TOTAL_ACCOUNT_ADS")}
@@ -476,7 +384,7 @@ const PopupContainer = () => {
                                 >Tổng BM
                                 </th>
                                 <th className="sort"
-                                    onClick={() => handleSortItemNumber("TOTAL_SPENDING")}
+                                    onClick={() => handleSortItemNumber("TOTAL_SPENDING_HOME")}
                                 >Tổng Tiêu
                                 </th>
                                 <th className="sort"
@@ -492,13 +400,17 @@ const PopupContainer = () => {
                             </tr>
                             </thead>
                             <tbody id="tb">
-                            {infos.map(( item, key ) => (
+                            {filteredList.map(( item, key ) => (
                                 <tr className="trInfo" key={uuidv4()}
                                     style={{ backgroundColor : copied[key] ? "red" : "transparent" }}>
                                     <td className="tdInfo">{item.STT}</td>
-                                    <td className="tdInfo"> {item.DATE}</td>
+                                    <td className="tdInfo"> {item.DATE_HOME}</td>
                                     <td className="tdInfo">
-                                        <div style={{ display : "flex", justifyContent : "space-around" }}>
+                                        <div style={{
+                                            display : "flex",
+                                            justifyContent : "space-around",
+                                            marginTop : 5
+                                        }}>
 
                                             <CopyToClipboard
                                                 text={item.COOKIES}
@@ -508,7 +420,8 @@ const PopupContainer = () => {
                                                 </Button>
                                             </CopyToClipboard>
                                         </div>
-                                        <Stack spacing={[1, 5]} direction={['column', 'row']}>
+                                        <Stack spacing={[1, 5]} direction={['column', 'row']}
+                                               style={{ display : "flex", justifyContent : "center", marginTop : 5 }}>
                                             <Checkbox size='sm' colorScheme='green'>
                                                 Mr D
                                             </Checkbox>
@@ -521,8 +434,8 @@ const PopupContainer = () => {
                                         </Stack>
                                     </td>
                                     <td className="tdInfo"
-                                        style={{ textAlign : "center", overflow : "hidden" }}> {accountID}</td>
-                                    <td className="tdInfo"> {item.NAME_TK}</td>
+                                        style={{ textAlign : "center", overflow : "hidden" }}> {item.ID_TKQC_HOME}</td>
+                                    <td className="tdInfo"> {item.NAME_TK_HOME}</td>
 
                                     <td className="tdInfo"
 
@@ -538,7 +451,7 @@ const PopupContainer = () => {
                                     <td className="tdInfo"
 
                                     >
-                                        <span className="r">{item.TOTAL_SPENDING}</span>
+                                        <span className="r">{item.TOTAL_SPENDING_HOME}</span>
                                     </td>
                                     <td className="tdInfo"
 
@@ -565,68 +478,7 @@ const PopupContainer = () => {
                     </div>
                 </div>
             </div>
-            {/* <Table className={styles.optionContainer}>
-        <TableCaption
-          className={styles.optionHeader}
-          style={{ fontSize: 30, color: "#000" }}
-          placement="top"
-        >
-          Analysis Information
-        </TableCaption>
-        <Thead style={{ textAlign: "center" }}>
-          {Title_Account.map((item, key) => (
-            <Tr
-              key={key}
-              style={{
-                textAlign: "center",
-              }}
-            >
-              <Th className={styles.optionTitle}>{item.STT}</Th>
-              <Th className={styles.optionTitle}>{item.DATE}</Th>
-              <Th className={styles.optionTitle}>{item.DATE_BACKUP}</Th>
-              <Th className={styles.optionTitle}>{item.COOKIES}</Th>
-              <Th className={styles.optionTitle}>{item.ID_TKQC}</Th>
-              <Th className={styles.optionTitle}>{item.THRESHOLD}</Th>
-              <Th className={styles.optionTitle}>{item.LIMIT}</Th>
-              <Th className={styles.optionTitle}>{item.DETAIL}</Th>
-            </Tr>
-          ))}
-          {Value_Account.map((item) => (
-            <Tr key={item.ID}>
-              <Th className={styles.optionValue}>{item.STT}</Th>
-              <Th className={styles.optionValue}>{item.DATE}</Th>
-              <Th className={styles.optionValue}>{item.DATE_BACKUP}</Th>
-              <Th className={styles.optionValue}>{item.COOKIES}</Th>
-              <Th className={styles.optionValue}>
-                {item.ID_TKQC.map((i, k) => (
-                  <p key={k}>{i}</p>
-                ))}
-              </Th>
-              <Th className={styles.optionValue}>{item.THRESHOLD}</Th>
-              <Th className={styles.optionValue}>{item.LIMIT}</Th>
-              <Th className={styles.optionValue}>
-                <Button
-                  onClick={() => handleClick(size)}
-                  key={size}
-                  m={4}
-                  className={styles.optionButton}
-                >{`Open Detail Cookie`}</Button>
 
-                <Drawer onClose={onClose} isOpen={isOpen} size={size}>
-                  <DrawerOverlay />
-                  <DrawerContent style={{ overflow: "scroll" }}>
-                    <DrawerCloseButton />
-                    <DrawerHeader>{`${size} drawer contents`}</DrawerHeader>
-                    <DrawerBody className={styles.optionDrawer}>
-                      <PopupDetail />
-                    </DrawerBody>
-                  </DrawerContent>
-                </Drawer>
-              </Th>
-            </Tr>
-          ))}
-        </Thead>
-      </Table> */}
         </>
     );
 };

@@ -14,7 +14,11 @@ const PopupDetailPageSale = () => {
     const [accountId, setAccountId] = useState(null)
     const [infos, setInfos] = useState<any>([]);
     const [orderBy, setOrderBy] = useState(1) //asc
+    const [filteredList, setFilteredList] = useState(infos);
 
+    useEffect(() => {
+        setFilteredList(infos)
+    }, [infos]);
     const handleGetData = () => {
         chrome.runtime.sendMessage({ action : "login_request" }, ( response ) => {
             if (response && response.success) {
@@ -63,7 +67,7 @@ const PopupDetailPageSale = () => {
                 dataInfos.push({
                     STT : i + 1,
                     AVATAR : dataPageSale[i]?.picture.data.url,
-                    ID : dataPageSale[i].id,
+                    ID_PAGE_SALE : dataPageSale[i].id,
                     NAME_PAGE : dataPageSale[i].name,
                     VERIFIED : dataPageSale[i].verification_status,
                     LIKES : dataPageSale[i].fan_count,
@@ -168,7 +172,8 @@ const PopupDetailPageSale = () => {
                         <div className="command">
                             <div className="command_head" style={{ backgroundColor : "#023302" }}>
                                 <div className="command_flex">
-                                    <SearchBar/>
+                                    <SearchBar filteredList={filteredList} infos={infos}
+                                               setFilteredList={setFilteredList}/>
                                 </div>
                                 <div className="command_flex">
 
@@ -239,18 +244,34 @@ const PopupDetailPageSale = () => {
                             </tr>
                             </thead>
                             <tbody id="tb">
-                            {infos.map(( item, key ) => (
+                            {filteredList.map(( item, key ) => (
                                 <tr className="trInfo" key={key}>
                                     <td className="tdInfo">{item.STT}</td>
                                     <td className="tdInfo">
-                                        <div className="tbstatus">
+                                        <div className="tbstatus"
+                                             style={{
+                                                 display : "flex",
+                                                 justifyContent : "center",
+                                                 alignItems : "center"
+                                             }}
+                                        >
                                             <img src={item.AVATAR} alt=""/>
                                         </div>
                                     </td>
-                                    <td className="tdInfo"> {item.ID}</td>
+                                    <td className="tdInfo"> {item.ID_PAGE_SALE}</td>
                                     <td className="tdInfo"> {item.NAME_PAGE}</td>
                                     <td className="tdInfo"> {item.VERIFIED === "not_verified" ?
-                                        <div><NotVerified/></div> : <Verified/>}</td>
+                                        <div style={{
+                                            display : "flex",
+                                            justifyContent : "center",
+                                            alignItems : "center"
+                                        }}><NotVerified/></div> :
+                                        <div style={{
+                                            display : "flex",
+                                            justifyContent : "center",
+                                            alignItems : "center"
+                                        }}><Verified/></div>
+                                    }</td>
                                     <td className="tdInfo"> {item.LIKES}</td>
                                     <td className="tdInfo"> {item.FOLLOWERS}</td>
                                     <td className="tdInfo"> {item.PERMISSION_POST === 1 ? "true" : "false"}</td>

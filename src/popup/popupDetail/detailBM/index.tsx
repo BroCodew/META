@@ -13,10 +13,14 @@ const PopupDetailBM = () => {
     const [accountId, setAccountId] = useState(null)
     const [infos, setInfos] = useState<any>([]);
     const [orderBy, setOrderBy] = useState(1)
+    const [filteredList, setFilteredList] = useState(infos);
 
 
+    useEffect(() => {
+        setFilteredList(infos)
+    }, [infos]);
     const checkStatusBM = ( status ) => {
-        return status === true ? (
+        return status === 1 ? (
             <div className={styles.statusAccount}>
                 <p className={styles.liveIconLive}></p>
                 <p className={styles.liveTextLive}>LIVE</p>
@@ -92,13 +96,13 @@ const PopupDetailBM = () => {
             for (let i = 0; i < dataBM.length; i++) {
                 dataInfos.push({
                     STT : i + 1,
-                    STATUS : dataBM[i]?.allow_page_management_in_www,
-                    ID : dataBM[i].id,
-                    NAME : dataBM[i].name,
-                    LEVEL : 1,
-                    LIMIT : dataBM[i].can_use_extended_credit,
-                    TIME : dataBM[i].timezone_id,
-                    CREATED_TIME : dataBM[i].created_time,
+                    STATUS_BM : dataBM[i]?.allow_page_management_in_www === true ? 1 : 0,
+                    ID_BM : dataBM[i].id,
+                    NAME_BM : dataBM[i].name,
+                    LEVEL_BM : 1,
+                    LIMIT_BM : dataBM[i].can_use_extended_credit,
+                    TIME_BM : dataBM[i].timezone_id,
+                    CREATED_TIME_BM : dataBM[i].created_time,
 
                 })
             }
@@ -124,7 +128,7 @@ const PopupDetailBM = () => {
     const Title_Account = [
         {
             STT : "STT",
-            STATUS : "STATUS",
+            STATUS_BM : "STATUS",
             ID : "ID",
             NAME : "TÊN",
             LEVEL : "LEVEL",
@@ -143,7 +147,8 @@ const PopupDetailBM = () => {
                         <div className="command">
                             <div className="command_head" style={{ backgroundColor : "#023302" }}>
                                 <div className="command_flex">
-                                    <SearchBar/>
+                                    <SearchBar filteredList={filteredList} infos={infos}
+                                               setFilteredList={setFilteredList}/>
                                 </div>
                                 <div className="command_flex">
 
@@ -168,6 +173,7 @@ const PopupDetailBM = () => {
                                 <th className="sort">STT</th>
                                 <th
                                     className="sort"
+                                    onClick={() => handleSortItemNumber("STATUS_BM")}
                                 >
                                     STATUS
                                 </th>
@@ -176,24 +182,24 @@ const PopupDetailBM = () => {
                                 <th
                                     className="sort"
                                     style={{ minWidth : "100px" }}
-                                    onClick={() => handleSortItemNumber("FOLLOWERS")}
+                                    onClick={() => handleSortItemNumber("LEVEL_BM")}
                                 >
                                     LEVEL
                                 </th>
                                 <th
                                     className="sort"
                                     style={{ minWidth : "70px" }}
-                                    onClick={() => handleSortItemNumber("PERMISSION_POST")}
+                                    onClick={() => handleSortItemNumber("LIMIT_BM")}
                                 >
                                     LIMIT
                                 </th>
                                 <th className="sort" style={{ minWidth : "70px" }}
-                                    onClick={() => handleSortItemNumber("ADS")}
+                                    onClick={() => handleSortItemNumber("TIME_BM")}
                                 >
                                     Múi giờ
                                 </th>
                                 <th className="sort" style={{ minWidth : "70px" }}
-                                    onClick={() => handleSortItemNumber("CREATED_TIME")}
+                                    onClick={() => handleSortItemNumber("CREATED_TIME_BM")}
                                 >
                                     Ngày tạo
                                 </th>
@@ -201,18 +207,18 @@ const PopupDetailBM = () => {
                             </tr>
                             </thead>
                             <tbody id="tb">
-                            {infos.map(( item, key ) => (
+                            {filteredList.map(( item, key ) => (
                                 <tr className="trInfo" key={key}>
                                     <td className="tdInfo">{item.STT}</td>
                                     <td className="tdInfo">
-                                        {checkStatusBM(item.STATUS)}
+                                        {checkStatusBM(item.STATUS_BM)}
                                     </td>
-                                    <td className="tdInfo" style={{ color : "blue" }}> {item.ID}</td>
-                                    <td className="tdInfo"> {item.NAME}</td>
-                                    <td className="tdInfo"> {item.LEVEL}</td>
-                                    <td className="tdInfo"> {item.LIMIT === false ? 'false' : 0} </td>
-                                    <td className="tdInfo"> {item.TIME} : unknown</td>
-                                    <td className="tdInfo"> {convertDateFormat(item.CREATED_TIME)}</td>
+                                    <td className="tdInfo" style={{ color : "blue" }}> {item.ID_BM}</td>
+                                    <td className="tdInfo"> {item.NAME_BM}</td>
+                                    <td className="tdInfo"> {item.LEVEL_BM}</td>
+                                    <td className="tdInfo"> {item.LIMIT_BM === false ? 'false' : 0} </td>
+                                    <td className="tdInfo"> {item.TIME_BM} : unknown</td>
+                                    <td className="tdInfo"> {convertDateFormat(item.CREATED_TIME_BM)}</td>
                                 </tr>
                             ))}
                             </tbody>
