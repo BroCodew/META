@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import styles from "./styles/index.module.scss";
 import {v4 as uuidv4} from "uuid";
 import {Stack, Switch} from "@chakra-ui/react";
+import SearchBar from "../../../component/Search";
 
 const PopupDetailAD = () => {
     const [accessToken, setAccessToken] = useState("");
@@ -408,16 +409,13 @@ const PopupDetailAD = () => {
 
     return (
         <>
-            <div className="app">
+            <div className="app" style={{ padding : 0 }}>
                 <div className="wrapper" id="main">
-                    <div className="sc_heading">
+                    <div className="sc_heading" style={{ padding : 0 }}>
                         <div className="command">
-                            <div className="command_head">
+                            <div className="command_head" style={{ backgroundColor : "#023302" }}>
                                 <div className="command_flex">
-                                    <div className="command_search">
-                                        <i className="fa-solid fa-magnifying-glass"></i>
-                                        <input id="tbfilter" type="text" placeholder="Tìm kiếm"/>
-                                    </div>
+                                    <SearchBar/>
                                 </div>
                                 <div className="command_flex">
                                     <Stack direction='row'>

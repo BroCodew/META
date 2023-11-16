@@ -411,7 +411,7 @@ const PopupDetail = () => {
     return (
         <>
             <Tabs variant='soft-rounded' colorScheme='green'>
-                <TabList className={styles.popupTabList}>
+                <TabList className={styles.popupTabList} style={{ width : 157 }}>
                     <Tab>AD</Tab>
                     <Tab>BM</Tab>
                     <Tab>PAGE</Tab>
@@ -421,10 +421,10 @@ const PopupDetail = () => {
                     <TabPanel style={{ padding : 0 }}>
                         <PopupDetailAD/>
                     </TabPanel>
-                    <TabPanel>
+                    <TabPanel style={{ padding : 0 }}>
                         <PopupDetailBM/>
                     </TabPanel>
-                    <TabPanel>
+                    <TabPanel style={{ padding : 0 }}>
                         <PopupDetailPageSale/>
                     </TabPanel>
 

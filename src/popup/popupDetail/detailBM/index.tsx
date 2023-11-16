@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
-import {Stack, Switch} from "@chakra-ui/react";
 import styles from "../detailPage/styles/index.module.scss";
+import SearchBar from "../../../component/Search";
 
 const PopupDetailBM = () => {
     const today = new Date();
@@ -107,6 +107,12 @@ const PopupDetailBM = () => {
         }
 
     }
+    const handleReloadStorage = ( e: any ) => {
+        window.location.reload();
+        chrome.runtime.sendMessage({ action : "reload_storage" }, function ( response ) {
+            console.log(response);
+        });
+    };
 
     useEffect(() => {
         handleChangeDataRaw()
@@ -131,23 +137,17 @@ const PopupDetailBM = () => {
 
     return (
         <>
-            <div className="app">
+            <div className="app" style={{ padding : 0 }}>
                 <div className="wrapper" id="main">
-                    <div className="sc_heading">
+                    <div className="sc_heading" style={{ padding : 0 }}>
                         <div className="command">
-                            <div className="command_head">
+                            <div className="command_head" style={{ backgroundColor : "#023302" }}>
                                 <div className="command_flex">
-                                    <div className="command_search">
-                                        <i className="fa-solid fa-magnifying-glass"></i>
-                                        <input id="tbfilter" type="text" placeholder="Tìm kiếm"/>
-                                    </div>
+                                    <SearchBar/>
                                 </div>
                                 <div className="command_flex">
-                                    <Stack direction='row'>
-                                        <Switch colorScheme='teal' size='lg'/>
-                                        <span>Change Currency</span>
-                                    </Stack>
-                                    <div className="command_btn" id="btn_export">
+
+                                    <div className="command_btn" id="btn_export" onClick={handleReloadStorage}>
                                         <span>Reload Page</span>
                                         <i className="fa-solid fa-download"></i>
                                     </div>

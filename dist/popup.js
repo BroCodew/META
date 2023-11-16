@@ -11089,12 +11089,11 @@ ___CSS_LOADER_EXPORT___.push([module.id, `@charset "UTF-8";
 .popup {
   overflow-y: auto; /* Kích hoạt thanh cuộn ngang */
   white-space: nowrap;
-  background-color: rgba(217, 101, 18, 0.61);
+  background-color: #5fd162;
   padding: 20px;
   color: white;
-  border-radius: 20px;
   height: 100vh;
-}`, "",{"version":3,"sources":["webpack://./src/popup/popup.scss"],"names":[],"mappings":"AAAA,gBAAgB;AAQhB;EACE,gBAAA,EAAA,+BAAA;EACA,mBAAA;EACA,0CAAA;EACA,aAAA;EACA,YAAA;EACA,mBAAA;EACA,aAAA;AANF","sourcesContent":["// body {\r\n//   display: flex;\r\n//   justify-content: center;\r\n//   align-items: center;\r\n//   height: 100vh;\r\n//   margin: 0;\r\n// }\r\n\r\n.popup {\r\n  overflow-y: auto; /* Kích hoạt thanh cuộn ngang */\r\n  white-space: nowrap;\r\n  background-color: rgb(217 101 18 / 61%);\r\n  padding: 20px;\r\n  color: white;\r\n  border-radius: 20px;\r\n  height: 100vh;\r\n}\r\n\r\n.popup-detail {\r\n}\r\n"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/popup/popup.scss"],"names":[],"mappings":"AAAA,gBAAgB;AAQhB;EACE,gBAAA,EAAA,+BAAA;EACA,mBAAA;EACA,yBAAA;EACA,aAAA;EACA,YAAA;EACA,aAAA;AANF","sourcesContent":["// body {\r\n//   display: flex;\r\n//   justify-content: center;\r\n//   align-items: center;\r\n//   height: 100vh;\r\n//   margin: 0;\r\n// }\r\n\r\n.popup {\r\n  overflow-y: auto; /* Kích hoạt thanh cuộn ngang */\r\n  white-space: nowrap;\r\n  background-color: #5fd162;\r\n  padding: 20px;\r\n  color: white;\r\n  height: 100vh;\r\n}\r\n\r\n.popup-detail {\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -11622,7 +11621,7 @@ module.exports = "data:image/svg+xml;charset=utf8,%3Csvg xmlns=%27http://www.w3.
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["vendors-node_modules_react-dom_client_js","vendors-node_modules_css-loader_dist_runtime_api_js-node_modules_css-loader_dist_runtime_sour-761bc9","vendors-node_modules_css-loader_dist_runtime_getUrl_js-node_modules_chakra-ui_react_dist_chun-8072a9","src_tabs_tabs_tsx"], () => (__webpack_require__("./src/popup/popup.tsx")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["vendors-node_modules_react-dom_client_js","vendors-node_modules_css-loader_dist_runtime_api_js-node_modules_css-loader_dist_runtime_sour-fa7e9e","vendors-node_modules_css-loader_dist_runtime_getUrl_js-node_modules_chakra-ui_react_dist_chun-8072a9","src_tabs_tabs_tsx"], () => (__webpack_require__("./src/popup/popup.tsx")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
