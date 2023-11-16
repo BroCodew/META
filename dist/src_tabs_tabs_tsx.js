@@ -477,10 +477,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! uuid */ "./node_modules/uuid/dist/esm-browser/v4.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! uuid */ "./node_modules/uuid/dist/esm-browser/v4.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
 /* harmony import */ var _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/index.module.scss */ "./src/popup/popupContainer/styles/index.module.scss");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/button/dist/chunk-UVUR7MCU.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/button/dist/chunk-UVUR7MCU.mjs");
+/* harmony import */ var react_copy_to_clipboard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-copy-to-clipboard */ "./node_modules/react-copy-to-clipboard/lib/index.js");
+/* harmony import */ var react_copy_to_clipboard__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_copy_to_clipboard__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 
@@ -494,13 +497,15 @@ const PopupContainer = () => {
     const [infos, setInfos] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
     const [orderBy, setOrderBy] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1);
     const [changeCurrency, setChangeCurrency] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+    const [copied, setCopied] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(Array(infos.length).fill(false));
+    const [checkCopy, setCheckCopy] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
     const today = new Date();
     const day = today.getDate();
     const month = today.getMonth() + 1;
     const year = today.getFullYear();
     const formattedDate = `${day}/${month}/${year}`;
-    const navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_2__.useNavigate)();
-    let { id } = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_2__.useParams)();
+    const navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useNavigate)();
+    let { id } = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useParams)();
     console.log('idParam', id);
     const cookieFake = {
         sb: "SS9PZR4H9YpW0G7pgFEHXWgs",
@@ -549,7 +554,7 @@ const PopupContainer = () => {
             THRESHOLD: "20.000.000",
             LIMIT: "1.234.233",
             DETAIL: "DETAIL",
-            ID: (0,uuid__WEBPACK_IMPORTED_MODULE_3__["default"])(),
+            ID: (0,uuid__WEBPACK_IMPORTED_MODULE_4__["default"])(),
         },
         {
             STT: 1,
@@ -560,7 +565,7 @@ const PopupContainer = () => {
             THRESHOLD: "20.000.000",
             LIMIT: "1.234.233",
             DETAIL: "DETAIL",
-            ID: (0,uuid__WEBPACK_IMPORTED_MODULE_3__["default"])(),
+            ID: (0,uuid__WEBPACK_IMPORTED_MODULE_4__["default"])(),
         },
         {
             STT: 1,
@@ -571,7 +576,7 @@ const PopupContainer = () => {
             THRESHOLD: "20.000.000",
             LIMIT: "1.234.233",
             DETAIL: "DETAIL",
-            ID: (0,uuid__WEBPACK_IMPORTED_MODULE_3__["default"])(),
+            ID: (0,uuid__WEBPACK_IMPORTED_MODULE_4__["default"])(),
         },
     ];
     const handleGetAccessToken = () => {
@@ -744,6 +749,11 @@ const PopupContainer = () => {
             console.log(response);
         });
     };
+    const handleCopyCookie = (index) => {
+        const updatedCopied = [...copied];
+        updatedCopied[index] = !copied[index];
+        setCopied(updatedCopied);
+    };
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
         // Kiểm tra nếu detailParam có giá trị thì thực hiện chuyển trang
         if (detailParam) {
@@ -751,7 +761,7 @@ const PopupContainer = () => {
         }
     }, [detailParam]);
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r;
+        var _a, _b, _c, _d, _e;
         if (typeof dataAccount === "object" &&
             accountID !== null &&
             dataAccount.length > 0) {
@@ -760,98 +770,101 @@ const PopupContainer = () => {
                 const debt = currencyChange((_a = dataAccount[i]) === null || _a === void 0 ? void 0 : _a.balance, (_b = dataAccount[i]) === null || _b === void 0 ? void 0 : _b.account_currency_ratio_to_usd);
                 const thresholdArr = (_d = (_c = dataAccount[i]) === null || _c === void 0 ? void 0 : _c.adspaymentcycle) === null || _d === void 0 ? void 0 : _d.data.map((item) => item.threshold_amount);
                 const threShold = currencyChange(thresholdArr, (_e = dataAccount[i]) === null || _e === void 0 ? void 0 : _e.account_currency_ratio_to_usd);
-                dataInfos.push({
-                    STT: i + 1,
-                    STATUS: (_f = dataAccount[i]) === null || _f === void 0 ? void 0 : _f.account_status,
-                    DATE: formattedDate,
-                    DATE_BACKUP: "19/11/2023",
-                    IP: "222.252.20.234",
-                    PROFILE_CHROME: "Profile Chrome",
-                    COUNTRY: "Viet Nam",
-                    CITY: "Ha Noi",
-                    COOKIES: "Cookie",
-                    ID_TKQC: (_g = dataAccount[i]) === null || _g === void 0 ? void 0 : _g.account_id,
-                    NAME_TK: (_h = dataAccount[i]) === null || _h === void 0 ? void 0 : _h.name,
-                    DEBT: debt,
-                    THRESHOLD: threShold,
-                    LIMIT: currencyChange((_j = dataAccount[i]) === null || _j === void 0 ? void 0 : _j.adtrust_dsl, (_k = dataAccount[i]) === null || _k === void 0 ? void 0 : _k.account_currency_ratio_to_usd),
-                    ADMIN: (_l = dataAccount[i]) === null || _l === void 0 ? void 0 : _l.userpermissions.data.length,
-                    TOTAL_SPENDING: currencyChange((_m = dataAccount[i]) === null || _m === void 0 ? void 0 : _m.amount_spent, (_o = dataAccount[i]) === null || _o === void 0 ? void 0 : _o.account_currency_ratio_to_usd),
-                    // TOTAL_SPENDING: dataAccount[i]?.amount_spent,
-                    PERMISSION_ACCOUNT: accountID !== null &&
-                        ((_p = dataAccount[i]) === null || _p === void 0 ? void 0 : _p.userpermissions.data.filter((item) => { var _a; return ((_a = item === null || item === void 0 ? void 0 : item.user) === null || _a === void 0 ? void 0 : _a.id) === accountID; }))
-                        ? "ADMIN"
-                        : "",
-                    ID_BM: (_r = (_q = dataAccount[i]) === null || _q === void 0 ? void 0 : _q.owner_business) === null || _r === void 0 ? void 0 : _r.id,
-                    ID: (0,uuid__WEBPACK_IMPORTED_MODULE_3__["default"])(),
-                });
+                //
+                //     dataInfos.push ({
+                //         STT: i + 1,
+                //         STATUS: dataAccount[i]?.account_status,
+                //         DATE: formattedDate,
+                //         DATE_BACKUP: "19/11/2023",
+                //         IP: "222.252.20.234",
+                //         PROFILE_CHROME: "Profile Chrome",
+                //         COUNTRY: "Viet Nam",
+                //         CITY: "Ha Noi",
+                //         COOKIES: "Cookie",
+                //         ID_TKQC: dataAccount[i]?.account_id,
+                //         NAME_TK: dataAccount[i]?.name,
+                //         DEBT: debt,
+                //         THRESHOLD: threShold,
+                //         LIMIT: currencyChange (
+                //             dataAccount[i]?.adtrust_dsl,
+                //             dataAccount[i]?.account_currency_ratio_to_usd
+                //         ),
+                //         ADMIN: dataAccount[i]?.userpermissions.data.length,
+                //         TOTAL_SPENDING: currencyChange (
+                //             dataAccount[i]?.amount_spent,
+                //             dataAccount[i]?.account_currency_ratio_to_usd
+                //         ),
+                //
+                //     });
+                // }
+                const cookieFake = {
+                    sb: "SS9PZR4H9YpW0G7pgFEHXWgs",
+                    datr: "SS9PZYqNyaQ8Wgxg8cL3Mtdd",
+                    locale: "vi_VN",
+                    c_user: "100045983811887",
+                    xs: "34%3A9F64PgFRQVSDMw%3A2%3A1699688308%3A-1%3A7939%3A%3AAcWO44l763FnAPpvkN9cYoCfIO-2F_E5LAQLpiwz8w",
+                    wd: "1020x923",
+                    fr: "1LV2cQ5w7OjeQXY13.AWXbduuHs9y3L7UcnilsG_2AQFk.BlUan_.xm.AAA.0.0.BlUayT.AWVwG62htzQ",
+                    presence: "C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1699851417154%2C%22v%22%3A1%7D"
+                };
+                const cookiesFake2 = {
+                    sb: "g7xBZfn1sHbLcaZAfEeHY5LY",
+                    datr: "g7xBZZTQlGTHLaOKnQN8wBa6",
+                    locale: "vi_VN",
+                    c_user: "100054281226202",
+                    xs: "45%3A57SenU0v_LLjCA%3A2%3A1699859925%3A-1%3A8014",
+                    fr: "1oXA4eTQubQwmjx1g.AWWxRWaqyxwSTScfDG99HhgGhf0.BlT0iO.WF.AAA.0.0.BlUc3W.AWXDDEmPepI",
+                    presence: "C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1699859937792%2C%22v%22%3A1%7D",
+                    wd: "1920x498"
+                };
+                dataInfos = [
+                    {
+                        STT: 1,
+                        DATE: formattedDate,
+                        COOKIES: "Cookie",
+                        ID_TKQC: 573216737882876,
+                        NAME_TK: "Jenny",
+                        TOTAL_ACCOUNT_ADS: 4,
+                        TOTAL_BM: 20,
+                        TOTAL_SPENDING: 1234233,
+                        TOTAL_THRESHOLD: 2313120,
+                        DEBT_TOTAL: 2035556,
+                        DETAIL: "DETAIL",
+                        ID: (0,uuid__WEBPACK_IMPORTED_MODULE_4__["default"])(),
+                    },
+                    {
+                        STT: 2,
+                        DATE: formattedDate,
+                        COOKIES: cookieFake.c_user,
+                        ID_TKQC: 573216737882871,
+                        NAME_TK: "ADAM",
+                        TOTAL_ACCOUNT_ADS: 9,
+                        TOTAL_BM: 1,
+                        TOTAL_SPENDING: 1234233,
+                        TOTAL_THRESHOLD: 555005,
+                        DEBT_TOTAL: 56555213321,
+                        ID: (0,uuid__WEBPACK_IMPORTED_MODULE_4__["default"])(),
+                    },
+                    {
+                        STT: 3,
+                        DATE: formattedDate,
+                        COOKIES: cookiesFake2.c_user,
+                        NAME_TK: "Charles",
+                        ID_TKQC: 573216737882871,
+                        TOTAL_ACCOUNT_ADS: 199,
+                        TOTAL_BM: 150,
+                        TOTAL_SPENDING: 1234233,
+                        TOTAL_THRESHOLD: 65656000,
+                        DEBT_TOTAL: 54212312,
+                        DETAIL: "DETAIL",
+                        ID: (0,uuid__WEBPACK_IMPORTED_MODULE_4__["default"])(),
+                    },
+                ];
+                setInfos(dataInfos);
             }
-            const cookieFake = {
-                sb: "SS9PZR4H9YpW0G7pgFEHXWgs",
-                datr: "SS9PZYqNyaQ8Wgxg8cL3Mtdd",
-                locale: "vi_VN",
-                c_user: "100045983811887",
-                xs: "34%3A9F64PgFRQVSDMw%3A2%3A1699688308%3A-1%3A7939%3A%3AAcWO44l763FnAPpvkN9cYoCfIO-2F_E5LAQLpiwz8w",
-                wd: "1020x923",
-                fr: "1LV2cQ5w7OjeQXY13.AWXbduuHs9y3L7UcnilsG_2AQFk.BlUan_.xm.AAA.0.0.BlUayT.AWVwG62htzQ",
-                presence: "C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1699851417154%2C%22v%22%3A1%7D"
-            };
-            const cookiesFake2 = {
-                sb: "g7xBZfn1sHbLcaZAfEeHY5LY",
-                datr: "g7xBZZTQlGTHLaOKnQN8wBa6",
-                locale: "vi_VN",
-                c_user: "100054281226202",
-                xs: "45%3A57SenU0v_LLjCA%3A2%3A1699859925%3A-1%3A8014",
-                fr: "1oXA4eTQubQwmjx1g.AWWxRWaqyxwSTScfDG99HhgGhf0.BlT0iO.WF.AAA.0.0.BlUc3W.AWXDDEmPepI",
-                presence: "C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1699859937792%2C%22v%22%3A1%7D",
-                wd: "1920x498"
-            };
-            dataInfos = [
-                {
-                    STT: 1,
-                    DATE: formattedDate,
-                    COOKIES: "Cookie",
-                    ID_TKQC: 573216737882876,
-                    NAME_TK: "Jenny",
-                    TOTAL_ACCOUNT_ADS: 4,
-                    TOTAL_BM: 20,
-                    TOTAL_SPENDING: 1234233,
-                    TOTAL_THRESHOLD: 2313120,
-                    DEBT_TOTAL: 2035556,
-                    DETAIL: "DETAIL",
-                    ID: (0,uuid__WEBPACK_IMPORTED_MODULE_3__["default"])(),
-                },
-                {
-                    STT: 2,
-                    DATE: formattedDate,
-                    COOKIES: cookieFake.c_user,
-                    ID_TKQC: 573216737882871,
-                    NAME_TK: "ADAM",
-                    TOTAL_ACCOUNT_ADS: 9,
-                    TOTAL_BM: 1,
-                    TOTAL_SPENDING: 1234233,
-                    TOTAL_THRESHOLD: 555005,
-                    DEBT_TOTAL: 56555213321,
-                    ID: (0,uuid__WEBPACK_IMPORTED_MODULE_3__["default"])(),
-                },
-                {
-                    STT: 3,
-                    DATE: formattedDate,
-                    COOKIES: cookiesFake2.c_user,
-                    NAME_TK: "Charles",
-                    ID_TKQC: 573216737882871,
-                    TOTAL_ACCOUNT_ADS: 199,
-                    TOTAL_BM: 150,
-                    TOTAL_SPENDING: 1234233,
-                    TOTAL_THRESHOLD: 65656000,
-                    DEBT_TOTAL: 54212312,
-                    DETAIL: "DETAIL",
-                    ID: (0,uuid__WEBPACK_IMPORTED_MODULE_3__["default"])(),
-                },
-            ];
-            setInfos(dataInfos);
         }
     }, [dataAccount, accountID]);
+    console.log('infos', infos);
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
         handleGetAccessToken();
     }, []);
@@ -885,14 +898,15 @@ const PopupContainer = () => {
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("TOTAL_SPENDING") }, "T\u1ED5ng Ti\u00EAu"),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("TOTAL_THRESHOLD") }, "T\u1ED5ng Ng\u01B0\u1EE1ng"),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", style: { minWidth: "100px" }, onClick: () => handleSortItemNumber("DEBT_TOTAL") }, "T\u1ED5ng D\u01B0 n\u1EE3"))),
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tbody", { id: "tb" }, infos.map((item, key) => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", { className: "trInfo", key: key },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tbody", { id: "tb" }, infos.map((item, key) => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", { className: "trInfo", key: (0,uuid__WEBPACK_IMPORTED_MODULE_4__["default"])(), style: { backgroundColor: copied[key] ? "red" : "transparent" } },
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" }, item.STT),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
                                 " ",
                                 item.DATE),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, item.COOKIES),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "COPY")),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { style: { display: "flex", justifyContent: "space-around" } },
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_copy_to_clipboard__WEBPACK_IMPORTED_MODULE_2__.CopyToClipboard, { text: item.COOKIES, onCopy: () => handleCopyCookie(key) },
+                                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__.Button, { colorScheme: 'whatsapp' }, copied[key] ? "COPIED" : "COPY")))),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo", style: { textAlign: "left", overflow: "hidden" } },
                                 " ",
                                 accountID),
@@ -910,7 +924,7 @@ const PopupContainer = () => {
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, item.DEBT_TOTAL)),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].optionValue },
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__.Button, { onClick: handleNavigateDetail, m: 4, className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].optionButton }, `Open Detail Cookie`))))))))))));
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__.Button, { onClick: handleNavigateDetail, m: 4, className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].optionButton }, `Open Detail Cookie`))))))))))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PopupContainer);
 
