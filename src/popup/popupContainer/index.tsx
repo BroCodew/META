@@ -29,7 +29,9 @@ const PopupContainer = () => {
 
     console.log('filteredList', filteredList)
 
-
+    useEffect(() => {
+        setFilteredList(infos)
+    }, [infos]);
     const coverCookieToString = ( cookies ) => {
         return Object.entries(cookies)
             .map(( [key, value] ) => `${key}=${value}`)
@@ -217,8 +219,10 @@ const PopupContainer = () => {
             navigate(`/popup.html/detail/${detailParam}`);
         }
     }, [detailParam]);
-
     useEffect(() => {
+        console.log("accountID", accountID);
+        console.log("dataAccount.length ", dataAccount);
+
         if (
             typeof dataAccount === "object" &&
             accountID !== null &&
@@ -330,7 +334,7 @@ const PopupContainer = () => {
                         ID : uuidv4(),
                     },
                 ];
-
+                console.log('dataInfos', dataInfos)
                 setInfos(dataInfos)
             }
         }
@@ -339,9 +343,7 @@ const PopupContainer = () => {
     useEffect(() => {
         handleGetAccessToken();
     }, []);
-    useEffect(() => {
-        setFilteredList(infos)
-    }, [infos]);
+
     return (
         <>
             <div className="app">

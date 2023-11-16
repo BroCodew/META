@@ -603,6 +603,9 @@ const PopupContainer = () => {
     const formattedDate = `${day}/${month}/${year}`;
     const navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useNavigate)();
     console.log('filteredList', filteredList);
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        setFilteredList(infos);
+    }, [infos]);
     const coverCookieToString = (cookies) => {
         return Object.entries(cookies)
             .map(([key, value]) => `${key}=${value}`)
@@ -775,6 +778,8 @@ const PopupContainer = () => {
     }, [detailParam]);
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
         var _a, _b, _c, _d, _e;
+        console.log("accountID", accountID);
+        console.log("dataAccount.length ", dataAccount);
         if (typeof dataAccount === "object" &&
             accountID !== null &&
             dataAccount.length > 0) {
@@ -873,6 +878,7 @@ const PopupContainer = () => {
                         ID: (0,uuid__WEBPACK_IMPORTED_MODULE_5__["default"])(),
                     },
                 ];
+                console.log('dataInfos', dataInfos);
                 setInfos(dataInfos);
             }
         }
@@ -881,9 +887,6 @@ const PopupContainer = () => {
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
         handleGetAccessToken();
     }, []);
-    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-        setFilteredList(infos);
-    }, [infos]);
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "app" },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "wrapper", id: "main" },
