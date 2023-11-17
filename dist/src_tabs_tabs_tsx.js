@@ -281,7 +281,22 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.rmlHjgVK3rNjg6YnxqxF {
   font-weight: bold;
   border-bottom: 1px solid rgba(230, 232, 236, 0.8);
   border-radius: 20px;
-}`, "",{"version":3,"sources":["webpack://./src/popup/popupDetail/styles/index.module.scss"],"names":[],"mappings":"AAAA;EACE,kBAAA;EACA,mCAAA;EACA,mCAAA;EACA,iCAAA;EACA,yBAAA;EACA,0BAAA;EACA,mBAAA;AACF;;AAEA;EACE,kBAAA;EACA,mCAAA;EACA,mCAAA;EACA,oCAAA;EACA,yBAAA;AACF;;AAEA;EACE,mBAAA;EACA,WAAA;EACA,eAAA;EACA,YAAA;EACA,YAAA;EACA,4BAAA;AACF;;AAEA;EAGE,uBAAA;EACA,8EAAA;AADF;;AAQA;EACE,WAAA;AALF;;AAQA;EACE,aAAA;EACA,uBAAA;EACA,mBAAA;AALF;AAOE;EACE,WAAA;EACA,YAAA;EACA,sBAAA;EACA,kBAAA;EACA,kBAAA;AALJ;AAQE;EACE,WAAA;AANJ;AASE;EACE,WAAA;EACA,YAAA;EACA,qBAAA;EACA,kBAAA;EACA,kBAAA;AAPJ;AAWE;EACE,UAAA;AATJ;AAaE;EACE,WAAA;EACA,YAAA;EACA,6BAAA;EACA,kBAAA;EACA,kBAAA;AAXJ;AAcE;EACE,kBAAA;AAZJ;;AAiBA;EACE,yBAAA;EACA,cAAA;EACA,iBAAA;EACA,iDAAA;EACA,mBAAA;AAdF","sourcesContent":[".optionTitle {\r\n  text-align: center;\r\n  border: 1px 0 solid #000 !important;\r\n  box-shadow: 2px 2px 2px 2px #888888;\r\n  color: rgb(51 51 51) !important;\r\n  background-color: #fdfdfd;\r\n  font-size: 15px !important;\r\n  line-height: 19.6px;\r\n}\r\n\r\n.optionValue {\r\n  text-align: center;\r\n  border: 1px 0 solid #000 !important;\r\n  box-shadow: 2px 2px 2px 2px #888888;\r\n  color: rgb(102 102 102) !important;\r\n  background-color: #fdfdfd;\r\n}\r\n\r\n.accessToken {\r\n  border-radius: 10px;\r\n  color: #000;\r\n  font-size: 20px;\r\n  width: 180px;\r\n  height: 50px;\r\n  background-color: aquamarine;\r\n}\r\n\r\n.popupContainer {\r\n  // height: 100vh;\r\n  // width: 100vw;\r\n  margin: 50px !important;\r\n  background-color: -webkit-linear-gradient(\r\n                  bottom,\r\n                  #c471f5,\r\n                  #fa71cd\r\n  ) !important;\r\n}\r\n\r\n.optionHeader {\r\n  color: #000;\r\n}\r\n\r\n.statusAccount {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n\r\n  .liveIconLive {\r\n    width: 15px;\r\n    height: 15px;\r\n    background-color: blue;\r\n    margin-right: 10px;\r\n    border-radius: 8px;\r\n  }\r\n\r\n  .liveTextLive {\r\n    color: blue;\r\n  }\r\n\r\n  .liveIconDie {\r\n    width: 15px;\r\n    height: 15px;\r\n    background-color: red;\r\n    margin-right: 10px;\r\n    border-radius: 8px;\r\n\r\n  }\r\n\r\n  .liveTextDie {\r\n    color: red;\r\n\r\n  }\r\n\r\n  .liveIconDebt {\r\n    width: 15px;\r\n    height: 15px;\r\n    background-color: yellowgreen;\r\n    margin-right: 10px;\r\n    border-radius: 8px;\r\n  }\r\n\r\n  .liveTextDebt {\r\n    color: yellowgreen;\r\n\r\n  }\r\n}\r\n\r\n.popupTabList {\r\n  background-color: #f8fdfc;\r\n  color: #07a06b;\r\n  font-weight: bold;\r\n  border-bottom: 1px solid rgba(230, 232, 236, .8);\r\n  border-radius: 20px;\r\n}\r\n\r\n\r\n"],"sourceRoot":""}]);
+}
+
+.e50TZaMUbmGZ9NdXNW2A {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #c5e7f7;
+}
+
+.Cnz892GWgdPwZa07Gtn2 {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}`, "",{"version":3,"sources":["webpack://./src/popup/popupDetail/styles/index.module.scss"],"names":[],"mappings":"AAAA;EACE,kBAAA;EACA,mCAAA;EACA,mCAAA;EACA,iCAAA;EACA,yBAAA;EACA,0BAAA;EACA,mBAAA;AACF;;AAEA;EACE,kBAAA;EACA,mCAAA;EACA,mCAAA;EACA,oCAAA;EACA,yBAAA;AACF;;AAEA;EACE,mBAAA;EACA,WAAA;EACA,eAAA;EACA,YAAA;EACA,YAAA;EACA,4BAAA;AACF;;AAEA;EAGE,uBAAA;EACA,8EAAA;AADF;;AAQA;EACE,WAAA;AALF;;AAQA;EACE,aAAA;EACA,uBAAA;EACA,mBAAA;AALF;AAOE;EACE,WAAA;EACA,YAAA;EACA,sBAAA;EACA,kBAAA;EACA,kBAAA;AALJ;AAQE;EACE,WAAA;AANJ;AASE;EACE,WAAA;EACA,YAAA;EACA,qBAAA;EACA,kBAAA;EACA,kBAAA;AAPJ;AAWE;EACE,UAAA;AATJ;AAaE;EACE,WAAA;EACA,YAAA;EACA,6BAAA;EACA,kBAAA;EACA,kBAAA;AAXJ;AAcE;EACE,kBAAA;AAZJ;;AAiBA;EACE,yBAAA;EACA,cAAA;EACA,iBAAA;EACA,iDAAA;EACA,mBAAA;AAdF;;AAiBA;EACE,aAAA;EACA,uBAAA;EACA,mBAAA;EACA,aAAA;EACA,yBAAA;AAdF;;AAiBA;EACE,eAAA;EACA,QAAA;EACA,SAAA;EACA,gCAAA;AAdF","sourcesContent":[".optionTitle {\r\n  text-align: center;\r\n  border: 1px 0 solid #000 !important;\r\n  box-shadow: 2px 2px 2px 2px #888888;\r\n  color: rgb(51 51 51) !important;\r\n  background-color: #fdfdfd;\r\n  font-size: 15px !important;\r\n  line-height: 19.6px;\r\n}\r\n\r\n.optionValue {\r\n  text-align: center;\r\n  border: 1px 0 solid #000 !important;\r\n  box-shadow: 2px 2px 2px 2px #888888;\r\n  color: rgb(102 102 102) !important;\r\n  background-color: #fdfdfd;\r\n}\r\n\r\n.accessToken {\r\n  border-radius: 10px;\r\n  color: #000;\r\n  font-size: 20px;\r\n  width: 180px;\r\n  height: 50px;\r\n  background-color: aquamarine;\r\n}\r\n\r\n.popupContainer {\r\n  // height: 100vh;\r\n  // width: 100vw;\r\n  margin: 50px !important;\r\n  background-color: -webkit-linear-gradient(\r\n                  bottom,\r\n                  #c471f5,\r\n                  #fa71cd\r\n  ) !important;\r\n}\r\n\r\n.optionHeader {\r\n  color: #000;\r\n}\r\n\r\n.statusAccount {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n\r\n  .liveIconLive {\r\n    width: 15px;\r\n    height: 15px;\r\n    background-color: blue;\r\n    margin-right: 10px;\r\n    border-radius: 8px;\r\n  }\r\n\r\n  .liveTextLive {\r\n    color: blue;\r\n  }\r\n\r\n  .liveIconDie {\r\n    width: 15px;\r\n    height: 15px;\r\n    background-color: red;\r\n    margin-right: 10px;\r\n    border-radius: 8px;\r\n\r\n  }\r\n\r\n  .liveTextDie {\r\n    color: red;\r\n\r\n  }\r\n\r\n  .liveIconDebt {\r\n    width: 15px;\r\n    height: 15px;\r\n    background-color: yellowgreen;\r\n    margin-right: 10px;\r\n    border-radius: 8px;\r\n  }\r\n\r\n  .liveTextDebt {\r\n    color: yellowgreen;\r\n\r\n  }\r\n}\r\n\r\n.popupTabList {\r\n  background-color: #f8fdfc;\r\n  color: #07a06b;\r\n  font-weight: bold;\r\n  border-bottom: 1px solid rgba(230, 232, 236, .8);\r\n  border-radius: 20px;\r\n}\r\n\r\n.spinner-container {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  height: 100vh;\r\n  background-color: #c5e7f7;\r\n}\r\n\r\n.ChakraSpinner {\r\n  position: fixed;\r\n  top: 50%;\r\n  left: 50%;\r\n  transform: translate(-50%, -50%);\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"optionTitle": `rmlHjgVK3rNjg6YnxqxF`,
@@ -296,7 +311,9 @@ ___CSS_LOADER_EXPORT___.locals = {
 	"liveTextDie": `YNXCJN6nafBVRYnQZTGu`,
 	"liveIconDebt": `SHsTSBm0y4SKQI36ugOq`,
 	"liveTextDebt": `DvihbrsTFM1gIh8ACBag`,
-	"popupTabList": `fZEz2N3etzh_S8y1CxIz`
+	"popupTabList": `fZEz2N3etzh_S8y1CxIz`,
+	"spinner-container": `e50TZaMUbmGZ9NdXNW2A`,
+	"ChakraSpinner": `Cnz892GWgdPwZa07Gtn2`
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1461,13 +1478,25 @@ const PopupDetailAD = () => {
                 return "DRAFT";
         }
     };
-    const currencyChange = (current, currentRation) => {
+    const currencyChange = (current, currentRation, field) => {
         let change;
         if (typeof current !== "object") {
-            change = current / currentRation;
+            if (field === "USD") {
+                const currentUsd = current / 100;
+                change = currentUsd / currentRation;
+            }
+            else {
+                change = current / currentRation;
+            }
         }
         else if (Array.isArray(current) && current.length > 0) {
-            change = current[0] / currentRation;
+            if (field === "USD") {
+                const currentUsd = current[0] / 100;
+                change = currentUsd / currentRation;
+            }
+            else {
+                change = current[0] / currentRation;
+            }
         }
         else if (!current) {
             change = 0;
@@ -1537,15 +1566,34 @@ const PopupDetailAD = () => {
             setOrderBy("ASC");
         }
     };
-    const formatCurrencyNormal = (value) => {
+    const formatCurrencyNormal = (value, currency) => {
+        console.log('value', value);
         if (typeof value === 'number') {
-            return value.toLocaleString('en-US');
+            if (currency === "USD") {
+                return (value * 10).toLocaleString('en-US');
+            }
+            else {
+                return value.toLocaleString('en-US');
+            }
         }
         if (typeof value !== 'string') {
             return "--";
         }
-        const cleanedValue = value.replace(/[.,]/g, '');
-        const numberValue = Number(cleanedValue);
+        const cleanedValue = value; //.replace (/[.,]/g, '');
+        let numberValue;
+        if (currency === "USD") {
+            numberValue = Number(cleanedValue) * 10;
+        }
+        else {
+            numberValue = Number(cleanedValue);
+        }
+        // let numberValue;
+        // if (currency === "USD") {
+        //     return numberValue = Number (cleanedValue) * 10;
+        //
+        // } else {
+        //     return numberValue = Number (cleanedValue);
+        // }
         if (isNaN(numberValue)) {
             return "--";
         }
@@ -1555,14 +1603,14 @@ const PopupDetailAD = () => {
     };
     const handleChangeCurrency = () => {
         if (changeCurrency === false) {
-            const debt = dataAccountOriginal.map((item) => formatCurrencyNormal(item.balance));
-            const limit = dataAccountOriginal.map((item) => item.adtrust_dsl === -1 ? "--" : formatCurrencyNormal(item.adtrust_dsl));
-            const total_spending = dataAccountOriginal.map((item) => formatCurrencyNormal(item.amount_spent));
+            const debt = dataAccountOriginal.map((item) => formatCurrencyNormal(item.balance, item.currency));
+            const limit = dataAccountOriginal.map((item) => item.adtrust_dsl === -1 ? "--" : formatCurrencyNormal(item.adtrust_dsl, item.currency));
+            const total_spending = dataAccountOriginal.map((item) => formatCurrencyNormal(item.amount_spent, item.currency));
             const threshold_amount = dataAccountOriginal.flatMap((item) => {
                 if (item.adspaymentcycle && item.adspaymentcycle.data) {
                     return item.adspaymentcycle.data.map((cycleItem) => {
                         const thresholdAmountValue = typeof cycleItem.threshold_amount === "string" ?
-                            formatCurrencyNormal(parseFloat(cycleItem.threshold_amount.replace(/,/g, ''))) :
+                            formatCurrencyNormal(parseFloat(cycleItem.threshold_amount.replace(/,/g, '')), item.currency) :
                             cycleItem.threshold_amount;
                         return thresholdAmountValue;
                     });
@@ -1575,13 +1623,15 @@ const PopupDetailAD = () => {
                 const newState = prevState.map((item, index) => (Object.assign(Object.assign({}, item), { DEBT: debt[index], TOTAL_SPENDING: total_spending[index], LIMIT: limit[index], THRESHOLD: threshold_amount[index] })));
                 return newState;
             });
+            console.log('infos', infos);
             setChangeCurrency(!changeCurrency);
         }
         else {
-            const debt = dataAccountOriginal.map((item) => currencyChange(item.balance, item.account_currency_ratio_to_usd));
-            const limit = dataAccountOriginal.map((item) => item.adtrust_dsl === -1 ? "--" : currencyChange(item.adtrust_dsl, item.account_currency_ratio_to_usd));
-            const total_spending = dataAccountOriginal.map((item) => currencyChange(item.amount_spent, item.account_currency_ratio_to_usd));
+            const debt = dataAccountOriginal.map((item) => currencyChange(item.balance, item.account_currency_ratio_to_usd, item.currency));
+            const limit = dataAccountOriginal.map((item) => item.adtrust_dsl === -1 ? "--" : currencyChange(item.adtrust_dsl, item.account_currency_ratio_to_usd, item.currency));
+            const total_spending = dataAccountOriginal.map((item) => currencyChange(item.amount_spent, item.account_currency_ratio_to_usd, item.currency));
             const ratioValue = dataAccountOriginal.map((item) => item.account_currency_ratio_to_usd);
+            const currencyValue = dataAccountOriginal.map((item) => item.currency);
             const threshold_amount = dataAccountOriginal.flatMap((item) => {
                 if (item.adspaymentcycle && item.adspaymentcycle.data) {
                     return item.adspaymentcycle.data.map((cycleItem) => {
@@ -1592,7 +1642,7 @@ const PopupDetailAD = () => {
                     return "--";
                 }
             });
-            const result = threshold_amount.map((value, index) => currencyChange(value, ratioValue[index]));
+            const result = threshold_amount.map((value, index) => currencyChange(value, ratioValue[index], currencyValue[index]));
             setInfos((prevState) => {
                 const newState = prevState.map((item, index) => {
                     return Object.assign(Object.assign({}, item), { DEBT: debt[index], TOTAL_SPENDING: total_spending[index], LIMIT: limit[index], THRESHOLD: result[index] });
@@ -1609,18 +1659,18 @@ const PopupDetailAD = () => {
         });
     };
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x, _y, _z;
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x, _y, _z, _0, _1, _2, _3;
         if (typeof dataAccount === "object" &&
             accountID !== null &&
             dataAccount.length > 0) {
             let dataInfos = [];
             for (let i = 0; i < dataAccount.length; i++) {
-                const debt = currencyChange((_a = dataAccount[i]) === null || _a === void 0 ? void 0 : _a.balance, (_b = dataAccount[i]) === null || _b === void 0 ? void 0 : _b.account_currency_ratio_to_usd);
-                const thresholdArr = (_d = (_c = dataAccount[i]) === null || _c === void 0 ? void 0 : _c.adspaymentcycle) === null || _d === void 0 ? void 0 : _d.data.map((item) => item.threshold_amount);
-                const threShold = currencyChange(thresholdArr, (_e = dataAccount[i]) === null || _e === void 0 ? void 0 : _e.account_currency_ratio_to_usd);
+                const debt = currencyChange((_a = dataAccount[i]) === null || _a === void 0 ? void 0 : _a.balance, (_b = dataAccount[i]) === null || _b === void 0 ? void 0 : _b.account_currency_ratio_to_usd, (_c = dataAccount[i]) === null || _c === void 0 ? void 0 : _c.currency);
+                const thresholdArr = (_e = (_d = dataAccount[i]) === null || _d === void 0 ? void 0 : _d.adspaymentcycle) === null || _e === void 0 ? void 0 : _e.data.map((item) => item.threshold_amount);
+                const threShold = currencyChange(thresholdArr, (_f = dataAccount[i]) === null || _f === void 0 ? void 0 : _f.account_currency_ratio_to_usd, (_g = dataAccount[i]) === null || _g === void 0 ? void 0 : _g.currency);
                 dataInfos.push({
                     STT: i + 1,
-                    STATUS: (_f = dataAccount[i]) === null || _f === void 0 ? void 0 : _f.account_status,
+                    STATUS: (_h = dataAccount[i]) === null || _h === void 0 ? void 0 : _h.account_status,
                     DATE_AD: formattedDate,
                     DATE_BACKUP: "19/11/2023",
                     IP: "222.252.20.234",
@@ -1628,30 +1678,30 @@ const PopupDetailAD = () => {
                     COUNTRY: "Viet Nam",
                     CITY: "Ha Noi",
                     COOKIES: "Cookie",
-                    ID_TKQC_AD: (_g = dataAccount[i]) === null || _g === void 0 ? void 0 : _g.account_id,
-                    NAME_TK_AD: (_h = dataAccount[i]) === null || _h === void 0 ? void 0 : _h.name,
+                    ID_TKQC_AD: (_j = dataAccount[i]) === null || _j === void 0 ? void 0 : _j.account_id,
+                    NAME_TK_AD: (_k = dataAccount[i]) === null || _k === void 0 ? void 0 : _k.name,
                     DEBT: debt,
                     THRESHOLD: threShold,
-                    LIMIT: currencyChange((_j = dataAccount[i]) === null || _j === void 0 ? void 0 : _j.adtrust_dsl, (_k = dataAccount[i]) === null || _k === void 0 ? void 0 : _k.account_currency_ratio_to_usd),
-                    ADMIN: (_l = dataAccount[i]) === null || _l === void 0 ? void 0 : _l.userpermissions.data.length,
-                    TOTAL_SPENDING: currencyChange((_m = dataAccount[i]) === null || _m === void 0 ? void 0 : _m.amount_spent, (_o = dataAccount[i]) === null || _o === void 0 ? void 0 : _o.account_currency_ratio_to_usd),
+                    LIMIT: currencyChange((_l = dataAccount[i]) === null || _l === void 0 ? void 0 : _l.adtrust_dsl, (_m = dataAccount[i]) === null || _m === void 0 ? void 0 : _m.account_currency_ratio_to_usd, (_o = dataAccount[i]) === null || _o === void 0 ? void 0 : _o.currency),
+                    ADMIN: (_p = dataAccount[i]) === null || _p === void 0 ? void 0 : _p.userpermissions.data.length,
+                    TOTAL_SPENDING: currencyChange((_q = dataAccount[i]) === null || _q === void 0 ? void 0 : _q.amount_spent, (_r = dataAccount[i]) === null || _r === void 0 ? void 0 : _r.account_currency_ratio_to_usd, (_s = dataAccount[i]) === null || _s === void 0 ? void 0 : _s.currency),
                     // TOTAL_SPENDING: dataAccount[i]?.amount_spent,
                     PERMISSION_ACCOUNT: accountID !== null &&
-                        ((_p = dataAccount[i]) === null || _p === void 0 ? void 0 : _p.userpermissions.data.filter((item) => { var _a; return ((_a = item === null || item === void 0 ? void 0 : item.user) === null || _a === void 0 ? void 0 : _a.id) === accountID; }))
+                        ((_t = dataAccount[i]) === null || _t === void 0 ? void 0 : _t.userpermissions.data.filter((item) => { var _a; return ((_a = item === null || item === void 0 ? void 0 : item.user) === null || _a === void 0 ? void 0 : _a.id) === accountID; }))
                         ? "ADMIN"
                         : "",
-                    CURRENCY: (_q = dataAccount[i]) === null || _q === void 0 ? void 0 : _q.currency,
+                    CURRENCY: (_u = dataAccount[i]) === null || _u === void 0 ? void 0 : _u.currency,
                     ACCOUNT_TYPE: dataAccount[i].hasOwnProperty("owner_business")
                         ? "BM"
                         : "CN",
-                    PERMISSION_BM: checkAuthorBM((_r = dataAccount[i]) === null || _r === void 0 ? void 0 : _r.userpermissions.data.filter((item) => item === null || item === void 0 ? void 0 : item.user).map((item, index) => {
+                    PERMISSION_BM: checkAuthorBM((_v = dataAccount[i]) === null || _v === void 0 ? void 0 : _v.userpermissions.data.filter((item) => item === null || item === void 0 ? void 0 : item.user).map((item, index) => {
                         return item === null || item === void 0 ? void 0 : item.role.toString();
                     })),
-                    ID_BM: (_t = (_s = dataAccount[i]) === null || _s === void 0 ? void 0 : _s.owner_business) === null || _t === void 0 ? void 0 : _t.id,
-                    PAYMENT_METHOD: (_w = (_v = (_u = dataAccount[i]) === null || _u === void 0 ? void 0 : _u.all_payment_methods) === null || _v === void 0 ? void 0 : _v.pm_credit_card) === null || _w === void 0 ? void 0 : _w.data.map((item) => item === null || item === void 0 ? void 0 : item.display_string),
-                    TIME_ZONE: `${(_x = dataAccount[i]) === null || _x === void 0 ? void 0 : _x.timezone_offset_hours_utc}  -  ${(_y = dataAccount[i]) === null || _y === void 0 ? void 0 : _y.timezone_name} `,
+                    ID_BM: (_x = (_w = dataAccount[i]) === null || _w === void 0 ? void 0 : _w.owner_business) === null || _x === void 0 ? void 0 : _x.id,
+                    PAYMENT_METHOD: (_0 = (_z = (_y = dataAccount[i]) === null || _y === void 0 ? void 0 : _y.all_payment_methods) === null || _z === void 0 ? void 0 : _z.pm_credit_card) === null || _0 === void 0 ? void 0 : _0.data.map((item) => item === null || item === void 0 ? void 0 : item.display_string),
+                    TIME_ZONE: `${(_1 = dataAccount[i]) === null || _1 === void 0 ? void 0 : _1.timezone_offset_hours_utc}  -  ${(_2 = dataAccount[i]) === null || _2 === void 0 ? void 0 : _2.timezone_name} `,
                     ID: (0,uuid__WEBPACK_IMPORTED_MODULE_3__["default"])(),
-                    CURRENCY_RATIO_USD: (_z = dataAccount[i]) === null || _z === void 0 ? void 0 : _z.account_currency_ratio_to_usd
+                    CURRENCY_RATIO_USD: (_3 = dataAccount[i]) === null || _3 === void 0 ? void 0 : _3.account_currency_ratio_to_usd
                 });
             }
             setInfos(dataInfos);
@@ -1764,11 +1814,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/index.module.scss */ "./src/popup/popupDetail/styles/index.module.scss");
 /* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! uuid */ "./node_modules/uuid/dist/esm-browser/v4.js");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/tabs/dist/chunk-GTRZJDIL.mjs");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/tabs/dist/chunk-BXDFYXZJ.mjs");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/tabs/dist/chunk-IAXSQ4X2.mjs");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/tabs/dist/chunk-4YMKQ5D4.mjs");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/tabs/dist/chunk-KGTDXOFZ.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/spinner/dist/chunk-5PH6ULNP.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/tabs/dist/chunk-GTRZJDIL.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/tabs/dist/chunk-BXDFYXZJ.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/tabs/dist/chunk-IAXSQ4X2.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/tabs/dist/chunk-4YMKQ5D4.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/tabs/dist/chunk-KGTDXOFZ.mjs");
 /* harmony import */ var _detailPage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./detailPage */ "./src/popup/popupDetail/detailPage/index.tsx");
 /* harmony import */ var _detailPageSale__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./detailPageSale */ "./src/popup/popupDetail/detailPageSale/index.tsx");
 /* harmony import */ var _detailBM__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./detailBM */ "./src/popup/popupDetail/detailBM/index.tsx");
@@ -1787,6 +1838,7 @@ const PopupDetail = () => {
     const [infos, setInfos] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
     const [orderBy, setOrderBy] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("ASC");
     const [changeCurrency, setChangeCurrency] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+    const [loading, setLoading] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true);
     const today = new Date();
     const day = today.getDate();
     const month = today.getMonth() + 1;
@@ -2052,25 +2104,31 @@ const PopupDetail = () => {
                     CURRENCY_RATIO_USD: (_z = dataAccount[i]) === null || _z === void 0 ? void 0 : _z.account_currency_ratio_to_usd
                 });
             }
+            setLoading(false);
             setInfos(dataInfos);
         }
     }, [dataAccount, accountID]);
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
         handleGetAccessToken();
     }, []);
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_6__.Tabs, { variant: 'soft-rounded', colorScheme: 'green' },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__.TabList, { className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].popupTabList, style: { width: 157 } },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Tab, null, "AD"),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Tab, null, "BM"),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Tab, null, "PAGE")),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_9__.TabPanels, null,
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_10__.TabPanel, { style: { padding: 0 } },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_detailPage__WEBPACK_IMPORTED_MODULE_2__["default"], null)),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_10__.TabPanel, { style: { padding: 0 } },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_detailBM__WEBPACK_IMPORTED_MODULE_4__["default"], null)),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_10__.TabPanel, { style: { padding: 0 } },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_detailPageSale__WEBPACK_IMPORTED_MODULE_3__["default"], null))))));
+    if (loading) {
+        return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].spinnerContainer },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_6__.Spinner, { thickness: '4px', speed: '0.65s', emptyColor: 'gray.200', color: 'blue.500', size: 'xl', className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].ChakraSpinner })));
+    }
+    return (!loading &&
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__.Tabs, { variant: 'soft-rounded', colorScheme: 'green' },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.TabList, { className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].popupTabList, style: { width: 157 } },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_9__.Tab, null, "AD"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_9__.Tab, null, "BM"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_9__.Tab, null, "PAGE")),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_10__.TabPanels, null,
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_11__.TabPanel, { style: { padding: 0 } },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_detailPage__WEBPACK_IMPORTED_MODULE_2__["default"], null)),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_11__.TabPanel, { style: { padding: 0 } },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_detailBM__WEBPACK_IMPORTED_MODULE_4__["default"], null)),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_11__.TabPanel, { style: { padding: 0 } },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_detailPageSale__WEBPACK_IMPORTED_MODULE_3__["default"], null))))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PopupDetail);
 
