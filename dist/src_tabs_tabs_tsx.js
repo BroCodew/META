@@ -59,7 +59,21 @@ ___CSS_LOADER_EXPORT___.push([module.id, `@charset "UTF-8";
 .Kb1shqkmu2iSw3vMPkdK {
   background-color: rgba(218, 109, 31, 0.5) !important;
   box-shadow: rgba(151, 65, 252, 0.2) 0px 15px 30px -5px;
-}`, "",{"version":3,"sources":["webpack://./src/popup/popupContainer/styles/index.module.scss"],"names":[],"mappings":"AAAA,gBAAgB;AAAhB;EACE,yBAAA;EAIA,gBAAA,EAAA,+BAAA;EACA,mBAAA;EACA,mBAAA;AADF;;AAGA;EAEE,WAAA;AADF;;AAGA;EACE,kBAAA;EACA,mCAAA;EACA,mCAAA;EACA,iCAAA;EACA,yBAAA;EACA,0BAAA;EACA,mBAAA;AAAF;;AAEA;EACE,kBAAA;EACA,mCAAA;EACA,mCAAA;EACA,oCAAA;EACA,yBAAA;AACF;;AACA;EACE,8CAAA;EACA,sDAAA;EACA,oCAAA;AAEF;;AACA;EACE,oDAAA;EACA,sDAAA;AAEF","sourcesContent":[".optionContainer {\r\n  background-color: #fdfdfd;\r\n  //   height: 100vh;\r\n  //   width: 100vw;\r\n  //   display: block;\r\n  overflow-x: auto; /* Kích hoạt thanh cuộn ngang */\r\n  white-space: nowrap;\r\n  border-radius: 10px;\r\n}\r\n.optionHeader {\r\n  //   background-color: #1a0a72;\r\n  color: #000;\r\n}\r\n.optionTitle {\r\n  text-align: center;\r\n  border: 1px 0 solid #000 !important;\r\n  box-shadow: 2px 2px 2px 2px#888888;\r\n  color: rgb(51 51 51) !important;\r\n  background-color: #fdfdfd;\r\n  font-size: 15px !important;\r\n  line-height: 19.6px;\r\n}\r\n.optionValue {\r\n  text-align: center;\r\n  border: 1px 0 solid #000 !important;\r\n  box-shadow: 2px 2px 2px 2px#888888;\r\n  color: rgb(102 102 102) !important;\r\n  background-color: #fdfdfd;\r\n}\r\n.optionButton {\r\n  background-color: rgb(149 208 58) !important;\r\n  box-shadow: rgb(151 65 252 / 0.2) 0px 15px 30px -5px;\r\n  color: rgb(255 255 255) !important;\r\n  //   background-color: #000 !important;\r\n}\r\n.optionDrawer {\r\n  background-color: rgba(218, 109, 31, 0.5) !important;\r\n  box-shadow: rgb(151 65 252 / 0.2) 0px 15px 30px -5px;\r\n}\r\n"],"sourceRoot":""}]);
+}
+
+.NKqgGBZtj4aZk_fC5BPZ {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.sNn1LJz7LDZe0eje9wOu {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}`, "",{"version":3,"sources":["webpack://./src/popup/popupContainer/styles/index.module.scss"],"names":[],"mappings":"AAAA,gBAAgB;AAAhB;EACE,yBAAA;EAIA,gBAAA,EAAA,+BAAA;EACA,mBAAA;EACA,mBAAA;AADF;;AAIA;EAEE,WAAA;AAFF;;AAKA;EACE,kBAAA;EACA,mCAAA;EACA,mCAAA;EACA,iCAAA;EACA,yBAAA;EACA,0BAAA;EACA,mBAAA;AAFF;;AAKA;EACE,kBAAA;EACA,mCAAA;EACA,mCAAA;EACA,oCAAA;EACA,yBAAA;AAFF;;AAKA;EACE,8CAAA;EACA,sDAAA;EACA,oCAAA;AAFF;;AAMA;EACE,oDAAA;EACA,sDAAA;AAHF;;AAMA;EACE,aAAA;EACA,uBAAA;EACA,mBAAA;EACA,aAAA;AAHF;;AAOA;EACE,eAAA;EACA,QAAA;EACA,SAAA;EACA,gCAAA;AAJF","sourcesContent":[".optionContainer {\r\n  background-color: #fdfdfd;\r\n  //   height: 100vh;\r\n  //   width: 100vw;\r\n  //   display: block;\r\n  overflow-x: auto; /* Kích hoạt thanh cuộn ngang */\r\n  white-space: nowrap;\r\n  border-radius: 10px;\r\n}\r\n\r\n.optionHeader {\r\n  //   background-color: #1a0a72;\r\n  color: #000;\r\n}\r\n\r\n.optionTitle {\r\n  text-align: center;\r\n  border: 1px 0 solid #000 !important;\r\n  box-shadow: 2px 2px 2px 2px #888888;\r\n  color: rgb(51 51 51) !important;\r\n  background-color: #fdfdfd;\r\n  font-size: 15px !important;\r\n  line-height: 19.6px;\r\n}\r\n\r\n.optionValue {\r\n  text-align: center;\r\n  border: 1px 0 solid #000 !important;\r\n  box-shadow: 2px 2px 2px 2px #888888;\r\n  color: rgb(102 102 102) !important;\r\n  background-color: #fdfdfd;\r\n}\r\n\r\n.optionButton {\r\n  background-color: rgb(149 208 58) !important;\r\n  box-shadow: rgb(151 65 252 / 0.2) 0px 15px 30px -5px;\r\n  color: rgb(255 255 255) !important;\r\n  //   background-color: #000 !important;\r\n}\r\n\r\n.optionDrawer {\r\n  background-color: rgba(218, 109, 31, 0.5) !important;\r\n  box-shadow: rgb(151 65 252 / 0.2) 0px 15px 30px -5px;\r\n}\r\n\r\n.spinnerContainer {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  height: 100vh;\r\n  //background-color: #c5e7f7;\r\n}\r\n\r\n.ChakraSpinner {\r\n  position: fixed;\r\n  top: 50%;\r\n  left: 50%;\r\n  transform: translate(-50%, -50%);\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"optionContainer": `A2UUefaji4lTTiKiYU_T`,
@@ -67,7 +81,9 @@ ___CSS_LOADER_EXPORT___.locals = {
 	"optionTitle": `oCjY3nNs6Rb7N4Sgbe2H`,
 	"optionValue": `MN5puIbk4n9IZJBN_g4Q`,
 	"optionButton": `Dx7u8KaO6weBx84OuNnE`,
-	"optionDrawer": `Kb1shqkmu2iSw3vMPkdK`
+	"optionDrawer": `Kb1shqkmu2iSw3vMPkdK`,
+	"spinnerContainer": `NKqgGBZtj4aZk_fC5BPZ`,
+	"ChakraSpinner": `sNn1LJz7LDZe0eje9wOu`
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -283,7 +299,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.rmlHjgVK3rNjg6YnxqxF {
   border-radius: 20px;
 }
 
-.e50TZaMUbmGZ9NdXNW2A {
+.vt82hkWOa28Gdq0fiNJA {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -296,7 +312,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.rmlHjgVK3rNjg6YnxqxF {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}`, "",{"version":3,"sources":["webpack://./src/popup/popupDetail/styles/index.module.scss"],"names":[],"mappings":"AAAA;EACE,kBAAA;EACA,mCAAA;EACA,mCAAA;EACA,iCAAA;EACA,yBAAA;EACA,0BAAA;EACA,mBAAA;AACF;;AAEA;EACE,kBAAA;EACA,mCAAA;EACA,mCAAA;EACA,oCAAA;EACA,yBAAA;AACF;;AAEA;EACE,mBAAA;EACA,WAAA;EACA,eAAA;EACA,YAAA;EACA,YAAA;EACA,4BAAA;AACF;;AAEA;EAGE,uBAAA;EACA,8EAAA;AADF;;AAQA;EACE,WAAA;AALF;;AAQA;EACE,aAAA;EACA,uBAAA;EACA,mBAAA;AALF;AAOE;EACE,WAAA;EACA,YAAA;EACA,sBAAA;EACA,kBAAA;EACA,kBAAA;AALJ;AAQE;EACE,WAAA;AANJ;AASE;EACE,WAAA;EACA,YAAA;EACA,qBAAA;EACA,kBAAA;EACA,kBAAA;AAPJ;AAWE;EACE,UAAA;AATJ;AAaE;EACE,WAAA;EACA,YAAA;EACA,6BAAA;EACA,kBAAA;EACA,kBAAA;AAXJ;AAcE;EACE,kBAAA;AAZJ;;AAiBA;EACE,yBAAA;EACA,cAAA;EACA,iBAAA;EACA,iDAAA;EACA,mBAAA;AAdF;;AAiBA;EACE,aAAA;EACA,uBAAA;EACA,mBAAA;EACA,aAAA;EACA,yBAAA;AAdF;;AAiBA;EACE,eAAA;EACA,QAAA;EACA,SAAA;EACA,gCAAA;AAdF","sourcesContent":[".optionTitle {\r\n  text-align: center;\r\n  border: 1px 0 solid #000 !important;\r\n  box-shadow: 2px 2px 2px 2px #888888;\r\n  color: rgb(51 51 51) !important;\r\n  background-color: #fdfdfd;\r\n  font-size: 15px !important;\r\n  line-height: 19.6px;\r\n}\r\n\r\n.optionValue {\r\n  text-align: center;\r\n  border: 1px 0 solid #000 !important;\r\n  box-shadow: 2px 2px 2px 2px #888888;\r\n  color: rgb(102 102 102) !important;\r\n  background-color: #fdfdfd;\r\n}\r\n\r\n.accessToken {\r\n  border-radius: 10px;\r\n  color: #000;\r\n  font-size: 20px;\r\n  width: 180px;\r\n  height: 50px;\r\n  background-color: aquamarine;\r\n}\r\n\r\n.popupContainer {\r\n  // height: 100vh;\r\n  // width: 100vw;\r\n  margin: 50px !important;\r\n  background-color: -webkit-linear-gradient(\r\n                  bottom,\r\n                  #c471f5,\r\n                  #fa71cd\r\n  ) !important;\r\n}\r\n\r\n.optionHeader {\r\n  color: #000;\r\n}\r\n\r\n.statusAccount {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n\r\n  .liveIconLive {\r\n    width: 15px;\r\n    height: 15px;\r\n    background-color: blue;\r\n    margin-right: 10px;\r\n    border-radius: 8px;\r\n  }\r\n\r\n  .liveTextLive {\r\n    color: blue;\r\n  }\r\n\r\n  .liveIconDie {\r\n    width: 15px;\r\n    height: 15px;\r\n    background-color: red;\r\n    margin-right: 10px;\r\n    border-radius: 8px;\r\n\r\n  }\r\n\r\n  .liveTextDie {\r\n    color: red;\r\n\r\n  }\r\n\r\n  .liveIconDebt {\r\n    width: 15px;\r\n    height: 15px;\r\n    background-color: yellowgreen;\r\n    margin-right: 10px;\r\n    border-radius: 8px;\r\n  }\r\n\r\n  .liveTextDebt {\r\n    color: yellowgreen;\r\n\r\n  }\r\n}\r\n\r\n.popupTabList {\r\n  background-color: #f8fdfc;\r\n  color: #07a06b;\r\n  font-weight: bold;\r\n  border-bottom: 1px solid rgba(230, 232, 236, .8);\r\n  border-radius: 20px;\r\n}\r\n\r\n.spinner-container {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  height: 100vh;\r\n  background-color: #c5e7f7;\r\n}\r\n\r\n.ChakraSpinner {\r\n  position: fixed;\r\n  top: 50%;\r\n  left: 50%;\r\n  transform: translate(-50%, -50%);\r\n}\r\n"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/popup/popupDetail/styles/index.module.scss"],"names":[],"mappings":"AAAA;EACE,kBAAA;EACA,mCAAA;EACA,mCAAA;EACA,iCAAA;EACA,yBAAA;EACA,0BAAA;EACA,mBAAA;AACF;;AAEA;EACE,kBAAA;EACA,mCAAA;EACA,mCAAA;EACA,oCAAA;EACA,yBAAA;AACF;;AAEA;EACE,mBAAA;EACA,WAAA;EACA,eAAA;EACA,YAAA;EACA,YAAA;EACA,4BAAA;AACF;;AAEA;EAGE,uBAAA;EACA,8EAAA;AADF;;AAQA;EACE,WAAA;AALF;;AAQA;EACE,aAAA;EACA,uBAAA;EACA,mBAAA;AALF;AAOE;EACE,WAAA;EACA,YAAA;EACA,sBAAA;EACA,kBAAA;EACA,kBAAA;AALJ;AAQE;EACE,WAAA;AANJ;AASE;EACE,WAAA;EACA,YAAA;EACA,qBAAA;EACA,kBAAA;EACA,kBAAA;AAPJ;AAWE;EACE,UAAA;AATJ;AAaE;EACE,WAAA;EACA,YAAA;EACA,6BAAA;EACA,kBAAA;EACA,kBAAA;AAXJ;AAcE;EACE,kBAAA;AAZJ;;AAiBA;EACE,yBAAA;EACA,cAAA;EACA,iBAAA;EACA,iDAAA;EACA,mBAAA;AAdF;;AAiBA;EACE,aAAA;EACA,uBAAA;EACA,mBAAA;EACA,aAAA;EACA,yBAAA;AAdF;;AAiBA;EACE,eAAA;EACA,QAAA;EACA,SAAA;EACA,gCAAA;AAdF","sourcesContent":[".optionTitle {\r\n  text-align: center;\r\n  border: 1px 0 solid #000 !important;\r\n  box-shadow: 2px 2px 2px 2px #888888;\r\n  color: rgb(51 51 51) !important;\r\n  background-color: #fdfdfd;\r\n  font-size: 15px !important;\r\n  line-height: 19.6px;\r\n}\r\n\r\n.optionValue {\r\n  text-align: center;\r\n  border: 1px 0 solid #000 !important;\r\n  box-shadow: 2px 2px 2px 2px #888888;\r\n  color: rgb(102 102 102) !important;\r\n  background-color: #fdfdfd;\r\n}\r\n\r\n.accessToken {\r\n  border-radius: 10px;\r\n  color: #000;\r\n  font-size: 20px;\r\n  width: 180px;\r\n  height: 50px;\r\n  background-color: aquamarine;\r\n}\r\n\r\n.popupContainer {\r\n  // height: 100vh;\r\n  // width: 100vw;\r\n  margin: 50px !important;\r\n  background-color: -webkit-linear-gradient(\r\n                  bottom,\r\n                  #c471f5,\r\n                  #fa71cd\r\n  ) !important;\r\n}\r\n\r\n.optionHeader {\r\n  color: #000;\r\n}\r\n\r\n.statusAccount {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n\r\n  .liveIconLive {\r\n    width: 15px;\r\n    height: 15px;\r\n    background-color: blue;\r\n    margin-right: 10px;\r\n    border-radius: 8px;\r\n  }\r\n\r\n  .liveTextLive {\r\n    color: blue;\r\n  }\r\n\r\n  .liveIconDie {\r\n    width: 15px;\r\n    height: 15px;\r\n    background-color: red;\r\n    margin-right: 10px;\r\n    border-radius: 8px;\r\n\r\n  }\r\n\r\n  .liveTextDie {\r\n    color: red;\r\n\r\n  }\r\n\r\n  .liveIconDebt {\r\n    width: 15px;\r\n    height: 15px;\r\n    background-color: yellowgreen;\r\n    margin-right: 10px;\r\n    border-radius: 8px;\r\n  }\r\n\r\n  .liveTextDebt {\r\n    color: yellowgreen;\r\n\r\n  }\r\n}\r\n\r\n.popupTabList {\r\n  background-color: #f8fdfc;\r\n  color: #07a06b;\r\n  font-weight: bold;\r\n  border-bottom: 1px solid rgba(230, 232, 236, .8);\r\n  border-radius: 20px;\r\n}\r\n\r\n.spinnerContainer {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  height: 100vh;\r\n  background-color: #c5e7f7;\r\n}\r\n\r\n.ChakraSpinner {\r\n  position: fixed;\r\n  top: 50%;\r\n  left: 50%;\r\n  transform: translate(-50%, -50%);\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"optionTitle": `rmlHjgVK3rNjg6YnxqxF`,
@@ -312,7 +328,7 @@ ___CSS_LOADER_EXPORT___.locals = {
 	"liveIconDebt": `SHsTSBm0y4SKQI36ugOq`,
 	"liveTextDebt": `DvihbrsTFM1gIh8ACBag`,
 	"popupTabList": `fZEz2N3etzh_S8y1CxIz`,
-	"spinner-container": `e50TZaMUbmGZ9NdXNW2A`,
+	"spinnerContainer": `vt82hkWOa28Gdq0fiNJA`,
 	"ChakraSpinner": `Cnz892GWgdPwZa07Gtn2`
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
@@ -590,9 +606,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! uuid */ "./node_modules/uuid/dist/esm-browser/v4.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
 /* harmony import */ var _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/index.module.scss */ "./src/popup/popupContainer/styles/index.module.scss");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/button/dist/chunk-UVUR7MCU.mjs");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/layout/dist/chunk-ZHMYA64R.mjs");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/checkbox/dist/chunk-CWVAJCXJ.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/spinner/dist/chunk-5PH6ULNP.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/button/dist/chunk-UVUR7MCU.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/layout/dist/chunk-ZHMYA64R.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/checkbox/dist/chunk-CWVAJCXJ.mjs");
 /* harmony import */ var react_copy_to_clipboard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-copy-to-clipboard */ "./node_modules/react-copy-to-clipboard/lib/index.js");
 /* harmony import */ var react_copy_to_clipboard__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_copy_to_clipboard__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _component_Search__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../component/Search */ "./src/component/Search/index.tsx");
@@ -610,9 +627,9 @@ const PopupContainer = () => {
     const [accountID, setAccountID] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
     const [infos, setInfos] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
     const [orderBy, setOrderBy] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1);
-    const [changeCurrency, setChangeCurrency] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
     const [copied, setCopied] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(Array(infos.length).fill(false));
     const [filteredList, setFilteredList] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(infos);
+    const [loading, setLoading] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true);
     const today = new Date();
     const day = today.getDate();
     const month = today.getMonth() + 1;
@@ -620,14 +637,10 @@ const PopupContainer = () => {
     const formattedDate = `${day}/${month}/${year}`;
     const navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useNavigate)();
     console.log('filteredList', filteredList);
+    console.log('infos', infos);
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
         setFilteredList(infos);
     }, [infos]);
-    const coverCookieToString = (cookies) => {
-        return Object.entries(cookies)
-            .map(([key, value]) => `${key}=${value}`)
-            .join(";");
-    };
     const handleGetAccessToken = () => {
         chrome.runtime.sendMessage({ action: "login_request" }, (response) => {
             if (response && response.success) {
@@ -670,19 +683,6 @@ const PopupContainer = () => {
         const result = change.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,");
         return result;
     };
-    function convertCurrencyToNumber(value) {
-        if (typeof value === 'number') {
-            return value;
-        }
-        else if (typeof value === 'string') {
-            const sanitizedValue = value.replace(/[^0-9.-]/g, ''); // Loại bỏ tất cả các ký tự không phải số hoặc dấu chấm
-            const numberValue = parseFloat(sanitizedValue);
-            return isNaN(numberValue) ? 0 : numberValue;
-        }
-        else {
-            return 0; // Hoặc giá trị mặc định tùy thuộc vào yêu cầu của bạn
-        }
-    }
     const compareData = (a, b, field) => {
         if (a[field] < b[field]) {
             return -1;
@@ -711,76 +711,12 @@ const PopupContainer = () => {
             });
         }
     };
-    const formatCurrencyNormal = (value) => {
-        if (typeof value === 'number') {
-            return value.toLocaleString('en-US');
-        }
-        if (typeof value !== 'string') {
-            return "--";
-        }
-        const cleanedValue = value.replace(/[.,]/g, '');
-        const numberValue = Number(cleanedValue);
-        if (isNaN(numberValue)) {
-            return "--";
-        }
-        else {
-            return numberValue.toLocaleString('en-US');
-        }
-    };
-    const handleChangeCurrency = () => {
-        if (changeCurrency === false) {
-            const debt = dataAccountOriginal.map((item) => formatCurrencyNormal(item.balance));
-            const limit = dataAccountOriginal.map((item) => item.adtrust_dsl === -1 ? "--" : formatCurrencyNormal(item.adtrust_dsl));
-            const TOTAL_SPENDING_HOME = dataAccountOriginal.map((item) => formatCurrencyNormal(item.amount_spent));
-            const threshold_amount = dataAccountOriginal.flatMap((item) => {
-                if (item.adspaymentcycle && item.adspaymentcycle.data) {
-                    return item.adspaymentcycle.data.map((cycleItem) => {
-                        const thresholdAmountValue = typeof cycleItem.threshold_amount === "string" ?
-                            formatCurrencyNormal(parseFloat(cycleItem.threshold_amount.replace(/,/g, ''))) :
-                            cycleItem.threshold_amount;
-                        return thresholdAmountValue;
-                    });
-                }
-                else {
-                    return "--";
-                }
-            });
-            setInfos((prevState) => {
-                const newState = prevState.map((item, index) => (Object.assign(Object.assign({}, item), { DEBT: debt[index], TOTAL_SPENDING_HOME: TOTAL_SPENDING_HOME[index], LIMIT: limit[index], THRESHOLD: threshold_amount[index] })));
-                return newState;
-            });
-            setChangeCurrency(!changeCurrency);
-        }
-        else {
-            const debt = dataAccountOriginal.map((item) => currencyChange(item.balance, item.account_currency_ratio_to_usd));
-            const limit = dataAccountOriginal.map((item) => item.adtrust_dsl === -1 ? "--" : currencyChange(item.adtrust_dsl, item.account_currency_ratio_to_usd));
-            const TOTAL_SPENDING_HOME = dataAccountOriginal.map((item) => currencyChange(item.amount_spent, item.account_currency_ratio_to_usd));
-            const ratioValue = dataAccountOriginal.map((item) => item.account_currency_ratio_to_usd);
-            const threshold_amount = dataAccountOriginal.flatMap((item) => {
-                if (item.adspaymentcycle && item.adspaymentcycle.data) {
-                    return item.adspaymentcycle.data.map((cycleItem) => {
-                        return cycleItem.threshold_amount;
-                    });
-                }
-                else {
-                    return "--";
-                }
-            });
-            const result = threshold_amount.map((value, index) => currencyChange(value, ratioValue[index]));
-            setInfos((prevState) => {
-                const newState = prevState.map((item, index) => {
-                    return Object.assign(Object.assign({}, item), { DEBT: debt[index], TOTAL_SPENDING_HOME: TOTAL_SPENDING_HOME[index], LIMIT: limit[index], THRESHOLD: result[index] });
-                });
-                return newState;
-            });
-            setChangeCurrency(!changeCurrency);
-        }
-    };
-    const handleReloadStorage = (e) => {
-        window.location.reload();
-        chrome.runtime.sendMessage({ action: "reload_storage" }, function (response) {
-            console.log(response);
+    const convertNumberToUsd = (value) => {
+        let USDollar = new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD',
         });
+        return USDollar.format(value);
     };
     const handleCopyCookie = (index) => {
         const updatedCopied = [...copied];
@@ -797,169 +733,176 @@ const PopupContainer = () => {
         var _a, _b, _c, _d, _e;
         console.log("accountID", accountID);
         console.log("dataAccount.length ", dataAccount);
-        if (typeof dataAccount === "object" &&
-            accountID !== null &&
-            dataAccount.length > 0) {
-            let dataInfos = [];
-            for (let i = 0; i < dataAccount.length; i++) {
-                const debt = currencyChange((_a = dataAccount[i]) === null || _a === void 0 ? void 0 : _a.balance, (_b = dataAccount[i]) === null || _b === void 0 ? void 0 : _b.account_currency_ratio_to_usd);
-                const thresholdArr = (_d = (_c = dataAccount[i]) === null || _c === void 0 ? void 0 : _c.adspaymentcycle) === null || _d === void 0 ? void 0 : _d.data.map((item) => item.threshold_amount);
-                const threShold = currencyChange(thresholdArr, (_e = dataAccount[i]) === null || _e === void 0 ? void 0 : _e.account_currency_ratio_to_usd);
-                //
-                //     dataInfos.push ({
-                //         STT: i + 1,
-                //         STATUS: dataAccount[i]?.account_status,
-                //         DATE: formattedDate,
-                //         DATE_BACKUP: "19/11/2023",
-                //         IP: "222.252.20.234",
-                //         PROFILE_CHROME: "Profile Chrome",
-                //         COUNTRY: "Viet Nam",
-                //         CITY: "Ha Noi",
-                //         COOKIES: "Cookie",
-                //         ID_TKQC_HOME: dataAccount[i]?.account_id,
-                //         NAME_TK_HOME: dataAccount[i]?.name,
-                //         DEBT: debt,
-                //         THRESHOLD: threShold,
-                //         LIMIT: currencyChange (
-                //             dataAccount[i]?.adtrust_dsl,
-                //             dataAccount[i]?.account_currency_ratio_to_usd
-                //         ),
-                //         ADMIN: dataAccount[i]?.userpermissions.data.length,
-                //         TOTAL_SPENDING_HOME: currencyChange (
-                //             dataAccount[i]?.amount_spent,
-                //             dataAccount[i]?.account_currency_ratio_to_usd
-                //         ),
-                //
-                //     });
-                // }
-                const cookieFake = {
-                    sb: "SS9PZR4H9YpW0G7pgFEHXWgs",
-                    datr: "SS9PZYqNyaQ8Wgxg8cL3Mtdd",
-                    locale: "vi_VN",
-                    c_user: "100045983811887",
-                    xs: "34%3A9F64PgFRQVSDMw%3A2%3A1699688308%3A-1%3A7939%3A%3AAcWO44l763FnAPpvkN9cYoCfIO-2F_E5LAQLpiwz8w",
-                    wd: "1020x923",
-                    fr: "1LV2cQ5w7OjeQXY13.AWXbduuHs9y3L7UcnilsG_2AQFk.BlUan_.xm.AAA.0.0.BlUayT.AWVwG62htzQ",
-                    presence: "C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1699851417154%2C%22v%22%3A1%7D"
-                };
-                const cookiesFake2 = {
-                    sb: "g7xBZfn1sHbLcaZAfEeHY5LY",
-                    datr: "g7xBZZTQlGTHLaOKnQN8wBa6",
-                    locale: "vi_VN",
-                    c_user: "100054281226202",
-                    xs: "45%3A57SenU0v_LLjCA%3A2%3A1699859925%3A-1%3A8014",
-                    fr: "1oXA4eTQubQwmjx1g.AWWxRWaqyxwSTScfDG99HhgGhf0.BlT0iO.WF.AAA.0.0.BlUc3W.AWXDDEmPepI",
-                    presence: "C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1699859937792%2C%22v%22%3A1%7D",
-                    wd: "1920x498"
-                };
-                dataInfos = [
-                    {
-                        STT: 1,
-                        DATE_HOME: formattedDate,
-                        COOKIES: "Cookie",
-                        ID_TKQC_HOME: 573216737882876,
-                        NAME_TK_HOME: "Jenny",
-                        TOTAL_ACCOUNT_ADS: 4,
-                        TOTAL_BM: 20,
-                        TOTAL_SPENDING_HOME: 1234233,
-                        TOTAL_THRESHOLD: 2313120,
-                        DEBT_TOTAL: 2035556,
-                        DETAIL: "DETAIL",
-                        ID: (0,uuid__WEBPACK_IMPORTED_MODULE_5__["default"])(),
-                    },
-                    {
-                        STT: 2,
-                        DATE_HOME: formattedDate,
-                        COOKIES: 15610562311,
-                        ID_TKQC_HOME: 8573216737882871,
-                        NAME_TK_HOME: "ADAM",
-                        TOTAL_ACCOUNT_ADS: 9,
-                        TOTAL_BM: 1,
-                        TOTAL_SPENDING_HOME: 1234233,
-                        TOTAL_THRESHOLD: 555005,
-                        DEBT_TOTAL: 56555213321,
-                        ID: (0,uuid__WEBPACK_IMPORTED_MODULE_5__["default"])(),
-                    },
-                    {
-                        STT: 3,
-                        DATE_HOME: formattedDate,
-                        COOKIES: cookiesFake2.c_user,
-                        NAME_TK_HOME: "Charles",
-                        ID_TKQC_HOME: 4573216737882871,
-                        TOTAL_ACCOUNT_ADS: 199,
-                        TOTAL_BM: 150,
-                        TOTAL_SPENDING_HOME: 1234233,
-                        TOTAL_THRESHOLD: 65656000,
-                        DEBT_TOTAL: 54212312,
-                        DETAIL: "DETAIL",
-                        ID: (0,uuid__WEBPACK_IMPORTED_MODULE_5__["default"])(),
-                    },
-                ];
-                console.log('dataInfos', dataInfos);
-                setInfos(dataInfos);
-            }
+        // if (
+        //     typeof dataAccount === "object" &&
+        //     accountID !== null &&
+        //     dataAccount.length > 0
+        // ) {
+        let dataInfos = [];
+        for (let i = 0; i < dataAccount.length; i++) {
+            const debt = currencyChange((_a = dataAccount[i]) === null || _a === void 0 ? void 0 : _a.balance, (_b = dataAccount[i]) === null || _b === void 0 ? void 0 : _b.account_currency_ratio_to_usd);
+            const thresholdArr = (_d = (_c = dataAccount[i]) === null || _c === void 0 ? void 0 : _c.adspaymentcycle) === null || _d === void 0 ? void 0 : _d.data.map((item) => item.threshold_amount);
+            const threShold = currencyChange(thresholdArr, (_e = dataAccount[i]) === null || _e === void 0 ? void 0 : _e.account_currency_ratio_to_usd);
+            //
+            //     dataInfos.push ({
+            //         STT: i + 1,
+            //         STATUS: dataAccount[i]?.account_status,
+            //         DATE: formattedDate,
+            //         DATE_BACKUP: "19/11/2023",
+            //         IP: "222.252.20.234",
+            //         PROFILE_CHROME: "Profile Chrome",
+            //         COUNTRY: "Viet Nam",
+            //         CITY: "Ha Noi",
+            //         COOKIES: "Cookie",
+            //         ID_TKQC_HOME: dataAccount[i]?.account_id,
+            //         NAME_TK_HOME: dataAccount[i]?.name,
+            //         DEBT: debt,
+            //         THRESHOLD: threShold,
+            //         LIMIT: currencyChange (
+            //             dataAccount[i]?.adtrust_dsl,
+            //             dataAccount[i]?.account_currency_ratio_to_usd
+            //         ),
+            //         ADMIN: dataAccount[i]?.userpermissions.data.length,
+            //         TOTAL_SPENDING_HOME: currencyChange (
+            //             dataAccount[i]?.amount_spent,
+            //             dataAccount[i]?.account_currency_ratio_to_usd
+            //         ),
+            //
+            //     });
+            // }
+            const cookieFake = {
+                sb: "SS9PZR4H9YpW0G7pgFEHXWgs",
+                datr: "SS9PZYqNyaQ8Wgxg8cL3Mtdd",
+                locale: "vi_VN",
+                c_user: "100045983811887",
+                xs: "34%3A9F64PgFRQVSDMw%3A2%3A1699688308%3A-1%3A7939%3A%3AAcWO44l763FnAPpvkN9cYoCfIO-2F_E5LAQLpiwz8w",
+                wd: "1020x923",
+                fr: "1LV2cQ5w7OjeQXY13.AWXbduuHs9y3L7UcnilsG_2AQFk.BlUan_.xm.AAA.0.0.BlUayT.AWVwG62htzQ",
+                presence: "C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1699851417154%2C%22v%22%3A1%7D"
+            };
+            const cookiesFake2 = {
+                sb: "g7xBZfn1sHbLcaZAfEeHY5LY",
+                datr: "g7xBZZTQlGTHLaOKnQN8wBa6",
+                locale: "vi_VN",
+                c_user: "100054281226202",
+                xs: "45%3A57SenU0v_LLjCA%3A2%3A1699859925%3A-1%3A8014",
+                fr: "1oXA4eTQubQwmjx1g.AWWxRWaqyxwSTScfDG99HhgGhf0.BlT0iO.WF.AAA.0.0.BlUc3W.AWXDDEmPepI",
+                presence: "C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1699859937792%2C%22v%22%3A1%7D",
+                wd: "1920x498"
+            };
+            dataInfos = [
+                {
+                    STT: 1,
+                    DATE_HOME: formattedDate,
+                    COOKIES: "Cookie",
+                    ID_TKQC_HOME: 573216737882876,
+                    NAME_TK_HOME: "Jenny",
+                    TOTAL_ACCOUNT_ADS: 4,
+                    TOTAL_BM: 20,
+                    TOTAL_SPENDING_HOME: 1234233,
+                    TOTAL_THRESHOLD: 2313120,
+                    DEBT_TOTAL: 2035556,
+                    DETAIL: "DETAIL",
+                    ID: (0,uuid__WEBPACK_IMPORTED_MODULE_5__["default"])(),
+                },
+                {
+                    STT: 2,
+                    DATE_HOME: formattedDate,
+                    COOKIES: 15610562311,
+                    ID_TKQC_HOME: 8573216737882871,
+                    NAME_TK_HOME: "ADAM",
+                    TOTAL_ACCOUNT_ADS: 9,
+                    TOTAL_BM: 1,
+                    TOTAL_SPENDING_HOME: 1234233,
+                    TOTAL_THRESHOLD: 555005,
+                    DEBT_TOTAL: 56555213321,
+                    ID: (0,uuid__WEBPACK_IMPORTED_MODULE_5__["default"])(),
+                },
+                {
+                    STT: 3,
+                    DATE_HOME: formattedDate,
+                    COOKIES: cookiesFake2.c_user,
+                    NAME_TK_HOME: "Charles",
+                    ID_TKQC_HOME: 4573216737882871,
+                    TOTAL_ACCOUNT_ADS: 199,
+                    TOTAL_BM: 150,
+                    TOTAL_SPENDING_HOME: 1234233,
+                    TOTAL_THRESHOLD: 65656000,
+                    DEBT_TOTAL: 54212312,
+                    DETAIL: "DETAIL",
+                    ID: (0,uuid__WEBPACK_IMPORTED_MODULE_5__["default"])(),
+                },
+            ];
+            console.log('dataInfos', dataInfos);
+            setInfos(dataInfos);
+            setLoading(false);
         }
     }, [dataAccount, accountID]);
     console.log('infos', infos);
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
         handleGetAccessToken();
     }, []);
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "app" },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "wrapper", id: "main" },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "sc_heading", style: { marginBottom: "20px", backgroundColor: "transparent" } },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_component_Search__WEBPACK_IMPORTED_MODULE_3__["default"], { filteredList: filteredList, infos: infos, setFilteredList: setFilteredList })),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "AccStatus", className: "tabcontent active" },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "loaddata1", style: { display: "none" } },
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", { src: "chrome-extension://ookgnahfklmejhicejjbfjifppjbfnlk/access/icon/loadingdata.gif", alt: "" })),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("table", { className: "table table-striped", id: "tball" },
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("thead", { id: "thall" },
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", null,
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "STT"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("DATE_HOME") }, "DATE"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "COOKIES"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("ID_TKQC_HOME") }, "ID"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "T\u00EAn TK"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("TOTAL_ACCOUNT_ADS") }, "T\u1ED5ng TKQC"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("TOTAL_BM") }, "T\u1ED5ng BM"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("TOTAL_SPENDING_HOME") }, "T\u1ED5ng Ti\u00EAu"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("TOTAL_THRESHOLD") }, "T\u1ED5ng Ng\u01B0\u1EE1ng"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", style: { minWidth: "100px" }, onClick: () => handleSortItemNumber("DEBT_TOTAL") }, "T\u1ED5ng D\u01B0 n\u1EE3"))),
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tbody", { id: "tb" }, filteredList.map((item, key) => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", { className: "trInfo", key: (0,uuid__WEBPACK_IMPORTED_MODULE_5__["default"])(), style: { backgroundColor: copied[key] ? "red" : "transparent" } },
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" }, item.STT),
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
-                                " ",
-                                item.DATE_HOME),
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { style: {
-                                        display: "flex",
-                                        justifyContent: "space-around",
-                                        marginTop: 5
-                                    } },
-                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_copy_to_clipboard__WEBPACK_IMPORTED_MODULE_2__.CopyToClipboard, { text: item.COOKIES, onCopy: () => handleCopyCookie(key) },
-                                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_6__.Button, { colorScheme: 'whatsapp' }, copied[key] ? "COPIED" : "COPY"))),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__.Stack, { spacing: [1, 5], direction: ['column', 'row'], style: { display: "flex", justifyContent: "center", marginTop: 5 } },
-                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Checkbox, { size: 'sm', colorScheme: 'green' }, "Mr D"),
-                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Checkbox, { size: 'sm', colorScheme: 'green' }, "Mr H"),
-                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Checkbox, { size: 'sm', colorScheme: 'green' }, "Mr A"))),
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo", style: { textAlign: "center", overflow: "hidden" } },
-                                " ",
-                                item.ID_TKQC_HOME),
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
-                                " ",
-                                item.NAME_TK_HOME),
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, item.TOTAL_ACCOUNT_ADS)),
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, item.TOTAL_BM)),
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, item.TOTAL_SPENDING_HOME)),
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, item.TOTAL_THRESHOLD)),
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, item.DEBT_TOTAL)),
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].optionValue },
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_6__.Button, { onClick: handleNavigateDetail, m: 4, className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].optionButton }, `Open Detail Cookie`))))))))))));
+    if (loading) {
+        return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].spinnerContainer },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_6__.Spinner, { thickness: '4px', speed: '0.65s', emptyColor: 'gray.200', color: 'blue.500', size: 'xl', className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].ChakraSpinner })));
+    }
+    return (!loading &&
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "app" },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "wrapper", id: "main" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "sc_heading", style: { marginBottom: "20px", backgroundColor: "transparent" } },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_component_Search__WEBPACK_IMPORTED_MODULE_3__["default"], { filteredList: filteredList, infos: infos, setFilteredList: setFilteredList })),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "AccStatus", className: "tabcontent active" },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "loaddata1", style: { display: "none" } },
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", { src: "chrome-extension://ookgnahfklmejhicejjbfjifppjbfnlk/access/icon/loadingdata.gif", alt: "" })),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("table", { className: "table table-striped", id: "tball" },
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("thead", { id: "thall" },
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", null,
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "STT"),
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("DATE_HOME") }, "DATE"),
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "COOKIES"),
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("ID_TKQC_HOME") }, "ID"),
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "T\u00EAn TK"),
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("TOTAL_ACCOUNT_ADS") }, "T\u1ED5ng TKQC"),
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("TOTAL_BM") }, "T\u1ED5ng BM"),
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("TOTAL_SPENDING_HOME") }, "T\u1ED5ng Ti\u00EAu"),
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("TOTAL_THRESHOLD") }, "T\u1ED5ng Ng\u01B0\u1EE1ng"),
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", style: { minWidth: "100px" }, onClick: () => handleSortItemNumber("DEBT_TOTAL") }, "T\u1ED5ng D\u01B0 n\u1EE3"))),
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tbody", { id: "tb" }, filteredList.map((item, key) => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", { className: "trInfo", key: (0,uuid__WEBPACK_IMPORTED_MODULE_5__["default"])(), style: { backgroundColor: copied[key] ? "red" : "transparent" } },
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" }, item.STT),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
+                                    " ",
+                                    item.DATE_HOME),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { style: {
+                                            display: "flex",
+                                            justifyContent: "space-around",
+                                            marginTop: 5
+                                        } },
+                                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_copy_to_clipboard__WEBPACK_IMPORTED_MODULE_2__.CopyToClipboard, { text: item.COOKIES, onCopy: () => handleCopyCookie(key) },
+                                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__.Button, { colorScheme: 'whatsapp' }, copied[key] ? "COPIED" : "COPY"))),
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Stack, { spacing: [1, 5], direction: ['column', 'row'], style: { display: "flex", justifyContent: "center", marginTop: 5 } },
+                                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_9__.Checkbox, { size: 'sm', colorScheme: 'green' }, "Mr D"),
+                                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_9__.Checkbox, { size: 'sm', colorScheme: 'green' }, "Mr H"),
+                                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_9__.Checkbox, { size: 'sm', colorScheme: 'green' }, "Mr A"))),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo", style: { textAlign: "center", overflow: "hidden" } },
+                                    " ",
+                                    item.ID_TKQC_HOME),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
+                                    " ",
+                                    item.NAME_TK_HOME),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, item.TOTAL_ACCOUNT_ADS)),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, item.TOTAL_BM)),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, convertNumberToUsd(item.TOTAL_SPENDING_HOME))),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, convertNumberToUsd(item.TOTAL_THRESHOLD))),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, convertNumberToUsd(item.DEBT_TOTAL))),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].optionValue },
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__.Button, { onClick: handleNavigateDetail, m: 4, className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].optionButton }, `Open Detail Cookie`))))))))))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PopupContainer);
 
@@ -1566,89 +1509,156 @@ const PopupDetailAD = () => {
             setOrderBy("ASC");
         }
     };
-    const formatCurrencyNormal = (value, currency) => {
-        console.log('value', value);
-        if (typeof value === 'number') {
-            if (currency === "USD") {
-                return (value * 10).toLocaleString('en-US');
-            }
-            else {
-                return value.toLocaleString('en-US');
-            }
+    // const formatCurrencyNormal = ( value, currency ) => {
+    //     console.log('value', value);
+    //     if (typeof value === 'number') {
+    //         if (currency === "USD") {
+    //             return (value * 10).toLocaleString('en-US');
+    //         } else {
+    //             return value.toLocaleString('en-US');
+    //
+    //         }
+    //
+    //     }
+    //     if (typeof value !== 'string') {
+    //         return "--";
+    //     }
+    //
+    //     const cleanedValue = value.replace(/[.,]/g, '');
+    //
+    //
+    //     let numberValue;
+    //     if (currency === "USD") {
+    //
+    //         numberValue = Number(cleanedValue) * 10;
+    //     } else {
+    //         numberValue = Number(cleanedValue);
+    //     }
+    //
+    //     if (isNaN(numberValue)) {
+    //         return "--";
+    //     } else {
+    //         return numberValue.toLocaleString('en-US');
+    //     }
+    // }
+    // const handleChangeCurrency = () => {
+    //     if (changeCurrency === false) {
+    //         const debt = dataAccountOriginal.map(( item ) => formatCurrencyNormal(item.balance, item.currency));
+    //         const limit = dataAccountOriginal.map(( item ) => item.adtrust_dsl === -1 ? "--" : formatCurrencyNormal(item.adtrust_dsl, item.currency));
+    //         const total_spending = dataAccountOriginal.map(( item ) => formatCurrencyNormal(item.amount_spent, item.currency));
+    //         const threshold_amount: any[] = dataAccountOriginal.flatMap(( item ) => {
+    //             if (item.adspaymentcycle && item.adspaymentcycle.data) {
+    //                 return item.adspaymentcycle.data.map(( cycleItem ) => {
+    //                     const thresholdAmountValue = typeof cycleItem.threshold_amount === "string" ?
+    //                         formatCurrencyNormal(parseFloat(cycleItem.threshold_amount.replace(/,/g, '')), item.currency) :
+    //                         cycleItem.threshold_amount;
+    //                     return thresholdAmountValue;
+    //                 });
+    //             } else {
+    //                 return "--";
+    //             }
+    //         });
+    //         setInfos(( prevState ) => {
+    //             const newState = prevState.map(( item, index ) => ({
+    //                 ...item,
+    //                 DEBT : debt[index],
+    //                 TOTAL_SPENDING : total_spending[index],
+    //                 LIMIT : limit[index],
+    //                 THRESHOLD : threshold_amount[index]
+    //             }));
+    //
+    //             return newState;
+    //         });
+    //         console.log('infos', infos)
+    //         setChangeCurrency(!changeCurrency);
+    //     } else {
+    //
+    //         const spendCap = dataAccountOriginal.flatMap(( item ) => item?.insights?.data.map((item => item.spend)));
+    //         const spendCapWithoutNull = spendCap.map(value => (value != null ? value : "0"));
+    //         const total_spending = dataAccountOriginal.map(( item, index ) => currencyChange(spendCapWithoutNull[index], item.account_currency_ratio_to_usd, item.currency));
+    //         const spendingTotalAmount = dataAccountOriginal.flatMap(( item ) => item?.insights?.data.map(item => +item.spend));
+    //         const debt = dataAccountOriginal.map(( item ) => currencyChange(item.balance, item.account_currency_ratio_to_usd, item.currency));
+    //         const limit = dataAccountOriginal.map(( item ) => item.adtrust_dsl === -1 ? "--" : currencyChange(item.adtrust_dsl, item.account_currency_ratio_to_usd, item.currency));
+    //
+    //         const ratioValue = dataAccountOriginal.map(( item ) => item.account_currency_ratio_to_usd);
+    //         const currencyValue = dataAccountOriginal.map(( item ) => item.currency);
+    //         const threshold_amount = dataAccountOriginal.flatMap(( item ) => {
+    //             if (item.adspaymentcycle && item.adspaymentcycle.data) {
+    //                 return item.adspaymentcycle.data.map(( cycleItem ) => {
+    //                     return cycleItem.threshold_amount;
+    //                 });
+    //             } else {
+    //                 return "--";
+    //             }
+    //         });
+    //         const result = threshold_amount.map(( value, index ) => currencyChange(value, ratioValue[index], currencyValue[index]));
+    //         setInfos(( prevState ) => {
+    //             const newState = prevState.map(( item, index ) => {
+    //                 return {
+    //                     ...item,
+    //                     DEBT : debt[index],
+    //                     TOTAL_SPENDING : total_spending[index],
+    //                     LIMIT : limit[index],
+    //                     THRESHOLD : result[index]
+    //                 };
+    //             });
+    //             return newState;
+    //         });
+    //         setChangeCurrency(!changeCurrency);
+    //     }
+    //
+    // }
+    console.log('infos', infos);
+    const formatCurrencyNormal = (value, currency, field, ratio) => {
+        if (typeof value === "string") {
+            const cleanedValue = value.replace(/[^\d.]/g, '');
+            const usdValue = parseFloat(cleanedValue);
+            return usdValue * ratio;
         }
-        if (typeof value !== 'string') {
-            return "--";
-        }
-        const cleanedValue = value; //.replace (/[.,]/g, '');
-        let numberValue;
-        if (currency === "USD") {
-            numberValue = Number(cleanedValue) * 10;
-        }
-        else {
-            numberValue = Number(cleanedValue);
-        }
-        // let numberValue;
-        // if (currency === "USD") {
-        //     return numberValue = Number (cleanedValue) * 10;
-        //
+        // if (ratio <= 1 && (field === 'DEBT' || field === 'THRESHOLD')) {
+        //     return value / 100
         // } else {
-        //     return numberValue = Number (cleanedValue);
+        //     return value
         // }
-        if (isNaN(numberValue)) {
-            return "--";
-        }
-        else {
-            return numberValue.toLocaleString('en-US');
-        }
     };
     const handleChangeCurrency = () => {
-        if (changeCurrency === false) {
-            const debt = dataAccountOriginal.map((item) => formatCurrencyNormal(item.balance, item.currency));
-            const limit = dataAccountOriginal.map((item) => item.adtrust_dsl === -1 ? "--" : formatCurrencyNormal(item.adtrust_dsl, item.currency));
-            const total_spending = dataAccountOriginal.map((item) => formatCurrencyNormal(item.amount_spent, item.currency));
-            const threshold_amount = dataAccountOriginal.flatMap((item) => {
-                if (item.adspaymentcycle && item.adspaymentcycle.data) {
-                    return item.adspaymentcycle.data.map((cycleItem) => {
-                        const thresholdAmountValue = typeof cycleItem.threshold_amount === "string" ?
-                            formatCurrencyNormal(parseFloat(cycleItem.threshold_amount.replace(/,/g, '')), item.currency) :
-                            cycleItem.threshold_amount;
-                        return thresholdAmountValue;
-                    });
-                }
-                else {
-                    return "--";
-                }
+        const convertNumberToUsd = (value) => {
+            let USDollar = new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
             });
+            return USDollar.format(value);
+        };
+        const formatCurrencyToUSD = (value, currency, field, ratio) => {
+            if (ratio <= 1 && (field === 'DEBT' || field === 'THRESHOLD')) {
+                return convertNumberToUsd((value / ratio) / 100);
+            }
+            else {
+                return convertNumberToUsd(value / ratio);
+            }
+        };
+        if (changeCurrency === false) {
+            const debt = infos.map((item) => formatCurrencyToUSD(item.DEBT, item.CURRENCY, "DEBT", item.CURRENCY_RATIO_USD));
+            const thres = infos.map((item) => formatCurrencyToUSD(item.THRESHOLD, item === null || item === void 0 ? void 0 : item.CURRENCY, "THRESHOLD", item.CURRENCY_RATIO_USD));
+            const total_spending = infos.map((item) => formatCurrencyToUSD(item.TOTAL_SPENDING, item === null || item === void 0 ? void 0 : item.CURRENCY, "TOTAL_SPENDING", item.CURRENCY_RATIO_USD));
+            const limit = infos.map((item) => formatCurrencyToUSD(item.LIMIT, item === null || item === void 0 ? void 0 : item.CURRENCY, "LIMIT", item.CURRENCY_RATIO_USD));
             setInfos((prevState) => {
-                const newState = prevState.map((item, index) => (Object.assign(Object.assign({}, item), { DEBT: debt[index], TOTAL_SPENDING: total_spending[index], LIMIT: limit[index], THRESHOLD: threshold_amount[index] })));
+                const newState = prevState.map((item, index) => (Object.assign(Object.assign({}, item), { DEBT: debt[index], THRESHOLD: thres[index], TOTAL_SPENDING: total_spending[index], LIMIT: limit[index] })));
                 return newState;
             });
             console.log('infos', infos);
             setChangeCurrency(!changeCurrency);
         }
         else {
-            const debt = dataAccountOriginal.map((item) => currencyChange(item.balance, item.account_currency_ratio_to_usd, item.currency));
-            const limit = dataAccountOriginal.map((item) => item.adtrust_dsl === -1 ? "--" : currencyChange(item.adtrust_dsl, item.account_currency_ratio_to_usd, item.currency));
-            const total_spending = dataAccountOriginal.map((item) => currencyChange(item.amount_spent, item.account_currency_ratio_to_usd, item.currency));
-            const ratioValue = dataAccountOriginal.map((item) => item.account_currency_ratio_to_usd);
-            const currencyValue = dataAccountOriginal.map((item) => item.currency);
-            const threshold_amount = dataAccountOriginal.flatMap((item) => {
-                if (item.adspaymentcycle && item.adspaymentcycle.data) {
-                    return item.adspaymentcycle.data.map((cycleItem) => {
-                        return cycleItem.threshold_amount;
-                    });
-                }
-                else {
-                    return "--";
-                }
-            });
-            const result = threshold_amount.map((value, index) => currencyChange(value, ratioValue[index], currencyValue[index]));
+            const debt = infos.map((item) => formatCurrencyNormal(item.DEBT, item.CURRENCY, "DEBT", item.CURRENCY_RATIO_USD));
+            const thres = infos.map((item) => formatCurrencyNormal(item.THRESHOLD, item === null || item === void 0 ? void 0 : item.CURRENCY, "THRESHOLD", item.CURRENCY_RATIO_USD));
+            const total_spending = infos.map((item) => formatCurrencyNormal(item.TOTAL_SPENDING, item === null || item === void 0 ? void 0 : item.CURRENCY, "TOTAL_SPENDING", item.CURRENCY_RATIO_USD));
+            const limit = infos.map((item) => formatCurrencyNormal(item.LIMIT, item === null || item === void 0 ? void 0 : item.CURRENCY, "LIMIT", item.CURRENCY_RATIO_USD));
             setInfos((prevState) => {
-                const newState = prevState.map((item, index) => {
-                    return Object.assign(Object.assign({}, item), { DEBT: debt[index], TOTAL_SPENDING: total_spending[index], LIMIT: limit[index], THRESHOLD: result[index] });
-                });
+                const newState = prevState.map((item, index) => (Object.assign(Object.assign({}, item), { DEBT: debt[index], THRESHOLD: thres[index], TOTAL_SPENDING: total_spending[index], LIMIT: limit[index] })));
                 return newState;
             });
+            console.log('infos', infos);
             setChangeCurrency(!changeCurrency);
         }
     };
@@ -1659,18 +1669,17 @@ const PopupDetailAD = () => {
         });
     };
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x, _y, _z, _0, _1, _2, _3;
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v;
         if (typeof dataAccount === "object" &&
             accountID !== null &&
             dataAccount.length > 0) {
             let dataInfos = [];
             for (let i = 0; i < dataAccount.length; i++) {
-                const debt = currencyChange((_a = dataAccount[i]) === null || _a === void 0 ? void 0 : _a.balance, (_b = dataAccount[i]) === null || _b === void 0 ? void 0 : _b.account_currency_ratio_to_usd, (_c = dataAccount[i]) === null || _c === void 0 ? void 0 : _c.currency);
-                const thresholdArr = (_e = (_d = dataAccount[i]) === null || _d === void 0 ? void 0 : _d.adspaymentcycle) === null || _e === void 0 ? void 0 : _e.data.map((item) => item.threshold_amount);
-                const threShold = currencyChange(thresholdArr, (_f = dataAccount[i]) === null || _f === void 0 ? void 0 : _f.account_currency_ratio_to_usd, (_g = dataAccount[i]) === null || _g === void 0 ? void 0 : _g.currency);
+                const threshold = (_b = (_a = dataAccount[i]) === null || _a === void 0 ? void 0 : _a.adspaymentcycle) === null || _b === void 0 ? void 0 : _b.data.map((item) => item.threshold_amount);
+                const insight_spend = (_c = dataAccount[i].insights) === null || _c === void 0 ? void 0 : _c.data.map((item => item.spend));
                 dataInfos.push({
                     STT: i + 1,
-                    STATUS: (_h = dataAccount[i]) === null || _h === void 0 ? void 0 : _h.account_status,
+                    STATUS: (_d = dataAccount[i]) === null || _d === void 0 ? void 0 : _d.account_status,
                     DATE_AD: formattedDate,
                     DATE_BACKUP: "19/11/2023",
                     IP: "222.252.20.234",
@@ -1678,30 +1687,29 @@ const PopupDetailAD = () => {
                     COUNTRY: "Viet Nam",
                     CITY: "Ha Noi",
                     COOKIES: "Cookie",
-                    ID_TKQC_AD: (_j = dataAccount[i]) === null || _j === void 0 ? void 0 : _j.account_id,
-                    NAME_TK_AD: (_k = dataAccount[i]) === null || _k === void 0 ? void 0 : _k.name,
-                    DEBT: debt,
-                    THRESHOLD: threShold,
-                    LIMIT: currencyChange((_l = dataAccount[i]) === null || _l === void 0 ? void 0 : _l.adtrust_dsl, (_m = dataAccount[i]) === null || _m === void 0 ? void 0 : _m.account_currency_ratio_to_usd, (_o = dataAccount[i]) === null || _o === void 0 ? void 0 : _o.currency),
-                    ADMIN: (_p = dataAccount[i]) === null || _p === void 0 ? void 0 : _p.userpermissions.data.length,
-                    TOTAL_SPENDING: currencyChange((_q = dataAccount[i]) === null || _q === void 0 ? void 0 : _q.amount_spent, (_r = dataAccount[i]) === null || _r === void 0 ? void 0 : _r.account_currency_ratio_to_usd, (_s = dataAccount[i]) === null || _s === void 0 ? void 0 : _s.currency),
-                    // TOTAL_SPENDING: dataAccount[i]?.amount_spent,
+                    ID_TKQC_AD: (_e = dataAccount[i]) === null || _e === void 0 ? void 0 : _e.account_id,
+                    NAME_TK_AD: (_f = dataAccount[i]) === null || _f === void 0 ? void 0 : _f.name,
+                    DEBT: (_g = dataAccount[i]) === null || _g === void 0 ? void 0 : _g.balance,
+                    THRESHOLD: threshold,
+                    LIMIT: (_h = dataAccount[i]) === null || _h === void 0 ? void 0 : _h.adtrust_dsl,
+                    TOTAL_SPENDING: insight_spend,
+                    ADMIN: (_j = dataAccount[i]) === null || _j === void 0 ? void 0 : _j.userpermissions.data.length,
                     PERMISSION_ACCOUNT: accountID !== null &&
-                        ((_t = dataAccount[i]) === null || _t === void 0 ? void 0 : _t.userpermissions.data.filter((item) => { var _a; return ((_a = item === null || item === void 0 ? void 0 : item.user) === null || _a === void 0 ? void 0 : _a.id) === accountID; }))
+                        ((_k = dataAccount[i]) === null || _k === void 0 ? void 0 : _k.userpermissions.data.filter((item) => { var _a; return ((_a = item === null || item === void 0 ? void 0 : item.user) === null || _a === void 0 ? void 0 : _a.id) === accountID; }))
                         ? "ADMIN"
                         : "",
-                    CURRENCY: (_u = dataAccount[i]) === null || _u === void 0 ? void 0 : _u.currency,
+                    CURRENCY: (_l = dataAccount[i]) === null || _l === void 0 ? void 0 : _l.currency,
                     ACCOUNT_TYPE: dataAccount[i].hasOwnProperty("owner_business")
                         ? "BM"
                         : "CN",
-                    PERMISSION_BM: checkAuthorBM((_v = dataAccount[i]) === null || _v === void 0 ? void 0 : _v.userpermissions.data.filter((item) => item === null || item === void 0 ? void 0 : item.user).map((item, index) => {
+                    PERMISSION_BM: checkAuthorBM((_m = dataAccount[i]) === null || _m === void 0 ? void 0 : _m.userpermissions.data.filter((item) => item === null || item === void 0 ? void 0 : item.user).map((item, index) => {
                         return item === null || item === void 0 ? void 0 : item.role.toString();
                     })),
-                    ID_BM: (_x = (_w = dataAccount[i]) === null || _w === void 0 ? void 0 : _w.owner_business) === null || _x === void 0 ? void 0 : _x.id,
-                    PAYMENT_METHOD: (_0 = (_z = (_y = dataAccount[i]) === null || _y === void 0 ? void 0 : _y.all_payment_methods) === null || _z === void 0 ? void 0 : _z.pm_credit_card) === null || _0 === void 0 ? void 0 : _0.data.map((item) => item === null || item === void 0 ? void 0 : item.display_string),
-                    TIME_ZONE: `${(_1 = dataAccount[i]) === null || _1 === void 0 ? void 0 : _1.timezone_offset_hours_utc}  -  ${(_2 = dataAccount[i]) === null || _2 === void 0 ? void 0 : _2.timezone_name} `,
+                    ID_BM: (_p = (_o = dataAccount[i]) === null || _o === void 0 ? void 0 : _o.owner_business) === null || _p === void 0 ? void 0 : _p.id,
+                    PAYMENT_METHOD: (_s = (_r = (_q = dataAccount[i]) === null || _q === void 0 ? void 0 : _q.all_payment_methods) === null || _r === void 0 ? void 0 : _r.pm_credit_card) === null || _s === void 0 ? void 0 : _s.data.map((item) => item === null || item === void 0 ? void 0 : item.display_string),
+                    TIME_ZONE: `${(_t = dataAccount[i]) === null || _t === void 0 ? void 0 : _t.timezone_offset_hours_utc}  -  ${(_u = dataAccount[i]) === null || _u === void 0 ? void 0 : _u.timezone_name} `,
                     ID: (0,uuid__WEBPACK_IMPORTED_MODULE_3__["default"])(),
-                    CURRENCY_RATIO_USD: (_3 = dataAccount[i]) === null || _3 === void 0 ? void 0 : _3.account_currency_ratio_to_usd
+                    CURRENCY_RATIO_USD: (_v = dataAccount[i]) === null || _v === void 0 ? void 0 : _v.account_currency_ratio_to_usd
                 });
             }
             setInfos(dataInfos);

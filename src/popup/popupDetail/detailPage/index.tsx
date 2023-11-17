@@ -5,38 +5,38 @@ import {Stack, Switch} from "@chakra-ui/react";
 import SearchBar from "../../../component/Search";
 
 const PopupDetailAD = () => {
-    const [accessToken, setAccessToken] = useState ("");
-    const [dataAccount, setDataAccount] = useState ([]);
-    const [dataAccountOriginal, setDataAccountOriginal] = useState ([]);
-    const [accountID, setAccountID] = useState (null);
-    const [infos, setInfos] = useState ([]);
-    const [orderBy, setOrderBy] = useState ("ASC");
-    const [changeCurrency, setChangeCurrency] = useState (false);
-    const [filteredList, setFilteredList] = useState (infos);
-    const today = new Date ();
-    const day = today.getDate ();
-    const month = today.getMonth () + 1;
-    const year = today.getFullYear ();
+    const [accessToken, setAccessToken] = useState("");
+    const [dataAccount, setDataAccount] = useState([]);
+    const [dataAccountOriginal, setDataAccountOriginal] = useState([]);
+    const [accountID, setAccountID] = useState(null);
+    const [infos, setInfos] = useState([]);
+    const [orderBy, setOrderBy] = useState("ASC");
+    const [changeCurrency, setChangeCurrency] = useState(false);
+    const [filteredList, setFilteredList] = useState(infos);
+    const today = new Date();
+    const day = today.getDate();
+    const month = today.getMonth() + 1;
+    const year = today.getFullYear();
     const formattedDate = `${day}/${month}/${year}`;
 
 
-    useEffect (() => {
-        setFilteredList (infos)
+    useEffect(() => {
+        setFilteredList(infos)
     }, [infos]);
     const handleGetAccessToken = () => {
-        chrome.runtime.sendMessage ({action: "login_request"}, (response) => {
+        chrome.runtime.sendMessage({ action : "login_request" }, ( response ) => {
             if (response && response.success) {
-                setDataAccountOriginal (response.data.data);
-                setDataAccount (response.data.data);
-                response.accountId.id && setAccountID (response.accountId.id);
-                setAccessToken (response.token.token);
+                setDataAccountOriginal(response.data.data);
+                setDataAccount(response.data.data);
+                response.accountId.id && setAccountID(response.accountId.id);
+                setAccessToken(response.token.token);
             } else {
-                console.error (response.error);
+                console.error(response.error);
             }
         });
     };
 
-    const checkStatusBM = (option) => {
+    const checkStatusBM = ( option ) => {
         switch (option) {
             case 1:
                 return (
@@ -64,7 +64,7 @@ const PopupDetailAD = () => {
         }
     };
 
-    const checkAuthorBM = (option) => {
+    const checkAuthorBM = ( option ) => {
         switch (option[0]) {
             case "GENERAL_USER":
                 return "Nhà quảng cáo";
@@ -78,7 +78,7 @@ const PopupDetailAD = () => {
     };
 
 
-    const currencyChange = (current, currentRation, field) => {
+    const currencyChange = ( current, currentRation, field ) => {
         let change;
         if (typeof current !== "object") {
             if (field === "USD") {
@@ -87,7 +87,7 @@ const PopupDetailAD = () => {
             } else {
                 change = current / currentRation;
             }
-        } else if (Array.isArray (current) && current.length > 0) {
+        } else if (Array.isArray(current) && current.length > 0) {
             if (field === "USD") {
                 const currentUsd = current[0] / 100;
                 change = currentUsd / currentRation
@@ -100,23 +100,23 @@ const PopupDetailAD = () => {
         } else {
             change = 0;
         }
-        const result = change.toFixed (2).replace (/\d(?=(\d{3})+\.)/g, "$&,");
+        const result = change.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,");
         return result;
     };
 
-    function convertCurrencyToNumber(value) {
+    function convertCurrencyToNumber( value ) {
         if (typeof value === 'number') {
             return value;
         } else if (typeof value === 'string') {
-            const sanitizedValue = value.replace (/[^0-9.-]/g, ''); // Loại bỏ tất cả các ký tự không phải số hoặc dấu chấm
-            const numberValue = parseFloat (sanitizedValue);
-            return isNaN (numberValue) ? 0 : numberValue;
+            const sanitizedValue = value.replace(/[^0-9.-]/g, ''); // Loại bỏ tất cả các ký tự không phải số hoặc dấu chấm
+            const numberValue = parseFloat(sanitizedValue);
+            return isNaN(numberValue) ? 0 : numberValue;
         } else {
             return 0; // Hoặc giá trị mặc định tùy thuộc vào yêu cầu của bạn
         }
     }
 
-    const compare = (a, b, field) => {
+    const compare = ( a, b, field ) => {
         if (a[field] < b[field]) {
             return -1;
         }
@@ -125,311 +125,372 @@ const PopupDetailAD = () => {
         }
         return 0;
     }
-    const handleSortItemNumber = (field) => {
+    const handleSortItemNumber = ( field ) => {
         if (orderBy === "ASC") {
-            setInfos (infos.sort ((a, b) => compare ({
+            setInfos(infos.sort(( a, b ) => compare({
                 ...a,
-                THRESHOLD: convertCurrencyToNumber (a.THRESHOLD),
-                DEBT: convertCurrencyToNumber (a.DEBT),
-                TOTAL_SPENDING: convertCurrencyToNumber (a.TOTAL_SPENDING),
-                STATUS: a.STATUS,
-                LIMIT: convertCurrencyToNumber (a.LIMIT),
+                THRESHOLD : convertCurrencyToNumber(a.THRESHOLD),
+                DEBT : convertCurrencyToNumber(a.DEBT),
+                TOTAL_SPENDING : convertCurrencyToNumber(a.TOTAL_SPENDING),
+                STATUS : a.STATUS,
+                LIMIT : convertCurrencyToNumber(a.LIMIT),
             }, {
                 ...b,
-                THRESHOLD: convertCurrencyToNumber (b.THRESHOLD),
-                DEBT: convertCurrencyToNumber (b.DEBT),
-                TOTAL_SPENDING: convertCurrencyToNumber (b.TOTAL_SPENDING),
-                STATUS: b.STATUS,
-                LIMIT: convertCurrencyToNumber (b.LIMIT),
-            }, field)).reverse ());
-            setOrderBy ("DSC");
+                THRESHOLD : convertCurrencyToNumber(b.THRESHOLD),
+                DEBT : convertCurrencyToNumber(b.DEBT),
+                TOTAL_SPENDING : convertCurrencyToNumber(b.TOTAL_SPENDING),
+                STATUS : b.STATUS,
+                LIMIT : convertCurrencyToNumber(b.LIMIT),
+            }, field)).reverse());
+            setOrderBy("DSC");
         } else {
-            setInfos (infos.sort ((a, b) => compare ({
+            setInfos(infos.sort(( a, b ) => compare({
                 ...a,
-                THRESHOLD: convertCurrencyToNumber (a.THRESHOLD),
-                DEBT: convertCurrencyToNumber (a.DEBT),
-                TOTAL_SPENDING: convertCurrencyToNumber (a.TOTAL_SPENDING),
-                STATUS: a.STATUS,
-                LIMIT: convertCurrencyToNumber (a.LIMIT),
+                THRESHOLD : convertCurrencyToNumber(a.THRESHOLD),
+                DEBT : convertCurrencyToNumber(a.DEBT),
+                TOTAL_SPENDING : convertCurrencyToNumber(a.TOTAL_SPENDING),
+                STATUS : a.STATUS,
+                LIMIT : convertCurrencyToNumber(a.LIMIT),
             }, {
                 ...b,
-                THRESHOLD: convertCurrencyToNumber (b.THRESHOLD),
-                DEBT: convertCurrencyToNumber (b.DEBT),
-                TOTAL_SPENDING: convertCurrencyToNumber (b.TOTAL_SPENDING),
-                STATUS: b.STATUS,
-                LIMIT: convertCurrencyToNumber (b.LIMIT),
+                THRESHOLD : convertCurrencyToNumber(b.THRESHOLD),
+                DEBT : convertCurrencyToNumber(b.DEBT),
+                TOTAL_SPENDING : convertCurrencyToNumber(b.TOTAL_SPENDING),
+                STATUS : b.STATUS,
+                LIMIT : convertCurrencyToNumber(b.LIMIT),
             }, field)));
-            setOrderBy ("ASC");
+            setOrderBy("ASC");
         }
-        console.log ('infos', infos.map (item => item.THRESHOLD), infos.map (item => typeof item.THRESHOLD))
+        console.log('infos', infos.map(item => item.THRESHOLD), infos.map(item => typeof item.THRESHOLD))
 
     };
-    const handleSortItemText = (field) => {
+    const handleSortItemText = ( field ) => {
         if (orderBy === "ASC") {
-            setInfos (infos.sort ((a, b) => compare ({
+            setInfos(infos.sort(( a, b ) => compare({
                 ...a,
-                PERMISSION_BM: a.PERMISSION_BM,
-                NAME_TK_AD: a.NAME_TK_AD,
-                PERMISSION_ACCOUNT: a.PERMISSION_ACCOUNT,
-                CITY: a.CITY,
-                COUNTRY: a.COUNTRY,
-                ACCOUNT_TYPE: a.ACCOUNT_TYPE,
-                PAYMENT_METHOD: a.PAYMENT_METHOD,
+                PERMISSION_BM : a.PERMISSION_BM,
+                NAME_TK_AD : a.NAME_TK_AD,
+                PERMISSION_ACCOUNT : a.PERMISSION_ACCOUNT,
+                CITY : a.CITY,
+                COUNTRY : a.COUNTRY,
+                ACCOUNT_TYPE : a.ACCOUNT_TYPE,
+                PAYMENT_METHOD : a.PAYMENT_METHOD,
             }, {
                 ...b,
-                PERMISSION_BM: b.PERMISSION_BM,
-                NAME_TK_AD: b.NAME_TK_AD,
-                PERMISSION_ACCOUNT: b.PERMISSION_ACCOUNT,
-                CITY: b.CITY,
-                COUNTRY: b.COUNTRY,
-                ACCOUNT_TYPE: b.ACCOUNT_TYPE,
-                PAYMENT_METHOD: b.PAYMENT_METHOD,
-            }, field)).reverse ());
-            setOrderBy ("DSC");
+                PERMISSION_BM : b.PERMISSION_BM,
+                NAME_TK_AD : b.NAME_TK_AD,
+                PERMISSION_ACCOUNT : b.PERMISSION_ACCOUNT,
+                CITY : b.CITY,
+                COUNTRY : b.COUNTRY,
+                ACCOUNT_TYPE : b.ACCOUNT_TYPE,
+                PAYMENT_METHOD : b.PAYMENT_METHOD,
+            }, field)).reverse());
+            setOrderBy("DSC");
         }
         if (orderBy === "DSC") {
-            setInfos (infos.sort ((a, b) => compare ({
-                ...a, PERMISSION_BM: a.PERMISSION_BM,
-                NAME_TK_AD: a.NAME_TK_AD,
-                PERMISSION_ACCOUNT: a.PERMISSION_ACCOUNT,
-                CITY: a.CITY,
-                COUNTRY: a.COUNTRY,
-                ACCOUNT_TYPE: a.ACCOUNT_TYPE,
-                PAYMENT_METHOD: a.PAYMENT_METHOD,
+            setInfos(infos.sort(( a, b ) => compare({
+                ...a, PERMISSION_BM : a.PERMISSION_BM,
+                NAME_TK_AD : a.NAME_TK_AD,
+                PERMISSION_ACCOUNT : a.PERMISSION_ACCOUNT,
+                CITY : a.CITY,
+                COUNTRY : a.COUNTRY,
+                ACCOUNT_TYPE : a.ACCOUNT_TYPE,
+                PAYMENT_METHOD : a.PAYMENT_METHOD,
             }, {
                 ...b,
-                PERMISSION_BM: b.PERMISSION_BM,
-                NAME_TK_AD: b.NAME_TK_AD,
-                PERMISSION_ACCOUNT: b.PERMISSION_ACCOUNT,
-                CITY: b.CITY,
-                COUNTRY: b.COUNTRY,
-                ACCOUNT_TYPE: b.ACCOUNT_TYPE,
-                PAYMENT_METHOD: b.PAYMENT_METHOD,
+                PERMISSION_BM : b.PERMISSION_BM,
+                NAME_TK_AD : b.NAME_TK_AD,
+                PERMISSION_ACCOUNT : b.PERMISSION_ACCOUNT,
+                CITY : b.CITY,
+                COUNTRY : b.COUNTRY,
+                ACCOUNT_TYPE : b.ACCOUNT_TYPE,
+                PAYMENT_METHOD : b.PAYMENT_METHOD,
             }, field)));
-            setOrderBy ("ASC");
+            setOrderBy("ASC");
         }
     };
 
 
-    const handleSortPaymentMethod = (field) => {
-        const a = infos.filter (item => item.PAYMENT_METHOD === undefined);
-        const b = infos.filter (item => item.PAYMENT_METHOD !== undefined);
+    const handleSortPaymentMethod = ( field ) => {
+        const a = infos.filter(item => item.PAYMENT_METHOD === undefined);
+        const b = infos.filter(item => item.PAYMENT_METHOD !== undefined);
         if (orderBy === "ASC") {
-            const dataSort = b.sort ((i, j) => compare (i, j, field)).reverse ();
-            const c = a.concat (dataSort);
-            setInfos (c);
-            setOrderBy ("DSC");
+            const dataSort = b.sort(( i, j ) => compare(i, j, field)).reverse();
+            const c = a.concat(dataSort);
+            setInfos(c);
+            setOrderBy("DSC");
         }
         if (orderBy === "DSC") {
-            const dataSort = b.sort ((i, j) => compare (i, j, field));
-            const c = dataSort.concat (a);
-            setInfos (c);
-            setOrderBy ("ASC");
+            const dataSort = b.sort(( i, j ) => compare(i, j, field));
+            const c = dataSort.concat(a);
+            setInfos(c);
+            setOrderBy("ASC");
         }
     };
 
-    const formatCurrencyNormal = (value, currency) => {
-        console.log ('value', value);
-        if (typeof value === 'number') {
-            if (currency === "USD") {
-                return (value * 10).toLocaleString ('en-US');
-            } else {
-                return value.toLocaleString ('en-US');
+    // const formatCurrencyNormal = ( value, currency ) => {
+    //     console.log('value', value);
+    //     if (typeof value === 'number') {
+    //         if (currency === "USD") {
+    //             return (value * 10).toLocaleString('en-US');
+    //         } else {
+    //             return value.toLocaleString('en-US');
+    //
+    //         }
+    //
+    //     }
+    //     if (typeof value !== 'string') {
+    //         return "--";
+    //     }
+    //
+    //     const cleanedValue = value.replace(/[.,]/g, '');
+    //
+    //
+    //     let numberValue;
+    //     if (currency === "USD") {
+    //
+    //         numberValue = Number(cleanedValue) * 10;
+    //     } else {
+    //         numberValue = Number(cleanedValue);
+    //     }
+    //
+    //     if (isNaN(numberValue)) {
+    //         return "--";
+    //     } else {
+    //         return numberValue.toLocaleString('en-US');
+    //     }
+    // }
+    // const handleChangeCurrency = () => {
+    //     if (changeCurrency === false) {
+    //         const debt = dataAccountOriginal.map(( item ) => formatCurrencyNormal(item.balance, item.currency));
+    //         const limit = dataAccountOriginal.map(( item ) => item.adtrust_dsl === -1 ? "--" : formatCurrencyNormal(item.adtrust_dsl, item.currency));
+    //         const total_spending = dataAccountOriginal.map(( item ) => formatCurrencyNormal(item.amount_spent, item.currency));
+    //         const threshold_amount: any[] = dataAccountOriginal.flatMap(( item ) => {
+    //             if (item.adspaymentcycle && item.adspaymentcycle.data) {
+    //                 return item.adspaymentcycle.data.map(( cycleItem ) => {
+    //                     const thresholdAmountValue = typeof cycleItem.threshold_amount === "string" ?
+    //                         formatCurrencyNormal(parseFloat(cycleItem.threshold_amount.replace(/,/g, '')), item.currency) :
+    //                         cycleItem.threshold_amount;
+    //                     return thresholdAmountValue;
+    //                 });
+    //             } else {
+    //                 return "--";
+    //             }
+    //         });
+    //         setInfos(( prevState ) => {
+    //             const newState = prevState.map(( item, index ) => ({
+    //                 ...item,
+    //                 DEBT : debt[index],
+    //                 TOTAL_SPENDING : total_spending[index],
+    //                 LIMIT : limit[index],
+    //                 THRESHOLD : threshold_amount[index]
+    //             }));
+    //
+    //             return newState;
+    //         });
+    //         console.log('infos', infos)
+    //         setChangeCurrency(!changeCurrency);
+    //     } else {
+    //
+    //         const spendCap = dataAccountOriginal.flatMap(( item ) => item?.insights?.data.map((item => item.spend)));
+    //         const spendCapWithoutNull = spendCap.map(value => (value != null ? value : "0"));
+    //         const total_spending = dataAccountOriginal.map(( item, index ) => currencyChange(spendCapWithoutNull[index], item.account_currency_ratio_to_usd, item.currency));
+    //         const spendingTotalAmount = dataAccountOriginal.flatMap(( item ) => item?.insights?.data.map(item => +item.spend));
+    //         const debt = dataAccountOriginal.map(( item ) => currencyChange(item.balance, item.account_currency_ratio_to_usd, item.currency));
+    //         const limit = dataAccountOriginal.map(( item ) => item.adtrust_dsl === -1 ? "--" : currencyChange(item.adtrust_dsl, item.account_currency_ratio_to_usd, item.currency));
+    //
+    //         const ratioValue = dataAccountOriginal.map(( item ) => item.account_currency_ratio_to_usd);
+    //         const currencyValue = dataAccountOriginal.map(( item ) => item.currency);
+    //         const threshold_amount = dataAccountOriginal.flatMap(( item ) => {
+    //             if (item.adspaymentcycle && item.adspaymentcycle.data) {
+    //                 return item.adspaymentcycle.data.map(( cycleItem ) => {
+    //                     return cycleItem.threshold_amount;
+    //                 });
+    //             } else {
+    //                 return "--";
+    //             }
+    //         });
+    //         const result = threshold_amount.map(( value, index ) => currencyChange(value, ratioValue[index], currencyValue[index]));
+    //         setInfos(( prevState ) => {
+    //             const newState = prevState.map(( item, index ) => {
+    //                 return {
+    //                     ...item,
+    //                     DEBT : debt[index],
+    //                     TOTAL_SPENDING : total_spending[index],
+    //                     LIMIT : limit[index],
+    //                     THRESHOLD : result[index]
+    //                 };
+    //             });
+    //             return newState;
+    //         });
+    //         setChangeCurrency(!changeCurrency);
+    //     }
+    //
+    // }
+    console.log('infos', infos)
 
-            }
 
+    const formatCurrencyNormal = ( value, currency, field, ratio ) => {
+
+        if (typeof value === "string") {
+            const cleanedValue = value.replace(/[^\d.]/g, '');
+
+            const usdValue = parseFloat(cleanedValue);
+            return usdValue * ratio;
         }
-        if (typeof value !== 'string') {
-            return "--";
-        }
-        const cleanedValue = value//.replace (/[.,]/g, '');
-        let numberValue;
-        if (currency === "USD") {
 
-            numberValue = Number (cleanedValue) * 10;
-        } else {
-            numberValue = Number (cleanedValue);
-        }
-
-        // let numberValue;
-        // if (currency === "USD") {
-        //     return numberValue = Number (cleanedValue) * 10;
-        //
+        // if (ratio <= 1 && (field === 'DEBT' || field === 'THRESHOLD')) {
+        //     return value / 100
         // } else {
-        //     return numberValue = Number (cleanedValue);
+        //     return value
         // }
-
-        if (isNaN (numberValue)) {
-            return "--";
-        } else {
-            return numberValue.toLocaleString ('en-US');
-        }
     }
     const handleChangeCurrency = () => {
-        if (changeCurrency === false) {
-            const debt = dataAccountOriginal.map ((item) => formatCurrencyNormal (item.balance, item.currency));
-            const limit = dataAccountOriginal.map ((item) => item.adtrust_dsl === -1 ? "--" : formatCurrencyNormal (item.adtrust_dsl, item.currency));
-            const total_spending = dataAccountOriginal.map ((item) => formatCurrencyNormal (item.amount_spent, item.currency));
-            const threshold_amount: any[] = dataAccountOriginal.flatMap ((item) => {
-                if (item.adspaymentcycle && item.adspaymentcycle.data) {
-                    return item.adspaymentcycle.data.map ((cycleItem) => {
-                        const thresholdAmountValue = typeof cycleItem.threshold_amount === "string" ?
-                            formatCurrencyNormal (parseFloat (cycleItem.threshold_amount.replace (/,/g, '')), item.currency) :
-                            cycleItem.threshold_amount;
-                        return thresholdAmountValue;
-                    });
-                } else {
-                    return "--";
-                }
+
+
+        const convertNumberToUsd = ( value ) => {
+            let USDollar = new Intl.NumberFormat('en-US', {
+                style : 'currency',
+                currency : 'USD',
             });
-            setInfos ((prevState) => {
-                const newState = prevState.map ((item, index) => ({
+            return USDollar.format(value);
+        }
+        const formatCurrencyToUSD = ( value, currency, field, ratio ) => {
+            if (ratio <= 1 && (field === 'DEBT' || field === 'THRESHOLD')) {
+                return convertNumberToUsd((value / ratio) / 100)
+            } else {
+                return convertNumberToUsd(value / ratio)
+            }
+        }
+
+
+        if (changeCurrency === false) {
+            const debt = infos.map(( item ) => formatCurrencyToUSD(item.DEBT, item.CURRENCY, "DEBT", item.CURRENCY_RATIO_USD));
+            const thres = infos.map(( item ) => formatCurrencyToUSD(item.THRESHOLD, item?.CURRENCY, "THRESHOLD", item.CURRENCY_RATIO_USD));
+            const total_spending = infos.map(( item ) => formatCurrencyToUSD(item.TOTAL_SPENDING, item?.CURRENCY, "TOTAL_SPENDING", item.CURRENCY_RATIO_USD));
+            const limit = infos.map(( item ) => formatCurrencyToUSD(item.LIMIT, item?.CURRENCY, "LIMIT", item.CURRENCY_RATIO_USD));
+
+            setInfos(( prevState ) => {
+                const newState = prevState.map(( item, index ) => ({
                     ...item,
-                    DEBT: debt[index],
-                    TOTAL_SPENDING: total_spending[index],
-                    LIMIT: limit[index],
-                    THRESHOLD: threshold_amount[index]
+                    DEBT : debt[index],
+                    THRESHOLD : thres[index],
+                    TOTAL_SPENDING : total_spending[index],
+                    LIMIT : limit[index],
                 }));
 
                 return newState;
             });
-            console.log ('infos', infos)
-            setChangeCurrency (!changeCurrency);
+            console.log('infos', infos)
+            setChangeCurrency(!changeCurrency);
         } else {
+            const debt = infos.map(( item ) => formatCurrencyNormal(item.DEBT, item.CURRENCY, "DEBT", item.CURRENCY_RATIO_USD));
+            const thres = infos.map(( item ) => formatCurrencyNormal(item.THRESHOLD, item?.CURRENCY, "THRESHOLD", item.CURRENCY_RATIO_USD));
+            const total_spending = infos.map(( item ) => formatCurrencyNormal(item.TOTAL_SPENDING, item?.CURRENCY, "TOTAL_SPENDING", item.CURRENCY_RATIO_USD));
+            const limit = infos.map(( item ) => formatCurrencyNormal(item.LIMIT, item?.CURRENCY, "LIMIT", item.CURRENCY_RATIO_USD));
 
-            const debt = dataAccountOriginal.map ((item) => currencyChange (item.balance, item.account_currency_ratio_to_usd, item.currency));
-            const limit = dataAccountOriginal.map ((item) => item.adtrust_dsl === -1 ? "--" : currencyChange (item.adtrust_dsl, item.account_currency_ratio_to_usd, item.currency));
-            const total_spending = dataAccountOriginal.map ((item) => currencyChange (item.amount_spent, item.account_currency_ratio_to_usd, item.currency));
-            const ratioValue = dataAccountOriginal.map ((item) => item.account_currency_ratio_to_usd);
-            const currencyValue = dataAccountOriginal.map ((item) => item.currency);
-            const threshold_amount = dataAccountOriginal.flatMap ((item) => {
-                if (item.adspaymentcycle && item.adspaymentcycle.data) {
-                    return item.adspaymentcycle.data.map ((cycleItem) => {
-                        return cycleItem.threshold_amount;
-                    });
-                } else {
-                    return "--";
-                }
-            });
-            const result = threshold_amount.map ((value, index) => currencyChange (value, ratioValue[index], currencyValue[index]));
-            setInfos ((prevState) => {
-                const newState = prevState.map ((item, index) => {
-                    return {
-                        ...item,
-                        DEBT: debt[index],
-                        TOTAL_SPENDING: total_spending[index],
-                        LIMIT: limit[index],
-                        THRESHOLD: result[index]
-                    };
-                });
+            setInfos(( prevState ) => {
+                const newState = prevState.map(( item, index ) => ({
+                    ...item,
+                    DEBT : debt[index],
+                    THRESHOLD : thres[index],
+                    TOTAL_SPENDING : total_spending[index],
+                    LIMIT : limit[index],
+                }));
+
                 return newState;
             });
-            setChangeCurrency (!changeCurrency);
+            console.log('infos', infos)
+            setChangeCurrency(!changeCurrency);
+
         }
 
     }
-
-    const handleReloadStorage = (e: any) => {
-        window.location.reload ();
-        chrome.runtime.sendMessage ({action: "reload_storage"}, function (response) {
-            console.log (response);
+    const handleReloadStorage = ( e: any ) => {
+        window.location.reload();
+        chrome.runtime.sendMessage({ action : "reload_storage" }, function ( response ) {
+            console.log(response);
         });
     };
 
-    useEffect (() => {
+    useEffect(() => {
         if (
             typeof dataAccount === "object" &&
             accountID !== null &&
             dataAccount.length > 0
         ) {
             let dataInfos = [];
-
             for (let i = 0; i < dataAccount.length; i++) {
-                const debt = currencyChange (
-                    dataAccount[i]?.balance,
-                    dataAccount[i]?.account_currency_ratio_to_usd, dataAccount[i]?.currency
-                );
-                const thresholdArr = dataAccount[i]?.adspaymentcycle?.data.map (
-                    (item) => item.threshold_amount
-                );
-                const threShold = currencyChange (
-                    thresholdArr,
-                    dataAccount[i]?.account_currency_ratio_to_usd,
-                    dataAccount[i]?.currency
-                );
 
-                dataInfos.push ({
-                    STT: i + 1,
-                    STATUS: dataAccount[i]?.account_status,
-                    DATE_AD: formattedDate,
-                    DATE_BACKUP: "19/11/2023",
-                    IP: "222.252.20.234",
-                    PROFILE_CHROME: "Profile Chrome",
-                    COUNTRY: "Viet Nam",
-                    CITY: "Ha Noi",
-                    COOKIES: "Cookie",
-                    ID_TKQC_AD: dataAccount[i]?.account_id,
-                    NAME_TK_AD: dataAccount[i]?.name,
-                    DEBT: debt,
-                    THRESHOLD: threShold,
-                    LIMIT: currencyChange (
-                        dataAccount[i]?.adtrust_dsl,
-                        dataAccount[i]?.account_currency_ratio_to_usd,
-                        dataAccount[i]?.currency
-                    ),
-                    ADMIN: dataAccount[i]?.userpermissions.data.length,
-                    TOTAL_SPENDING: currencyChange (
-                        dataAccount[i]?.amount_spent,
-                        dataAccount[i]?.account_currency_ratio_to_usd,
-                        dataAccount[i]?.currency
-                    ),
-                    // TOTAL_SPENDING: dataAccount[i]?.amount_spent,
-                    PERMISSION_ACCOUNT:
+                const threshold = dataAccount[i]?.adspaymentcycle?.data.map(
+                    ( item ) => item.threshold_amount
+                );
+                const insight_spend = dataAccount[i].insights?.data.map((item => item.spend))
+
+                dataInfos.push({
+                    STT : i + 1,
+                    STATUS : dataAccount[i]?.account_status,
+                    DATE_AD : formattedDate,
+                    DATE_BACKUP : "19/11/2023",
+                    IP : "222.252.20.234",
+                    PROFILE_CHROME : "Profile Chrome",
+                    COUNTRY : "Viet Nam",
+                    CITY : "Ha Noi",
+                    COOKIES : "Cookie",
+                    ID_TKQC_AD : dataAccount[i]?.account_id,
+                    NAME_TK_AD : dataAccount[i]?.name,
+                    DEBT : dataAccount[i]?.balance,
+                    THRESHOLD : threshold,
+                    LIMIT : dataAccount[i]?.adtrust_dsl,
+
+                    TOTAL_SPENDING : insight_spend,
+                    ADMIN : dataAccount[i]?.userpermissions.data.length,
+                    PERMISSION_ACCOUNT :
                         accountID !== null &&
-                        dataAccount[i]?.userpermissions.data.filter (
-                            (item) => item?.user?.id === accountID
+                        dataAccount[i]?.userpermissions.data.filter(
+                            ( item ) => item?.user?.id === accountID
                         )
                             ? "ADMIN"
                             : "",
-                    CURRENCY: dataAccount[i]?.currency,
-                    ACCOUNT_TYPE: dataAccount[i].hasOwnProperty ("owner_business")
+                    CURRENCY : dataAccount[i]?.currency,
+                    ACCOUNT_TYPE : dataAccount[i].hasOwnProperty("owner_business")
                         ? "BM"
                         : "CN",
-                    PERMISSION_BM: checkAuthorBM (
+                    PERMISSION_BM : checkAuthorBM(
                         dataAccount[i]?.userpermissions.data
-                            .filter ((item) => item?.user)
-                            .map ((item, index) => {
-                                return item?.role.toString ();
+                            .filter(( item ) => item?.user)
+                            .map(( item, index ) => {
+                                return item?.role.toString();
                             })
                     ),
-                    ID_BM: dataAccount[i]?.owner_business?.id,
-                    PAYMENT_METHOD: dataAccount[
+                    ID_BM : dataAccount[i]?.owner_business?.id,
+                    PAYMENT_METHOD : dataAccount[
                         i
-                        ]?.all_payment_methods?.pm_credit_card?.data.map (
-                        (item) => item?.display_string
+                        ]?.all_payment_methods?.pm_credit_card?.data.map(
+                        ( item ) => item?.display_string
                     ),
-                    TIME_ZONE: `${dataAccount[i]?.timezone_offset_hours_utc}  -  ${dataAccount[i]?.timezone_name} `,
-                    ID: uuidv4 (),
-                    CURRENCY_RATIO_USD: dataAccount[i]?.account_currency_ratio_to_usd
+                    TIME_ZONE : `${dataAccount[i]?.timezone_offset_hours_utc}  -  ${dataAccount[i]?.timezone_name} `,
+                    ID : uuidv4(),
+                    CURRENCY_RATIO_USD : dataAccount[i]?.account_currency_ratio_to_usd
                 });
             }
 
-            setInfos (dataInfos);
+            setInfos(dataInfos);
         }
     }, [dataAccount, accountID]);
 
-    useEffect (() => {
-        handleGetAccessToken ();
+    useEffect(() => {
+        handleGetAccessToken();
     }, []);
 
 
     return (
         <>
-            <div className="app" style={{padding: 0}}>
+            <div className="app" style={{ padding : 0 }}>
                 <div className="wrapper" id="main">
-                    <div className="sc_heading" style={{padding: 0}}>
+                    <div className="sc_heading" style={{ padding : 0 }}>
                         <div className="command">
-                            <div className="command_head" style={{backgroundColor: "#023302"}}>
+                            <div className="command_head" style={{ backgroundColor : "#023302" }}>
                                 <div className="command_flex">
                                     <SearchBar filteredList={filteredList} infos={infos}
                                                setFilteredList={setFilteredList}/>
@@ -448,7 +509,7 @@ const PopupDetailAD = () => {
                         </div>
                     </div>
                     <div id="AccStatus" className="tabcontent active">
-                        <div className="loaddata1" style={{display: "none"}}>
+                        <div className="loaddata1" style={{ display : "none" }}>
                             <img
                                 src="chrome-extension://ookgnahfklmejhicejjbfjifppjbfnlk/access/icon/loadingdata.gif"
                                 alt=""
@@ -459,27 +520,27 @@ const PopupDetailAD = () => {
                             <tr>
                                 <th className="sort"
                                     onClick={() =>
-                                        handleSortItemNumber ("STT")
+                                        handleSortItemNumber("STT")
                                     }
                                 >STT
                                 </th>
                                 <th
                                     className="sort"
                                     onClick={() =>
-                                        handleSortItemNumber ("STATUS")
+                                        handleSortItemNumber("STATUS")
                                     }
                                 >
                                     Trạng thái
                                 </th>
                                 <th className="sort"
                                     onClick={() =>
-                                        handleSortItemNumber ("DATE")
+                                        handleSortItemNumber("DATE")
                                     }
                                 >DATE
                                 </th>
                                 <th className="sort"
                                     onClick={() =>
-                                        handleSortItemNumber ("ID_TKQC_AD")
+                                        handleSortItemNumber("ID_TKQC_AD")
                                     }
                                 >ID
                                 </th>
@@ -487,25 +548,25 @@ const PopupDetailAD = () => {
                                     className="sort"
 
                                     onClick={() =>
-                                        handleSortItemText ("NAME_TK_AD")
+                                        handleSortItemText("NAME_TK_AD")
                                     }
                                 >
                                     Tên TK{" "}
                                 </th>
                                 <th className="sort" onClick={() =>
-                                    handleSortItemText ("PROFILE_CHROME")
+                                    handleSortItemText("PROFILE_CHROME")
                                 }>Profile Chrome
                                 </th>
                                 <th className="sort"
                                     onClick={() =>
-                                        handleSortItemNumber ("IP")
+                                        handleSortItemNumber("IP")
                                     }
                                 >IP
                                 </th>
                                 <th
                                     className="sort"
                                     onClick={() =>
-                                        handleSortItemText ("CITY")
+                                        handleSortItemText("CITY")
                                     }
                                 >
                                     CITY
@@ -513,94 +574,94 @@ const PopupDetailAD = () => {
 
                                 <th
                                     className="sort"
-                                    style={{minWidth: "100px"}}
+                                    style={{ minWidth : "100px" }}
                                     onClick={() =>
-                                        handleSortItemNumber ("DEBT")
+                                        handleSortItemNumber("DEBT")
                                     }
                                 >
                                     Dư nợ
                                 </th>
                                 <th
                                     className="sort"
-                                    style={{minWidth: "70px"}}
+                                    style={{ minWidth : "70px" }}
                                     onClick={() =>
-                                        handleSortItemNumber ("THRESHOLD")
+                                        handleSortItemNumber("THRESHOLD")
                                     }
                                 >
                                     Ngưỡng
                                 </th>
-                                <th className="sort" style={{minWidth: "70px"}}
+                                <th className="sort" style={{ minWidth : "70px" }}
                                     onClick={() =>
-                                        handleSortItemNumber ("LIMIT")
+                                        handleSortItemNumber("LIMIT")
                                     }
                                 >
                                     Limit
                                 </th>
-                                <th className="sort" style={{minWidth: "70px"}}
+                                <th className="sort" style={{ minWidth : "70px" }}
                                     onClick={() =>
-                                        handleSortItemNumber ("TOTAL_SPENDING")
+                                        handleSortItemNumber("TOTAL_SPENDING")
                                     }
                                 >
                                     Tổng Tiêu
                                 </th>
                                 <th className="sort"
                                     onClick={() =>
-                                        handleSortItemNumber ("ADMIN")
+                                        handleSortItemNumber("ADMIN")
                                     }
                                 >Admin
                                 </th>
                                 <th className="sort"
                                     onClick={() =>
-                                        handleSortItemText ("PERMISSION_ACCOUNT")
+                                        handleSortItemText("PERMISSION_ACCOUNT")
                                     }>Quyền TK
                                 </th>
                                 <th
                                     className="sort"
                                     onClick={() =>
-                                        handleSortItemText ("CURRENCY")
+                                        handleSortItemText("CURRENCY")
                                     }
                                 >
                                     Tiền tệ
                                 </th>
                                 <th className="sort" onClick={() =>
-                                    handleSortItemText ("ACCOUNT_TYPE")
+                                    handleSortItemText("ACCOUNT_TYPE")
                                 }>Loại TK
                                 </th>
                                 <th className="sort"
                                     onClick={() =>
-                                        handleSortItemText ("PERMISSION_BM")
+                                        handleSortItemText("PERMISSION_BM")
                                     }
                                 >Role
                                 </th>
                                 <th className="sort"
                                     onClick={() =>
-                                        handleSortItemNumber ("ID_BM")
+                                        handleSortItemNumber("ID_BM")
                                     }
                                 >ID BM
                                 </th>
                                 <th className="sort" onClick={() =>
-                                    handleSortPaymentMethod ("PAYMENT_METHOD")
+                                    handleSortPaymentMethod("PAYMENT_METHOD")
                                 }>Thanh toán
                                 </th>
                                 <th className="sort"
                                     onClick={() =>
-                                        handleSortItemNumber ("TIME_ZONE")
+                                        handleSortItemNumber("TIME_ZONE")
                                     }
                                 >Múi giờ
                                 </th>
                             </tr>
                             </thead>
                             <tbody id="tb">
-                            {filteredList.map ((item, key) => (
+                            {filteredList.map(( item, key ) => (
                                 <tr className="trInfo" key={key}>
                                     <td className="tdInfo">{item.STT}</td>
                                     <td className="tdInfo">
-                                        <div className="tbstatus">{checkStatusBM (item.STATUS)}</div>
+                                        <div className="tbstatus">{checkStatusBM(item.STATUS)}</div>
                                     </td>
                                     <td className="tdInfo"> {item.DATE_AD}</td>
                                     <td className="tdInfo"> {item.ID_TKQC_AD}</td>
                                     <td className="tdInfo"
-                                        style={{textAlign: "left", overflow: "hidden"}}> {item.NAME_TK_AD}</td>
+                                        style={{ textAlign : "left", overflow : "hidden" }}> {item.NAME_TK_AD}</td>
                                     <td className="tdInfo"> {item.PROFILE_CHROME}</td>
                                     <td className="tdInfo"> {item.IP}</td>
                                     <td className="tdInfo"> {item.CITY}</td>

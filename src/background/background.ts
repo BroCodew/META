@@ -94,7 +94,6 @@ const getDataPageSale = async ( token: any ) => {
     try {
         const response = await fetch(`https://graph.facebook.com/v15.0/me?fields=accounts.limit(40){id,name,verification_status,is_published,ad_campaign,roles{id,%20tasks},is_promotable,is_restricted,parent_page,promotion_eligible,fan_count,followers_count,has_transitioned_to_new_page_experience,picture}&access_token=${token}`)
         const data = await response.json();
-        console.log("getDataPageSale", data)
         return data;
     } catch (error) {
         console.error(error);
@@ -102,7 +101,6 @@ const getDataPageSale = async ( token: any ) => {
 }
 
 const getDataBM = async ( token: any ) => {
-    console.log("ffff")
     try {
         const response = await fetch(`https://graph.facebook.com/v15.0/me/businesses?fields=id,created_time,is_disabled_for_integrity_reasons,sharing_eligibility_status,allow_page_management_in_www,can_use_extended_credit,name,timezone_id,timezone_offset_hours_utc,verification_status,owned_ad_accounts{id,currency,timezone_offset_hours_utc,timezone_name}&access_token=${token}`)
         const data = await response.json();
@@ -132,7 +130,6 @@ chrome.runtime.onMessage.addListener(( request, sender, sendResponse ) => {
                                 const dataPage = await getDataPageSale(token.token);
                                 const dataBM = await getDataBM(token.token);
                                 const value = { token, accountId, data, dataPage, dataBM };
-                                console.log('valueContainer', value)
                                 chrome.storage.local.set({ [key] : value }, () => {
                                     sendResponse({ success : true, ...value });
                                 });
