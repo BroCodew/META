@@ -24,7 +24,7 @@ const PopupDetailAD = () => {
         setFilteredList(infos)
     }, [infos]);
     const handleGetAccessToken = () => {
-        chrome.runtime.sendMessage({ action : "login_request" }, ( response ) => {
+        chrome.runtime.sendMessage({ action : "login_request" }, (response) => {
             if (response && response.success) {
                 setDataAccountOriginal(response.data.data);
                 setDataAccount(response.data.data);
@@ -36,7 +36,7 @@ const PopupDetailAD = () => {
         });
     };
 
-    const checkStatusBM = ( option ) => {
+    const checkStatusBM = (option) => {
         switch (option) {
             case 1:
                 return (
@@ -64,7 +64,7 @@ const PopupDetailAD = () => {
         }
     };
 
-    const checkAuthorBM = ( option ) => {
+    const checkAuthorBM = (option) => {
         switch (option[0]) {
             case "GENERAL_USER":
                 return "Nhà quảng cáo";
@@ -78,7 +78,7 @@ const PopupDetailAD = () => {
     };
 
 
-    const currencyChange = ( current, currentRation, field ) => {
+    const currencyChange = (current, currentRation, field) => {
         let change;
         if (typeof current !== "object") {
             if (field === "USD") {
@@ -104,7 +104,7 @@ const PopupDetailAD = () => {
         return result;
     };
 
-    function convertCurrencyToNumber( value ) {
+    function convertCurrencyToNumber(value) {
         if (typeof value === 'number') {
             return value;
         } else if (typeof value === 'string') {
@@ -116,7 +116,7 @@ const PopupDetailAD = () => {
         }
     }
 
-    const compare = ( a, b, field ) => {
+    const compare = (a, b, field) => {
         if (a[field] < b[field]) {
             return -1;
         }
@@ -125,9 +125,9 @@ const PopupDetailAD = () => {
         }
         return 0;
     }
-    const handleSortItemNumber = ( field ) => {
+    const handleSortItemNumber = (field) => {
         if (orderBy === "ASC") {
-            setInfos(infos.sort(( a, b ) => compare({
+            setInfos(infos.sort((a, b) => compare({
                 ...a,
                 THRESHOLD : convertCurrencyToNumber(a.THRESHOLD),
                 DEBT : convertCurrencyToNumber(a.DEBT),
@@ -144,7 +144,7 @@ const PopupDetailAD = () => {
             }, field)).reverse());
             setOrderBy("DSC");
         } else {
-            setInfos(infos.sort(( a, b ) => compare({
+            setInfos(infos.sort((a, b) => compare({
                 ...a,
                 THRESHOLD : convertCurrencyToNumber(a.THRESHOLD),
                 DEBT : convertCurrencyToNumber(a.DEBT),
@@ -161,12 +161,11 @@ const PopupDetailAD = () => {
             }, field)));
             setOrderBy("ASC");
         }
-        console.log('infos', infos.map(item => item.THRESHOLD), infos.map(item => typeof item.THRESHOLD))
 
     };
-    const handleSortItemText = ( field ) => {
+    const handleSortItemText = (field) => {
         if (orderBy === "ASC") {
-            setInfos(infos.sort(( a, b ) => compare({
+            setInfos(infos.sort((a, b) => compare({
                 ...a,
                 PERMISSION_BM : a.PERMISSION_BM,
                 NAME_TK_AD : a.NAME_TK_AD,
@@ -188,7 +187,7 @@ const PopupDetailAD = () => {
             setOrderBy("DSC");
         }
         if (orderBy === "DSC") {
-            setInfos(infos.sort(( a, b ) => compare({
+            setInfos(infos.sort((a, b) => compare({
                 ...a, PERMISSION_BM : a.PERMISSION_BM,
                 NAME_TK_AD : a.NAME_TK_AD,
                 PERMISSION_ACCOUNT : a.PERMISSION_ACCOUNT,
@@ -211,17 +210,17 @@ const PopupDetailAD = () => {
     };
 
 
-    const handleSortPaymentMethod = ( field ) => {
+    const handleSortPaymentMethod = (field) => {
         const a = infos.filter(item => item.PAYMENT_METHOD === undefined);
         const b = infos.filter(item => item.PAYMENT_METHOD !== undefined);
         if (orderBy === "ASC") {
-            const dataSort = b.sort(( i, j ) => compare(i, j, field)).reverse();
+            const dataSort = b.sort((i, j) => compare(i, j, field)).reverse();
             const c = a.concat(dataSort);
             setInfos(c);
             setOrderBy("DSC");
         }
         if (orderBy === "DSC") {
-            const dataSort = b.sort(( i, j ) => compare(i, j, field));
+            const dataSort = b.sort((i, j) => compare(i, j, field));
             const c = dataSort.concat(a);
             setInfos(c);
             setOrderBy("ASC");
@@ -327,51 +326,109 @@ const PopupDetailAD = () => {
     //     }
     //
     // }
-    console.log('infos', infos)
 
-
-    const formatCurrencyNormal = ( value, currency, field, ratio ) => {
+    const convertNumberToUsd = (value) => {
+        let USDollar = new Intl.NumberFormat('en-US', {
+            style : 'currency',
+            currency : 'USD',
+        });
+        return USDollar.format(value);
+    }
+    const formatCurrencyNormal = (value, currency, field, ratio) => {
 
         if (typeof value === "string") {
-            const cleanedValue = value.replace(/[^\d.]/g, '');
-
+            const cleanedValue = value.replace("$", "").replace(",", "");
             const usdValue = parseFloat(cleanedValue);
-            return usdValue * ratio;
+            return (usdValue * ratio).toFixed(2);
         }
-
-        // if (ratio <= 1 && (field === 'DEBT' || field === 'THRESHOLD')) {
-        //     return value / 100
-        // } else {
-        //     return value
-        // }
     }
-    const handleChangeCurrency = () => {
 
+    function formatCurrency(number) {
+        const formatter = new Intl.NumberFormat('en-US', {
+            style : 'currency',
+            currency : 'USD',
+            minimumFractionDigits : 2,
+            maximumFractionDigits : 2,
+        });
+        const b = formatter.format(number).replace('$', '');
+        return b;
+    }
 
-        const convertNumberToUsd = ( value ) => {
-            let USDollar = new Intl.NumberFormat('en-US', {
-                style : 'currency',
-                currency : 'USD',
-            });
-            return USDollar.format(value);
-        }
-        const formatCurrencyToUSD = ( value, currency, field, ratio ) => {
-            if (ratio <= 1 && (field === 'DEBT' || field === 'THRESHOLD')) {
-                return convertNumberToUsd((value / ratio) / 100)
-            } else {
-                return convertNumberToUsd(value / ratio)
+    const formatCurrencyRaw = (value, currency, ratio, field) => {
+        // console.log('valueformatCurrencyRaw:', value)
+
+        let a;
+        if (typeof value === "string") {
+            if (ratio <= 1 && (field === 'DEBT' || field === 'THRESHOLD')) { //ok
+                const valueRaw = value.replace(/,/g, '')
+                a = formatCurrency(+valueRaw / 100);
             }
+            if (field === "THRESHOLD" && value === undefined) { //ok
+                a = '--'
+            } else {
+                const valueRaw = value.replace(/,/g, '')
+                a = formatCurrency(valueRaw);
+            }
+        } else if (typeof value === "number") {
+            if (field === "LIMIT" && value < 0) {
+                a = 'NO LIMIT'
+            } else {
+                a = formatCurrency(value);
+            }
+        } else if (Array.isArray(value) && value.length > 0) {
+            if (ratio <= 1 && field === "THRESHOLD") {
+                a = formatCurrency(value[0] / 100)
+            } else {
+                a = formatCurrency(value);
+            }
+        } else if (field === "TOTAL_SPENDING" && value === undefined) {
+            a = 0
+        } else if (field === "THRESHOLD" && value === undefined) {
+            a = "--"
         }
+
+        return a;
+    }
+    // const cleanedValue = value.replace(/[^\d.]/g, "");
+    const handleChangeCurrency = () => {
+        const formatCurrencyToUSD = (value, currency, field, ratio) => {
+            if (ratio <= 1 && (field === 'DEBT' || field === 'THRESHOLD')) {
+                if (typeof value === "string") {
+                    const cleanedValue = value.replace(/,/g, '')
+                    const numericValue = parseFloat(cleanedValue);
+                    return numericValue / (ratio * 100);
+                } else if (Array.isArray(value) && value.length > 0) {
+                    return value[0] / (ratio * 100);
+                }
+            } else {
+                if (Array.isArray(value) && value.length > 0) {
+                    return value[0] / ratio
+                } else if (typeof value === 'string') {
+                    console.log("ggggg", value, +value)
+                    return +value / ratio
+                } else if (typeof value === 'number') {
+                    return value / ratio
+                }
+                return null;
+            }
+
+            // Handle other cases or return an error, depending on your requirements
+            return null;
+        };
 
 
         if (changeCurrency === false) {
-            const debt = infos.map(( item ) => formatCurrencyToUSD(item.DEBT, item.CURRENCY, "DEBT", item.CURRENCY_RATIO_USD));
-            const thres = infos.map(( item ) => formatCurrencyToUSD(item.THRESHOLD, item?.CURRENCY, "THRESHOLD", item.CURRENCY_RATIO_USD));
-            const total_spending = infos.map(( item ) => formatCurrencyToUSD(item.TOTAL_SPENDING, item?.CURRENCY, "TOTAL_SPENDING", item.CURRENCY_RATIO_USD));
-            const limit = infos.map(( item ) => formatCurrencyToUSD(item.LIMIT, item?.CURRENCY, "LIMIT", item.CURRENCY_RATIO_USD));
-
-            setInfos(( prevState ) => {
-                const newState = prevState.map(( item, index ) => ({
+            console.log(infos);
+            const debt = infos.map((item) => {
+                console.log("fff", item);
+                return formatCurrencyToUSD(item.DEBT, item.CURRENCY, "DEBT", item.CURRENCY_RATIO_USD)
+            });
+            console.log("ddd", debt);
+            const thres = infos.map((item) => formatCurrencyToUSD(item.THRESHOLD, item?.CURRENCY, "THRESHOLD", item.CURRENCY_RATIO_USD));
+            const total_spending = infos.map((item) => formatCurrencyToUSD(item.TOTAL_SPENDING, item?.CURRENCY, "TOTAL_SPENDING", item.CURRENCY_RATIO_USD));
+            const limit = infos.map((item) => formatCurrencyToUSD(item.LIMIT, item?.CURRENCY, "LIMIT", item.CURRENCY_RATIO_USD));
+            setInfos((prevState) => {
+                const newState = prevState.map((item, index) => ({
                     ...item,
                     DEBT : debt[index],
                     THRESHOLD : thres[index],
@@ -381,16 +438,16 @@ const PopupDetailAD = () => {
 
                 return newState;
             });
-            console.log('infos', infos)
+            // console.log('infos', infos)
             setChangeCurrency(!changeCurrency);
         } else {
-            const debt = infos.map(( item ) => formatCurrencyNormal(item.DEBT, item.CURRENCY, "DEBT", item.CURRENCY_RATIO_USD));
-            const thres = infos.map(( item ) => formatCurrencyNormal(item.THRESHOLD, item?.CURRENCY, "THRESHOLD", item.CURRENCY_RATIO_USD));
-            const total_spending = infos.map(( item ) => formatCurrencyNormal(item.TOTAL_SPENDING, item?.CURRENCY, "TOTAL_SPENDING", item.CURRENCY_RATIO_USD));
-            const limit = infos.map(( item ) => formatCurrencyNormal(item.LIMIT, item?.CURRENCY, "LIMIT", item.CURRENCY_RATIO_USD));
+            const debt = dataAccountOriginal.map((item) => formatCurrencyRaw(item.DEBT, item.CURRENCY, "DEBT", item.CURRENCY_RATIO_USD));
+            const thres = dataAccountOriginal.map((item) => formatCurrencyRaw(item.THRESHOLD, item.CURRENCY, "THRESHOLD", item.CURRENCY_RATIO_USD));
+            const total_spending = dataAccountOriginal.map((item) => formatCurrencyRaw(item.TOTAL_SPENDING, item?.CURRENCY, "TOTAL_SPENDING", item.CURRENCY_RATIO_USD));
+            const limit = dataAccountOriginal.map((item) => formatCurrencyRaw(item.LIMIT, item.CURRENCY, "LIMIT", item.CURRENCY_RATIO_USD));
 
-            setInfos(( prevState ) => {
-                const newState = prevState.map(( item, index ) => ({
+            setInfos((prevState) => {
+                const newState = prevState.map((item, index) => ({
                     ...item,
                     DEBT : debt[index],
                     THRESHOLD : thres[index],
@@ -400,16 +457,14 @@ const PopupDetailAD = () => {
 
                 return newState;
             });
-            console.log('infos', infos)
             setChangeCurrency(!changeCurrency);
 
         }
 
     }
-    const handleReloadStorage = ( e: any ) => {
+    const handleReloadStorage = (e: any) => {
         window.location.reload();
-        chrome.runtime.sendMessage({ action : "reload_storage" }, function ( response ) {
-            console.log(response);
+        chrome.runtime.sendMessage({ action : "reload_storage" }, function (response) {
         });
     };
 
@@ -422,10 +477,18 @@ const PopupDetailAD = () => {
             let dataInfos = [];
             for (let i = 0; i < dataAccount.length; i++) {
 
-                const threshold = dataAccount[i]?.adspaymentcycle?.data.map(
-                    ( item ) => item.threshold_amount
-                );
-                const insight_spend = dataAccount[i].insights?.data.map((item => item.spend))
+                const total_spend = dataAccount[i].insights === null ? null : Number(dataAccount[i].insights?.data.map((item => item.spend)))
+                const threshold_amount = dataAccount[i].adspaymentcycle === null ? null : Number(dataAccount[i]?.adspaymentcycle?.data.map(
+                    (item) => item.threshold_amount
+                ).join(''))
+                const limit = dataAccount[i].adtrust_dsl === null ? null : Number(dataAccount[i].adtrust_dsl)
+
+
+                const debtNumber = +dataAccount[i].balance;
+                const threNumber = isNaN(threshold_amount) ? 0 : threshold_amount
+                const totalSpendNumber = isNaN(total_spend) ? 0 : total_spend;
+                const limitNumber = isNaN(limit) ? 0 : limit
+
 
                 dataInfos.push({
                     STT : i + 1,
@@ -439,16 +502,15 @@ const PopupDetailAD = () => {
                     COOKIES : "Cookie",
                     ID_TKQC_AD : dataAccount[i]?.account_id,
                     NAME_TK_AD : dataAccount[i]?.name,
-                    DEBT : dataAccount[i]?.balance,
-                    THRESHOLD : threshold,
-                    LIMIT : dataAccount[i]?.adtrust_dsl,
-
-                    TOTAL_SPENDING : insight_spend,
+                    DEBT : debtNumber,
+                    THRESHOLD : threNumber,
+                    LIMIT : limitNumber,
+                    TOTAL_SPENDING : totalSpendNumber,
                     ADMIN : dataAccount[i]?.userpermissions.data.length,
                     PERMISSION_ACCOUNT :
                         accountID !== null &&
                         dataAccount[i]?.userpermissions.data.filter(
-                            ( item ) => item?.user?.id === accountID
+                            (item) => item?.user?.id === accountID
                         )
                             ? "ADMIN"
                             : "",
@@ -458,8 +520,8 @@ const PopupDetailAD = () => {
                         : "CN",
                     PERMISSION_BM : checkAuthorBM(
                         dataAccount[i]?.userpermissions.data
-                            .filter(( item ) => item?.user)
-                            .map(( item, index ) => {
+                            .filter((item) => item?.user)
+                            .map((item, index) => {
                                 return item?.role.toString();
                             })
                     ),
@@ -467,14 +529,14 @@ const PopupDetailAD = () => {
                     PAYMENT_METHOD : dataAccount[
                         i
                         ]?.all_payment_methods?.pm_credit_card?.data.map(
-                        ( item ) => item?.display_string
+                        (item) => item?.display_string
                     ),
                     TIME_ZONE : `${dataAccount[i]?.timezone_offset_hours_utc}  -  ${dataAccount[i]?.timezone_name} `,
                     ID : uuidv4(),
                     CURRENCY_RATIO_USD : dataAccount[i]?.account_currency_ratio_to_usd
                 });
             }
-
+            setDataAccountOriginal(dataInfos)
             setInfos(dataInfos);
         }
     }, [dataAccount, accountID]);
@@ -652,7 +714,7 @@ const PopupDetailAD = () => {
                             </tr>
                             </thead>
                             <tbody id="tb">
-                            {filteredList.map(( item, key ) => (
+                            {filteredList.map((item, key) => (
                                 <tr className="trInfo" key={key}>
                                     <td className="tdInfo">{item.STT}</td>
                                     <td className="tdInfo">
@@ -666,23 +728,23 @@ const PopupDetailAD = () => {
                                     <td className="tdInfo"> {item.IP}</td>
                                     <td className="tdInfo"> {item.CITY}</td>
                                     <td className="tdInfo">
-                                        <span className="r">{item.DEBT}</span>
+                                        <span
+                                            className="r">{Number.isNaN(item.DEBT) ? "DDD" : formatCurrencyRaw(item.DEBT, item.CURRENCY, item.CURRENCY_RATIO_USD, "DEBT")}</span>
                                     </td>
                                     <td className="tdInfo">
                                         <span className="r">
-                                            {item.THRESHOLD === "NaN" ? "--" : item.THRESHOLD}
-
-
+                                            {formatCurrencyRaw(item.THRESHOLD, item.CURRENCY, item.CURRENCY_RATIO_USD, "THRESHOLD")}
                                         </span>
                                     </td>
                                     <td className="tdInfo">
                                         <span className="r">
-                                            {item.LIMIT < 1 || item.LIMIT === "--" ? "NO LIMIT" : item.LIMIT}
-                                            {/*{isNaN (item.LIMIT) ? "NO LIMIT" : item.LIMIT}?*/}
+                                            {formatCurrencyRaw(item.LIMIT, item.CURRENCY, item.CURRENCY_RATIO_USD, "LIMIT")}
+
                                       </span>
                                     </td>
                                     <td className="tdInfo">
-                                        <span className="r">{item.TOTAL_SPENDING}</span>
+                                        <span
+                                            className="r"> {formatCurrencyRaw(item.TOTAL_SPENDING, item.CURRENCY, item.CURRENCY_RATIO_USD, "TOTAL_SPENDING")}</span>
                                     </td>
                                     <td className="tdInfo">
                                         <div className="tbadminshow">

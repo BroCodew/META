@@ -1481,7 +1481,6 @@ const PopupDetailAD = () => {
             setInfos(infos.sort((a, b) => compare(Object.assign(Object.assign({}, a), { THRESHOLD: convertCurrencyToNumber(a.THRESHOLD), DEBT: convertCurrencyToNumber(a.DEBT), TOTAL_SPENDING: convertCurrencyToNumber(a.TOTAL_SPENDING), STATUS: a.STATUS, LIMIT: convertCurrencyToNumber(a.LIMIT) }), Object.assign(Object.assign({}, b), { THRESHOLD: convertCurrencyToNumber(b.THRESHOLD), DEBT: convertCurrencyToNumber(b.DEBT), TOTAL_SPENDING: convertCurrencyToNumber(b.TOTAL_SPENDING), STATUS: b.STATUS, LIMIT: convertCurrencyToNumber(b.LIMIT) }), field)));
             setOrderBy("ASC");
         }
-        console.log('infos', infos.map(item => item.THRESHOLD), infos.map(item => typeof item.THRESHOLD));
     };
     const handleSortItemText = (field) => {
         if (orderBy === "ASC") {
@@ -1608,37 +1607,106 @@ const PopupDetailAD = () => {
     //     }
     //
     // }
-    console.log('infos', infos);
+    const convertNumberToUsd = (value) => {
+        let USDollar = new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD',
+        });
+        return USDollar.format(value);
+    };
     const formatCurrencyNormal = (value, currency, field, ratio) => {
         if (typeof value === "string") {
-            const cleanedValue = value.replace(/[^\d.]/g, '');
+            const cleanedValue = value.replace("$", "").replace(",", "");
             const usdValue = parseFloat(cleanedValue);
-            return usdValue * ratio;
+            return (usdValue * ratio).toFixed(2);
         }
-        // if (ratio <= 1 && (field === 'DEBT' || field === 'THRESHOLD')) {
-        //     return value / 100
-        // } else {
-        //     return value
-        // }
     };
-    const handleChangeCurrency = () => {
-        const convertNumberToUsd = (value) => {
-            let USDollar = new Intl.NumberFormat('en-US', {
-                style: 'currency',
-                currency: 'USD',
-            });
-            return USDollar.format(value);
-        };
-        const formatCurrencyToUSD = (value, currency, field, ratio) => {
-            if (ratio <= 1 && (field === 'DEBT' || field === 'THRESHOLD')) {
-                return convertNumberToUsd((value / ratio) / 100);
+    function formatCurrency(number) {
+        const formatter = new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD',
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+        });
+        const b = formatter.format(number).replace('$', '');
+        return b;
+    }
+    const formatCurrencyRaw = (value, currency, ratio, field) => {
+        // console.log('valueformatCurrencyRaw:', value)
+        let a;
+        if (typeof value === "string") {
+            if (ratio <= 1 && (field === 'DEBT' || field === 'THRESHOLD')) { //ok
+                const valueRaw = value.replace(/,/g, '');
+                a = formatCurrency(+valueRaw / 100);
+            }
+            if (field === "THRESHOLD" && value === undefined) { //ok
+                a = '--';
             }
             else {
-                return convertNumberToUsd(value / ratio);
+                const valueRaw = value.replace(/,/g, '');
+                a = formatCurrency(valueRaw);
             }
+        }
+        else if (typeof value === "number") {
+            if (field === "LIMIT" && value < 0) {
+                a = 'NO LIMIT';
+            }
+            else {
+                a = formatCurrency(value);
+            }
+        }
+        else if (Array.isArray(value) && value.length > 0) {
+            if (ratio <= 1 && field === "THRESHOLD") {
+                a = formatCurrency(value[0] / 100);
+            }
+            else {
+                a = formatCurrency(value);
+            }
+        }
+        else if (field === "TOTAL_SPENDING" && value === undefined) {
+            a = 0;
+        }
+        else if (field === "THRESHOLD" && value === undefined) {
+            a = "--";
+        }
+        return a;
+    };
+    // const cleanedValue = value.replace(/[^\d.]/g, "");
+    const handleChangeCurrency = () => {
+        const formatCurrencyToUSD = (value, currency, field, ratio) => {
+            if (ratio <= 1 && (field === 'DEBT' || field === 'THRESHOLD')) {
+                if (typeof value === "string") {
+                    const cleanedValue = value.replace(/,/g, '');
+                    const numericValue = parseFloat(cleanedValue);
+                    return numericValue / (ratio * 100);
+                }
+                else if (Array.isArray(value) && value.length > 0) {
+                    return value[0] / (ratio * 100);
+                }
+            }
+            else {
+                if (Array.isArray(value) && value.length > 0) {
+                    return value[0] / ratio;
+                }
+                else if (typeof value === 'string') {
+                    console.log("ggggg", value, +value);
+                    return +value / ratio;
+                }
+                else if (typeof value === 'number') {
+                    return value / ratio;
+                }
+                return null;
+            }
+            // Handle other cases or return an error, depending on your requirements
+            return null;
         };
         if (changeCurrency === false) {
-            const debt = infos.map((item) => formatCurrencyToUSD(item.DEBT, item.CURRENCY, "DEBT", item.CURRENCY_RATIO_USD));
+            console.log(infos);
+            const debt = infos.map((item) => {
+                console.log("fff", item);
+                return formatCurrencyToUSD(item.DEBT, item.CURRENCY, "DEBT", item.CURRENCY_RATIO_USD);
+            });
+            console.log("ddd", debt);
             const thres = infos.map((item) => formatCurrencyToUSD(item.THRESHOLD, item === null || item === void 0 ? void 0 : item.CURRENCY, "THRESHOLD", item.CURRENCY_RATIO_USD));
             const total_spending = infos.map((item) => formatCurrencyToUSD(item.TOTAL_SPENDING, item === null || item === void 0 ? void 0 : item.CURRENCY, "TOTAL_SPENDING", item.CURRENCY_RATIO_USD));
             const limit = infos.map((item) => formatCurrencyToUSD(item.LIMIT, item === null || item === void 0 ? void 0 : item.CURRENCY, "LIMIT", item.CURRENCY_RATIO_USD));
@@ -1646,37 +1714,40 @@ const PopupDetailAD = () => {
                 const newState = prevState.map((item, index) => (Object.assign(Object.assign({}, item), { DEBT: debt[index], THRESHOLD: thres[index], TOTAL_SPENDING: total_spending[index], LIMIT: limit[index] })));
                 return newState;
             });
-            console.log('infos', infos);
+            // console.log('infos', infos)
             setChangeCurrency(!changeCurrency);
         }
         else {
-            const debt = infos.map((item) => formatCurrencyNormal(item.DEBT, item.CURRENCY, "DEBT", item.CURRENCY_RATIO_USD));
-            const thres = infos.map((item) => formatCurrencyNormal(item.THRESHOLD, item === null || item === void 0 ? void 0 : item.CURRENCY, "THRESHOLD", item.CURRENCY_RATIO_USD));
-            const total_spending = infos.map((item) => formatCurrencyNormal(item.TOTAL_SPENDING, item === null || item === void 0 ? void 0 : item.CURRENCY, "TOTAL_SPENDING", item.CURRENCY_RATIO_USD));
-            const limit = infos.map((item) => formatCurrencyNormal(item.LIMIT, item === null || item === void 0 ? void 0 : item.CURRENCY, "LIMIT", item.CURRENCY_RATIO_USD));
+            const debt = dataAccountOriginal.map((item) => formatCurrencyRaw(item.DEBT, item.CURRENCY, "DEBT", item.CURRENCY_RATIO_USD));
+            const thres = dataAccountOriginal.map((item) => formatCurrencyRaw(item.THRESHOLD, item.CURRENCY, "THRESHOLD", item.CURRENCY_RATIO_USD));
+            const total_spending = dataAccountOriginal.map((item) => formatCurrencyRaw(item.TOTAL_SPENDING, item === null || item === void 0 ? void 0 : item.CURRENCY, "TOTAL_SPENDING", item.CURRENCY_RATIO_USD));
+            const limit = dataAccountOriginal.map((item) => formatCurrencyRaw(item.LIMIT, item.CURRENCY, "LIMIT", item.CURRENCY_RATIO_USD));
             setInfos((prevState) => {
                 const newState = prevState.map((item, index) => (Object.assign(Object.assign({}, item), { DEBT: debt[index], THRESHOLD: thres[index], TOTAL_SPENDING: total_spending[index], LIMIT: limit[index] })));
                 return newState;
             });
-            console.log('infos', infos);
             setChangeCurrency(!changeCurrency);
         }
     };
     const handleReloadStorage = (e) => {
         window.location.reload();
         chrome.runtime.sendMessage({ action: "reload_storage" }, function (response) {
-            console.log(response);
         });
     };
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v;
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t;
         if (typeof dataAccount === "object" &&
             accountID !== null &&
             dataAccount.length > 0) {
             let dataInfos = [];
             for (let i = 0; i < dataAccount.length; i++) {
-                const threshold = (_b = (_a = dataAccount[i]) === null || _a === void 0 ? void 0 : _a.adspaymentcycle) === null || _b === void 0 ? void 0 : _b.data.map((item) => item.threshold_amount);
-                const insight_spend = (_c = dataAccount[i].insights) === null || _c === void 0 ? void 0 : _c.data.map((item => item.spend));
+                const total_spend = dataAccount[i].insights === null ? null : Number((_a = dataAccount[i].insights) === null || _a === void 0 ? void 0 : _a.data.map((item => item.spend)));
+                const threshold_amount = dataAccount[i].adspaymentcycle === null ? null : Number((_c = (_b = dataAccount[i]) === null || _b === void 0 ? void 0 : _b.adspaymentcycle) === null || _c === void 0 ? void 0 : _c.data.map((item) => item.threshold_amount).join(''));
+                const limit = dataAccount[i].adtrust_dsl === null ? null : Number(dataAccount[i].adtrust_dsl);
+                const debtNumber = +dataAccount[i].balance;
+                const threNumber = isNaN(threshold_amount) ? 0 : threshold_amount;
+                const totalSpendNumber = isNaN(total_spend) ? 0 : total_spend;
+                const limitNumber = isNaN(limit) ? 0 : limit;
                 dataInfos.push({
                     STT: i + 1,
                     STATUS: (_d = dataAccount[i]) === null || _d === void 0 ? void 0 : _d.account_status,
@@ -1689,29 +1760,30 @@ const PopupDetailAD = () => {
                     COOKIES: "Cookie",
                     ID_TKQC_AD: (_e = dataAccount[i]) === null || _e === void 0 ? void 0 : _e.account_id,
                     NAME_TK_AD: (_f = dataAccount[i]) === null || _f === void 0 ? void 0 : _f.name,
-                    DEBT: (_g = dataAccount[i]) === null || _g === void 0 ? void 0 : _g.balance,
-                    THRESHOLD: threshold,
-                    LIMIT: (_h = dataAccount[i]) === null || _h === void 0 ? void 0 : _h.adtrust_dsl,
-                    TOTAL_SPENDING: insight_spend,
-                    ADMIN: (_j = dataAccount[i]) === null || _j === void 0 ? void 0 : _j.userpermissions.data.length,
+                    DEBT: debtNumber,
+                    THRESHOLD: threNumber,
+                    LIMIT: limitNumber,
+                    TOTAL_SPENDING: totalSpendNumber,
+                    ADMIN: (_g = dataAccount[i]) === null || _g === void 0 ? void 0 : _g.userpermissions.data.length,
                     PERMISSION_ACCOUNT: accountID !== null &&
-                        ((_k = dataAccount[i]) === null || _k === void 0 ? void 0 : _k.userpermissions.data.filter((item) => { var _a; return ((_a = item === null || item === void 0 ? void 0 : item.user) === null || _a === void 0 ? void 0 : _a.id) === accountID; }))
+                        ((_h = dataAccount[i]) === null || _h === void 0 ? void 0 : _h.userpermissions.data.filter((item) => { var _a; return ((_a = item === null || item === void 0 ? void 0 : item.user) === null || _a === void 0 ? void 0 : _a.id) === accountID; }))
                         ? "ADMIN"
                         : "",
-                    CURRENCY: (_l = dataAccount[i]) === null || _l === void 0 ? void 0 : _l.currency,
+                    CURRENCY: (_j = dataAccount[i]) === null || _j === void 0 ? void 0 : _j.currency,
                     ACCOUNT_TYPE: dataAccount[i].hasOwnProperty("owner_business")
                         ? "BM"
                         : "CN",
-                    PERMISSION_BM: checkAuthorBM((_m = dataAccount[i]) === null || _m === void 0 ? void 0 : _m.userpermissions.data.filter((item) => item === null || item === void 0 ? void 0 : item.user).map((item, index) => {
+                    PERMISSION_BM: checkAuthorBM((_k = dataAccount[i]) === null || _k === void 0 ? void 0 : _k.userpermissions.data.filter((item) => item === null || item === void 0 ? void 0 : item.user).map((item, index) => {
                         return item === null || item === void 0 ? void 0 : item.role.toString();
                     })),
-                    ID_BM: (_p = (_o = dataAccount[i]) === null || _o === void 0 ? void 0 : _o.owner_business) === null || _p === void 0 ? void 0 : _p.id,
-                    PAYMENT_METHOD: (_s = (_r = (_q = dataAccount[i]) === null || _q === void 0 ? void 0 : _q.all_payment_methods) === null || _r === void 0 ? void 0 : _r.pm_credit_card) === null || _s === void 0 ? void 0 : _s.data.map((item) => item === null || item === void 0 ? void 0 : item.display_string),
-                    TIME_ZONE: `${(_t = dataAccount[i]) === null || _t === void 0 ? void 0 : _t.timezone_offset_hours_utc}  -  ${(_u = dataAccount[i]) === null || _u === void 0 ? void 0 : _u.timezone_name} `,
+                    ID_BM: (_m = (_l = dataAccount[i]) === null || _l === void 0 ? void 0 : _l.owner_business) === null || _m === void 0 ? void 0 : _m.id,
+                    PAYMENT_METHOD: (_q = (_p = (_o = dataAccount[i]) === null || _o === void 0 ? void 0 : _o.all_payment_methods) === null || _p === void 0 ? void 0 : _p.pm_credit_card) === null || _q === void 0 ? void 0 : _q.data.map((item) => item === null || item === void 0 ? void 0 : item.display_string),
+                    TIME_ZONE: `${(_r = dataAccount[i]) === null || _r === void 0 ? void 0 : _r.timezone_offset_hours_utc}  -  ${(_s = dataAccount[i]) === null || _s === void 0 ? void 0 : _s.timezone_name} `,
                     ID: (0,uuid__WEBPACK_IMPORTED_MODULE_3__["default"])(),
-                    CURRENCY_RATIO_USD: (_v = dataAccount[i]) === null || _v === void 0 ? void 0 : _v.account_currency_ratio_to_usd
+                    CURRENCY_RATIO_USD: (_t = dataAccount[i]) === null || _t === void 0 ? void 0 : _t.account_currency_ratio_to_usd
                 });
             }
+            setDataAccountOriginal(dataInfos);
             setInfos(dataInfos);
         }
     }, [dataAccount, accountID]);
@@ -1784,13 +1856,15 @@ const PopupDetailAD = () => {
                                 " ",
                                 item.CITY),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, item.DEBT)),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, Number.isNaN(item.DEBT) ? "DDD" : formatCurrencyRaw(item.DEBT, item.CURRENCY, item.CURRENCY_RATIO_USD, "DEBT"))),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, item.THRESHOLD === "NaN" ? "--" : item.THRESHOLD)),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, formatCurrencyRaw(item.THRESHOLD, item.CURRENCY, item.CURRENCY_RATIO_USD, "THRESHOLD"))),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, item.LIMIT < 1 || item.LIMIT === "--" ? "NO LIMIT" : item.LIMIT)),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, formatCurrencyRaw(item.LIMIT, item.CURRENCY, item.CURRENCY_RATIO_USD, "LIMIT"))),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, item.TOTAL_SPENDING)),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" },
+                                    " ",
+                                    formatCurrencyRaw(item.TOTAL_SPENDING, item.CURRENCY, item.CURRENCY_RATIO_USD, "TOTAL_SPENDING"))),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "tbadminshow" },
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, item.ADMIN),
