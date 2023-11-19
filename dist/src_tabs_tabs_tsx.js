@@ -863,6 +863,9 @@ const PopupContainer = () => {
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "COOKIES"),
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("ID_TKQC_HOME") }, "ID"),
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "T\u00EAn TK"),
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("TOTAL_ACCOUNT_ADS") }, "Profile Chrome"),
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("TOTAL_ACCOUNT_ADS") }, "IP"),
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("TOTAL_ACCOUNT_ADS") }, "Qu\u1ED1c Gia"),
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("TOTAL_ACCOUNT_ADS") }, "T\u1ED5ng TKQC"),
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("TOTAL_BM") }, "T\u1ED5ng BM"),
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("TOTAL_SPENDING_HOME") }, "T\u1ED5ng Ti\u00EAu"),
@@ -891,6 +894,9 @@ const PopupContainer = () => {
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
                                     " ",
                                     item.NAME_TK_HOME),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" }, " Profile Chrome"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" }, " 226.226.266.266"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" }, " H\u00E0 N\u1ED9i / Vi\u1EC7t Nam"),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, item.TOTAL_ACCOUNT_ADS)),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
@@ -1368,7 +1374,7 @@ const PopupDetailAD = () => {
     const [accountID, setAccountID] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
     const [infos, setInfos] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
     const [orderBy, setOrderBy] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("ASC");
-    const [changeCurrency, setChangeCurrency] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+    const [changeCurrency, setChangeCurrency] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true);
     const [filteredList, setFilteredList] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(infos);
     const today = new Date();
     const day = today.getDate();
@@ -1421,35 +1427,6 @@ const PopupDetailAD = () => {
                 return "DRAFT";
         }
     };
-    const currencyChange = (current, currentRation, field) => {
-        let change;
-        if (typeof current !== "object") {
-            if (field === "USD") {
-                const currentUsd = current / 100;
-                change = currentUsd / currentRation;
-            }
-            else {
-                change = current / currentRation;
-            }
-        }
-        else if (Array.isArray(current) && current.length > 0) {
-            if (field === "USD") {
-                const currentUsd = current[0] / 100;
-                change = currentUsd / currentRation;
-            }
-            else {
-                change = current[0] / currentRation;
-            }
-        }
-        else if (!current) {
-            change = 0;
-        }
-        else {
-            change = 0;
-        }
-        const result = change.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,");
-        return result;
-    };
     function convertCurrencyToNumber(value) {
         if (typeof value === 'number') {
             return value;
@@ -1472,13 +1449,52 @@ const PopupDetailAD = () => {
         }
         return 0;
     };
+    // const handleSortItemNumber = (field) => {
+    //     if (orderBy === "ASC") {
+    //         setInfos (infos.sort ((a, b) => compare ({
+    //             ...a,
+    //             THRESHOLD: convertCurrencyToNumber (a.THRESHOLD),
+    //             DEBT: convertCurrencyToNumber (a.DEBT),
+    //             TOTAL_SPENDING: convertCurrencyToNumber (a.TOTAL_SPENDING),
+    //             STATUS: a.STATUS,
+    //             LIMIT: convertCurrencyToNumber (a.LIMIT),
+    //         }, {
+    //             ...b,
+    //             THRESHOLD: convertCurrencyToNumber (b.THRESHOLD),
+    //             DEBT: convertCurrencyToNumber (b.DEBT),
+    //             TOTAL_SPENDING: convertCurrencyToNumber (b.TOTAL_SPENDING),
+    //             STATUS: b.STATUS,
+    //             LIMIT: convertCurrencyToNumber (b.LIMIT),
+    //         }, field)).reverse ());
+    //         setOrderBy ("DSC");
+    //     } else {
+    //         setInfos (infos.sort ((a, b) => compare ({
+    //             ...a,
+    //             THRESHOLD: convertCurrencyToNumber (a.THRESHOLD),
+    //             DEBT: convertCurrencyToNumber (a.DEBT),
+    //             TOTAL_SPENDING: convertCurrencyToNumber (a.TOTAL_SPENDING),
+    //             STATUS: a.STATUS,
+    //             LIMIT: convertCurrencyToNumber (a.LIMIT),
+    //         }, {
+    //             ...b,
+    //             THRESHOLD: convertCurrencyToNumber (b.THRESHOLD),
+    //             DEBT: convertCurrencyToNumber (b.DEBT),
+    //             TOTAL_SPENDING: convertCurrencyToNumber (b.TOTAL_SPENDING),
+    //             STATUS: b.STATUS,
+    //             LIMIT: convertCurrencyToNumber (b.LIMIT),
+    //         }, field)));
+    //         setOrderBy ("ASC");
+    //     }
+    //
+    // };
     const handleSortItemNumber = (field) => {
+        console.log('infosShort', infos);
         if (orderBy === "ASC") {
-            setInfos(infos.sort((a, b) => compare(Object.assign(Object.assign({}, a), { THRESHOLD: convertCurrencyToNumber(a.THRESHOLD), DEBT: convertCurrencyToNumber(a.DEBT), TOTAL_SPENDING: convertCurrencyToNumber(a.TOTAL_SPENDING), STATUS: a.STATUS, LIMIT: convertCurrencyToNumber(a.LIMIT) }), Object.assign(Object.assign({}, b), { THRESHOLD: convertCurrencyToNumber(b.THRESHOLD), DEBT: convertCurrencyToNumber(b.DEBT), TOTAL_SPENDING: convertCurrencyToNumber(b.TOTAL_SPENDING), STATUS: b.STATUS, LIMIT: convertCurrencyToNumber(b.LIMIT) }), field)).reverse());
+            setInfos(infos.sort((a, b) => compare(Object.assign(Object.assign({}, a), { THRESHOLD: a.THRESHOLD, DEBT: a.DEBT, TOTAL_SPENDING: a.TOTAL_SPENDING, LIMIT: a.LIMIT, STATUS: a.STATUS }), Object.assign(Object.assign({}, b), { THRESHOLD: b.THRESHOLD, DEBT: b.DEBT, TOTAL_SPENDING: b.TOTAL_SPENDING, STATUS: b.STATUS, LIMIT: b.LIMIT }), field)).reverse());
             setOrderBy("DSC");
         }
         else {
-            setInfos(infos.sort((a, b) => compare(Object.assign(Object.assign({}, a), { THRESHOLD: convertCurrencyToNumber(a.THRESHOLD), DEBT: convertCurrencyToNumber(a.DEBT), TOTAL_SPENDING: convertCurrencyToNumber(a.TOTAL_SPENDING), STATUS: a.STATUS, LIMIT: convertCurrencyToNumber(a.LIMIT) }), Object.assign(Object.assign({}, b), { THRESHOLD: convertCurrencyToNumber(b.THRESHOLD), DEBT: convertCurrencyToNumber(b.DEBT), TOTAL_SPENDING: convertCurrencyToNumber(b.TOTAL_SPENDING), STATUS: b.STATUS, LIMIT: convertCurrencyToNumber(b.LIMIT) }), field)));
+            setInfos(infos.sort((a, b) => compare(Object.assign(Object.assign({}, a), { THRESHOLD: a.THRESHOLD, DEBT: a.DEBT, TOTAL_SPENDING: a.TOTAL_SPENDING, LIMIT: a.LIMIT, STATUS: a.STATUS }), Object.assign(Object.assign({}, b), { THRESHOLD: b.THRESHOLD, DEBT: b.DEBT, TOTAL_SPENDING: b.TOTAL_SPENDING, STATUS: b.STATUS, LIMIT: b.LIMIT }), field)));
             setOrderBy("ASC");
         }
     };
@@ -1607,128 +1623,186 @@ const PopupDetailAD = () => {
     //     }
     //
     // }
-    const convertNumberToUsd = (value) => {
-        let USDollar = new Intl.NumberFormat('en-US', {
-            style: 'currency',
-            currency: 'USD',
-        });
-        return USDollar.format(value);
-    };
-    const formatCurrencyNormal = (value, currency, field, ratio) => {
-        if (typeof value === "string") {
-            const cleanedValue = value.replace("$", "").replace(",", "");
-            const usdValue = parseFloat(cleanedValue);
-            return (usdValue * ratio).toFixed(2);
-        }
-    };
-    function formatCurrency(number) {
-        const formatter = new Intl.NumberFormat('en-US', {
-            style: 'currency',
-            currency: 'USD',
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2,
-        });
-        const b = formatter.format(number).replace('$', '');
-        return b;
-    }
-    const formatCurrencyRaw = (value, currency, ratio, field) => {
-        // console.log('valueformatCurrencyRaw:', value)
-        let a;
-        if (typeof value === "string") {
-            if (ratio <= 1 && (field === 'DEBT' || field === 'THRESHOLD')) { //ok
-                const valueRaw = value.replace(/,/g, '');
-                a = formatCurrency(+valueRaw / 100);
-            }
-            if (field === "THRESHOLD" && value === undefined) { //ok
-                a = '--';
-            }
-            else {
-                const valueRaw = value.replace(/,/g, '');
-                a = formatCurrency(valueRaw);
-            }
-        }
-        else if (typeof value === "number") {
-            if (field === "LIMIT" && value < 0) {
-                a = 'NO LIMIT';
-            }
-            else {
-                a = formatCurrency(value);
-            }
-        }
-        else if (Array.isArray(value) && value.length > 0) {
-            if (ratio <= 1 && field === "THRESHOLD") {
-                a = formatCurrency(value[0] / 100);
-            }
-            else {
-                a = formatCurrency(value);
-            }
-        }
-        else if (field === "TOTAL_SPENDING" && value === undefined) {
-            a = 0;
-        }
-        else if (field === "THRESHOLD" && value === undefined) {
-            a = "--";
-        }
-        return a;
-    };
-    // const cleanedValue = value.replace(/[^\d.]/g, "");
+    // function formatCurrency(number) {
+    //     const formatter = new Intl.NumberFormat ('en-US', {
+    //         style: 'currency',
+    //         currency: 'USD',
+    //         minimumFractionDigits: 2,
+    //         maximumFractionDigits: 2,
+    //     });
+    //     const b = formatter.format (number).replace ('$', '');
+    //     return b;
+    // }
+    //
+    // const formatCurrencyRaw = (value, currency, ratio, field) => {
+    //     // console.log('valueformatCurrencyRaw:', value)
+    //
+    //     let a;
+    //     if (typeof value === "string") {
+    //         if (ratio <= 1 && (field === 'DEBT' || field === 'THRESHOLD')) { //ok
+    //             const valueRaw = value.replace (/,/g, '')
+    //             a = formatCurrency (+valueRaw / 100);
+    //         }
+    //         if (field === "THRESHOLD" && value === undefined) { //ok
+    //             a = '--'
+    //         } else {
+    //             const valueRaw = value.replace (/,/g, '')
+    //             a = formatCurrency (valueRaw);
+    //         }
+    //     } else if (typeof value === "number") {
+    //         if (field === "LIMIT" && value < 0) {
+    //             a = 'NO LIMIT'
+    //         } else {
+    //             a = formatCurrency (value);
+    //         }
+    //     } else if (Array.isArray (value) && value.length > 0) {
+    //         if (ratio <= 1 && field === "THRESHOLD") {
+    //             a = formatCurrency (value[0] / 100)
+    //         } else {
+    //             a = formatCurrency (value);
+    //         }
+    //     } else if (field === "TOTAL_SPENDING" && value === undefined) {
+    //         a = 0
+    //     } else if (field === "THRESHOLD" && value === undefined) {
+    //         a = "--"
+    //     }
+    //
+    //     return a;
+    // }
+    // // const cleanedValue = value.replace(/[^\d.]/g, "");
+    // const handleChangeCurrency = () => {
+    //     const formatCurrencyToUSD = (value, currency, field, ratio) => {
+    //         if (ratio <= 1 && (field === 'DEBT' || field === 'THRESHOLD')) {
+    //             if (typeof value === "string") {
+    //                 const cleanedValue = value.replace (/,/g, '')
+    //                 const numericValue = parseFloat (cleanedValue);
+    //                 return numericValue / (ratio * 100);
+    //             } else if (Array.isArray (value) && value.length > 0) {
+    //                 return value[0] / (ratio * 100);
+    //             }
+    //         } else {
+    //             if (Array.isArray (value) && value.length > 0) {
+    //                 return value[0] / ratio
+    //             } else if (typeof value === 'string') {
+    //                 console.log ("ggggg", value, +value)
+    //                 return +value / ratio
+    //             } else if (typeof value === 'number') {
+    //                 return value / ratio
+    //             }
+    //             return null;
+    //         }
+    //
+    //         // Handle other cases or return an error, depending on your requirements
+    //         return null;
+    //     };
+    //
+    //
+    //     if (changeCurrency === false) {
+    //         console.log (infos);
+    //         const debt = infos.map ((item) => {
+    //             console.log ("fff", item);
+    //             return formatCurrencyToUSD (item.DEBT, item.CURRENCY, "DEBT", item.CURRENCY_RATIO_USD)
+    //         });
+    //         console.log ("ddd", debt);
+    //         const thres = infos.map ((item) => formatCurrencyToUSD (item.THRESHOLD, item?.CURRENCY, "THRESHOLD", item.CURRENCY_RATIO_USD));
+    //         const total_spending = infos.map ((item) => formatCurrencyToUSD (item.TOTAL_SPENDING, item?.CURRENCY, "TOTAL_SPENDING", item.CURRENCY_RATIO_USD));
+    //         const limit = infos.map ((item) => formatCurrencyToUSD (item.LIMIT, item?.CURRENCY, "LIMIT", item.CURRENCY_RATIO_USD));
+    //         setInfos ((prevState) => {
+    //             const newState = prevState.map ((item, index) => ({
+    //                 ...item,
+    //                 DEBT: debt[index],
+    //                 THRESHOLD: thres[index],
+    //                 TOTAL_SPENDING: total_spending[index],
+    //                 LIMIT: limit[index],
+    //             }));
+    //
+    //             return newState;
+    //         });
+    //         // console.log('infos', infos)
+    //         setChangeCurrency (!changeCurrency);
+    //     } else {
+    //         const debt = dataAccountOriginal.map ((item) => formatCurrencyRaw (item.DEBT, item.CURRENCY, "DEBT", item.CURRENCY_RATIO_USD));
+    //         const thres = dataAccountOriginal.map ((item) => formatCurrencyRaw (item.THRESHOLD, item.CURRENCY, "THRESHOLD", item.CURRENCY_RATIO_USD));
+    //         const total_spending = dataAccountOriginal.map ((item) => formatCurrencyRaw (item.TOTAL_SPENDING, item?.CURRENCY, "TOTAL_SPENDING", item.CURRENCY_RATIO_USD));
+    //         const limit = dataAccountOriginal.map ((item) => formatCurrencyRaw (item.LIMIT, item.CURRENCY, "LIMIT", item.CURRENCY_RATIO_USD));
+    //
+    //         setInfos ((prevState) => {
+    //             const newState = prevState.map ((item, index) => ({
+    //                 ...item,
+    //                 DEBT: debt[index],
+    //                 THRESHOLD: thres[index],
+    //                 TOTAL_SPENDING: total_spending[index],
+    //                 LIMIT: limit[index],
+    //             }));
+    //
+    //             return newState;
+    //         });
+    //         setChangeCurrency (!changeCurrency);
+    //
+    //     }
+    //
+    // }
+    console.log('infos', infos);
     const handleChangeCurrency = () => {
-        const formatCurrencyToUSD = (value, currency, field, ratio) => {
-            if (ratio <= 1 && (field === 'DEBT' || field === 'THRESHOLD')) {
-                if (typeof value === "string") {
-                    const cleanedValue = value.replace(/,/g, '');
-                    const numericValue = parseFloat(cleanedValue);
-                    return numericValue / (ratio * 100);
-                }
-                else if (Array.isArray(value) && value.length > 0) {
-                    return value[0] / (ratio * 100);
-                }
-            }
-            else {
-                if (Array.isArray(value) && value.length > 0) {
-                    return value[0] / ratio;
-                }
-                else if (typeof value === 'string') {
-                    console.log("ggggg", value, +value);
-                    return +value / ratio;
-                }
-                else if (typeof value === 'number') {
-                    return value / ratio;
-                }
-                return null;
-            }
-            // Handle other cases or return an error, depending on your requirements
-            return null;
-        };
-        if (changeCurrency === false) {
-            console.log(infos);
-            const debt = infos.map((item) => {
-                console.log("fff", item);
-                return formatCurrencyToUSD(item.DEBT, item.CURRENCY, "DEBT", item.CURRENCY_RATIO_USD);
+        setChangeCurrency(!changeCurrency);
+    };
+    const formatCurrencyRaw = (value, ratio, field) => {
+        function formatNumber(number) {
+            // Sử dụng hàm toLocaleString để chuyển đổi số thành định dạng ngôn ngữ
+            // với dấu phân cách ngàn là ',' và dấu thập phân là '.'
+            return number.toLocaleString(undefined, {
+                minimumFractionDigits: 1,
+                maximumFractionDigits: 1,
+                useGrouping: true
             });
-            console.log("ddd", debt);
-            const thres = infos.map((item) => formatCurrencyToUSD(item.THRESHOLD, item === null || item === void 0 ? void 0 : item.CURRENCY, "THRESHOLD", item.CURRENCY_RATIO_USD));
-            const total_spending = infos.map((item) => formatCurrencyToUSD(item.TOTAL_SPENDING, item === null || item === void 0 ? void 0 : item.CURRENCY, "TOTAL_SPENDING", item.CURRENCY_RATIO_USD));
-            const limit = infos.map((item) => formatCurrencyToUSD(item.LIMIT, item === null || item === void 0 ? void 0 : item.CURRENCY, "LIMIT", item.CURRENCY_RATIO_USD));
-            setInfos((prevState) => {
-                const newState = prevState.map((item, index) => (Object.assign(Object.assign({}, item), { DEBT: debt[index], THRESHOLD: thres[index], TOTAL_SPENDING: total_spending[index], LIMIT: limit[index] })));
-                return newState;
-            });
-            // console.log('infos', infos)
-            setChangeCurrency(!changeCurrency);
+        }
+        if (field === "THRESHOLD" && value === 0) {
+            return "--";
+        }
+        else if (ratio <= 1 && (field === "THRESHOLD" || field === "DEBT")) {
+            return formatNumber(value / 100);
+        }
+        else if (field === "LIMIT" && value === -1) {
+            return "NO LIMIT";
         }
         else {
-            const debt = dataAccountOriginal.map((item) => formatCurrencyRaw(item.DEBT, item.CURRENCY, "DEBT", item.CURRENCY_RATIO_USD));
-            const thres = dataAccountOriginal.map((item) => formatCurrencyRaw(item.THRESHOLD, item.CURRENCY, "THRESHOLD", item.CURRENCY_RATIO_USD));
-            const total_spending = dataAccountOriginal.map((item) => formatCurrencyRaw(item.TOTAL_SPENDING, item === null || item === void 0 ? void 0 : item.CURRENCY, "TOTAL_SPENDING", item.CURRENCY_RATIO_USD));
-            const limit = dataAccountOriginal.map((item) => formatCurrencyRaw(item.LIMIT, item.CURRENCY, "LIMIT", item.CURRENCY_RATIO_USD));
-            setInfos((prevState) => {
-                const newState = prevState.map((item, index) => (Object.assign(Object.assign({}, item), { DEBT: debt[index], THRESHOLD: thres[index], TOTAL_SPENDING: total_spending[index], LIMIT: limit[index] })));
-                return newState;
-            });
-            setChangeCurrency(!changeCurrency);
+            return formatNumber(value);
         }
     };
+    function formatCurrencyChange(number) {
+        return number.toLocaleString(undefined, {
+            minimumFractionDigits: 1,
+            maximumFractionDigits: 1,
+            useGrouping: true
+        });
+    }
+    const formatCurrencyToUSD = (index, value, ratio, field) => {
+        const updatedData = infos.map((item) => {
+            // Kiểm tra điều kiện
+            if (field === "THRESHOLD" && value === 0) {
+                return Object.assign(Object.assign({}, item), { THRESHOLD: "--" });
+            }
+            else if (ratio <= 1 && (field === "THRESHOLD" || field === "DEBT")) {
+                return Object.assign(Object.assign({}, item), { THRESHOLD: formatCurrencyChange(item.THRESHOLD / 100 / ratio), DEBT: formatCurrencyChange(item.DEBT / 100 / ratio) });
+            }
+            else if (field === "LIMIT" && value === -1) {
+                return Object.assign(Object.assign({}, item), { LIMIT: "NO LIMIT" });
+            }
+            else {
+                return Object.assign(Object.assign({}, item), { LIMIT: formatCurrencyChange(item.LIMIT / ratio), THRESHOLD: formatCurrencyChange(item.THRESHOLD / ratio), TOTAL_SPENDING: formatCurrencyChange(item.TOTAL_SPENDING / ratio), DEBT: formatCurrencyChange(item.DEBT / ratio) });
+            }
+        });
+        setInfos(updatedData);
+    };
+    // if (field === "THRESHOLD" && value === 0) {
+    //     return "--";
+    // } else if (ratio <= 1 && (field === "THRESHOLD" || field === "DEBT")) {
+    //     return formatCurrency (value / 100 / ratio);
+    // } else if (field === "LIMIT" && value === -1) {
+    //     return "NO LIMIT";
+    // } else {
+    //     return formatCurrency (value / ratio);
+    // }
     const handleReloadStorage = (e) => {
         window.location.reload();
         chrome.runtime.sendMessage({ action: "reload_storage" }, function (response) {
@@ -1744,6 +1818,7 @@ const PopupDetailAD = () => {
                 const total_spend = dataAccount[i].insights === null ? null : Number((_a = dataAccount[i].insights) === null || _a === void 0 ? void 0 : _a.data.map((item => item.spend)));
                 const threshold_amount = dataAccount[i].adspaymentcycle === null ? null : Number((_c = (_b = dataAccount[i]) === null || _b === void 0 ? void 0 : _b.adspaymentcycle) === null || _c === void 0 ? void 0 : _c.data.map((item) => item.threshold_amount).join(''));
                 const limit = dataAccount[i].adtrust_dsl === null ? null : Number(dataAccount[i].adtrust_dsl);
+                //conver value to number
                 const debtNumber = +dataAccount[i].balance;
                 const threNumber = isNaN(threshold_amount) ? 0 : threshold_amount;
                 const totalSpendNumber = isNaN(total_spend) ? 0 : total_spend;
@@ -1824,6 +1899,7 @@ const PopupDetailAD = () => {
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", style: { minWidth: "100px" }, onClick: () => handleSortItemNumber("DEBT") }, "D\u01B0 n\u1EE3"),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", style: { minWidth: "70px" }, onClick: () => handleSortItemNumber("THRESHOLD") }, "Ng\u01B0\u1EE1ng"),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", style: { minWidth: "70px" }, onClick: () => handleSortItemNumber("LIMIT") }, "Limit"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", style: { minWidth: "70px" }, onClick: () => handleSortItemNumber("LIMIT") }, "Limit \u1EA8n"),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", style: { minWidth: "70px" }, onClick: () => handleSortItemNumber("TOTAL_SPENDING") }, "T\u1ED5ng Ti\u00EAu"),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("ADMIN") }, "Admin"),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemText("PERMISSION_ACCOUNT") }, "Quy\u1EC1n TK"),
@@ -1856,15 +1932,19 @@ const PopupDetailAD = () => {
                                 " ",
                                 item.CITY),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, Number.isNaN(item.DEBT) ? "DDD" : formatCurrencyRaw(item.DEBT, item.CURRENCY, item.CURRENCY_RATIO_USD, "DEBT"))),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" },
+                                    "  ",
+                                    changeCurrency ? formatCurrencyRaw(item.DEBT, item.CURRENCY_RATIO_USD, "DEBT") : formatCurrencyToUSD(item.STT, item.DEBT, item.CURRENCY_RATIO_USD, "DEBT"))),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, formatCurrencyRaw(item.THRESHOLD, item.CURRENCY, item.CURRENCY_RATIO_USD, "THRESHOLD"))),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, changeCurrency ? formatCurrencyRaw(item.THRESHOLD, item.CURRENCY_RATIO_USD, "THRESHOLD") : formatCurrencyToUSD(item.STT, item.THRESHOLD, item.CURRENCY_RATIO_USD, "THRESHOLD"))),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, formatCurrencyRaw(item.LIMIT, item.CURRENCY, item.CURRENCY_RATIO_USD, "LIMIT"))),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, changeCurrency ? formatCurrencyRaw(item.LIMIT, item.CURRENCY_RATIO_USD, "LIMIT") : formatCurrencyToUSD(item.STT, item.LIMIT, item.CURRENCY_RATIO_USD, "LIMIT"))),
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, changeCurrency ? formatCurrencyRaw(item.LIMIT, item.CURRENCY_RATIO_USD, "LIMIT") : formatCurrencyToUSD(item.STT, item.LIMIT, item.CURRENCY_RATIO_USD, "LIMIT"))),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" },
                                     " ",
-                                    formatCurrencyRaw(item.TOTAL_SPENDING, item.CURRENCY, item.CURRENCY_RATIO_USD, "TOTAL_SPENDING"))),
+                                    changeCurrency ? formatCurrencyRaw(item.TOTAL_SPENDING, item.CURRENCY_RATIO_USD, "TOTAL_SPENDING") : formatCurrencyToUSD(item.STT, item.TOTAL_SPENDING, item.CURRENCY_RATIO_USD, "TOTAL_SPENDING"))),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "tbadminshow" },
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, item.ADMIN),

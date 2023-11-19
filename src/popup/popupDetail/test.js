@@ -1,9 +1,14 @@
-const stringValue = "20,487,46.00";
+function formatNumber(number) {
+    // Sử dụng hàm toLocaleString để chuyển đổi số thành định dạng ngôn ngữ
+    // với dấu phân cách ngàn là ',' và dấu thập phân là '.'
+    return number.toLocaleString(undefined, {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+        useGrouping: true
+    });
+}
 
-// Loại bỏ dấu ","
-const cleanedValue = stringValue.replace(/,/g, '');
-
-// Chuyển đổi thành số
-const numericValue = parseFloat(cleanedValue);
-
-console.log(numericValue); 
+// Sử dụng hàm formatNumber
+var myNumber = 1234567.89;
+var formattedNumber = formatNumber(myNumber);
+console.log(formattedNumber);
