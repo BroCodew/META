@@ -166,7 +166,7 @@ const PopupDetailPageSale = () => {
 
     return (
         <>
-            <div className="app" style={{ padding : 0 }}>
+            <div className="app" style={{ padding : 0, height : "100vh" }}>
                 <div className="wrapper" id="main" style={{ padding : 0 }}>
                     <div className="sc_heading" style={{ padding : 0 }}>
                         <div className="command">

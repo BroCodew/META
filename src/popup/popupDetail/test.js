@@ -1,14 +1,6 @@
-function formatNumber(number) {
-    // Sử dụng hàm toLocaleString để chuyển đổi số thành định dạng ngôn ngữ
-    // với dấu phân cách ngàn là ',' và dấu thập phân là '.'
-    return number.toLocaleString(undefined, {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
-        useGrouping: true
-    });
-}
-
-// Sử dụng hàm formatNumber
-var myNumber = 1234567.89;
-var formattedNumber = formatNumber(myNumber);
-console.log(formattedNumber);
+const a = [{age: 13, name: "An"}, {age: 13, name: "An"}, {age: 13, name: "An"}, {age: 13, name: "An"}, {
+    age: 13,
+    name: "An"
+}];
+const sum = a.reduce((total, item) => total + item.age, 0)
+console.log(sum)

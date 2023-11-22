@@ -1,86 +1,116 @@
 .optionTitle {
-    text-align: center;
-    border: 1px 0 solid #000 !important;
-    box-shadow: 2px 2px 2px 2px#888888;
-    color: rgb(51 51 51) !important;
-    background-color: #fdfdfd;
-    font-size: 15px !important;
-    line-height: 19.6px;
+  text-align: center;
+  border: 1px 0 solid #000 !important;
+  box-shadow: 2px 2px 2px 2px #888888;
+  color: rgb(51 51 51) !important;
+  background-color: #fdfdfd;
+  font-size: 15px !important;
+  line-height: 19.6px;
+}
+
+.optionValue {
+  text-align: center;
+  border: 1px 0 solid #000 !important;
+  box-shadow: 2px 2px 2px 2px #888888;
+  color: rgb(102 102 102) !important;
+  background-color: #fdfdfd;
+}
+
+.accessToken {
+  border-radius: 10px;
+  color: #000;
+  font-size: 20px;
+  width: 180px;
+  height: 50px;
+  background-color: aquamarine;
+}
+
+.popupContainer {
+  // height: 100vh;
+  // width: 100vw;
+  margin: 50px !important;
+  background-color: -webkit-linear-gradient(
+                  bottom,
+                  #c471f5,
+                  #fa71cd
+  ) !important;
+}
+
+.optionHeader {
+  color: #000;
+}
+
+.statusAccount {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .liveIconLive {
+    width: 15px;
+    height: 15px;
+    background-color: blue;
+    margin-right: 10px;
+    border-radius: 8px;
   }
-  .optionValue {
-    text-align: center;
-    border: 1px 0 solid #000 !important;
-    box-shadow: 2px 2px 2px 2px#888888;
-    color: rgb(102 102 102) !important;
-    background-color: #fdfdfd;
+
+  .liveTextLive {
+    color: blue;
   }
-  .accessToken {
-    border-radius: 10px;
-    color: #000;
-    font-size: 20px;
-    width: 180px;
-    height: 50px;
-    background-color: aquamarine;
+
+  .liveIconDie {
+    width: 15px;
+    height: 15px;
+    background-color: red;
+    margin-right: 10px;
+    border-radius: 8px;
+
   }
-  
-  .popupContainer {
-    // height: 100vh;
-    // width: 100vw;
-    margin: 50px !important;
-    background-color: -webkit-linear-gradient(
-      bottom,
-      #c471f5,
-      #fa71cd
-    ) !important;
+
+  .liveTextDie {
+    color: red;
+
   }
-  .optionHeader {
-    color: #000;
+
+  .liveIconDebt {
+    width: 15px;
+    height: 15px;
+    background-color: yellowgreen;
+    margin-right: 10px;
+    border-radius: 8px;
   }
-  
-  .statusAccount {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  
-    .liveIconLive {
-      width: 15px;
-      height: 15px;
-      background-color: blue;
-      margin-right: 10px;
-      border-radius: 8px;
-    }
-  
-    .liveTextLive {
-      color: blue;
-    }
-  
-    .liveIconDie {
-      width: 15px;
-      height: 15px;
-      background-color: red;
-      margin-right: 10px;
-      border-radius: 8px;
-  
-    }
-  
-    .liveTextDie {
-      color: red;
-  
-    }
-  
-    .liveIconDebt {
-      width: 15px;
-      height: 15px;
-      background-color: yellowgreen;
-      margin-right: 10px;
-      border-radius: 8px;
-    }
-  
-    .liveTextDebt {
-      color: yellowgreen;
-  
-    }
+
+  .liveTextDebt {
+    color: yellowgreen;
+
   }
-  
-  
-  
+}
+
+//
+.sticky {
+  //background: #0d9c0a;
+  //color: #fff;
+  height: 40px;
+
+
+}
+
+.stickyTotal {
+  background: #e11d1d;
+  font-weight: bold;
+
+}
+
+//.spinnerContainer {
+//  display: flex;
+//  justify-content: center;
+//  align-items: center;
+//  height: 100vh;
+//  //background-color: #c5e7f7;
+//}
+//
+//.ChakraSpinner {
+//  position: fixed;
+//  top: 50%;
+//  left: 50%;
+//  transform: translate(-50%, -50%);
+//}

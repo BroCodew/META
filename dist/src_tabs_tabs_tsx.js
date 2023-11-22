@@ -179,7 +179,16 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.hB7dkwo9Rd3uRQ1vvZNC {
 }
 .fW7D4Ts2KUaZJDnxpAIA .Ll2mfehTM6Qdb7sqTdgz {
   color: yellowgreen;
-}`, "",{"version":3,"sources":["webpack://./src/popup/popupDetail/detailPage/styles/index.module.scss"],"names":[],"mappings":"AAAA;EACI,kBAAA;EACA,mCAAA;EACA,mCAAA;EACA,iCAAA;EACA,yBAAA;EACA,0BAAA;EACA,mBAAA;AACJ;;AACE;EACE,kBAAA;EACA,mCAAA;EACA,mCAAA;EACA,oCAAA;EACA,yBAAA;AAEJ;;AAAE;EACE,mBAAA;EACA,WAAA;EACA,eAAA;EACA,YAAA;EACA,YAAA;EACA,4BAAA;AAGJ;;AAAE;EAGE,uBAAA;EACA,8EAAA;AACJ;;AAKE;EACE,WAAA;AAFJ;;AAKE;EACE,aAAA;EACA,uBAAA;EACA,mBAAA;AAFJ;AAII;EACE,WAAA;EACA,YAAA;EACA,sBAAA;EACA,kBAAA;EACA,kBAAA;AAFN;AAKI;EACE,WAAA;AAHN;AAMI;EACE,WAAA;EACA,YAAA;EACA,qBAAA;EACA,kBAAA;EACA,kBAAA;AAJN;AAQI;EACE,UAAA;AANN;AAUI;EACE,WAAA;EACA,YAAA;EACA,6BAAA;EACA,kBAAA;EACA,kBAAA;AARN;AAWI;EACE,kBAAA;AATN","sourcesContent":[".optionTitle {\r\n    text-align: center;\r\n    border: 1px 0 solid #000 !important;\r\n    box-shadow: 2px 2px 2px 2px#888888;\r\n    color: rgb(51 51 51) !important;\r\n    background-color: #fdfdfd;\r\n    font-size: 15px !important;\r\n    line-height: 19.6px;\r\n  }\r\n  .optionValue {\r\n    text-align: center;\r\n    border: 1px 0 solid #000 !important;\r\n    box-shadow: 2px 2px 2px 2px#888888;\r\n    color: rgb(102 102 102) !important;\r\n    background-color: #fdfdfd;\r\n  }\r\n  .accessToken {\r\n    border-radius: 10px;\r\n    color: #000;\r\n    font-size: 20px;\r\n    width: 180px;\r\n    height: 50px;\r\n    background-color: aquamarine;\r\n  }\r\n  \r\n  .popupContainer {\r\n    // height: 100vh;\r\n    // width: 100vw;\r\n    margin: 50px !important;\r\n    background-color: -webkit-linear-gradient(\r\n      bottom,\r\n      #c471f5,\r\n      #fa71cd\r\n    ) !important;\r\n  }\r\n  .optionHeader {\r\n    color: #000;\r\n  }\r\n  \r\n  .statusAccount {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n  \r\n    .liveIconLive {\r\n      width: 15px;\r\n      height: 15px;\r\n      background-color: blue;\r\n      margin-right: 10px;\r\n      border-radius: 8px;\r\n    }\r\n  \r\n    .liveTextLive {\r\n      color: blue;\r\n    }\r\n  \r\n    .liveIconDie {\r\n      width: 15px;\r\n      height: 15px;\r\n      background-color: red;\r\n      margin-right: 10px;\r\n      border-radius: 8px;\r\n  \r\n    }\r\n  \r\n    .liveTextDie {\r\n      color: red;\r\n  \r\n    }\r\n  \r\n    .liveIconDebt {\r\n      width: 15px;\r\n      height: 15px;\r\n      background-color: yellowgreen;\r\n      margin-right: 10px;\r\n      border-radius: 8px;\r\n    }\r\n  \r\n    .liveTextDebt {\r\n      color: yellowgreen;\r\n  \r\n    }\r\n  }\r\n  \r\n  \r\n  "],"sourceRoot":""}]);
+}
+
+.Ecq2qXlHCmzIiRZvN5hq {
+  height: 40px;
+}
+
+.yh67VXfaFWEyQnbVb5ev {
+  background: #e11d1d;
+  font-weight: bold;
+}`, "",{"version":3,"sources":["webpack://./src/popup/popupDetail/detailPage/styles/index.module.scss"],"names":[],"mappings":"AAAA;EACE,kBAAA;EACA,mCAAA;EACA,mCAAA;EACA,iCAAA;EACA,yBAAA;EACA,0BAAA;EACA,mBAAA;AACF;;AAEA;EACE,kBAAA;EACA,mCAAA;EACA,mCAAA;EACA,oCAAA;EACA,yBAAA;AACF;;AAEA;EACE,mBAAA;EACA,WAAA;EACA,eAAA;EACA,YAAA;EACA,YAAA;EACA,4BAAA;AACF;;AAEA;EAGE,uBAAA;EACA,8EAAA;AADF;;AAQA;EACE,WAAA;AALF;;AAQA;EACE,aAAA;EACA,uBAAA;EACA,mBAAA;AALF;AAOE;EACE,WAAA;EACA,YAAA;EACA,sBAAA;EACA,kBAAA;EACA,kBAAA;AALJ;AAQE;EACE,WAAA;AANJ;AASE;EACE,WAAA;EACA,YAAA;EACA,qBAAA;EACA,kBAAA;EACA,kBAAA;AAPJ;AAWE;EACE,UAAA;AATJ;AAaE;EACE,WAAA;EACA,YAAA;EACA,6BAAA;EACA,kBAAA;EACA,kBAAA;AAXJ;AAcE;EACE,kBAAA;AAZJ;;AAkBA;EAGE,YAAA;AAjBF;;AAsBA;EACE,mBAAA;EACA,iBAAA;AAnBF","sourcesContent":[".optionTitle {\r\n  text-align: center;\r\n  border: 1px 0 solid #000 !important;\r\n  box-shadow: 2px 2px 2px 2px #888888;\r\n  color: rgb(51 51 51) !important;\r\n  background-color: #fdfdfd;\r\n  font-size: 15px !important;\r\n  line-height: 19.6px;\r\n}\r\n\r\n.optionValue {\r\n  text-align: center;\r\n  border: 1px 0 solid #000 !important;\r\n  box-shadow: 2px 2px 2px 2px #888888;\r\n  color: rgb(102 102 102) !important;\r\n  background-color: #fdfdfd;\r\n}\r\n\r\n.accessToken {\r\n  border-radius: 10px;\r\n  color: #000;\r\n  font-size: 20px;\r\n  width: 180px;\r\n  height: 50px;\r\n  background-color: aquamarine;\r\n}\r\n\r\n.popupContainer {\r\n  // height: 100vh;\r\n  // width: 100vw;\r\n  margin: 50px !important;\r\n  background-color: -webkit-linear-gradient(\r\n                  bottom,\r\n                  #c471f5,\r\n                  #fa71cd\r\n  ) !important;\r\n}\r\n\r\n.optionHeader {\r\n  color: #000;\r\n}\r\n\r\n.statusAccount {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n\r\n  .liveIconLive {\r\n    width: 15px;\r\n    height: 15px;\r\n    background-color: blue;\r\n    margin-right: 10px;\r\n    border-radius: 8px;\r\n  }\r\n\r\n  .liveTextLive {\r\n    color: blue;\r\n  }\r\n\r\n  .liveIconDie {\r\n    width: 15px;\r\n    height: 15px;\r\n    background-color: red;\r\n    margin-right: 10px;\r\n    border-radius: 8px;\r\n\r\n  }\r\n\r\n  .liveTextDie {\r\n    color: red;\r\n\r\n  }\r\n\r\n  .liveIconDebt {\r\n    width: 15px;\r\n    height: 15px;\r\n    background-color: yellowgreen;\r\n    margin-right: 10px;\r\n    border-radius: 8px;\r\n  }\r\n\r\n  .liveTextDebt {\r\n    color: yellowgreen;\r\n\r\n  }\r\n}\r\n\r\n//\r\n.sticky {\r\n  //background: #0d9c0a;\r\n  //color: #fff;\r\n  height: 40px;\r\n\r\n\r\n}\r\n\r\n.stickyTotal {\r\n  background: #e11d1d;\r\n  font-weight: bold;\r\n\r\n}\r\n\r\n//.spinnerContainer {\r\n//  display: flex;\r\n//  justify-content: center;\r\n//  align-items: center;\r\n//  height: 100vh;\r\n//  //background-color: #c5e7f7;\r\n//}\r\n//\r\n//.ChakraSpinner {\r\n//  position: fixed;\r\n//  top: 50%;\r\n//  left: 50%;\r\n//  transform: translate(-50%, -50%);\r\n//}\r\n"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"optionTitle": `hB7dkwo9Rd3uRQ1vvZNC`,
@@ -193,7 +202,9 @@ ___CSS_LOADER_EXPORT___.locals = {
 	"liveIconDie": `LpKdjxNc7emLL5VP4Sud`,
 	"liveTextDie": `VuSyrbPGseLZdK9gRoCF`,
 	"liveIconDebt": `JTr78Nwbkt0c1g2ecUQf`,
-	"liveTextDebt": `Ll2mfehTM6Qdb7sqTdgz`
+	"liveTextDebt": `Ll2mfehTM6Qdb7sqTdgz`,
+	"sticky": `Ecq2qXlHCmzIiRZvN5hq`,
+	"stickyTotal": `yh67VXfaFWEyQnbVb5ev`
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -627,7 +638,7 @@ const PopupContainer = () => {
     const [accountID, setAccountID] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
     const [infos, setInfos] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
     const [orderBy, setOrderBy] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1);
-    const [copied, setCopied] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(Array(infos.length).fill(false));
+    const [copied, setCopied] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
     const [filteredList, setFilteredList] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(infos);
     const [loading, setLoading] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true);
     const today = new Date();
@@ -719,9 +730,11 @@ const PopupContainer = () => {
         return USDollar.format(value);
     };
     const handleCopyCookie = (index) => {
-        const updatedCopied = [...copied];
-        updatedCopied[index] = !copied[index];
-        setCopied(updatedCopied);
+        // setCopied(( prevCopied ) => {
+        //     const updatedCopied = [...prevCopied];
+        //     updatedCopied[index] = !prevCopied[index];
+        //     return updatedCopied as boolean[];
+        // });
     };
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
         // Kiểm tra nếu detailParam có giá trị thì thực hiện chuyển trang
@@ -733,43 +746,11 @@ const PopupContainer = () => {
         var _a, _b, _c, _d, _e;
         console.log("accountID", accountID);
         console.log("dataAccount.length ", dataAccount);
-        // if (
-        //     typeof dataAccount === "object" &&
-        //     accountID !== null &&
-        //     dataAccount.length > 0
-        // ) {
         let dataInfos = [];
         for (let i = 0; i < dataAccount.length; i++) {
             const debt = currencyChange((_a = dataAccount[i]) === null || _a === void 0 ? void 0 : _a.balance, (_b = dataAccount[i]) === null || _b === void 0 ? void 0 : _b.account_currency_ratio_to_usd);
             const thresholdArr = (_d = (_c = dataAccount[i]) === null || _c === void 0 ? void 0 : _c.adspaymentcycle) === null || _d === void 0 ? void 0 : _d.data.map((item) => item.threshold_amount);
             const threShold = currencyChange(thresholdArr, (_e = dataAccount[i]) === null || _e === void 0 ? void 0 : _e.account_currency_ratio_to_usd);
-            //
-            //     dataInfos.push ({
-            //         STT: i + 1,
-            //         STATUS: dataAccount[i]?.account_status,
-            //         DATE: formattedDate,
-            //         DATE_BACKUP: "19/11/2023",
-            //         IP: "222.252.20.234",
-            //         PROFILE_CHROME: "Profile Chrome",
-            //         COUNTRY: "Viet Nam",
-            //         CITY: "Ha Noi",
-            //         COOKIES: "Cookie",
-            //         ID_TKQC_HOME: dataAccount[i]?.account_id,
-            //         NAME_TK_HOME: dataAccount[i]?.name,
-            //         DEBT: debt,
-            //         THRESHOLD: threShold,
-            //         LIMIT: currencyChange (
-            //             dataAccount[i]?.adtrust_dsl,
-            //             dataAccount[i]?.account_currency_ratio_to_usd
-            //         ),
-            //         ADMIN: dataAccount[i]?.userpermissions.data.length,
-            //         TOTAL_SPENDING_HOME: currencyChange (
-            //             dataAccount[i]?.amount_spent,
-            //             dataAccount[i]?.account_currency_ratio_to_usd
-            //         ),
-            //
-            //     });
-            // }
             const cookieFake = {
                 sb: "SS9PZR4H9YpW0G7pgFEHXWgs",
                 datr: "SS9PZYqNyaQ8Wgxg8cL3Mtdd",
@@ -848,7 +829,7 @@ const PopupContainer = () => {
     }
     return (!loading &&
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "app" },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "app", style: { height: "100vh" } },
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "wrapper", id: "main" },
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "sc_heading", style: { marginBottom: "20px", backgroundColor: "transparent" } },
                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_component_Search__WEBPACK_IMPORTED_MODULE_3__["default"], { filteredList: filteredList, infos: infos, setFilteredList: setFilteredList })),
@@ -1047,7 +1028,7 @@ const PopupDetailBM = () => {
         },
     ];
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "app", style: { padding: 0 } },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "app", style: { padding: 0, height: "100vh" } },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "wrapper", id: "main" },
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "sc_heading", style: { padding: 0 } },
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "command" },
@@ -1269,7 +1250,7 @@ const PopupDetailPageSale = () => {
         },
     ];
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "app", style: { padding: 0 } },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "app", style: { padding: 0, height: "100vh" } },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "wrapper", id: "main", style: { padding: 0 } },
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "sc_heading", style: { padding: 0 } },
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "command" },
@@ -1358,11 +1339,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/index.module.scss */ "./src/popup/popupDetail/detailPage/styles/index.module.scss");
-/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! uuid */ "./node_modules/uuid/dist/esm-browser/v4.js");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/layout/dist/chunk-ZHMYA64R.mjs");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/switch/dist/chunk-VTV6N5LE.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/layout/dist/chunk-ZHMYA64R.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/switch/dist/chunk-VTV6N5LE.mjs");
 /* harmony import */ var _component_Search__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../component/Search */ "./src/component/Search/index.tsx");
-
 
 
 
@@ -1376,6 +1355,16 @@ const PopupDetailAD = () => {
     const [orderBy, setOrderBy] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("ASC");
     const [changeCurrency, setChangeCurrency] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true);
     const [filteredList, setFilteredList] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(infos);
+    const [widthMain, setWidthMain] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+        widthTotal: 0,
+        widthDebt: 0,
+        widthThresHold: 0,
+        widthLimit: 0,
+        widthLimitHidden: 0,
+        widthLimitTotalSpending: 0,
+    });
+    const [loading, setLoading] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true);
+    const [fakeData, setFakeData] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true);
     const today = new Date();
     const day = today.getDate();
     const month = today.getMonth() + 1;
@@ -1427,19 +1416,6 @@ const PopupDetailAD = () => {
                 return "DRAFT";
         }
     };
-    function convertCurrencyToNumber(value) {
-        if (typeof value === 'number') {
-            return value;
-        }
-        else if (typeof value === 'string') {
-            const sanitizedValue = value.replace(/[^0-9.-]/g, ''); // Loại bỏ tất cả các ký tự không phải số hoặc dấu chấm
-            const numberValue = parseFloat(sanitizedValue);
-            return isNaN(numberValue) ? 0 : numberValue;
-        }
-        else {
-            return 0; // Hoặc giá trị mặc định tùy thuộc vào yêu cầu của bạn
-        }
-    }
     const compare = (a, b, field) => {
         if (a[field] < b[field]) {
             return -1;
@@ -1449,52 +1425,13 @@ const PopupDetailAD = () => {
         }
         return 0;
     };
-    // const handleSortItemNumber = (field) => {
-    //     if (orderBy === "ASC") {
-    //         setInfos (infos.sort ((a, b) => compare ({
-    //             ...a,
-    //             THRESHOLD: convertCurrencyToNumber (a.THRESHOLD),
-    //             DEBT: convertCurrencyToNumber (a.DEBT),
-    //             TOTAL_SPENDING: convertCurrencyToNumber (a.TOTAL_SPENDING),
-    //             STATUS: a.STATUS,
-    //             LIMIT: convertCurrencyToNumber (a.LIMIT),
-    //         }, {
-    //             ...b,
-    //             THRESHOLD: convertCurrencyToNumber (b.THRESHOLD),
-    //             DEBT: convertCurrencyToNumber (b.DEBT),
-    //             TOTAL_SPENDING: convertCurrencyToNumber (b.TOTAL_SPENDING),
-    //             STATUS: b.STATUS,
-    //             LIMIT: convertCurrencyToNumber (b.LIMIT),
-    //         }, field)).reverse ());
-    //         setOrderBy ("DSC");
-    //     } else {
-    //         setInfos (infos.sort ((a, b) => compare ({
-    //             ...a,
-    //             THRESHOLD: convertCurrencyToNumber (a.THRESHOLD),
-    //             DEBT: convertCurrencyToNumber (a.DEBT),
-    //             TOTAL_SPENDING: convertCurrencyToNumber (a.TOTAL_SPENDING),
-    //             STATUS: a.STATUS,
-    //             LIMIT: convertCurrencyToNumber (a.LIMIT),
-    //         }, {
-    //             ...b,
-    //             THRESHOLD: convertCurrencyToNumber (b.THRESHOLD),
-    //             DEBT: convertCurrencyToNumber (b.DEBT),
-    //             TOTAL_SPENDING: convertCurrencyToNumber (b.TOTAL_SPENDING),
-    //             STATUS: b.STATUS,
-    //             LIMIT: convertCurrencyToNumber (b.LIMIT),
-    //         }, field)));
-    //         setOrderBy ("ASC");
-    //     }
-    //
-    // };
     const handleSortItemNumber = (field) => {
-        console.log('infosShort', infos);
         if (orderBy === "ASC") {
-            setInfos(infos.sort((a, b) => compare(Object.assign(Object.assign({}, a), { THRESHOLD: a.THRESHOLD, DEBT: a.DEBT, TOTAL_SPENDING: a.TOTAL_SPENDING, LIMIT: a.LIMIT, STATUS: a.STATUS }), Object.assign(Object.assign({}, b), { THRESHOLD: b.THRESHOLD, DEBT: b.DEBT, TOTAL_SPENDING: b.TOTAL_SPENDING, STATUS: b.STATUS, LIMIT: b.LIMIT }), field)).reverse());
+            setInfos(infos.sort((a, b) => compare(Object.assign(Object.assign({}, a), { THRESHOLD: a.THRESHOLD, THRESHOLD_USD: a.THRESHOLD_USD, DEBT: a.DEBT, DEBT_USD: a.DEBT_USD, TOTAL_SPENDING: a.TOTAL_SPENDING, TOTAL_SPENDING_USD: a.TOTAL_SPENDING_USD, LIMIT: a.LIMIT, LIMIT_USD: a.LIMIT_USD, STATUS: a.STATUS }), Object.assign(Object.assign({}, b), { THRESHOLD: b.THRESHOLD, THRESHOLD_USD: b.THRESHOLD_USD, DEBT: b.DEBT, DEBT_USD: b.DEBT_USD, TOTAL_SPENDING: b.TOTAL_SPENDING, TOTAL_SPENDING_USD: b.TOTAL_SPENDING_USD, LIMIT: b.LIMIT, LIMIT_USD: b.LIMIT_USD }), field)).reverse());
             setOrderBy("DSC");
         }
         else {
-            setInfos(infos.sort((a, b) => compare(Object.assign(Object.assign({}, a), { THRESHOLD: a.THRESHOLD, DEBT: a.DEBT, TOTAL_SPENDING: a.TOTAL_SPENDING, LIMIT: a.LIMIT, STATUS: a.STATUS }), Object.assign(Object.assign({}, b), { THRESHOLD: b.THRESHOLD, DEBT: b.DEBT, TOTAL_SPENDING: b.TOTAL_SPENDING, STATUS: b.STATUS, LIMIT: b.LIMIT }), field)));
+            setInfos(infos.sort((a, b) => compare(Object.assign(Object.assign({}, a), { THRESHOLD: a.THRESHOLD, THRESHOLD_USD: a.THRESHOLD_USD, DEBT: a.DEBT, DEBT_USD: a.DEBT_USD, TOTAL_SPENDING: a.TOTAL_SPENDING, TOTAL_SPENDING_USD: a.TOTAL_SPENDING_USD, LIMIT: a.LIMIT, LIMIT_USD: a.LIMIT_USD }), Object.assign(Object.assign({}, b), { THRESHOLD: b.THRESHOLD, THRESHOLD_USD: b.THRESHOLD_USD, DEBT: b.DEBT, DEBT_USD: b.DEBT_USD, TOTAL_SPENDING: b.TOTAL_SPENDING, TOTAL_SPENDING_USD: b.TOTAL_SPENDING_USD, LIMIT: b.LIMIT, LIMIT_USD: b.LIMIT_USD }), field)));
             setOrderBy("ASC");
         }
     };
@@ -1524,292 +1461,23 @@ const PopupDetailAD = () => {
             setOrderBy("ASC");
         }
     };
-    // const formatCurrencyNormal = ( value, currency ) => {
-    //     console.log('value', value);
-    //     if (typeof value === 'number') {
-    //         if (currency === "USD") {
-    //             return (value * 10).toLocaleString('en-US');
-    //         } else {
-    //             return value.toLocaleString('en-US');
-    //
-    //         }
-    //
-    //     }
-    //     if (typeof value !== 'string') {
-    //         return "--";
-    //     }
-    //
-    //     const cleanedValue = value.replace(/[.,]/g, '');
-    //
-    //
-    //     let numberValue;
-    //     if (currency === "USD") {
-    //
-    //         numberValue = Number(cleanedValue) * 10;
-    //     } else {
-    //         numberValue = Number(cleanedValue);
-    //     }
-    //
-    //     if (isNaN(numberValue)) {
-    //         return "--";
-    //     } else {
-    //         return numberValue.toLocaleString('en-US');
-    //     }
-    // }
-    // const handleChangeCurrency = () => {
-    //     if (changeCurrency === false) {
-    //         const debt = dataAccountOriginal.map(( item ) => formatCurrencyNormal(item.balance, item.currency));
-    //         const limit = dataAccountOriginal.map(( item ) => item.adtrust_dsl === -1 ? "--" : formatCurrencyNormal(item.adtrust_dsl, item.currency));
-    //         const total_spending = dataAccountOriginal.map(( item ) => formatCurrencyNormal(item.amount_spent, item.currency));
-    //         const threshold_amount: any[] = dataAccountOriginal.flatMap(( item ) => {
-    //             if (item.adspaymentcycle && item.adspaymentcycle.data) {
-    //                 return item.adspaymentcycle.data.map(( cycleItem ) => {
-    //                     const thresholdAmountValue = typeof cycleItem.threshold_amount === "string" ?
-    //                         formatCurrencyNormal(parseFloat(cycleItem.threshold_amount.replace(/,/g, '')), item.currency) :
-    //                         cycleItem.threshold_amount;
-    //                     return thresholdAmountValue;
-    //                 });
-    //             } else {
-    //                 return "--";
-    //             }
-    //         });
-    //         setInfos(( prevState ) => {
-    //             const newState = prevState.map(( item, index ) => ({
-    //                 ...item,
-    //                 DEBT : debt[index],
-    //                 TOTAL_SPENDING : total_spending[index],
-    //                 LIMIT : limit[index],
-    //                 THRESHOLD : threshold_amount[index]
-    //             }));
-    //
-    //             return newState;
-    //         });
-    //         console.log('infos', infos)
-    //         setChangeCurrency(!changeCurrency);
-    //     } else {
-    //
-    //         const spendCap = dataAccountOriginal.flatMap(( item ) => item?.insights?.data.map((item => item.spend)));
-    //         const spendCapWithoutNull = spendCap.map(value => (value != null ? value : "0"));
-    //         const total_spending = dataAccountOriginal.map(( item, index ) => currencyChange(spendCapWithoutNull[index], item.account_currency_ratio_to_usd, item.currency));
-    //         const spendingTotalAmount = dataAccountOriginal.flatMap(( item ) => item?.insights?.data.map(item => +item.spend));
-    //         const debt = dataAccountOriginal.map(( item ) => currencyChange(item.balance, item.account_currency_ratio_to_usd, item.currency));
-    //         const limit = dataAccountOriginal.map(( item ) => item.adtrust_dsl === -1 ? "--" : currencyChange(item.adtrust_dsl, item.account_currency_ratio_to_usd, item.currency));
-    //
-    //         const ratioValue = dataAccountOriginal.map(( item ) => item.account_currency_ratio_to_usd);
-    //         const currencyValue = dataAccountOriginal.map(( item ) => item.currency);
-    //         const threshold_amount = dataAccountOriginal.flatMap(( item ) => {
-    //             if (item.adspaymentcycle && item.adspaymentcycle.data) {
-    //                 return item.adspaymentcycle.data.map(( cycleItem ) => {
-    //                     return cycleItem.threshold_amount;
-    //                 });
-    //             } else {
-    //                 return "--";
-    //             }
-    //         });
-    //         const result = threshold_amount.map(( value, index ) => currencyChange(value, ratioValue[index], currencyValue[index]));
-    //         setInfos(( prevState ) => {
-    //             const newState = prevState.map(( item, index ) => {
-    //                 return {
-    //                     ...item,
-    //                     DEBT : debt[index],
-    //                     TOTAL_SPENDING : total_spending[index],
-    //                     LIMIT : limit[index],
-    //                     THRESHOLD : result[index]
-    //                 };
-    //             });
-    //             return newState;
-    //         });
-    //         setChangeCurrency(!changeCurrency);
-    //     }
-    //
-    // }
-    // function formatCurrency(number) {
-    //     const formatter = new Intl.NumberFormat ('en-US', {
-    //         style: 'currency',
-    //         currency: 'USD',
-    //         minimumFractionDigits: 2,
-    //         maximumFractionDigits: 2,
-    //     });
-    //     const b = formatter.format (number).replace ('$', '');
-    //     return b;
-    // }
-    //
-    // const formatCurrencyRaw = (value, currency, ratio, field) => {
-    //     // console.log('valueformatCurrencyRaw:', value)
-    //
-    //     let a;
-    //     if (typeof value === "string") {
-    //         if (ratio <= 1 && (field === 'DEBT' || field === 'THRESHOLD')) { //ok
-    //             const valueRaw = value.replace (/,/g, '')
-    //             a = formatCurrency (+valueRaw / 100);
-    //         }
-    //         if (field === "THRESHOLD" && value === undefined) { //ok
-    //             a = '--'
-    //         } else {
-    //             const valueRaw = value.replace (/,/g, '')
-    //             a = formatCurrency (valueRaw);
-    //         }
-    //     } else if (typeof value === "number") {
-    //         if (field === "LIMIT" && value < 0) {
-    //             a = 'NO LIMIT'
-    //         } else {
-    //             a = formatCurrency (value);
-    //         }
-    //     } else if (Array.isArray (value) && value.length > 0) {
-    //         if (ratio <= 1 && field === "THRESHOLD") {
-    //             a = formatCurrency (value[0] / 100)
-    //         } else {
-    //             a = formatCurrency (value);
-    //         }
-    //     } else if (field === "TOTAL_SPENDING" && value === undefined) {
-    //         a = 0
-    //     } else if (field === "THRESHOLD" && value === undefined) {
-    //         a = "--"
-    //     }
-    //
-    //     return a;
-    // }
-    // // const cleanedValue = value.replace(/[^\d.]/g, "");
-    // const handleChangeCurrency = () => {
-    //     const formatCurrencyToUSD = (value, currency, field, ratio) => {
-    //         if (ratio <= 1 && (field === 'DEBT' || field === 'THRESHOLD')) {
-    //             if (typeof value === "string") {
-    //                 const cleanedValue = value.replace (/,/g, '')
-    //                 const numericValue = parseFloat (cleanedValue);
-    //                 return numericValue / (ratio * 100);
-    //             } else if (Array.isArray (value) && value.length > 0) {
-    //                 return value[0] / (ratio * 100);
-    //             }
-    //         } else {
-    //             if (Array.isArray (value) && value.length > 0) {
-    //                 return value[0] / ratio
-    //             } else if (typeof value === 'string') {
-    //                 console.log ("ggggg", value, +value)
-    //                 return +value / ratio
-    //             } else if (typeof value === 'number') {
-    //                 return value / ratio
-    //             }
-    //             return null;
-    //         }
-    //
-    //         // Handle other cases or return an error, depending on your requirements
-    //         return null;
-    //     };
-    //
-    //
-    //     if (changeCurrency === false) {
-    //         console.log (infos);
-    //         const debt = infos.map ((item) => {
-    //             console.log ("fff", item);
-    //             return formatCurrencyToUSD (item.DEBT, item.CURRENCY, "DEBT", item.CURRENCY_RATIO_USD)
-    //         });
-    //         console.log ("ddd", debt);
-    //         const thres = infos.map ((item) => formatCurrencyToUSD (item.THRESHOLD, item?.CURRENCY, "THRESHOLD", item.CURRENCY_RATIO_USD));
-    //         const total_spending = infos.map ((item) => formatCurrencyToUSD (item.TOTAL_SPENDING, item?.CURRENCY, "TOTAL_SPENDING", item.CURRENCY_RATIO_USD));
-    //         const limit = infos.map ((item) => formatCurrencyToUSD (item.LIMIT, item?.CURRENCY, "LIMIT", item.CURRENCY_RATIO_USD));
-    //         setInfos ((prevState) => {
-    //             const newState = prevState.map ((item, index) => ({
-    //                 ...item,
-    //                 DEBT: debt[index],
-    //                 THRESHOLD: thres[index],
-    //                 TOTAL_SPENDING: total_spending[index],
-    //                 LIMIT: limit[index],
-    //             }));
-    //
-    //             return newState;
-    //         });
-    //         // console.log('infos', infos)
-    //         setChangeCurrency (!changeCurrency);
-    //     } else {
-    //         const debt = dataAccountOriginal.map ((item) => formatCurrencyRaw (item.DEBT, item.CURRENCY, "DEBT", item.CURRENCY_RATIO_USD));
-    //         const thres = dataAccountOriginal.map ((item) => formatCurrencyRaw (item.THRESHOLD, item.CURRENCY, "THRESHOLD", item.CURRENCY_RATIO_USD));
-    //         const total_spending = dataAccountOriginal.map ((item) => formatCurrencyRaw (item.TOTAL_SPENDING, item?.CURRENCY, "TOTAL_SPENDING", item.CURRENCY_RATIO_USD));
-    //         const limit = dataAccountOriginal.map ((item) => formatCurrencyRaw (item.LIMIT, item.CURRENCY, "LIMIT", item.CURRENCY_RATIO_USD));
-    //
-    //         setInfos ((prevState) => {
-    //             const newState = prevState.map ((item, index) => ({
-    //                 ...item,
-    //                 DEBT: debt[index],
-    //                 THRESHOLD: thres[index],
-    //                 TOTAL_SPENDING: total_spending[index],
-    //                 LIMIT: limit[index],
-    //             }));
-    //
-    //             return newState;
-    //         });
-    //         setChangeCurrency (!changeCurrency);
-    //
-    //     }
-    //
-    // }
-    console.log('infos', infos);
     const handleChangeCurrency = () => {
         setChangeCurrency(!changeCurrency);
     };
-    const formatCurrencyRaw = (value, ratio, field) => {
-        function formatNumber(number) {
-            // Sử dụng hàm toLocaleString để chuyển đổi số thành định dạng ngôn ngữ
-            // với dấu phân cách ngàn là ',' và dấu thập phân là '.'
-            return number.toLocaleString(undefined, {
-                minimumFractionDigits: 1,
-                maximumFractionDigits: 1,
-                useGrouping: true
-            });
-        }
-        if (field === "THRESHOLD" && value === 0) {
-            return "--";
-        }
-        else if (ratio <= 1 && (field === "THRESHOLD" || field === "DEBT")) {
-            return formatNumber(value / 100);
-        }
-        else if (field === "LIMIT" && value === -1) {
-            return "NO LIMIT";
-        }
-        else {
-            return formatNumber(value);
-        }
-    };
-    function formatCurrencyChange(number) {
+    function formatNumber(number) {
         return number.toLocaleString(undefined, {
             minimumFractionDigits: 1,
             maximumFractionDigits: 1,
             useGrouping: true
         });
     }
-    const formatCurrencyToUSD = (index, value, ratio, field) => {
-        const updatedData = infos.map((item) => {
-            // Kiểm tra điều kiện
-            if (field === "THRESHOLD" && value === 0) {
-                return Object.assign(Object.assign({}, item), { THRESHOLD: "--" });
-            }
-            else if (ratio <= 1 && (field === "THRESHOLD" || field === "DEBT")) {
-                return Object.assign(Object.assign({}, item), { THRESHOLD: formatCurrencyChange(item.THRESHOLD / 100 / ratio), DEBT: formatCurrencyChange(item.DEBT / 100 / ratio) });
-            }
-            else if (field === "LIMIT" && value === -1) {
-                return Object.assign(Object.assign({}, item), { LIMIT: "NO LIMIT" });
-            }
-            else {
-                return Object.assign(Object.assign({}, item), { LIMIT: formatCurrencyChange(item.LIMIT / ratio), THRESHOLD: formatCurrencyChange(item.THRESHOLD / ratio), TOTAL_SPENDING: formatCurrencyChange(item.TOTAL_SPENDING / ratio), DEBT: formatCurrencyChange(item.DEBT / ratio) });
-            }
-        });
-        setInfos(updatedData);
-    };
-    // if (field === "THRESHOLD" && value === 0) {
-    //     return "--";
-    // } else if (ratio <= 1 && (field === "THRESHOLD" || field === "DEBT")) {
-    //     return formatCurrency (value / 100 / ratio);
-    // } else if (field === "LIMIT" && value === -1) {
-    //     return "NO LIMIT";
-    // } else {
-    //     return formatCurrency (value / ratio);
-    // }
     const handleReloadStorage = (e) => {
         window.location.reload();
         chrome.runtime.sendMessage({ action: "reload_storage" }, function (response) {
         });
     };
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t;
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u;
         if (typeof dataAccount === "object" &&
             accountID !== null &&
             dataAccount.length > 0) {
@@ -1819,51 +1487,1327 @@ const PopupDetailAD = () => {
                 const threshold_amount = dataAccount[i].adspaymentcycle === null ? null : Number((_c = (_b = dataAccount[i]) === null || _b === void 0 ? void 0 : _b.adspaymentcycle) === null || _c === void 0 ? void 0 : _c.data.map((item) => item.threshold_amount).join(''));
                 const limit = dataAccount[i].adtrust_dsl === null ? null : Number(dataAccount[i].adtrust_dsl);
                 //conver value to number
-                const debtNumber = +dataAccount[i].balance;
-                const threNumber = isNaN(threshold_amount) ? 0 : threshold_amount;
-                const totalSpendNumber = isNaN(total_spend) ? 0 : total_spend;
+                const debtNumber = dataAccount[i].account_currency_ratio_to_usd <= 1 ? dataAccount[i].balance / 100 : +dataAccount[i].balance;
+                const threNumber = dataAccount[i].account_currency_ratio_to_usd <= 1 ? (isNaN(threshold_amount) ? 0 : threshold_amount / 100) : (isNaN(threshold_amount) ? 0 : threshold_amount);
                 const limitNumber = isNaN(limit) ? 0 : limit;
-                dataInfos.push({
-                    STT: i + 1,
-                    STATUS: (_d = dataAccount[i]) === null || _d === void 0 ? void 0 : _d.account_status,
-                    DATE_AD: formattedDate,
-                    DATE_BACKUP: "19/11/2023",
-                    IP: "222.252.20.234",
-                    PROFILE_CHROME: "Profile Chrome",
-                    COUNTRY: "Viet Nam",
-                    CITY: "Ha Noi",
-                    COOKIES: "Cookie",
-                    ID_TKQC_AD: (_e = dataAccount[i]) === null || _e === void 0 ? void 0 : _e.account_id,
-                    NAME_TK_AD: (_f = dataAccount[i]) === null || _f === void 0 ? void 0 : _f.name,
-                    DEBT: debtNumber,
-                    THRESHOLD: threNumber,
-                    LIMIT: limitNumber,
-                    TOTAL_SPENDING: totalSpendNumber,
-                    ADMIN: (_g = dataAccount[i]) === null || _g === void 0 ? void 0 : _g.userpermissions.data.length,
-                    PERMISSION_ACCOUNT: accountID !== null &&
-                        ((_h = dataAccount[i]) === null || _h === void 0 ? void 0 : _h.userpermissions.data.filter((item) => { var _a; return ((_a = item === null || item === void 0 ? void 0 : item.user) === null || _a === void 0 ? void 0 : _a.id) === accountID; }))
-                        ? "ADMIN"
-                        : "",
-                    CURRENCY: (_j = dataAccount[i]) === null || _j === void 0 ? void 0 : _j.currency,
-                    ACCOUNT_TYPE: dataAccount[i].hasOwnProperty("owner_business")
-                        ? "BM"
-                        : "CN",
-                    PERMISSION_BM: checkAuthorBM((_k = dataAccount[i]) === null || _k === void 0 ? void 0 : _k.userpermissions.data.filter((item) => item === null || item === void 0 ? void 0 : item.user).map((item, index) => {
-                        return item === null || item === void 0 ? void 0 : item.role.toString();
-                    })),
-                    ID_BM: (_m = (_l = dataAccount[i]) === null || _l === void 0 ? void 0 : _l.owner_business) === null || _m === void 0 ? void 0 : _m.id,
-                    PAYMENT_METHOD: (_q = (_p = (_o = dataAccount[i]) === null || _o === void 0 ? void 0 : _o.all_payment_methods) === null || _p === void 0 ? void 0 : _p.pm_credit_card) === null || _q === void 0 ? void 0 : _q.data.map((item) => item === null || item === void 0 ? void 0 : item.display_string),
-                    TIME_ZONE: `${(_r = dataAccount[i]) === null || _r === void 0 ? void 0 : _r.timezone_offset_hours_utc}  -  ${(_s = dataAccount[i]) === null || _s === void 0 ? void 0 : _s.timezone_name} `,
-                    ID: (0,uuid__WEBPACK_IMPORTED_MODULE_3__["default"])(),
-                    CURRENCY_RATIO_USD: (_t = dataAccount[i]) === null || _t === void 0 ? void 0 : _t.account_currency_ratio_to_usd
-                });
+                const totalSpendNumber = isNaN(total_spend) ? 0 : total_spend;
+                //convert value to USD
+                const limit_usd = dataAccount[i].adtrust_dsl <= 0 ? 0 : dataAccount[i].adtrust_dsl / dataAccount[i].account_currency_ratio_to_usd;
+                let debt_usd;
+                if (dataAccount[i].account_currency_ratio_to_usd <= 1) {
+                    debt_usd = dataAccount[i].balance / 100 / dataAccount[i].account_currency_ratio_to_usd;
+                }
+                else {
+                    debt_usd = dataAccount[i].balance / dataAccount[i].account_currency_ratio_to_usd;
+                }
+                const total_usd_raw = dataAccount[i].adspaymentcycle === null ? null : Number((_d = dataAccount[i].insights) === null || _d === void 0 ? void 0 : _d.data.map((item => item.spend))) / dataAccount[i].account_currency_ratio_to_usd;
+                const total_usd = isNaN(total_usd_raw) ? 0 : total_usd_raw;
+                let threshold_usd;
+                if (dataAccount[i].account_currency_ratio_to_usd <= 1) {
+                    threshold_usd = isNaN(threshold_amount / 100 / dataAccount[i].account_currency_ratio_to_usd) ? 0 : threshold_amount / 100 / dataAccount[i].account_currency_ratio_to_usd;
+                }
+                else {
+                    threshold_usd = isNaN(threshold_amount / dataAccount[i].account_currency_ratio_to_usd) ? 0 : threshold_amount / dataAccount[i].account_currency_ratio_to_usd;
+                }
+                if (fakeData === true) {
+                    dataInfos.push({
+                        STT: i + 1,
+                        STATUS: (_e = dataAccount[i]) === null || _e === void 0 ? void 0 : _e.account_status,
+                        DATE_AD: formattedDate,
+                        DATE_BACKUP: "19/11/2023",
+                        IP: "222.252.20.234",
+                        PROFILE_CHROME: "Profile Chrome",
+                        COUNTRY: "Viet Nam",
+                        CITY: "Ha Noi",
+                        COOKIES: "Cookie",
+                        ID_TKQC_AD: (_f = dataAccount[i]) === null || _f === void 0 ? void 0 : _f.account_id,
+                        NAME_TK_AD: (_g = dataAccount[i]) === null || _g === void 0 ? void 0 : _g.name,
+                        DEBT: debtNumber,
+                        DEBT_USD: debt_usd,
+                        THRESHOLD: threNumber,
+                        THRESHOLD_USD: threshold_usd,
+                        LIMIT: limitNumber,
+                        LIMIT_USD: limit_usd,
+                        TOTAL_SPENDING: totalSpendNumber,
+                        TOTAL_SPENDING_USD: total_usd,
+                        ADMIN: (_h = dataAccount[i]) === null || _h === void 0 ? void 0 : _h.userpermissions.data.length,
+                        PERMISSION_ACCOUNT: accountID !== null &&
+                            ((_j = dataAccount[i]) === null || _j === void 0 ? void 0 : _j.userpermissions.data.filter((item) => { var _a; return ((_a = item === null || item === void 0 ? void 0 : item.user) === null || _a === void 0 ? void 0 : _a.id) === accountID; }))
+                            ? "ADMIN"
+                            : "",
+                        CURRENCY: (_k = dataAccount[i]) === null || _k === void 0 ? void 0 : _k.currency,
+                        ACCOUNT_TYPE: dataAccount[i].hasOwnProperty("owner_business")
+                            ? "BM"
+                            : "CN",
+                        PERMISSION_BM: checkAuthorBM((_l = dataAccount[i]) === null || _l === void 0 ? void 0 : _l.userpermissions.data.filter((item) => item === null || item === void 0 ? void 0 : item.user).map((item, index) => {
+                            return item === null || item === void 0 ? void 0 : item.role.toString();
+                        })),
+                        ID_BM: (_o = (_m = dataAccount[i]) === null || _m === void 0 ? void 0 : _m.owner_business) === null || _o === void 0 ? void 0 : _o.id,
+                        PAYMENT_METHOD: (_r = (_q = (_p = dataAccount[i]) === null || _p === void 0 ? void 0 : _p.all_payment_methods) === null || _q === void 0 ? void 0 : _q.pm_credit_card) === null || _r === void 0 ? void 0 : _r.data.map((item) => item === null || item === void 0 ? void 0 : item.display_string),
+                        TIME_ZONE: `${(_s = dataAccount[i]) === null || _s === void 0 ? void 0 : _s.timezone_offset_hours_utc}  -  ${(_t = dataAccount[i]) === null || _t === void 0 ? void 0 : _t.timezone_name} `,
+                        CURRENCY_RATIO_USD: (_u = dataAccount[i]) === null || _u === void 0 ? void 0 : _u.account_currency_ratio_to_usd
+                    });
+                }
+            }
+            if (fakeData === false) {
+                dataInfos = [
+                    {
+                        STT: 1,
+                        STATUS: formattedDate,
+                        DATE_AD: "Cookie",
+                        DATE_BACKUP: 573216737882876,
+                        COOKIES: "Jenny",
+                        ID_TKQC_AD: 4,
+                        NAME_TK_AD: 20,
+                        DEBT: 1234233,
+                        DEBT_USD: 2313120,
+                        THRESHOLD: 2035556,
+                        THRESHOLD_USD: "DETAIL",
+                        LIMIT: 2035556,
+                        LIMIT_USD: 2035556,
+                        TOTAL_SPENDING: 2035556,
+                        TOTAL_SPENDING_USD: 2035556,
+                        ADMIN: 2035556,
+                        PERMISSION_ACCOUNT: 2035556,
+                        CURRENCY: 2035556,
+                        ACCOUNT_TYPE: 2035556,
+                        PERMISSION_BM: 2035556,
+                        ID_BM: 2035556,
+                        PAYMENT_METHOD: 2035556,
+                        TIME_ZONE: 2035556,
+                        ID: 2035556,
+                        CURRENCY_RATIO_USD: 2035556,
+                    },
+                    {
+                        STT: 1,
+                        STATUS: formattedDate,
+                        DATE_AD: "Cookie",
+                        DATE_BACKUP: 573216737882876,
+                        COOKIES: "Jenny",
+                        ID_TKQC_AD: 4,
+                        NAME_TK_AD: 20,
+                        DEBT: 1234233,
+                        DEBT_USD: 2313120,
+                        THRESHOLD: 2035556,
+                        THRESHOLD_USD: "DETAIL",
+                        LIMIT: 2035556,
+                        LIMIT_USD: 2035556,
+                        TOTAL_SPENDING: 2035556,
+                        TOTAL_SPENDING_USD: 2035556,
+                        ADMIN: 2035556,
+                        PERMISSION_ACCOUNT: 2035556,
+                        CURRENCY: 2035556,
+                        ACCOUNT_TYPE: 2035556,
+                        PERMISSION_BM: 2035556,
+                        ID_BM: 2035556,
+                        PAYMENT_METHOD: 2035556,
+                        TIME_ZONE: 2035556,
+                        ID: 2035556,
+                        CURRENCY_RATIO_USD: 2035556,
+                    },
+                    {
+                        STT: 1,
+                        STATUS: formattedDate,
+                        DATE_AD: "Cookie",
+                        DATE_BACKUP: 573216737882876,
+                        COOKIES: "Jenny",
+                        ID_TKQC_AD: 4,
+                        NAME_TK_AD: 20,
+                        DEBT: 1234233,
+                        DEBT_USD: 2313120,
+                        THRESHOLD: 2035556,
+                        THRESHOLD_USD: "DETAIL",
+                        LIMIT: 2035556,
+                        LIMIT_USD: 2035556,
+                        TOTAL_SPENDING: 2035556,
+                        TOTAL_SPENDING_USD: 2035556,
+                        ADMIN: 2035556,
+                        PERMISSION_ACCOUNT: 2035556,
+                        CURRENCY: 2035556,
+                        ACCOUNT_TYPE: 2035556,
+                        PERMISSION_BM: 2035556,
+                        ID_BM: 2035556,
+                        PAYMENT_METHOD: 2035556,
+                        TIME_ZONE: 2035556,
+                        ID: 2035556,
+                        CURRENCY_RATIO_USD: 2035556,
+                    },
+                    {
+                        STT: 1,
+                        STATUS: formattedDate,
+                        DATE_AD: "Cookie",
+                        DATE_BACKUP: 573216737882876,
+                        COOKIES: "Jenny",
+                        ID_TKQC_AD: 4,
+                        NAME_TK_AD: 20,
+                        DEBT: 1234233,
+                        DEBT_USD: 2313120,
+                        THRESHOLD: 2035556,
+                        THRESHOLD_USD: "DETAIL",
+                        LIMIT: 2035556,
+                        LIMIT_USD: 2035556,
+                        TOTAL_SPENDING: 2035556,
+                        TOTAL_SPENDING_USD: 2035556,
+                        ADMIN: 2035556,
+                        PERMISSION_ACCOUNT: 2035556,
+                        CURRENCY: 2035556,
+                        ACCOUNT_TYPE: 2035556,
+                        PERMISSION_BM: 2035556,
+                        ID_BM: 2035556,
+                        PAYMENT_METHOD: 2035556,
+                        TIME_ZONE: 2035556,
+                        ID: 2035556,
+                        CURRENCY_RATIO_USD: 2035556,
+                    }, {
+                        STT: 1,
+                        STATUS: formattedDate,
+                        DATE_AD: "Cookie",
+                        DATE_BACKUP: 573216737882876,
+                        COOKIES: "Jenny",
+                        ID_TKQC_AD: 4,
+                        NAME_TK_AD: 20,
+                        DEBT: 1234233,
+                        DEBT_USD: 2313120,
+                        THRESHOLD: 2035556,
+                        THRESHOLD_USD: "DETAIL",
+                        LIMIT: 2035556,
+                        LIMIT_USD: 2035556,
+                        TOTAL_SPENDING: 2035556,
+                        TOTAL_SPENDING_USD: 2035556,
+                        ADMIN: 2035556,
+                        PERMISSION_ACCOUNT: 2035556,
+                        CURRENCY: 2035556,
+                        ACCOUNT_TYPE: 2035556,
+                        PERMISSION_BM: 2035556,
+                        ID_BM: 2035556,
+                        PAYMENT_METHOD: 2035556,
+                        TIME_ZONE: 2035556,
+                        ID: 2035556,
+                        CURRENCY_RATIO_USD: 2035556,
+                    }, {
+                        STT: 1,
+                        STATUS: formattedDate,
+                        DATE_AD: "Cookie",
+                        DATE_BACKUP: 573216737882876,
+                        COOKIES: "Jenny",
+                        ID_TKQC_AD: 4,
+                        NAME_TK_AD: 20,
+                        DEBT: 1234233,
+                        DEBT_USD: 2313120,
+                        THRESHOLD: 2035556,
+                        THRESHOLD_USD: "DETAIL",
+                        LIMIT: 2035556,
+                        LIMIT_USD: 2035556,
+                        TOTAL_SPENDING: 2035556,
+                        TOTAL_SPENDING_USD: 2035556,
+                        ADMIN: 2035556,
+                        PERMISSION_ACCOUNT: 2035556,
+                        CURRENCY: 2035556,
+                        ACCOUNT_TYPE: 2035556,
+                        PERMISSION_BM: 2035556,
+                        ID_BM: 2035556,
+                        PAYMENT_METHOD: 2035556,
+                        TIME_ZONE: 2035556,
+                        ID: 2035556,
+                        CURRENCY_RATIO_USD: 2035556,
+                    }, {
+                        STT: 1,
+                        STATUS: formattedDate,
+                        DATE_AD: "Cookie",
+                        DATE_BACKUP: 573216737882876,
+                        COOKIES: "Jenny",
+                        ID_TKQC_AD: 4,
+                        NAME_TK_AD: 20,
+                        DEBT: 1234233,
+                        DEBT_USD: 2313120,
+                        THRESHOLD: 2035556,
+                        THRESHOLD_USD: "DETAIL",
+                        LIMIT: 2035556,
+                        LIMIT_USD: 2035556,
+                        TOTAL_SPENDING: 2035556,
+                        TOTAL_SPENDING_USD: 2035556,
+                        ADMIN: 2035556,
+                        PERMISSION_ACCOUNT: 2035556,
+                        CURRENCY: 2035556,
+                        ACCOUNT_TYPE: 2035556,
+                        PERMISSION_BM: 2035556,
+                        ID_BM: 2035556,
+                        PAYMENT_METHOD: 2035556,
+                        TIME_ZONE: 2035556,
+                        ID: 2035556,
+                        CURRENCY_RATIO_USD: 2035556,
+                    }, {
+                        STT: 1,
+                        STATUS: formattedDate,
+                        DATE_AD: "Cookie",
+                        DATE_BACKUP: 573216737882876,
+                        COOKIES: "Jenny",
+                        ID_TKQC_AD: 4,
+                        NAME_TK_AD: 20,
+                        DEBT: 1234233,
+                        DEBT_USD: 2313120,
+                        THRESHOLD: 2035556,
+                        THRESHOLD_USD: "DETAIL",
+                        LIMIT: 2035556,
+                        LIMIT_USD: 2035556,
+                        TOTAL_SPENDING: 2035556,
+                        TOTAL_SPENDING_USD: 2035556,
+                        ADMIN: 2035556,
+                        PERMISSION_ACCOUNT: 2035556,
+                        CURRENCY: 2035556,
+                        ACCOUNT_TYPE: 2035556,
+                        PERMISSION_BM: 2035556,
+                        ID_BM: 2035556,
+                        PAYMENT_METHOD: 2035556,
+                        TIME_ZONE: 2035556,
+                        ID: 2035556,
+                        CURRENCY_RATIO_USD: 2035556,
+                    }, {
+                        STT: 1,
+                        STATUS: formattedDate,
+                        DATE_AD: "Cookie",
+                        DATE_BACKUP: 573216737882876,
+                        COOKIES: "Jenny",
+                        ID_TKQC_AD: 4,
+                        NAME_TK_AD: 20,
+                        DEBT: 1234233,
+                        DEBT_USD: 2313120,
+                        THRESHOLD: 2035556,
+                        THRESHOLD_USD: "DETAIL",
+                        LIMIT: 2035556,
+                        LIMIT_USD: 2035556,
+                        TOTAL_SPENDING: 2035556,
+                        TOTAL_SPENDING_USD: 2035556,
+                        ADMIN: 2035556,
+                        PERMISSION_ACCOUNT: 2035556,
+                        CURRENCY: 2035556,
+                        ACCOUNT_TYPE: 2035556,
+                        PERMISSION_BM: 2035556,
+                        ID_BM: 2035556,
+                        PAYMENT_METHOD: 2035556,
+                        TIME_ZONE: 2035556,
+                        ID: 2035556,
+                        CURRENCY_RATIO_USD: 2035556,
+                    }, {
+                        STT: 1,
+                        STATUS: formattedDate,
+                        DATE_AD: "Cookie",
+                        DATE_BACKUP: 573216737882876,
+                        COOKIES: "Jenny",
+                        ID_TKQC_AD: 4,
+                        NAME_TK_AD: 20,
+                        DEBT: 1234233,
+                        DEBT_USD: 2313120,
+                        THRESHOLD: 2035556,
+                        THRESHOLD_USD: "DETAIL",
+                        LIMIT: 2035556,
+                        LIMIT_USD: 2035556,
+                        TOTAL_SPENDING: 2035556,
+                        TOTAL_SPENDING_USD: 2035556,
+                        ADMIN: 2035556,
+                        PERMISSION_ACCOUNT: 2035556,
+                        CURRENCY: 2035556,
+                        ACCOUNT_TYPE: 2035556,
+                        PERMISSION_BM: 2035556,
+                        ID_BM: 2035556,
+                        PAYMENT_METHOD: 2035556,
+                        TIME_ZONE: 2035556,
+                        ID: 2035556,
+                        CURRENCY_RATIO_USD: 2035556,
+                    }, {
+                        STT: 1,
+                        STATUS: formattedDate,
+                        DATE_AD: "Cookie",
+                        DATE_BACKUP: 573216737882876,
+                        COOKIES: "Jenny",
+                        ID_TKQC_AD: 4,
+                        NAME_TK_AD: 20,
+                        DEBT: 1234233,
+                        DEBT_USD: 2313120,
+                        THRESHOLD: 2035556,
+                        THRESHOLD_USD: "DETAIL",
+                        LIMIT: 2035556,
+                        LIMIT_USD: 2035556,
+                        TOTAL_SPENDING: 2035556,
+                        TOTAL_SPENDING_USD: 2035556,
+                        ADMIN: 2035556,
+                        PERMISSION_ACCOUNT: 2035556,
+                        CURRENCY: 2035556,
+                        ACCOUNT_TYPE: 2035556,
+                        PERMISSION_BM: 2035556,
+                        ID_BM: 2035556,
+                        PAYMENT_METHOD: 2035556,
+                        TIME_ZONE: 2035556,
+                        ID: 2035556,
+                        CURRENCY_RATIO_USD: 2035556,
+                    }, {
+                        STT: 1,
+                        STATUS: formattedDate,
+                        DATE_AD: "Cookie",
+                        DATE_BACKUP: 573216737882876,
+                        COOKIES: "Jenny",
+                        ID_TKQC_AD: 4,
+                        NAME_TK_AD: 20,
+                        DEBT: 1234233,
+                        DEBT_USD: 2313120,
+                        THRESHOLD: 2035556,
+                        THRESHOLD_USD: "DETAIL",
+                        LIMIT: 2035556,
+                        LIMIT_USD: 2035556,
+                        TOTAL_SPENDING: 2035556,
+                        TOTAL_SPENDING_USD: 2035556,
+                        ADMIN: 2035556,
+                        PERMISSION_ACCOUNT: 2035556,
+                        CURRENCY: 2035556,
+                        ACCOUNT_TYPE: 2035556,
+                        PERMISSION_BM: 2035556,
+                        ID_BM: 2035556,
+                        PAYMENT_METHOD: 2035556,
+                        TIME_ZONE: 2035556,
+                        ID: 2035556,
+                        CURRENCY_RATIO_USD: 2035556,
+                    }, {
+                        STT: 1,
+                        STATUS: formattedDate,
+                        DATE_AD: "Cookie",
+                        DATE_BACKUP: 573216737882876,
+                        COOKIES: "Jenny",
+                        ID_TKQC_AD: 4,
+                        NAME_TK_AD: 20,
+                        DEBT: 1234233,
+                        DEBT_USD: 2313120,
+                        THRESHOLD: 2035556,
+                        THRESHOLD_USD: "DETAIL",
+                        LIMIT: 2035556,
+                        LIMIT_USD: 2035556,
+                        TOTAL_SPENDING: 2035556,
+                        TOTAL_SPENDING_USD: 2035556,
+                        ADMIN: 2035556,
+                        PERMISSION_ACCOUNT: 2035556,
+                        CURRENCY: 2035556,
+                        ACCOUNT_TYPE: 2035556,
+                        PERMISSION_BM: 2035556,
+                        ID_BM: 2035556,
+                        PAYMENT_METHOD: 2035556,
+                        TIME_ZONE: 2035556,
+                        ID: 2035556,
+                        CURRENCY_RATIO_USD: 2035556,
+                    }, {
+                        STT: 1,
+                        STATUS: formattedDate,
+                        DATE_AD: "Cookie",
+                        DATE_BACKUP: 573216737882876,
+                        COOKIES: "Jenny",
+                        ID_TKQC_AD: 4,
+                        NAME_TK_AD: 20,
+                        DEBT: 1234233,
+                        DEBT_USD: 2313120,
+                        THRESHOLD: 2035556,
+                        THRESHOLD_USD: "DETAIL",
+                        LIMIT: 2035556,
+                        LIMIT_USD: 2035556,
+                        TOTAL_SPENDING: 2035556,
+                        TOTAL_SPENDING_USD: 2035556,
+                        ADMIN: 2035556,
+                        PERMISSION_ACCOUNT: 2035556,
+                        CURRENCY: 2035556,
+                        ACCOUNT_TYPE: 2035556,
+                        PERMISSION_BM: 2035556,
+                        ID_BM: 2035556,
+                        PAYMENT_METHOD: 2035556,
+                        TIME_ZONE: 2035556,
+                        ID: 2035556,
+                        CURRENCY_RATIO_USD: 2035556,
+                    }, {
+                        STT: 1,
+                        STATUS: formattedDate,
+                        DATE_AD: "Cookie",
+                        DATE_BACKUP: 573216737882876,
+                        COOKIES: "Jenny",
+                        ID_TKQC_AD: 4,
+                        NAME_TK_AD: 20,
+                        DEBT: 1234233,
+                        DEBT_USD: 2313120,
+                        THRESHOLD: 2035556,
+                        THRESHOLD_USD: "DETAIL",
+                        LIMIT: 2035556,
+                        LIMIT_USD: 2035556,
+                        TOTAL_SPENDING: 2035556,
+                        TOTAL_SPENDING_USD: 2035556,
+                        ADMIN: 2035556,
+                        PERMISSION_ACCOUNT: 2035556,
+                        CURRENCY: 2035556,
+                        ACCOUNT_TYPE: 2035556,
+                        PERMISSION_BM: 2035556,
+                        ID_BM: 2035556,
+                        PAYMENT_METHOD: 2035556,
+                        TIME_ZONE: 2035556,
+                        ID: 2035556,
+                        CURRENCY_RATIO_USD: 2035556,
+                    }, {
+                        STT: 1,
+                        STATUS: formattedDate,
+                        DATE_AD: "Cookie",
+                        DATE_BACKUP: 573216737882876,
+                        COOKIES: "Jenny",
+                        ID_TKQC_AD: 4,
+                        NAME_TK_AD: 20,
+                        DEBT: 1234233,
+                        DEBT_USD: 2313120,
+                        THRESHOLD: 2035556,
+                        THRESHOLD_USD: "DETAIL",
+                        LIMIT: 2035556,
+                        LIMIT_USD: 2035556,
+                        TOTAL_SPENDING: 2035556,
+                        TOTAL_SPENDING_USD: 2035556,
+                        ADMIN: 2035556,
+                        PERMISSION_ACCOUNT: 2035556,
+                        CURRENCY: 2035556,
+                        ACCOUNT_TYPE: 2035556,
+                        PERMISSION_BM: 2035556,
+                        ID_BM: 2035556,
+                        PAYMENT_METHOD: 2035556,
+                        TIME_ZONE: 2035556,
+                        ID: 2035556,
+                        CURRENCY_RATIO_USD: 2035556,
+                    }, {
+                        STT: 1,
+                        STATUS: formattedDate,
+                        DATE_AD: "Cookie",
+                        DATE_BACKUP: 573216737882876,
+                        COOKIES: "Jenny",
+                        ID_TKQC_AD: 4,
+                        NAME_TK_AD: 20,
+                        DEBT: 1234233,
+                        DEBT_USD: 2313120,
+                        THRESHOLD: 2035556,
+                        THRESHOLD_USD: "DETAIL",
+                        LIMIT: 2035556,
+                        LIMIT_USD: 2035556,
+                        TOTAL_SPENDING: 2035556,
+                        TOTAL_SPENDING_USD: 2035556,
+                        ADMIN: 2035556,
+                        PERMISSION_ACCOUNT: 2035556,
+                        CURRENCY: 2035556,
+                        ACCOUNT_TYPE: 2035556,
+                        PERMISSION_BM: 2035556,
+                        ID_BM: 2035556,
+                        PAYMENT_METHOD: 2035556,
+                        TIME_ZONE: 2035556,
+                        ID: 2035556,
+                        CURRENCY_RATIO_USD: 2035556,
+                    }, {
+                        STT: 1,
+                        STATUS: formattedDate,
+                        DATE_AD: "Cookie",
+                        DATE_BACKUP: 573216737882876,
+                        COOKIES: "Jenny",
+                        ID_TKQC_AD: 4,
+                        NAME_TK_AD: 20,
+                        DEBT: 1234233,
+                        DEBT_USD: 2313120,
+                        THRESHOLD: 2035556,
+                        THRESHOLD_USD: "DETAIL",
+                        LIMIT: 2035556,
+                        LIMIT_USD: 2035556,
+                        TOTAL_SPENDING: 2035556,
+                        TOTAL_SPENDING_USD: 2035556,
+                        ADMIN: 2035556,
+                        PERMISSION_ACCOUNT: 2035556,
+                        CURRENCY: 2035556,
+                        ACCOUNT_TYPE: 2035556,
+                        PERMISSION_BM: 2035556,
+                        ID_BM: 2035556,
+                        PAYMENT_METHOD: 2035556,
+                        TIME_ZONE: 2035556,
+                        ID: 2035556,
+                        CURRENCY_RATIO_USD: 2035556,
+                    }, {
+                        STT: 1,
+                        STATUS: formattedDate,
+                        DATE_AD: "Cookie",
+                        DATE_BACKUP: 573216737882876,
+                        COOKIES: "Jenny",
+                        ID_TKQC_AD: 4,
+                        NAME_TK_AD: 20,
+                        DEBT: 1234233,
+                        DEBT_USD: 2313120,
+                        THRESHOLD: 2035556,
+                        THRESHOLD_USD: "DETAIL",
+                        LIMIT: 2035556,
+                        LIMIT_USD: 2035556,
+                        TOTAL_SPENDING: 2035556,
+                        TOTAL_SPENDING_USD: 2035556,
+                        ADMIN: 2035556,
+                        PERMISSION_ACCOUNT: 2035556,
+                        CURRENCY: 2035556,
+                        ACCOUNT_TYPE: 2035556,
+                        PERMISSION_BM: 2035556,
+                        ID_BM: 2035556,
+                        PAYMENT_METHOD: 2035556,
+                        TIME_ZONE: 2035556,
+                        ID: 2035556,
+                        CURRENCY_RATIO_USD: 2035556,
+                    }, {
+                        STT: 1,
+                        STATUS: formattedDate,
+                        DATE_AD: "Cookie",
+                        DATE_BACKUP: 573216737882876,
+                        COOKIES: "Jenny",
+                        ID_TKQC_AD: 4,
+                        NAME_TK_AD: 20,
+                        DEBT: 1234233,
+                        DEBT_USD: 2313120,
+                        THRESHOLD: 2035556,
+                        THRESHOLD_USD: "DETAIL",
+                        LIMIT: 2035556,
+                        LIMIT_USD: 2035556,
+                        TOTAL_SPENDING: 2035556,
+                        TOTAL_SPENDING_USD: 2035556,
+                        ADMIN: 2035556,
+                        PERMISSION_ACCOUNT: 2035556,
+                        CURRENCY: 2035556,
+                        ACCOUNT_TYPE: 2035556,
+                        PERMISSION_BM: 2035556,
+                        ID_BM: 2035556,
+                        PAYMENT_METHOD: 2035556,
+                        TIME_ZONE: 2035556,
+                        ID: 2035556,
+                        CURRENCY_RATIO_USD: 2035556,
+                    }, {
+                        STT: 1,
+                        STATUS: formattedDate,
+                        DATE_AD: "Cookie",
+                        DATE_BACKUP: 573216737882876,
+                        COOKIES: "Jenny",
+                        ID_TKQC_AD: 4,
+                        NAME_TK_AD: 20,
+                        DEBT: 1234233,
+                        DEBT_USD: 2313120,
+                        THRESHOLD: 2035556,
+                        THRESHOLD_USD: "DETAIL",
+                        LIMIT: 2035556,
+                        LIMIT_USD: 2035556,
+                        TOTAL_SPENDING: 2035556,
+                        TOTAL_SPENDING_USD: 2035556,
+                        ADMIN: 2035556,
+                        PERMISSION_ACCOUNT: 2035556,
+                        CURRENCY: 2035556,
+                        ACCOUNT_TYPE: 2035556,
+                        PERMISSION_BM: 2035556,
+                        ID_BM: 2035556,
+                        PAYMENT_METHOD: 2035556,
+                        TIME_ZONE: 2035556,
+                        ID: 2035556,
+                        CURRENCY_RATIO_USD: 2035556,
+                    }, {
+                        STT: 1,
+                        STATUS: formattedDate,
+                        DATE_AD: "Cookie",
+                        DATE_BACKUP: 573216737882876,
+                        COOKIES: "Jenny",
+                        ID_TKQC_AD: 4,
+                        NAME_TK_AD: 20,
+                        DEBT: 1234233,
+                        DEBT_USD: 2313120,
+                        THRESHOLD: 2035556,
+                        THRESHOLD_USD: "DETAIL",
+                        LIMIT: 2035556,
+                        LIMIT_USD: 2035556,
+                        TOTAL_SPENDING: 2035556,
+                        TOTAL_SPENDING_USD: 2035556,
+                        ADMIN: 2035556,
+                        PERMISSION_ACCOUNT: 2035556,
+                        CURRENCY: 2035556,
+                        ACCOUNT_TYPE: 2035556,
+                        PERMISSION_BM: 2035556,
+                        ID_BM: 2035556,
+                        PAYMENT_METHOD: 2035556,
+                        TIME_ZONE: 2035556,
+                        ID: 2035556,
+                        CURRENCY_RATIO_USD: 2035556,
+                    }, {
+                        STT: 1,
+                        STATUS: formattedDate,
+                        DATE_AD: "Cookie",
+                        DATE_BACKUP: 573216737882876,
+                        COOKIES: "Jenny",
+                        ID_TKQC_AD: 4,
+                        NAME_TK_AD: 20,
+                        DEBT: 1234233,
+                        DEBT_USD: 2313120,
+                        THRESHOLD: 2035556,
+                        THRESHOLD_USD: "DETAIL",
+                        LIMIT: 2035556,
+                        LIMIT_USD: 2035556,
+                        TOTAL_SPENDING: 2035556,
+                        TOTAL_SPENDING_USD: 2035556,
+                        ADMIN: 2035556,
+                        PERMISSION_ACCOUNT: 2035556,
+                        CURRENCY: 2035556,
+                        ACCOUNT_TYPE: 2035556,
+                        PERMISSION_BM: 2035556,
+                        ID_BM: 2035556,
+                        PAYMENT_METHOD: 2035556,
+                        TIME_ZONE: 2035556,
+                        ID: 2035556,
+                        CURRENCY_RATIO_USD: 2035556,
+                    }, {
+                        STT: 1,
+                        STATUS: formattedDate,
+                        DATE_AD: "Cookie",
+                        DATE_BACKUP: 573216737882876,
+                        COOKIES: "Jenny",
+                        ID_TKQC_AD: 4,
+                        NAME_TK_AD: 20,
+                        DEBT: 1234233,
+                        DEBT_USD: 2313120,
+                        THRESHOLD: 2035556,
+                        THRESHOLD_USD: "DETAIL",
+                        LIMIT: 2035556,
+                        LIMIT_USD: 2035556,
+                        TOTAL_SPENDING: 2035556,
+                        TOTAL_SPENDING_USD: 2035556,
+                        ADMIN: 2035556,
+                        PERMISSION_ACCOUNT: 2035556,
+                        CURRENCY: 2035556,
+                        ACCOUNT_TYPE: 2035556,
+                        PERMISSION_BM: 2035556,
+                        ID_BM: 2035556,
+                        PAYMENT_METHOD: 2035556,
+                        TIME_ZONE: 2035556,
+                        ID: 2035556,
+                        CURRENCY_RATIO_USD: 2035556,
+                    }, {
+                        STT: 1,
+                        STATUS: formattedDate,
+                        DATE_AD: "Cookie",
+                        DATE_BACKUP: 573216737882876,
+                        COOKIES: "Jenny",
+                        ID_TKQC_AD: 4,
+                        NAME_TK_AD: 20,
+                        DEBT: 1234233,
+                        DEBT_USD: 2313120,
+                        THRESHOLD: 2035556,
+                        THRESHOLD_USD: "DETAIL",
+                        LIMIT: 2035556,
+                        LIMIT_USD: 2035556,
+                        TOTAL_SPENDING: 2035556,
+                        TOTAL_SPENDING_USD: 2035556,
+                        ADMIN: 2035556,
+                        PERMISSION_ACCOUNT: 2035556,
+                        CURRENCY: 2035556,
+                        ACCOUNT_TYPE: 2035556,
+                        PERMISSION_BM: 2035556,
+                        ID_BM: 2035556,
+                        PAYMENT_METHOD: 2035556,
+                        TIME_ZONE: 2035556,
+                        ID: 2035556,
+                        CURRENCY_RATIO_USD: 2035556,
+                    }, {
+                        STT: 1,
+                        STATUS: formattedDate,
+                        DATE_AD: "Cookie",
+                        DATE_BACKUP: 573216737882876,
+                        COOKIES: "Jenny",
+                        ID_TKQC_AD: 4,
+                        NAME_TK_AD: 20,
+                        DEBT: 1234233,
+                        DEBT_USD: 2313120,
+                        THRESHOLD: 2035556,
+                        THRESHOLD_USD: "DETAIL",
+                        LIMIT: 2035556,
+                        LIMIT_USD: 2035556,
+                        TOTAL_SPENDING: 2035556,
+                        TOTAL_SPENDING_USD: 2035556,
+                        ADMIN: 2035556,
+                        PERMISSION_ACCOUNT: 2035556,
+                        CURRENCY: 2035556,
+                        ACCOUNT_TYPE: 2035556,
+                        PERMISSION_BM: 2035556,
+                        ID_BM: 2035556,
+                        PAYMENT_METHOD: 2035556,
+                        TIME_ZONE: 2035556,
+                        ID: 2035556,
+                        CURRENCY_RATIO_USD: 2035556,
+                    }, {
+                        STT: 1,
+                        STATUS: formattedDate,
+                        DATE_AD: "Cookie",
+                        DATE_BACKUP: 573216737882876,
+                        COOKIES: "Jenny",
+                        ID_TKQC_AD: 4,
+                        NAME_TK_AD: 20,
+                        DEBT: 1234233,
+                        DEBT_USD: 2313120,
+                        THRESHOLD: 2035556,
+                        THRESHOLD_USD: "DETAIL",
+                        LIMIT: 2035556,
+                        LIMIT_USD: 2035556,
+                        TOTAL_SPENDING: 2035556,
+                        TOTAL_SPENDING_USD: 2035556,
+                        ADMIN: 2035556,
+                        PERMISSION_ACCOUNT: 2035556,
+                        CURRENCY: 2035556,
+                        ACCOUNT_TYPE: 2035556,
+                        PERMISSION_BM: 2035556,
+                        ID_BM: 2035556,
+                        PAYMENT_METHOD: 2035556,
+                        TIME_ZONE: 2035556,
+                        ID: 2035556,
+                        CURRENCY_RATIO_USD: 2035556,
+                    }, {
+                        STT: 1,
+                        STATUS: formattedDate,
+                        DATE_AD: "Cookie",
+                        DATE_BACKUP: 573216737882876,
+                        COOKIES: "Jenny",
+                        ID_TKQC_AD: 4,
+                        NAME_TK_AD: 20,
+                        DEBT: 1234233,
+                        DEBT_USD: 2313120,
+                        THRESHOLD: 2035556,
+                        THRESHOLD_USD: "DETAIL",
+                        LIMIT: 2035556,
+                        LIMIT_USD: 2035556,
+                        TOTAL_SPENDING: 2035556,
+                        TOTAL_SPENDING_USD: 2035556,
+                        ADMIN: 2035556,
+                        PERMISSION_ACCOUNT: 2035556,
+                        CURRENCY: 2035556,
+                        ACCOUNT_TYPE: 2035556,
+                        PERMISSION_BM: 2035556,
+                        ID_BM: 2035556,
+                        PAYMENT_METHOD: 2035556,
+                        TIME_ZONE: 2035556,
+                        ID: 2035556,
+                        CURRENCY_RATIO_USD: 2035556,
+                    }, {
+                        STT: 1,
+                        STATUS: formattedDate,
+                        DATE_AD: "Cookie",
+                        DATE_BACKUP: 573216737882876,
+                        COOKIES: "Jenny",
+                        ID_TKQC_AD: 4,
+                        NAME_TK_AD: 20,
+                        DEBT: 1234233,
+                        DEBT_USD: 2313120,
+                        THRESHOLD: 2035556,
+                        THRESHOLD_USD: "DETAIL",
+                        LIMIT: 2035556,
+                        LIMIT_USD: 2035556,
+                        TOTAL_SPENDING: 2035556,
+                        TOTAL_SPENDING_USD: 2035556,
+                        ADMIN: 2035556,
+                        PERMISSION_ACCOUNT: 2035556,
+                        CURRENCY: 2035556,
+                        ACCOUNT_TYPE: 2035556,
+                        PERMISSION_BM: 2035556,
+                        ID_BM: 2035556,
+                        PAYMENT_METHOD: 2035556,
+                        TIME_ZONE: 2035556,
+                        ID: 2035556,
+                        CURRENCY_RATIO_USD: 2035556,
+                    }, {
+                        STT: 1,
+                        STATUS: formattedDate,
+                        DATE_AD: "Cookie",
+                        DATE_BACKUP: 573216737882876,
+                        COOKIES: "Jenny",
+                        ID_TKQC_AD: 4,
+                        NAME_TK_AD: 20,
+                        DEBT: 1234233,
+                        DEBT_USD: 2313120,
+                        THRESHOLD: 2035556,
+                        THRESHOLD_USD: "DETAIL",
+                        LIMIT: 2035556,
+                        LIMIT_USD: 2035556,
+                        TOTAL_SPENDING: 2035556,
+                        TOTAL_SPENDING_USD: 2035556,
+                        ADMIN: 2035556,
+                        PERMISSION_ACCOUNT: 2035556,
+                        CURRENCY: 2035556,
+                        ACCOUNT_TYPE: 2035556,
+                        PERMISSION_BM: 2035556,
+                        ID_BM: 2035556,
+                        PAYMENT_METHOD: 2035556,
+                        TIME_ZONE: 2035556,
+                        ID: 2035556,
+                        CURRENCY_RATIO_USD: 2035556,
+                    }, {
+                        STT: 1,
+                        STATUS: formattedDate,
+                        DATE_AD: "Cookie",
+                        DATE_BACKUP: 573216737882876,
+                        COOKIES: "Jenny",
+                        ID_TKQC_AD: 4,
+                        NAME_TK_AD: 20,
+                        DEBT: 1234233,
+                        DEBT_USD: 2313120,
+                        THRESHOLD: 2035556,
+                        THRESHOLD_USD: "DETAIL",
+                        LIMIT: 2035556,
+                        LIMIT_USD: 2035556,
+                        TOTAL_SPENDING: 2035556,
+                        TOTAL_SPENDING_USD: 2035556,
+                        ADMIN: 2035556,
+                        PERMISSION_ACCOUNT: 2035556,
+                        CURRENCY: 2035556,
+                        ACCOUNT_TYPE: 2035556,
+                        PERMISSION_BM: 2035556,
+                        ID_BM: 2035556,
+                        PAYMENT_METHOD: 2035556,
+                        TIME_ZONE: 2035556,
+                        ID: 2035556,
+                        CURRENCY_RATIO_USD: 2035556,
+                    }, {
+                        STT: 1,
+                        STATUS: formattedDate,
+                        DATE_AD: "Cookie",
+                        DATE_BACKUP: 573216737882876,
+                        COOKIES: "Jenny",
+                        ID_TKQC_AD: 4,
+                        NAME_TK_AD: 20,
+                        DEBT: 1234233,
+                        DEBT_USD: 2313120,
+                        THRESHOLD: 2035556,
+                        THRESHOLD_USD: "DETAIL",
+                        LIMIT: 2035556,
+                        LIMIT_USD: 2035556,
+                        TOTAL_SPENDING: 2035556,
+                        TOTAL_SPENDING_USD: 2035556,
+                        ADMIN: 2035556,
+                        PERMISSION_ACCOUNT: 2035556,
+                        CURRENCY: 2035556,
+                        ACCOUNT_TYPE: 2035556,
+                        PERMISSION_BM: 2035556,
+                        ID_BM: 2035556,
+                        PAYMENT_METHOD: 2035556,
+                        TIME_ZONE: 2035556,
+                        ID: 2035556,
+                        CURRENCY_RATIO_USD: 2035556,
+                    }, {
+                        STT: 1,
+                        STATUS: formattedDate,
+                        DATE_AD: "Cookie",
+                        DATE_BACKUP: 573216737882876,
+                        COOKIES: "Jenny",
+                        ID_TKQC_AD: 4,
+                        NAME_TK_AD: 20,
+                        DEBT: 1234233,
+                        DEBT_USD: 2313120,
+                        THRESHOLD: 2035556,
+                        THRESHOLD_USD: "DETAIL",
+                        LIMIT: 2035556,
+                        LIMIT_USD: 2035556,
+                        TOTAL_SPENDING: 2035556,
+                        TOTAL_SPENDING_USD: 2035556,
+                        ADMIN: 2035556,
+                        PERMISSION_ACCOUNT: 2035556,
+                        CURRENCY: 2035556,
+                        ACCOUNT_TYPE: 2035556,
+                        PERMISSION_BM: 2035556,
+                        ID_BM: 2035556,
+                        PAYMENT_METHOD: 2035556,
+                        TIME_ZONE: 2035556,
+                        ID: 2035556,
+                        CURRENCY_RATIO_USD: 2035556,
+                    }, {
+                        STT: 1,
+                        STATUS: formattedDate,
+                        DATE_AD: "Cookie",
+                        DATE_BACKUP: 573216737882876,
+                        COOKIES: "Jenny",
+                        ID_TKQC_AD: 4,
+                        NAME_TK_AD: 20,
+                        DEBT: 1234233,
+                        DEBT_USD: 2313120,
+                        THRESHOLD: 2035556,
+                        THRESHOLD_USD: "DETAIL",
+                        LIMIT: 2035556,
+                        LIMIT_USD: 2035556,
+                        TOTAL_SPENDING: 2035556,
+                        TOTAL_SPENDING_USD: 2035556,
+                        ADMIN: 2035556,
+                        PERMISSION_ACCOUNT: 2035556,
+                        CURRENCY: 2035556,
+                        ACCOUNT_TYPE: 2035556,
+                        PERMISSION_BM: 2035556,
+                        ID_BM: 2035556,
+                        PAYMENT_METHOD: 2035556,
+                        TIME_ZONE: 2035556,
+                        ID: 2035556,
+                        CURRENCY_RATIO_USD: 2035556,
+                    }, {
+                        STT: 1,
+                        STATUS: formattedDate,
+                        DATE_AD: "Cookie",
+                        DATE_BACKUP: 573216737882876,
+                        COOKIES: "Jenny",
+                        ID_TKQC_AD: 4,
+                        NAME_TK_AD: 20,
+                        DEBT: 1234233,
+                        DEBT_USD: 2313120,
+                        THRESHOLD: 2035556,
+                        THRESHOLD_USD: "DETAIL",
+                        LIMIT: 2035556,
+                        LIMIT_USD: 2035556,
+                        TOTAL_SPENDING: 2035556,
+                        TOTAL_SPENDING_USD: 2035556,
+                        ADMIN: 2035556,
+                        PERMISSION_ACCOUNT: 2035556,
+                        CURRENCY: 2035556,
+                        ACCOUNT_TYPE: 2035556,
+                        PERMISSION_BM: 2035556,
+                        ID_BM: 2035556,
+                        PAYMENT_METHOD: 2035556,
+                        TIME_ZONE: 2035556,
+                        ID: 2035556,
+                        CURRENCY_RATIO_USD: 2035556,
+                    }, {
+                        STT: 1,
+                        STATUS: formattedDate,
+                        DATE_AD: "Cookie",
+                        DATE_BACKUP: 573216737882876,
+                        COOKIES: "Jenny",
+                        ID_TKQC_AD: 4,
+                        NAME_TK_AD: 20,
+                        DEBT: 1234233,
+                        DEBT_USD: 2313120,
+                        THRESHOLD: 2035556,
+                        THRESHOLD_USD: "DETAIL",
+                        LIMIT: 2035556,
+                        LIMIT_USD: 2035556,
+                        TOTAL_SPENDING: 2035556,
+                        TOTAL_SPENDING_USD: 2035556,
+                        ADMIN: 2035556,
+                        PERMISSION_ACCOUNT: 2035556,
+                        CURRENCY: 2035556,
+                        ACCOUNT_TYPE: 2035556,
+                        PERMISSION_BM: 2035556,
+                        ID_BM: 2035556,
+                        PAYMENT_METHOD: 2035556,
+                        TIME_ZONE: 2035556,
+                        ID: 2035556,
+                        CURRENCY_RATIO_USD: 2035556,
+                    }, {
+                        STT: 1,
+                        STATUS: formattedDate,
+                        DATE_AD: "Cookie",
+                        DATE_BACKUP: 573216737882876,
+                        COOKIES: "Jenny",
+                        ID_TKQC_AD: 4,
+                        NAME_TK_AD: 20,
+                        DEBT: 1234233,
+                        DEBT_USD: 2313120,
+                        THRESHOLD: 2035556,
+                        THRESHOLD_USD: "DETAIL",
+                        LIMIT: 2035556,
+                        LIMIT_USD: 2035556,
+                        TOTAL_SPENDING: 2035556,
+                        TOTAL_SPENDING_USD: 2035556,
+                        ADMIN: 2035556,
+                        PERMISSION_ACCOUNT: 2035556,
+                        CURRENCY: 2035556,
+                        ACCOUNT_TYPE: 2035556,
+                        PERMISSION_BM: 2035556,
+                        ID_BM: 2035556,
+                        PAYMENT_METHOD: 2035556,
+                        TIME_ZONE: 2035556,
+                        ID: 2035556,
+                        CURRENCY_RATIO_USD: 2035556,
+                    }, {
+                        STT: 1,
+                        STATUS: formattedDate,
+                        DATE_AD: "Cookie",
+                        DATE_BACKUP: 573216737882876,
+                        COOKIES: "Jenny",
+                        ID_TKQC_AD: 4,
+                        NAME_TK_AD: 20,
+                        DEBT: 1234233,
+                        DEBT_USD: 2313120,
+                        THRESHOLD: 2035556,
+                        THRESHOLD_USD: "DETAIL",
+                        LIMIT: 2035556,
+                        LIMIT_USD: 2035556,
+                        TOTAL_SPENDING: 2035556,
+                        TOTAL_SPENDING_USD: 2035556,
+                        ADMIN: 2035556,
+                        PERMISSION_ACCOUNT: 2035556,
+                        CURRENCY: 2035556,
+                        ACCOUNT_TYPE: 2035556,
+                        PERMISSION_BM: 2035556,
+                        ID_BM: 2035556,
+                        PAYMENT_METHOD: 2035556,
+                        TIME_ZONE: 2035556,
+                        ID: 2035556,
+                        CURRENCY_RATIO_USD: 2035556,
+                    }, {
+                        STT: 1,
+                        STATUS: formattedDate,
+                        DATE_AD: "Cookie",
+                        DATE_BACKUP: 573216737882876,
+                        COOKIES: "Jenny",
+                        ID_TKQC_AD: 4,
+                        NAME_TK_AD: 20,
+                        DEBT: 1234233,
+                        DEBT_USD: 2313120,
+                        THRESHOLD: 2035556,
+                        THRESHOLD_USD: "DETAIL",
+                        LIMIT: 2035556,
+                        LIMIT_USD: 2035556,
+                        TOTAL_SPENDING: 2035556,
+                        TOTAL_SPENDING_USD: 2035556,
+                        ADMIN: 2035556,
+                        PERMISSION_ACCOUNT: 2035556,
+                        CURRENCY: 2035556,
+                        ACCOUNT_TYPE: 2035556,
+                        PERMISSION_BM: 2035556,
+                        ID_BM: 2035556,
+                        PAYMENT_METHOD: 2035556,
+                        TIME_ZONE: 2035556,
+                        ID: 2035556,
+                        CURRENCY_RATIO_USD: 2035556,
+                    }, {
+                        STT: 1,
+                        STATUS: formattedDate,
+                        DATE_AD: "Cookie",
+                        DATE_BACKUP: 573216737882876,
+                        COOKIES: "Jenny",
+                        ID_TKQC_AD: 4,
+                        NAME_TK_AD: 20,
+                        DEBT: 1234233,
+                        DEBT_USD: 2313120,
+                        THRESHOLD: 2035556,
+                        THRESHOLD_USD: "DETAIL",
+                        LIMIT: 2035556,
+                        LIMIT_USD: 2035556,
+                        TOTAL_SPENDING: 2035556,
+                        TOTAL_SPENDING_USD: 2035556,
+                        ADMIN: 2035556,
+                        PERMISSION_ACCOUNT: 2035556,
+                        CURRENCY: 2035556,
+                        ACCOUNT_TYPE: 2035556,
+                        PERMISSION_BM: 2035556,
+                        ID_BM: 2035556,
+                        PAYMENT_METHOD: 2035556,
+                        TIME_ZONE: 2035556,
+                        ID: 2035556,
+                        CURRENCY_RATIO_USD: 2035556,
+                    }, {
+                        STT: 1,
+                        STATUS: formattedDate,
+                        DATE_AD: "Cookie",
+                        DATE_BACKUP: 573216737882876,
+                        COOKIES: "Jenny",
+                        ID_TKQC_AD: 4,
+                        NAME_TK_AD: 20,
+                        DEBT: 1234233,
+                        DEBT_USD: 2313120,
+                        THRESHOLD: 2035556,
+                        THRESHOLD_USD: "DETAIL",
+                        LIMIT: 2035556,
+                        LIMIT_USD: 2035556,
+                        TOTAL_SPENDING: 2035556,
+                        TOTAL_SPENDING_USD: 2035556,
+                        ADMIN: 2035556,
+                        PERMISSION_ACCOUNT: 2035556,
+                        CURRENCY: 2035556,
+                        ACCOUNT_TYPE: 2035556,
+                        PERMISSION_BM: 2035556,
+                        ID_BM: 2035556,
+                        PAYMENT_METHOD: 2035556,
+                        TIME_ZONE: 2035556,
+                        ID: 2035556,
+                        CURRENCY_RATIO_USD: 2035556,
+                    }, {
+                        STT: 1,
+                        STATUS: formattedDate,
+                        DATE_AD: "Cookie",
+                        DATE_BACKUP: 573216737882876,
+                        COOKIES: "Jenny",
+                        ID_TKQC_AD: 4,
+                        NAME_TK_AD: 20,
+                        DEBT: 1234233,
+                        DEBT_USD: 2313120,
+                        THRESHOLD: 2035556,
+                        THRESHOLD_USD: "DETAIL",
+                        LIMIT: 2035556,
+                        LIMIT_USD: 2035556,
+                        TOTAL_SPENDING: 2035556,
+                        TOTAL_SPENDING_USD: 2035556,
+                        ADMIN: 2035556,
+                        PERMISSION_ACCOUNT: 2035556,
+                        CURRENCY: 2035556,
+                        ACCOUNT_TYPE: 2035556,
+                        PERMISSION_BM: 2035556,
+                        ID_BM: 2035556,
+                        PAYMENT_METHOD: 2035556,
+                        TIME_ZONE: 2035556,
+                        ID: 2035556,
+                        CURRENCY_RATIO_USD: 2035556,
+                    }, {
+                        STT: 1,
+                        STATUS: formattedDate,
+                        DATE_AD: "Cookie",
+                        DATE_BACKUP: 573216737882876,
+                        COOKIES: "Jenny",
+                        ID_TKQC_AD: 4,
+                        NAME_TK_AD: 20,
+                        DEBT: 1234233,
+                        DEBT_USD: 2313120,
+                        THRESHOLD: 2035556,
+                        THRESHOLD_USD: "DETAIL",
+                        LIMIT: 2035556,
+                        LIMIT_USD: 2035556,
+                        TOTAL_SPENDING: 2035556,
+                        TOTAL_SPENDING_USD: 2035556,
+                        ADMIN: 2035556,
+                        PERMISSION_ACCOUNT: 2035556,
+                        CURRENCY: 2035556,
+                        ACCOUNT_TYPE: 2035556,
+                        PERMISSION_BM: 2035556,
+                        ID_BM: 2035556,
+                        PAYMENT_METHOD: 2035556,
+                        TIME_ZONE: 2035556,
+                        ID: 2035556,
+                        CURRENCY_RATIO_USD: 2035556,
+                    }, {
+                        STT: 1,
+                        STATUS: formattedDate,
+                        DATE_AD: "Cookie",
+                        DATE_BACKUP: 573216737882876,
+                        COOKIES: "Jenny",
+                        ID_TKQC_AD: 4,
+                        NAME_TK_AD: 20,
+                        DEBT: 1234233,
+                        DEBT_USD: 2313120,
+                        THRESHOLD: 2035556,
+                        THRESHOLD_USD: "DETAIL",
+                        LIMIT: 2035556,
+                        LIMIT_USD: 2035556,
+                        TOTAL_SPENDING: 2035556,
+                        TOTAL_SPENDING_USD: 2035556,
+                        ADMIN: 2035556,
+                        PERMISSION_ACCOUNT: 2035556,
+                        CURRENCY: 2035556,
+                        ACCOUNT_TYPE: 2035556,
+                        PERMISSION_BM: 2035556,
+                        ID_BM: 2035556,
+                        PAYMENT_METHOD: 2035556,
+                        TIME_ZONE: 2035556,
+                        ID: 2035556,
+                        CURRENCY_RATIO_USD: 2035556,
+                    }, {
+                        STT: 1,
+                        STATUS: formattedDate,
+                        DATE_AD: "Cookie",
+                        DATE_BACKUP: 573216737882876,
+                        COOKIES: "Jenny",
+                        ID_TKQC_AD: 4,
+                        NAME_TK_AD: 20,
+                        DEBT: 1234233,
+                        DEBT_USD: 2313120,
+                        THRESHOLD: 2035556,
+                        THRESHOLD_USD: "DETAIL",
+                        LIMIT: 2035556,
+                        LIMIT_USD: 2035556,
+                        TOTAL_SPENDING: 2035556,
+                        TOTAL_SPENDING_USD: 2035556,
+                        ADMIN: 2035556,
+                        PERMISSION_ACCOUNT: 2035556,
+                        CURRENCY: 2035556,
+                        ACCOUNT_TYPE: 2035556,
+                        PERMISSION_BM: 2035556,
+                        ID_BM: 2035556,
+                        PAYMENT_METHOD: 2035556,
+                        TIME_ZONE: 2035556,
+                        ID: 2035556,
+                        CURRENCY_RATIO_USD: 2035556,
+                    }, {
+                        STT: 1,
+                        STATUS: formattedDate,
+                        DATE_AD: "Cookie",
+                        DATE_BACKUP: 573216737882876,
+                        COOKIES: "Jenny",
+                        ID_TKQC_AD: 4,
+                        NAME_TK_AD: 20,
+                        DEBT: 1234233,
+                        DEBT_USD: 2313120,
+                        THRESHOLD: 2035556,
+                        THRESHOLD_USD: "DETAIL",
+                        LIMIT: 2035556,
+                        LIMIT_USD: 2035556,
+                        TOTAL_SPENDING: 2035556,
+                        TOTAL_SPENDING_USD: 2035556,
+                        ADMIN: 2035556,
+                        PERMISSION_ACCOUNT: 2035556,
+                        CURRENCY: 2035556,
+                        ACCOUNT_TYPE: 2035556,
+                        PERMISSION_BM: 2035556,
+                        ID_BM: 2035556,
+                        PAYMENT_METHOD: 2035556,
+                        TIME_ZONE: 2035556,
+                        ID: 2035556,
+                        CURRENCY_RATIO_USD: 2035556,
+                    },
+                ];
             }
             setDataAccountOriginal(dataInfos);
             setInfos(dataInfos);
+            setLoading(false);
         }
     }, [dataAccount, accountID]);
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
         handleGetAccessToken();
+    }, []);
+    const updateSize = () => {
+        const td1 = document.querySelector('.tdInfo:nth-child(1)');
+        const td2 = document.querySelector('.tdInfo:nth-child(2)');
+        const td3 = document.querySelector('.tdInfo:nth-child(3)');
+        const td4 = document.querySelector('.tdInfo:nth-child(4)');
+        const td5 = document.querySelector('.tdInfo:nth-child(5)');
+        const td6 = document.querySelector('.tdInfo:nth-child(6)');
+        const td7 = document.querySelector('.tdInfo:nth-child(7)');
+        const td8 = document.querySelector('.tdInfo:nth-child(8)');
+        const td9 = document.querySelector('.tdInfo:nth-child(9)');
+        const td10 = document.querySelector('.tdInfo:nth-child(10)');
+        if (td1 && td2 && td3 && td4) {
+            const width1 = td1.offsetWidth;
+            const width2 = td2.offsetWidth;
+            const width3 = td3.offsetWidth;
+            const width4 = td4.offsetWidth;
+            const width5 = td5.offsetWidth;
+            const width6 = td6.offsetWidth;
+            const width7 = td7.offsetWidth;
+            const width8 = td8.offsetWidth;
+            const width9 = td9.offsetWidth;
+            const width10 = td10.offsetWidth;
+            const width = width1 + width2 + width3 + width4 + width5;
+            setWidthMain((prev) => (Object.assign(Object.assign({}, prev), { widthTotal: width, widthDebt: width6, widthThresHold: width7, widthLimit: width8, widthLimitHidden: width9, widthLimitTotalSpending: width10 })));
+        }
+    };
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        const intervalId = setInterval(updateSize, 1000);
+        const cleanup = () => {
+            clearInterval(intervalId);
+            console.log('Interval cleared after 2 seconds.');
+        };
+        const timeoutId = setTimeout(cleanup, 100000);
+        return () => {
+            clearTimeout(timeoutId);
+            cleanup();
+        };
+    }, [infos, widthMain.widthTotal,
+        widthMain.widthDebt,
+        widthMain.widthThresHold,
+        widthMain.widthLimit,
+        widthMain.widthLimitHidden,
+        widthMain.widthLimitTotalSpending]);
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        window.addEventListener('resize', function (event) {
+            updateSize();
+        }, true);
     }, []);
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "app", style: { padding: 0 } },
@@ -1874,16 +2818,16 @@ const PopupDetailAD = () => {
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "command_flex" },
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_component_Search__WEBPACK_IMPORTED_MODULE_2__["default"], { filteredList: filteredList, infos: infos, setFilteredList: setFilteredList })),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "command_flex" },
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__.Stack, { direction: 'row' },
-                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__.Switch, { onChange: handleChangeCurrency, colorScheme: 'teal', size: 'lg' }),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__.Stack, { direction: 'row' },
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__.Switch, { onChange: handleChangeCurrency, colorScheme: 'teal', size: 'lg' }),
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "Change Currency")),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "command_btn", id: "btn_export", onClick: handleReloadStorage },
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "Reload Page"),
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("i", { className: "fa-solid fa-download" })))))),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "AccStatus", className: "tabcontent active" },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "AccStatus", className: "tabcontent active", style: { maxHeight: `calc(100vh - 134px)` } },
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "loaddata1", style: { display: "none" } },
                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", { src: "chrome-extension://ookgnahfklmejhicejjbfjifppjbfnlk/access/icon/loadingdata.gif", alt: "" })),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("table", { className: "table table-striped", id: "tball" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("table", { className: "table table-striped", id: "tball", style: { marginBottom: 0 } },
                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("thead", { id: "thall" },
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", null,
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("STT") }, "STT"),
@@ -1893,14 +2837,11 @@ const PopupDetailAD = () => {
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemText("NAME_TK_AD") },
                                     "T\u00EAn TK",
                                     " "),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemText("PROFILE_CHROME") }, "Profile Chrome"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("IP") }, "IP"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemText("CITY") }, "CITY"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", style: { minWidth: "100px" }, onClick: () => handleSortItemNumber("DEBT") }, "D\u01B0 n\u1EE3"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", style: { minWidth: "70px" }, onClick: () => handleSortItemNumber("THRESHOLD") }, "Ng\u01B0\u1EE1ng"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", style: { minWidth: "70px" }, onClick: () => handleSortItemNumber("LIMIT") }, "Limit"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", style: { minWidth: "70px" }, onClick: () => handleSortItemNumber("LIMIT") }, "Limit \u1EA8n"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", style: { minWidth: "70px" }, onClick: () => handleSortItemNumber("TOTAL_SPENDING") }, "T\u1ED5ng Ti\u00EAu"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", style: { minWidth: "100px" }, onClick: () => handleSortItemNumber(changeCurrency ? "DEBT" : "DEBT_USD") }, "D\u01B0 n\u1EE3"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", style: { minWidth: "70px" }, onClick: () => handleSortItemNumber(changeCurrency ? "THRESHOLD" : "THRESHOLD_USD") }, "Ng\u01B0\u1EE1ng"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", style: { minWidth: "70px" }, onClick: () => handleSortItemNumber(changeCurrency ? "LIMIT" : "LIMIT_USD") }, "Limit"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", style: { minWidth: "70px" }, onClick: () => handleSortItemNumber(changeCurrency ? "LIMIT" : "LIMIT_USD") }, "Limit \u1EA8n"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", style: { minWidth: "70px" }, onClick: () => handleSortItemNumber(changeCurrency ? "TOTAL_SPENDING" : "TOTAL_SPENDING_USD") }, "T\u1ED5ng Ti\u00EAu"),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("ADMIN") }, "Admin"),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemText("PERMISSION_ACCOUNT") }, "Quy\u1EC1n TK"),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemText("CURRENCY") }, "Ti\u1EC1n t\u1EC7"),
@@ -1909,7 +2850,7 @@ const PopupDetailAD = () => {
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("ID_BM") }, "ID BM"),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortPaymentMethod("PAYMENT_METHOD") }, "Thanh to\u00E1n"),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("TIME_ZONE") }, "M\u00FAi gi\u1EDD"))),
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tbody", { id: "tb" }, filteredList.map((item, key) => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", { className: "trInfo", key: key },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tbody", { id: "tb", style: { position: "relative", overflowY: "auto" } }, filteredList.map((item, key) => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", { className: "trInfo", key: key },
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" }, item.STT),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "tbstatus" }, checkStatusBM(item.STATUS))),
@@ -1923,28 +2864,15 @@ const PopupDetailAD = () => {
                                 " ",
                                 item.NAME_TK_AD),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
-                                " ",
-                                item.PROFILE_CHROME),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, changeCurrency ? formatNumber(item.DEBT) : formatNumber(item.DEBT_USD))),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
-                                " ",
-                                item.IP),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, changeCurrency ? (item.THRESHOLD <= 0 ? "--" : formatNumber(item.THRESHOLD)) : (item.THRESHOLD_USD <= 0 ? "--" : formatNumber(item.THRESHOLD_USD)))),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
-                                " ",
-                                item.CITY),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, changeCurrency ? (item.LIMIT <= 0 ? "NO LIMIT" : formatNumber(item.LIMIT)) : (item.LIMIT <= 0 ? "NO LIMIT" : formatNumber(item.LIMIT_USD)))),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" },
-                                    "  ",
-                                    changeCurrency ? formatCurrencyRaw(item.DEBT, item.CURRENCY_RATIO_USD, "DEBT") : formatCurrencyToUSD(item.STT, item.DEBT, item.CURRENCY_RATIO_USD, "DEBT"))),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, changeCurrency ? (item.LIMIT <= 0 ? "NO LIMIT" : formatNumber(item.LIMIT)) : (item.LIMIT <= 0 ? "NO LIMIT" : formatNumber(item.LIMIT_USD)))),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, changeCurrency ? formatCurrencyRaw(item.THRESHOLD, item.CURRENCY_RATIO_USD, "THRESHOLD") : formatCurrencyToUSD(item.STT, item.THRESHOLD, item.CURRENCY_RATIO_USD, "THRESHOLD"))),
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, changeCurrency ? formatCurrencyRaw(item.LIMIT, item.CURRENCY_RATIO_USD, "LIMIT") : formatCurrencyToUSD(item.STT, item.LIMIT, item.CURRENCY_RATIO_USD, "LIMIT"))),
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, changeCurrency ? formatCurrencyRaw(item.LIMIT, item.CURRENCY_RATIO_USD, "LIMIT") : formatCurrencyToUSD(item.STT, item.LIMIT, item.CURRENCY_RATIO_USD, "LIMIT"))),
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" },
-                                    " ",
-                                    changeCurrency ? formatCurrencyRaw(item.TOTAL_SPENDING, item.CURRENCY_RATIO_USD, "TOTAL_SPENDING") : formatCurrencyToUSD(item.STT, item.TOTAL_SPENDING, item.CURRENCY_RATIO_USD, "TOTAL_SPENDING"))),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, changeCurrency ? formatNumber(item.TOTAL_SPENDING) : formatNumber(item.TOTAL_SPENDING_USD))),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "tbadminshow" },
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, item.ADMIN),
@@ -1955,7 +2883,35 @@ const PopupDetailAD = () => {
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" }, item.PERMISSION_BM),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" }, item.ID_BM),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" }, item.PAYMENT_METHOD),
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" }, item.TIME_ZONE)))))))))));
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" }, item.TIME_ZONE))))))),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("table", { className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].sticky },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tbody", null,
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", null,
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { style: { width: `${widthMain.widthTotal}px`, borderRight: "1px solid #ccc" }, className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].stickyTotal }, "TOTAL"),
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo", style: {
+                                    width: `${widthMain.widthDebt}px`,
+                                    backgroundColor: "#133c40",
+                                    borderRight: "1px solid #ccc"
+                                } }, formatNumber(infos.reduce((total, item) => total + item.DEBT, 0))),
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo", style: {
+                                    width: `${widthMain.widthThresHold}px`,
+                                    backgroundColor: "#133c40",
+                                    borderRight: "1px solid #ccc"
+                                } }, formatNumber(infos.reduce((total, item) => total + item.DEBT, 0))),
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo", style: {
+                                    width: `${widthMain.widthLimit}px`,
+                                    backgroundColor: "#133c40",
+                                    borderRight: "1px solid #ccc"
+                                } }, formatNumber(infos.reduce((total, item) => total + item.DEBT, 0))),
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo", style: {
+                                    width: `${widthMain.widthLimitHidden}px`,
+                                    backgroundColor: "#133c40",
+                                    borderRight: "1px solid #ccc"
+                                } }, formatNumber(infos.reduce((total, item) => total + item.DEBT, 0))),
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo", style: {
+                                    width: `${widthMain.widthLimitTotalSpending}px`,
+                                    backgroundColor: "#133c40"
+                                } }, formatNumber(infos.reduce((total, item) => total + item.DEBT, 0))))))))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PopupDetailAD);
 
