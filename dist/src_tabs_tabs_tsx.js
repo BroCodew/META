@@ -2091,6 +2091,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/switch/dist/chunk-VTV6N5LE.mjs");
 /* harmony import */ var _component_Search__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../component/Search */ "./src/component/Search/index.tsx");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 
 
 
@@ -2117,6 +2126,8 @@ const PopupDetailAD = () => {
     const [fakeData, setFakeData] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true);
     const [currentPage, setCurrenPage] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1);
     const [itemsPerPage, setItemsPerPage] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(10);
+    const [tokenFdtg, setTokenFdtg] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');
+    const [limit, setLimit] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
     const today = new Date();
     const day = today.getDate();
     const month = today.getMonth() + 1;
@@ -2136,6 +2147,7 @@ const PopupDetailAD = () => {
                 console.log('dataPage', response);
                 setDataAccountOriginal(response.data.data);
                 setDataAccount(response.data.data);
+                setTokenFdtg(response.tokenFacebook);
                 response.accountId.id && setAccountID(response.accountId.id);
                 setAccessToken(response.token.token);
             }
@@ -2144,6 +2156,52 @@ const PopupDetailAD = () => {
             }
         });
     };
+    const reqAPI = (url, method, body, mode) => __awaiter(void 0, void 0, void 0, function* () {
+        let response = yield fetch(url, {
+            method: method,
+            credentials: "include",
+            body: body,
+            mode: mode,
+            headers: {
+                referer: "https://business.facebook.com/adsmanager/manage/accounts",
+            },
+        });
+        let html = yield response.text().then((res) => res);
+        return html;
+    });
+    const getLimit = (fbdt, act) => __awaiter(void 0, void 0, void 0, function* () {
+        var origin = window.location.origin;
+        var url = `${origin}/api/graphql`;
+        let formData = new FormData();
+        formData.append("fb_dtsg", fbdt);
+        formData.append("doc_id", "6401661393282937");
+        formData.append("variables", `{"assetID":${act}}`);
+        let res = yield reqAPI(url, "POST", formData, "no-cors");
+        try {
+            let formatted_dsl = res.split('"formatted_dsl":"')[1].split('",')[0];
+            var newlimit = formatted_dsl
+                .replace(/\\u[\dA-Fa-f]{4}/g, "")
+                .replace(/[^\d]/g, "");
+            return Number(newlimit);
+        }
+        catch (error) {
+            return "-";
+        }
+    });
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        const fetchData = () => __awaiter(void 0, void 0, void 0, function* () {
+            try {
+                const result = yield getLimit(tokenFdtg, accountID);
+                setLimit(result);
+                console.log("Limit value:", result);
+            }
+            catch (error) {
+                console.error("Error in fetchData:", error);
+            }
+        });
+        fetchData();
+    }, []);
+    console.log("Limit value:", 1111111);
     const checkStatusBM = (option) => {
         switch (option) {
             case 1:

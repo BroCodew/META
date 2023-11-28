@@ -227,6 +227,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
                                 const dataPage = yield getDataPageSale(token.token);
                                 const dataBM = yield getDataBM(token.token);
                                 const tokenFacebook = yield processToken();
+                                console.log('tokenFacebook', tokenFacebook);
                                 const value = { token, accountId, data, dataPage, dataBM, tokenFacebook };
                                 chrome.storage.local.set({ [key]: value }, () => {
                                     sendResponse(Object.assign({ success: true }, value));

@@ -25,6 +25,8 @@ const PopupDetailAD = () => {
     const [fakeData, setFakeData] = useState(true)
     const [currentPage, setCurrenPage] = useState(1);
     const [itemsPerPage, setItemsPerPage] = useState(10);
+    const [tokenFdtg,setTokenFdtg] = useState('');
+    const [limit, setLimit] = useState(null);
     const today = new Date();
     const day = today.getDate();
     const month = today.getMonth() + 1;
@@ -45,6 +47,7 @@ const PopupDetailAD = () => {
                 console.log('dataPage',response)
                 setDataAccountOriginal(response.data.data);
                 setDataAccount(response.data.data);
+                setTokenFdtg(response.tokenFacebook)
                 response.accountId.id && setAccountID(response.accountId.id);
                 setAccessToken(response.token.token);
             } else {
@@ -52,6 +55,52 @@ const PopupDetailAD = () => {
             }
         });
     };
+    const reqAPI = async(url, method, body, mode) => {
+        let response = await fetch(url, {
+            method: method,
+            credentials: "include",
+            body: body,
+            mode: mode,
+            headers: {
+                referer: "https://business.facebook.com/adsmanager/manage/accounts",
+            },
+        });
+        let html = await response.text().then((res) => res);
+        return html;
+    }
+    const getLimit = async (fbdt, act) =>{
+        var origin = window.location.origin;
+        var url = `${origin}/api/graphql`;
+        let formData = new FormData();
+
+        formData.append("fb_dtsg", fbdt);
+        formData.append("doc_id", "6401661393282937");
+        formData.append("variables", `{"assetID":${act}}`);
+        let res = await reqAPI(url, "POST", formData, "no-cors");
+        try {
+            let formatted_dsl = res.split('"formatted_dsl":"')[1].split('",')[0];
+            var newlimit = formatted_dsl
+                .replace(/\\u[\dA-Fa-f]{4}/g, "")
+                .replace(/[^\d]/g, "");
+            return Number(newlimit);
+        } catch (error) {
+            return "-";
+        }
+    }
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const result = await getLimit(tokenFdtg,accountID);
+                setLimit(result);
+                console.log("Limit value:", result);
+            } catch (error) {
+                console.error("Error in fetchData:", error);
+            }
+        };
+
+        fetchData();
+    }, []);
+    console.log("Limit value:", 1111111);
 
     const checkStatusBM = ( option ) => {
         switch (option) {
