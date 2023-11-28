@@ -1,3 +1,4 @@
+
 const CopyPlugin = require("copy-webpack-plugin");
 const HtmlPlugin = require("html-webpack-plugin");
 const path = require("path");
@@ -22,6 +23,8 @@ module.exports = {
           },
         ],
       },
+
+        //ok
       { use: "ts-loader", test: /\.tsx*/, exclude: /node_modules/ },
       {
         test: /\.s[ac]ss$/i,
@@ -78,11 +81,11 @@ module.exports = {
 
 function getHtmlPlugins(chunks) {
   return chunks.map(
-    (chunk) =>
-      new HtmlPlugin({
-        title: "Reactjs Boilerplate",
-        filename: `${chunk}.html`,
-        chunks: [chunk],
-      })
+      (chunk) =>
+          new HtmlPlugin({
+            title: "Reactjs Boilerplate",
+            filename: `${chunk}.html`,
+            chunks: [chunk],
+          })
   );
 }

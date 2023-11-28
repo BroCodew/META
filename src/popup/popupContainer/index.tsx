@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {v4 as uuidv4} from "uuid";
 import {useNavigate} from "react-router-dom";
 import styles from "./styles/index.module.scss";
-import {Button, Checkbox, Spinner, Stack} from "@chakra-ui/react";
+import {Button, Checkbox, Input, Spinner, Stack} from "@chakra-ui/react";
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 import SearchBar from "../../component/Search";
 
@@ -25,8 +25,6 @@ const PopupContainer = () => {
     const formattedDate = `${day}/${month}/${year}`;
     const navigate = useNavigate();
 
-    console.log('filteredList', filteredList)
-    console.log('infos', infos)
     useEffect(() => {
         setFilteredList(infos)
     }, [infos]);
@@ -129,8 +127,6 @@ const PopupContainer = () => {
         }
     }, [detailParam]);
     useEffect(() => {
-        console.log("accountID", accountID);
-        console.log("dataAccount.length ", dataAccount);
 
         let dataInfos = [];
 
@@ -212,13 +208,11 @@ const PopupContainer = () => {
                     ID : uuidv4(),
                 },
             ];
-            console.log('dataInfos', dataInfos)
             setInfos(dataInfos)
             setLoading(false)
         }
 
     }, [dataAccount, accountID]);
-    console.log('infos', infos);
     useEffect(() => {
         handleGetAccessToken();
     }, []);
@@ -248,6 +242,14 @@ const PopupContainer = () => {
 
                     <div className="sc_heading" style={{ marginBottom : "20px", backgroundColor : "transparent" }}>
                         <SearchBar filteredList={filteredList} infos={infos} setFilteredList={setFilteredList}/>
+                    </div>
+                    <div>
+                        <Button>Lọc Ngày</Button>
+                        <Input
+                            placeholder="Select Date and Time"
+                            size="md"
+                            type="datetime-local"
+                        />
                     </div>
                     <div
                         id="AccStatus"

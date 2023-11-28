@@ -85,6 +85,53 @@
   }
 }
 
+.statusAccountLive{
+  background-color:rgba(84,244,166,.289);
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 5px;
+
+  .liveTextLive {
+    margin-left: 1px;
+
+
+    color: #07a107;
+  }
+}
+
+.statusAccountDie{
+  background-color:rgba(255,0,0,.135);
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+    .liveTextDie {
+      margin-left: 1px;
+      color: red;
+    }
+  }
+
+.statusAccountDebt{
+  background-color:rgba(255,255,0,.348);
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  .liveTextDebt {
+    margin-left: 1px;
+    color: #cc8604;
+  }
+}
+
+
 //
 .sticky {
   //background: #0d9c0a;
@@ -95,7 +142,7 @@
 }
 
 .stickyTotal {
-  background: #e11d1d;
+  background: #3076fb;
   font-weight: bold;
 
 }

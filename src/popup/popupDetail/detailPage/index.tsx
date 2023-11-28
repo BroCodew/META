@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import styles from "./styles/index.module.scss";
 import {Stack, Switch} from "@chakra-ui/react";
 import SearchBar from "../../../component/Search";
+import {useNavigate} from "react-router-dom";
 
 const PopupDetailAD = () => {
     const [accessToken, setAccessToken] = useState("");
@@ -34,6 +35,7 @@ const PopupDetailAD = () => {
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentItems = infos.slice(indexOfFirstItem, indexOfLastItem);
+    const navigate = useNavigate();
     useEffect(() => {
         setFilteredList(infos)
     }, [infos]);
@@ -54,23 +56,20 @@ const PopupDetailAD = () => {
         switch (option) {
             case 1:
                 return (
-                    <div className={styles.statusAccount}>
-                        <p className={styles.liveIconLive}></p>
-                        <p className={styles.liveTextLive}>LIVE</p>
+                    <div className={styles.statusAccountLive}>
+                        <p className={styles.liveTextLive}>Hoạt Động</p>
                     </div>
                 );
             case 2:
                 return (
-                    <div className={styles.statusAccount}>
-                        <p className={styles.liveIconDie}></p>
-                        <p className={styles.liveTextDie}>DIE</p>
+                    <div className={styles.statusAccountDie}>
+                        <p className={styles.liveTextDie}>Vô Hiệu</p>
                     </div>
                 );
             case 3:
                 return (
-                    <div className={styles.statusAccount}>
-                        <p className={styles.liveIconDebt}></p>
-                        <p className={styles.liveTextDebt}>NỢ</p>
+                    <div className={styles.statusAccountDebt}>
+                        <p className={styles.liveTextDebt}>Đang Nợ</p>
                     </div>
                 );
             default:
@@ -223,16 +222,38 @@ const PopupDetailAD = () => {
     const handleChangeCurrency = () => {
         setChangeCurrency(!changeCurrency);
     }
+const handleGetBill = () => {
+navigate('/popup.html/bill');
+}
+    // function formatNumber(number) {
+    //     console.log ('number', number);
+    //     const formattedNumber = number.toLocaleString(undefined, {
+    //         minimumFractionDigits: 1,
+    //         maximumFractionDigits: 1,
+    //         useGrouping: true,
+    //     });
+    //
+    //     // Sử dụng regex để loại bỏ số 0 sau dấu thập phân
+    //     return formattedNumber.replace(/\.0$/, '');
+    // }
 
-    function formatNumber( number ) {
-        return number.toLocaleString(undefined, {
-            minimumFractionDigits : 1,
-            maximumFractionDigits : 1,
-            useGrouping : true
-        });
+    function formatNumber(so) {
+        // Chuyển số thành chuỗi và tách phần nguyên và phần thập phân
+        let [phanNguyen, phanThapPhan] = parseFloat(so).toFixed(2).toString().split('.');
 
+        // Thêm dấu phẩy ngăn cách hàng nghìn
+        phanNguyen = phanNguyen.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+        // Nếu có phần thập phân, loại bỏ số 0 đầu tiên
+        if (phanThapPhan) {
+            phanThapPhan = phanThapPhan.replace(/\.?0+$/, '');
+        }
+
+        // Nếu chỉ có phần nguyên, loại bỏ dấu phẩy ở cuối
+        let formattedSo = phanNguyen + (phanThapPhan ? '.' + phanThapPhan : '');
+
+        return formattedSo;
     }
-
 
     const handleReloadStorage = ( e: any ) => {
         window.location.reload();
@@ -296,6 +317,7 @@ const PopupDetailAD = () => {
                         TOTAL_SPENDING : totalSpendNumber,
                         TOTAL_SPENDING_USD : total_usd,
                         ADMIN : dataAccount[i]?.userpermissions.data.length,
+                        BILL: "PAID | Visa2292 |  | 9/18/2023 | 175,00$",
                         PERMISSION_ACCOUNT :
                             accountID !== null &&
                             dataAccount[i]?.userpermissions.data.filter(
@@ -1613,7 +1635,7 @@ const PopupDetailAD = () => {
                 <div className="wrapper" id="main">
                     <div className="sc_heading" style={{ padding : 0 }}>
                         <div className="command">
-                            <div className="command_head" style={{ backgroundColor : "#023302" }}>
+                            <div className="command_head" style={{ backgroundColor : "#2b3054" }}>
                                 <div className="command_flex">
                                     <SearchBar filteredList={filteredList} infos={infos}
                                                setFilteredList={setFilteredList}/>
@@ -1621,7 +1643,7 @@ const PopupDetailAD = () => {
                                 <div className="command_flex">
                                     <Stack direction='row'>
                                         <Switch onChange={handleChangeCurrency} colorScheme='teal' size='lg'/>
-                                        <span>Change Currency</span>
+                                        <span>Change USD</span>
                                     </Stack>
                                     <div className="command_btn" id="btn_export" onClick={handleReloadStorage}>
                                         <span>Reload Page</span>
@@ -1754,6 +1776,12 @@ const PopupDetailAD = () => {
                                     }
                                 >ID BM
                                 </th>
+                                <th className="sort"
+                                    onClick={() =>
+                                        handleSortItemNumber("ID_BM")
+                                    }
+                                >BILL
+                                </th>
                                 <th className="sort" onClick={() =>
                                     handleSortPaymentMethod("PAYMENT_METHOD")
                                 }>Thanh toán
@@ -1823,8 +1851,10 @@ const PopupDetailAD = () => {
                                     <td className="tdInfo">{item.ACCOUNT_TYPE}</td>
                                     <td className="tdInfo">{item.PERMISSION_BM}</td>
                                     <td className="tdInfo">{item.ID_BM}</td>
+                                    <td className="tdInfo" style={{color:"blue"}} onClick={handleGetBill}>Link</td>
+
                                     <td className="tdInfo">{item.PAYMENT_METHOD}</td>
-                                    <td className="tdInfo">{item.TIME_ZONE}</td>
+                                    <td className="tdInfo" style={{textAlign:"left"}}>{item.TIME_ZONE}</td>
                                 </tr>
                             ))}
                             </tbody>
