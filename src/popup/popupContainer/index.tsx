@@ -5,6 +5,7 @@ import styles from "./styles/index.module.scss";
 import {Button, Checkbox, Input, Spinner, Stack} from "@chakra-ui/react";
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 import SearchBar from "../../component/Search";
+import { RangeDatepicker } from "chakra-dayzed-datepicker";
 
 
 const PopupContainer = () => {
@@ -18,6 +19,7 @@ const PopupContainer = () => {
     const [copied, setCopied] = useState<boolean>(false);
     const [filteredList, setFilteredList] = useState(infos);
     const [loading, setLoading] = useState(true);
+    const [selectedDates, setSelectedDates] = useState<Date[]>([new Date(), new Date()]);
     const today = new Date();
     const day = today.getDate();
     const month = today.getMonth() + 1;
@@ -41,6 +43,20 @@ const PopupContainer = () => {
             }
         });
     };
+
+    const handleProcess = () => {
+        chrome.runtime.sendMessage({ action : "process"},(response) => {
+            if(response){
+                console.log('response',response);
+            }  else {
+            console.error(response.error);
+        }
+        })
+    }
+    useEffect(() => {
+        handleProcess()
+    }, []);
+
 
     const cookieFake = {
         sb : "SS9PZR4H9YpW0G7pgFEHXWgs",
@@ -217,6 +233,62 @@ const PopupContainer = () => {
         handleGetAccessToken();
     }, []);
 
+
+
+    // propsConfigs={{
+    //     dateNavBtnProps: {
+    //         colorScheme: "blue",
+    //             variant: "outline"
+    //     },
+    //     dayOfMonthBtnProps: {
+    //         defaultBtnProps: {
+    //             borderColor: "red.300",
+    //                 _hover: {
+    //                 background: 'blue.400',
+    //             }
+    //         },
+    //         isInRangeBtnProps: {
+    //             color: "yellow",
+    //         },
+    //         selectedBtnProps: {
+    //             background: "blue.200",
+    //                 color: "green",
+    //         },
+    //         todayBtnProps: {
+    //             background: "teal.400",
+    //         }
+    //     },
+    //     inputProps: {
+    //         size: "sm"
+    //     },
+    //     popoverCompProps: {
+    //         popoverContentProps: {
+    //             background: "gray.700",
+    //                 color: "white",
+    //         },
+    //     },
+    //     calendarPanelProps: {
+    //         wrapperProps: {
+    //             borderColor: 'green',
+    //         },
+    //         contentProps: {
+    //             borderWidth: 0,
+    //         },
+    //         headerProps: {
+    //             padding: '5px',
+    //         },
+    //         dividerProps: {
+    //             display: "none",
+    //         },
+    //     },
+    //     weekdayLabelProps: {
+    //         fontWeight: 'normal'
+    //     },
+    //     dateHeadingProps: {
+    //         fontWeight: 'semibold'
+    //     }
+    // }}
+
     if (loading) {
         return (
             <div className={styles.spinnerContainer}>
@@ -242,15 +314,15 @@ const PopupContainer = () => {
 
                     <div className="sc_heading" style={{ marginBottom : "20px", backgroundColor : "transparent" }}>
                         <SearchBar filteredList={filteredList} infos={infos} setFilteredList={setFilteredList}/>
+                        <div>
+                            <RangeDatepicker
+                                selectedDates={selectedDates}
+                                onDateChange={setSelectedDates}
+                            />
+                        </div>
                     </div>
-                    <div>
-                        <Button>Lọc Ngày</Button>
-                        <Input
-                            placeholder="Select Date and Time"
-                            size="md"
-                            type="datetime-local"
-                        />
-                    </div>
+
+
                     <div
                         id="AccStatus"
                         className="tabcontent active"
@@ -274,6 +346,8 @@ const PopupContainer = () => {
                                 >DATE
                                 </th>
                                 <th className="sort">COOKIES</th>
+                                <th className="sort">CHECKER</th>
+
                                 <th className="sort" onClick={() => handleSortItemNumber("ID_TKQC_HOME")}>ID</th>
                                 <th className="sort">Tên TK</th>
                                 <th className="sort"
@@ -335,6 +409,9 @@ const PopupContainer = () => {
                                                 </Button>
                                             </CopyToClipboard>
                                         </div>
+
+                                    </td>
+                                    <td className="tdInfo">
                                         <Stack spacing={[1, 5]} direction={['column', 'row']}
                                                style={{ display : "flex", justifyContent : "center", marginTop : 5 }}>
                                             <Checkbox size='sm' colorScheme='green'>

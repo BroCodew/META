@@ -22,17 +22,18 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `.bill-method-container {
   margin-left: 20px;
+  display: flex;
 }
 
 .font-upper-balance {
   color: #212529;
-  font-size: 8px;
+  font-size: 16px;
   font-weight: 700;
 }
 
 .font-down-balance {
   color: #212529;
-  font-size: 8px;
+  font-size: 13px;
 }
 
 .content-background {
@@ -108,7 +109,58 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.bill-method-container {
 .method-activity .activity-body .body-title {
   display: flex;
   justify-content: space-between;
-}`, "",{"version":3,"sources":["webpack://./src/popup/popupBill/billComponent/billMethod/index.scss"],"names":[],"mappings":"AAAA;EACE,iBAAA;AACF;;AAEC;EACC,cAAA;EACA,cAAA;EACA,gBAAA;AACF;;AAEA;EACE,cAAA;EACA,cAAA;AACF;;AAEA;EACE,oCAAA;EACA,kBAAA;EACA,kBAAA;EACA,gBAAA;AACF;;AAEA;EACI,cAAA;AACJ;AAAE;EAEE,cAAA;EACA,eAAA;EACA,gBAAA;EACA,gBAAA;AACJ;;AAGE;EACE,eAAA;EACA,kBAAA;EACA,oCAAA;EACA,kBAAA;AAAJ;AAKI;EACE,iBAAA;EACA,mBAAA;AAHN;AAMI;EACE,oBAAA;EACA,gCAAA;AAJN;AAOM;EACE,gBAAA;EACA,mBAAA;AALR;AAOM;EACE,yBAAA;EACA,kBAAA;EACA,aAAA;EACA,6BAAA;EACA,iBAAA;EACA,oBAAA;AALR;AAMQ;EACE,gBAAA;AAJV;AAQI;EACE,gBAAA;AANN;AAiBA;EACE,gBAAA;AAfF;AAgBE;EACE,oBAAA;AAdJ;;AAmBE;EACI,iBAAA;EACA,qBAAA;EACA,aAAA;EACA,mBAAA;AAhBN;AAiBM;EACE,gBAAA;EACA,kBAAA;AAfR;;AAqBE;EACE,gCAAA;AAlBJ;AAqBI;EACE,aAAA;EACA,8BAAA;AAnBN","sourcesContent":[".bill-method-container{\r\n  margin-left: 20px;\r\n}\r\n\r\n .font-upper-balance{\r\n  color:#212529;\r\n  font-size: 8px;\r\n  font-weight: 700;\r\n}\r\n\r\n.font-down-balance{\r\n  color:#212529;\r\n  font-size: 8px;\r\n}\r\n\r\n.content-background{\r\n  background-color: rgb(255 255 255);\r\n  padding: 10px 15px;\r\n  border-radius: 7px;\r\n  margin-top: 10px;\r\n}\r\n\r\n.method-title{\r\n    padding-top: 0;\r\n  p{\r\n\r\n    color:#212529;\r\n    font-size: 16px;\r\n    font-weight: 500;\r\n    line-height: 1.2;\r\n  }\r\n}\r\n.method-balance{\r\n  .balance-content{\r\n    margin-top: 8px;\r\n    padding: 10px 15px;\r\n    background-color: rgb(255 255 255);\r\n    border-radius: 7px;\r\n\r\n    .content-title{\r\n\r\n    }\r\n    .content-number{\r\n      padding-top: 24px;\r\n      padding-bottom: 5px;\r\n\r\n    }\r\n    .content-due{\r\n      padding-bottom: 16px;\r\n      border-bottom: 1px solid #212529;\r\n    }\r\n    .content-pay{\r\n      .pay-title{\r\n        margin-top: 25px;\r\n        margin-bottom: 14px;\r\n      }\r\n      .pay-content{\r\n        background-color:#e6e6e6;\r\n        border-radius: 7px;\r\n        display: flex;\r\n        justify-content: space-around;\r\n        padding-top: 24px;\r\n        padding-bottom: 15px;\r\n        .content-text{\r\n          padding-top: 3px;\r\n        }\r\n      }\r\n  }\r\n    .content-limit{\r\n      margin-top: 10px;\r\n      .limit-desc{\r\n        .desc-number{\r\n\r\n        }\r\n      }\r\n    }\r\n\r\n  }\r\n}\r\n\r\n.method-fund {\r\n  margin-top: 10px;\r\n  .fund-title{\r\n    padding-bottom: 15px;\r\n  }\r\n}\r\n\r\n.method-credit{\r\n  .credit-total{\r\n      padding-top: 13px;\r\n      padding-bottom: -15px;\r\n      display: flex;\r\n      align-items: center;\r\n      img{\r\n        padding-top: 6px;\r\n        padding-right: 2px;\r\n      }\r\n}\r\n}\r\n\r\n.method-activity {\r\n  .border-activity{\r\n    border-bottom: 1px solid #212529;\r\n  }\r\n  .activity-body{\r\n    .body-title{\r\n      display: flex;\r\n      justify-content: space-between;\r\n    }\r\n  }\r\n}\r\n\r\n"],"sourceRoot":""}]);
+}
+
+.method-info .info-data {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 227px;
+  margin-top: 18px;
+}
+.method-right {
+  padding-top: 50px;
+  margin-top: 27px;
+  margin-left: 15px;
+  min-width: 351px;
+}
+.method-right .flex-content {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgb(29, 97, 149);
+  padding: 9px 0 9px;
+}
+.method-right .flex-value {
+  display: flex;
+}
+.method-right .backGround-blue {
+  color: white;
+  background-color: #1d6195;
+  border-radius: 5px 0 0 5px;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 3px;
+}
+.method-right .backGround-green {
+  color: white;
+  background-color: #249824;
+  border-radius: 0px 5px 5px 0px;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 3px;
+}
+.method-right .backGround-pink {
+  color: white;
+  background-color: rgb(193, 2, 252);
+  border-radius: 5px 0 0 5px;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 3px;
+}
+.method-right .font-right-key {
+  color: rgb(49, 70, 107);
+  font-size: 13px;
+  font-weight: 700;
+}`, "",{"version":3,"sources":["webpack://./src/popup/popupBill/billComponent/billMethod/index.scss"],"names":[],"mappings":"AAAA;EACE,iBAAA;EACA,aAAA;AACF;;AAEC;EACC,cAAA;EACA,eAAA;EACA,gBAAA;AACF;;AAEA;EACE,cAAA;EACA,eAAA;AACF;;AAEA;EACE,oCAAA;EACA,kBAAA;EACA,kBAAA;EACA,gBAAA;AACF;;AAEA;EACI,cAAA;AACJ;AAAE;EAEE,cAAA;EACA,eAAA;EACA,gBAAA;EACA,gBAAA;AACJ;;AAGE;EACE,eAAA;EACA,kBAAA;EACA,oCAAA;EACA,kBAAA;AAAJ;AAKI;EACE,iBAAA;EACA,mBAAA;AAHN;AAMI;EACE,oBAAA;EACA,gCAAA;AAJN;AAOM;EACE,gBAAA;EACA,mBAAA;AALR;AAOM;EACE,yBAAA;EACA,kBAAA;EACA,aAAA;EACA,6BAAA;EACA,iBAAA;EACA,oBAAA;AALR;AAMQ;EACE,gBAAA;AAJV;AAQI;EACE,gBAAA;AANN;AAiBA;EACE,gBAAA;AAfF;AAgBE;EACE,oBAAA;AAdJ;;AAmBE;EACI,iBAAA;EACA,qBAAA;EACA,aAAA;EACA,mBAAA;AAhBN;AAiBM;EACE,gBAAA;EACA,kBAAA;AAfR;;AAqBE;EACE,gCAAA;AAlBJ;AAqBI;EACE,aAAA;EACA,8BAAA;AAnBN;;AA4BE;EACE,aAAA;EACA,8BAAA;EACA,mBAAA;EACA,gBAAA;AAzBJ;AAgCA;EACE,iBAAA;EACA,gBAAA;EACA,iBAAA;EACA,gBAAA;AA9BF;AA+BE;EACE,aAAA;EACA,8BAAA;EACA,yCAAA;EACA,kBAAA;AA7BJ;AA+BE;EACE,aAAA;AA7BJ;AA+BE;EACE,YAAA;EACA,yBAAA;EACA,0BAAA;EACA,eAAA;EACA,gBAAA;EACA,YAAA;AA7BJ;AA+BE;EACE,YAAA;EACA,yBAAA;EACA,8BAAA;EACA,eAAA;EACA,gBAAA;EACA,YAAA;AA7BJ;AA+BE;EACE,YAAA;EACA,kCAAA;EACA,0BAAA;EAEA,eAAA;EACA,gBAAA;EACA,YAAA;AA9BJ;AAgCI;EACE,uBAAA;EACA,eAAA;EACA,gBAAA;AA9BN","sourcesContent":[".bill-method-container{\r\n  margin-left: 20px;\r\n  display: flex;\r\n}\r\n\r\n .font-upper-balance{\r\n  color:#212529;\r\n  font-size: 16px;\r\n  font-weight: 700;\r\n}\r\n\r\n.font-down-balance{\r\n  color:#212529;\r\n  font-size: 13px;\r\n}\r\n\r\n.content-background{\r\n  background-color: rgb(255 255 255);\r\n  padding: 10px 15px;\r\n  border-radius: 7px;\r\n  margin-top: 10px;\r\n}\r\n\r\n.method-title{\r\n    padding-top: 0;\r\n  p{\r\n\r\n    color:#212529;\r\n    font-size: 16px;\r\n    font-weight: 500;\r\n    line-height: 1.2;\r\n  }\r\n}\r\n.method-balance{\r\n  .balance-content{\r\n    margin-top: 8px;\r\n    padding: 10px 15px;\r\n    background-color: rgb(255 255 255);\r\n    border-radius: 7px;\r\n\r\n    .content-title{\r\n\r\n    }\r\n    .content-number{\r\n      padding-top: 24px;\r\n      padding-bottom: 5px;\r\n\r\n    }\r\n    .content-due{\r\n      padding-bottom: 16px;\r\n      border-bottom: 1px solid #212529;\r\n    }\r\n    .content-pay{\r\n      .pay-title{\r\n        margin-top: 25px;\r\n        margin-bottom: 14px;\r\n      }\r\n      .pay-content{\r\n        background-color:#e6e6e6;\r\n        border-radius: 7px;\r\n        display: flex;\r\n        justify-content: space-around;\r\n        padding-top: 24px;\r\n        padding-bottom: 15px;\r\n        .content-text{\r\n          padding-top: 3px;\r\n        }\r\n      }\r\n  }\r\n    .content-limit{\r\n      margin-top: 10px;\r\n      .limit-desc{\r\n        .desc-number{\r\n\r\n        }\r\n      }\r\n    }\r\n\r\n  }\r\n}\r\n\r\n.method-fund {\r\n  margin-top: 10px;\r\n  .fund-title{\r\n    padding-bottom: 15px;\r\n  }\r\n}\r\n\r\n.method-credit{\r\n  .credit-total{\r\n      padding-top: 13px;\r\n      padding-bottom: -15px;\r\n      display: flex;\r\n      align-items: center;\r\n      img{\r\n        padding-top: 6px;\r\n        padding-right: 2px;\r\n      }\r\n}\r\n}\r\n\r\n.method-activity {\r\n  .border-activity{\r\n    border-bottom: 1px solid #212529;\r\n  }\r\n  .activity-body{\r\n    .body-title{\r\n      display: flex;\r\n      justify-content: space-between;\r\n    }\r\n  }\r\n}\r\n.method-info{\r\n    .info-title{\r\n\r\n    }\r\n\r\n  .info-data{\r\n    display: flex;\r\n    justify-content: space-between;\r\n    margin-right: 227px;\r\n    margin-top: 18px;\r\n  }\r\n  .info-tax{\r\n\r\n  }\r\n}\r\n\r\n.method-right{\r\n  padding-top: 50px;\r\n  margin-top: 27px;\r\n  margin-left: 15px;\r\n  min-width: 351px;\r\n  .flex-content{\r\n    display: flex;\r\n    justify-content: space-between;\r\n    border-bottom: 1px solid rgb(29, 97, 149);\r\n    padding: 9px 0 9px;\r\n  }\r\n  .flex-value{\r\n    display: flex;\r\n  }\r\n  .backGround-blue{\r\n    color: #ffff;\r\n    background-color: #1d6195;\r\n    border-radius: 5px 0 0 5px;\r\n    font-size: 13px;\r\n    font-weight: 700;\r\n    padding: 3px;\r\n  }\r\n  .backGround-green{\r\n    color: #ffff;\r\n    background-color:#249824;\r\n    border-radius: 0px 5px 5px 0px;\r\n    font-size: 13px;\r\n    font-weight: 700;\r\n    padding: 3px;\r\n  }\r\n  .backGround-pink{\r\n    color: #ffff;\r\n    background-color:rgb(193, 2, 252);\r\n    border-radius: 5px 0 0 5px;\r\n\r\n    font-size: 13px;\r\n    font-weight: 700;\r\n    padding: 3px;\r\n  }\r\n    .font-right-key{\r\n      color:rgb(49 70 107);\r\n      font-size: 13px;\r\n      font-weight: 700;\r\n    }\r\n}\r\n\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -139,7 +191,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.bill-container {
   color: #000;
   margin: -20px;
   padding: 0;
-  height: 100vh;
 }
 
 .bill-header {
@@ -181,6 +232,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.bill-container {
   flex-direction: column;
   padding: 5px;
   border-radius: 10px;
+  height: 100px;
 }
 .bill-body .bill-title .title-action .action-payment {
   padding: 5px;
@@ -196,7 +248,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.bill-container {
   font-size: 16px;
   font-weight: 700;
   line-height: 12px;
-}`, "",{"version":3,"sources":["webpack://./src/popup/popupBill/index.scss"],"names":[],"mappings":"AAAA;EACE,oCAAA;EACA,WAAA;EACA,aAAA;EACA,UAAA;EACA,aAAA;AACF;;AACA;EACE,cAAA;EACA,sBAAA;EACA,eAAA;EACA,gBAAA;EACA,eAAA;EACA,iBAAA;EACA,aAAA;AAEF;;AAAA;EACE,aAAA;EACA,mBAAA;EACA,uBAAA;AAGF;;AADA;EACE,aAAA;AAIF;;AAFA;EACE,aAAA;EACA,oBAAA;EACA,kBAAA;EACA,gBAAA;AAKF;;AAHA;EACE,WAAA;EACA,aAAA;AAMF;AAFE;EACE,oCAAA;EACA,YAAA;EACA,iBAAA;EACA,aAAA;EACA,sBAAA;EACA,YAAA;EACA,mBAAA;AAIJ;AAFI;EACE,YAAA;AAIN;AADM;EACE,wBAAA;EACA,eAAA;EACA,gBAAA;EACA,iBAAA;AAGR;AAGM;EACE,WAAA;EACA,eAAA;EACA,gBAAA;EACA,iBAAA;AADR","sourcesContent":[".bill-container{\r\n  background-color: rgb(242 242 242);\r\n  color:#000;\r\n  margin: -20px;\r\n  padding: 0;\r\n  height: 100vh;\r\n}\r\n.bill-header{\r\n  color:#212529;\r\n  font-family:system-ui;\r\n  font-size: 20px;\r\n  font-weight:500;\r\n  grid-area:auto;\r\n  line-height:24px;\r\n  padding: 24px;\r\n}\r\n.flexContent{\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n}\r\n.tab{\r\n  display: flex;\r\n}\r\n.flexEnd{\r\n  display: flex;\r\n  justify-content: end;\r\n  margin-right: 10px;\r\n  margin-top: 14px;\r\n}\r\n.bill-body{\r\n  color: #000;\r\n  padding: 24px;\r\n\r\n\r\n.bill-title{\r\n  .title-action{\r\n    background-color: rgb(255 255 255);\r\n    width: 199px;\r\n    line-height: 24px;\r\n    display: flex;\r\n    flex-direction: column;\r\n    padding: 5px;\r\n    border-radius: 10px;\r\n\r\n    .action-payment{\r\n      padding: 5px;\r\n      .payment-image{\r\n      }\r\n      .payment-title{\r\n        color: rgb(24 119 242);\r\n        font-size: 16px;\r\n        font-weight: 700;\r\n        line-height: 12px;\r\n      }\r\n    }\r\n    .action-activity{\r\n      .activity-image{\r\n      }\r\n      .activity-title{\r\n        color: #000;\r\n        font-size: 16px;\r\n        font-weight: 700;\r\n        line-height: 12px;\r\n      }\r\n    }\r\n  }\r\n}\r\n}\r\n"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/popup/popupBill/index.scss"],"names":[],"mappings":"AAAA;EACE,oCAAA;EACA,WAAA;EACA,aAAA;EACA,UAAA;AACF;;AACA;EACE,cAAA;EACA,sBAAA;EACA,eAAA;EACA,gBAAA;EACA,eAAA;EACA,iBAAA;EACA,aAAA;AAEF;;AAAA;EACE,aAAA;EACA,mBAAA;EACA,uBAAA;AAGF;;AADA;EACE,aAAA;AAIF;;AAFA;EACE,aAAA;EACA,oBAAA;EACA,kBAAA;EACA,gBAAA;AAKF;;AAHA;EACE,WAAA;EACA,aAAA;AAMF;AAFE;EACE,oCAAA;EACA,YAAA;EACA,iBAAA;EACA,aAAA;EACA,sBAAA;EACA,YAAA;EACA,mBAAA;EACA,aAAA;AAIJ;AAFI;EACE,YAAA;AAIN;AADM;EACE,wBAAA;EACA,eAAA;EACA,gBAAA;EACA,iBAAA;AAGR;AAGM;EACE,WAAA;EACA,eAAA;EACA,gBAAA;EACA,iBAAA;AADR","sourcesContent":[".bill-container{\r\n  background-color: rgb(242 242 242);\r\n  color:#000;\r\n  margin: -20px;\r\n  padding: 0;\r\n}\r\n.bill-header{\r\n  color:#212529;\r\n  font-family:system-ui;\r\n  font-size: 20px;\r\n  font-weight:500;\r\n  grid-area:auto;\r\n  line-height:24px;\r\n  padding: 24px;\r\n}\r\n.flexContent{\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n}\r\n.tab{\r\n  display: flex;\r\n}\r\n.flexEnd{\r\n  display: flex;\r\n  justify-content: end;\r\n  margin-right: 10px;\r\n  margin-top: 14px;\r\n}\r\n.bill-body{\r\n  color: #000;\r\n  padding: 24px;\r\n\r\n\r\n.bill-title{\r\n  .title-action{\r\n    background-color: rgb(255 255 255);\r\n    width: 199px;\r\n    line-height: 24px;\r\n    display: flex;\r\n    flex-direction: column;\r\n    padding: 5px;\r\n    border-radius: 10px;\r\n    height: 100px;\r\n\r\n    .action-payment{\r\n      padding: 5px;\r\n      .payment-image{\r\n      }\r\n      .payment-title{\r\n        color: rgb(24 119 242);\r\n        font-size: 16px;\r\n        font-weight: 700;\r\n        line-height: 12px;\r\n      }\r\n    }\r\n    .action-activity{\r\n      .activity-image{\r\n      }\r\n      .activity-title{\r\n        color: #000;\r\n        font-size: 16px;\r\n        font-weight: 700;\r\n        line-height: 12px;\r\n      }\r\n    }\r\n  }\r\n}\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -388,6 +440,11 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.hB7dkwo9Rd3uRQ1vvZNC {
   padding-left: 5px;
   padding-right: 5px;
   border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
 }
 .GtaWlHo2EiFjKBO2Ky71 .m2HW9pL6XoatzMpNYIeL {
   margin-left: 1px;
@@ -433,7 +490,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.hB7dkwo9Rd3uRQ1vvZNC {
 .yh67VXfaFWEyQnbVb5ev {
   background: #3076fb;
   font-weight: bold;
-}`, "",{"version":3,"sources":["webpack://./src/popup/popupDetail/detailPage/styles/index.module.scss"],"names":[],"mappings":"AAAA;EACE,kBAAA;EACA,mCAAA;EACA,mCAAA;EACA,iCAAA;EACA,yBAAA;EACA,0BAAA;EACA,mBAAA;AACF;;AAEA;EACE,kBAAA;EACA,mCAAA;EACA,mCAAA;EACA,oCAAA;EACA,yBAAA;AACF;;AAEA;EACE,mBAAA;EACA,WAAA;EACA,eAAA;EACA,YAAA;EACA,YAAA;EACA,4BAAA;AACF;;AAEA;EAGE,uBAAA;EACA,8EAAA;AADF;;AAQA;EACE,WAAA;AALF;;AAQA;EACE,aAAA;EACA,uBAAA;EACA,mBAAA;AALF;AAOE;EACE,WAAA;EACA,YAAA;EACA,sBAAA;EACA,kBAAA;EACA,kBAAA;AALJ;AAQE;EACE,WAAA;AANJ;AASE;EACE,WAAA;EACA,YAAA;EACA,qBAAA;EACA,kBAAA;EACA,kBAAA;AAPJ;AAWE;EACE,UAAA;AATJ;AAaE;EACE,WAAA;EACA,YAAA;EACA,6BAAA;EACA,kBAAA;EACA,kBAAA;AAXJ;AAcE;EACE,kBAAA;AAZJ;;AAiBA;EACE,2CAAA;EACA,iBAAA;EACA,kBAAA;EACA,kBAAA;AAdF;AAgBE;EACE,gBAAA;EAGA,cAAA;AAhBJ;;AAoBA;EACE,wCAAA;EACA,iBAAA;EACA,kBAAA;EACA,kBAAA;EACA,aAAA;EACA,uBAAA;EACA,mBAAA;EACA,kBAAA;EACA,WAAA;AAjBF;AAkBI;EACE,gBAAA;EACA,UAAA;AAhBN;;AAoBA;EACE,0CAAA;EACA,iBAAA;EACA,kBAAA;EACA,kBAAA;EACA,aAAA;EACA,uBAAA;EACA,mBAAA;EACA,kBAAA;EACA,WAAA;AAjBF;AAkBE;EACE,gBAAA;EACA,cAAA;AAhBJ;;AAsBA;EAGE,YAAA;AArBF;;AA0BA;EACE,mBAAA;EACA,iBAAA;AAvBF","sourcesContent":[".optionTitle {\r\n  text-align: center;\r\n  border: 1px 0 solid #000 !important;\r\n  box-shadow: 2px 2px 2px 2px #888888;\r\n  color: rgb(51 51 51) !important;\r\n  background-color: #fdfdfd;\r\n  font-size: 15px !important;\r\n  line-height: 19.6px;\r\n}\r\n\r\n.optionValue {\r\n  text-align: center;\r\n  border: 1px 0 solid #000 !important;\r\n  box-shadow: 2px 2px 2px 2px #888888;\r\n  color: rgb(102 102 102) !important;\r\n  background-color: #fdfdfd;\r\n}\r\n\r\n.accessToken {\r\n  border-radius: 10px;\r\n  color: #000;\r\n  font-size: 20px;\r\n  width: 180px;\r\n  height: 50px;\r\n  background-color: aquamarine;\r\n}\r\n\r\n.popupContainer {\r\n  // height: 100vh;\r\n  // width: 100vw;\r\n  margin: 50px !important;\r\n  background-color: -webkit-linear-gradient(\r\n                  bottom,\r\n                  #c471f5,\r\n                  #fa71cd\r\n  ) !important;\r\n}\r\n\r\n.optionHeader {\r\n  color: #000;\r\n}\r\n\r\n.statusAccount {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n\r\n  .liveIconLive {\r\n    width: 15px;\r\n    height: 15px;\r\n    background-color: blue;\r\n    margin-right: 10px;\r\n    border-radius: 8px;\r\n  }\r\n\r\n  .liveTextLive {\r\n    color: blue;\r\n  }\r\n\r\n  .liveIconDie {\r\n    width: 15px;\r\n    height: 15px;\r\n    background-color: red;\r\n    margin-right: 10px;\r\n    border-radius: 8px;\r\n\r\n  }\r\n\r\n  .liveTextDie {\r\n    color: red;\r\n\r\n  }\r\n\r\n  .liveIconDebt {\r\n    width: 15px;\r\n    height: 15px;\r\n    background-color: yellowgreen;\r\n    margin-right: 10px;\r\n    border-radius: 8px;\r\n  }\r\n\r\n  .liveTextDebt {\r\n    color: yellowgreen;\r\n\r\n  }\r\n}\r\n\r\n.statusAccountLive{\r\n  background-color:rgba(84,244,166,.289);\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n  border-radius: 5px;\r\n\r\n  .liveTextLive {\r\n    margin-left: 1px;\r\n\r\n\r\n    color: #07a107;\r\n  }\r\n}\r\n\r\n.statusAccountDie{\r\n  background-color:rgba(255,0,0,.135);\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n  border-radius: 5px;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  text-align: center;\r\n  width: 100%;\r\n    .liveTextDie {\r\n      margin-left: 1px;\r\n      color: red;\r\n    }\r\n  }\r\n\r\n.statusAccountDebt{\r\n  background-color:rgba(255,255,0,.348);\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n  border-radius: 5px;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  text-align: center;\r\n  width: 100%;\r\n  .liveTextDebt {\r\n    margin-left: 1px;\r\n    color: #cc8604;\r\n  }\r\n}\r\n\r\n\r\n//\r\n.sticky {\r\n  //background: #0d9c0a;\r\n  //color: #fff;\r\n  height: 40px;\r\n\r\n\r\n}\r\n\r\n.stickyTotal {\r\n  background: #3076fb;\r\n  font-weight: bold;\r\n\r\n}\r\n\r\n//.spinnerContainer {\r\n//  display: flex;\r\n//  justify-content: center;\r\n//  align-items: center;\r\n//  height: 100vh;\r\n//  //background-color: #c5e7f7;\r\n//}\r\n//\r\n//.ChakraSpinner {\r\n//  position: fixed;\r\n//  top: 50%;\r\n//  left: 50%;\r\n//  transform: translate(-50%, -50%);\r\n//}\r\n"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/popup/popupDetail/detailPage/styles/index.module.scss"],"names":[],"mappings":"AAAA;EACE,kBAAA;EACA,mCAAA;EACA,mCAAA;EACA,iCAAA;EACA,yBAAA;EACA,0BAAA;EACA,mBAAA;AACF;;AAEA;EACE,kBAAA;EACA,mCAAA;EACA,mCAAA;EACA,oCAAA;EACA,yBAAA;AACF;;AAEA;EACE,mBAAA;EACA,WAAA;EACA,eAAA;EACA,YAAA;EACA,YAAA;EACA,4BAAA;AACF;;AAEA;EAGE,uBAAA;EACA,8EAAA;AADF;;AAQA;EACE,WAAA;AALF;;AAQA;EACE,aAAA;EACA,uBAAA;EACA,mBAAA;AALF;AAOE;EACE,WAAA;EACA,YAAA;EACA,sBAAA;EACA,kBAAA;EACA,kBAAA;AALJ;AAQE;EACE,WAAA;AANJ;AASE;EACE,WAAA;EACA,YAAA;EACA,qBAAA;EACA,kBAAA;EACA,kBAAA;AAPJ;AAWE;EACE,UAAA;AATJ;AAaE;EACE,WAAA;EACA,YAAA;EACA,6BAAA;EACA,kBAAA;EACA,kBAAA;AAXJ;AAcE;EACE,kBAAA;AAZJ;;AAiBA;EACE,2CAAA;EACA,iBAAA;EACA,kBAAA;EACA,kBAAA;EACA,aAAA;EACA,uBAAA;EACA,mBAAA;EACA,kBAAA;EACA,WAAA;AAdF;AAeE;EACE,gBAAA;EAGA,cAAA;AAfJ;;AAmBA;EACE,wCAAA;EACA,iBAAA;EACA,kBAAA;EACA,kBAAA;EACA,aAAA;EACA,uBAAA;EACA,mBAAA;EACA,kBAAA;EACA,WAAA;AAhBF;AAiBI;EACE,gBAAA;EACA,UAAA;AAfN;;AAmBA;EACE,0CAAA;EACA,iBAAA;EACA,kBAAA;EACA,kBAAA;EACA,aAAA;EACA,uBAAA;EACA,mBAAA;EACA,kBAAA;EACA,WAAA;AAhBF;AAiBE;EACE,gBAAA;EACA,cAAA;AAfJ;;AAqBA;EAGE,YAAA;AApBF;;AAyBA;EACE,mBAAA;EACA,iBAAA;AAtBF","sourcesContent":[".optionTitle {\r\n  text-align: center;\r\n  border: 1px 0 solid #000 !important;\r\n  box-shadow: 2px 2px 2px 2px #888888;\r\n  color: rgb(51 51 51) !important;\r\n  background-color: #fdfdfd;\r\n  font-size: 15px !important;\r\n  line-height: 19.6px;\r\n}\r\n\r\n.optionValue {\r\n  text-align: center;\r\n  border: 1px 0 solid #000 !important;\r\n  box-shadow: 2px 2px 2px 2px #888888;\r\n  color: rgb(102 102 102) !important;\r\n  background-color: #fdfdfd;\r\n}\r\n\r\n.accessToken {\r\n  border-radius: 10px;\r\n  color: #000;\r\n  font-size: 20px;\r\n  width: 180px;\r\n  height: 50px;\r\n  background-color: aquamarine;\r\n}\r\n\r\n.popupContainer {\r\n  // height: 100vh;\r\n  // width: 100vw;\r\n  margin: 50px !important;\r\n  background-color: -webkit-linear-gradient(\r\n                  bottom,\r\n                  #c471f5,\r\n                  #fa71cd\r\n  ) !important;\r\n}\r\n\r\n.optionHeader {\r\n  color: #000;\r\n}\r\n\r\n.statusAccount {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n\r\n  .liveIconLive {\r\n    width: 15px;\r\n    height: 15px;\r\n    background-color: blue;\r\n    margin-right: 10px;\r\n    border-radius: 8px;\r\n  }\r\n\r\n  .liveTextLive {\r\n    color: blue;\r\n  }\r\n\r\n  .liveIconDie {\r\n    width: 15px;\r\n    height: 15px;\r\n    background-color: red;\r\n    margin-right: 10px;\r\n    border-radius: 8px;\r\n\r\n  }\r\n\r\n  .liveTextDie {\r\n    color: red;\r\n\r\n  }\r\n\r\n  .liveIconDebt {\r\n    width: 15px;\r\n    height: 15px;\r\n    background-color: yellowgreen;\r\n    margin-right: 10px;\r\n    border-radius: 8px;\r\n  }\r\n\r\n  .liveTextDebt {\r\n    color: yellowgreen;\r\n\r\n  }\r\n}\r\n\r\n.statusAccountLive{\r\n  background-color:rgba(84,244,166,.289);\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n  border-radius: 5px;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  text-align: center;\r\n  width: 100%;\r\n  .liveTextLive {\r\n    margin-left: 1px;\r\n\r\n\r\n    color: #07a107;\r\n  }\r\n}\r\n\r\n.statusAccountDie{\r\n  background-color:rgba(255,0,0,.135);\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n  border-radius: 5px;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  text-align: center;\r\n  width: 100%;\r\n    .liveTextDie {\r\n      margin-left: 1px;\r\n      color: red;\r\n    }\r\n  }\r\n\r\n.statusAccountDebt{\r\n  background-color:rgba(255,255,0,.348);\r\n  padding-left: 5px;\r\n  padding-right: 5px;\r\n  border-radius: 5px;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  text-align: center;\r\n  width: 100%;\r\n  .liveTextDebt {\r\n    margin-left: 1px;\r\n    color: #cc8604;\r\n  }\r\n}\r\n\r\n\r\n//\r\n.sticky {\r\n  //background: #0d9c0a;\r\n  //color: #fff;\r\n  height: 40px;\r\n\r\n\r\n}\r\n\r\n.stickyTotal {\r\n  background: #3076fb;\r\n  font-weight: bold;\r\n\r\n}\r\n\r\n//.spinnerContainer {\r\n//  display: flex;\r\n//  justify-content: center;\r\n//  align-items: center;\r\n//  height: 100vh;\r\n//  //background-color: #c5e7f7;\r\n//}\r\n//\r\n//.ChakraSpinner {\r\n//  position: fixed;\r\n//  top: 50%;\r\n//  left: 50%;\r\n//  transform: translate(-50%, -50%);\r\n//}\r\n"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"optionTitle": `hB7dkwo9Rd3uRQ1vvZNC`,
@@ -1027,85 +1084,141 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.scss */ "./src/popup/popupBill/billComponent/billMethod/index.scss");
-/* harmony import */ var _static_icon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../static/icon */ "./src/static/icon/index.tsx");
 /* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/table/dist/chunk-OA6OURRG.mjs");
 /* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/table/dist/chunk-GEJVU65N.mjs");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/table/dist/chunk-V3K6UINC.mjs");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/table/dist/chunk-DRZNIHMG.mjs");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/table/dist/chunk-GIQFRSD6.mjs");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/table/dist/chunk-MGVPL3OH.mjs");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/table/dist/chunk-J4QO5GAJ.mjs");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/table/dist/chunk-B5H2YLEF.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/table/dist/chunk-DRZNIHMG.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/table/dist/chunk-GIQFRSD6.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/table/dist/chunk-MGVPL3OH.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/table/dist/chunk-J4QO5GAJ.mjs");
+/* harmony import */ var _static_icon_AdCredit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../static/icon/AdCredit */ "./src/static/icon/AdCredit.tsx");
 
 
 
 
 const PopupBillMethod = () => {
     const test = [
-        { date: "20/10", method: "Visa-1", amount: 1, status: "paid" },
-        { date: "20/10", method: "Visa-1", amount: 2, status: "paid" },
-        { date: "20/10", method: "Visa-1", amount: 3, status: "paid" }
+        { date: "20/10", method: "Visa-1", amount: 0.03, status: "paid" },
+        { date: "20/10", method: "Visa-1", amount: 0.03, status: "paid" },
+        { date: "20/10", method: "Visa-1", amount: 0.03, status: "paid" }
     ];
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "bill-method-container" },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "method-title" },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "z.com")),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "method-balance" },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "balance-content" },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "content-title font-upper-balance" }, "Current balance"),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "content-number font-upper-balance" }, "$0.00"),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "content-due font-down-balance" }, "No payment due at this time."),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "content-pay" },
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "pay-title font-upper-balance" }, "When you'll pay"),
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "pay-content" },
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "content-threshold" },
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "threshold-number font-upper-balance" }, "$900.00"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "threshold-number font-down-balance" }, "Payment threshold")),
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "content-text font-down-balance" }, "and"),
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "content-time" },
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "time-date font-upper-balance" }, "30 Nov 2023"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "time-text font-down-balance" }, "Monthly billing date")))),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "content-limit" },
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "limit-desc font-down-balance" },
-                            "Daily spending limit (set by Meta): ",
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "desc-number font-upper-balance" }, "$5,000.00"))))),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "method-fund content-background" },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "fund-title font-upper-balance" }, "Prepaid funds"),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "fund-desc font-down-balance" }, "Add prepaid funds to pay for ads in advance. We'll deduct from prepaid funds first before charging any payment methods with automatic billing turned on.")),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "method-credit content-background" },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "credit-title font-upper-balance" }, "Ad credits"),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "credit-total" },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", { src: _static_icon__WEBPACK_IMPORTED_MODULE_2__.images.PaymentCredit }),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "font-upper-balance" }, " $0.00"))),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "method-payment content-background" },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "font-upper-balance" }, "Payment methods")),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "method-limit content-background" },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "limit-content font-upper-balance" }, "Account spending limit"),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "limit-text font-down-balance" },
-                    "Control your total ad costs by setting an account spending limit. Ads will pause if you reach your limit and won't run again unless you change it.",
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { style: { color: "rgb(10 88 202)" } }, "Learn more about account spending limits"))),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "method-activity content-background" },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "activity-title font-upper-balance" }, "Payment activity"),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__.TableContainer, null,
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__.Table, { variant: 'simple' },
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__.TableCaption, null, "Imperial to metric conversion factors"),
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_6__.Thead, null,
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__.Tr, null,
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Th, null, "To convert"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Th, null, "into"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Th, { isNumeric: true }, "multiply by"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Th, { isNumeric: true }, "multiply by"))),
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_9__.Tbody, null, test.map(item => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__.Tr, null,
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Th, null, item.date),
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Th, null, item.method),
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Th, null, item.amount),
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Th, null, item.status))))),
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_10__.Tfoot, null,
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__.Tr, null,
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Th, null, "To convert"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Th, null, "into"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Th, { isNumeric: true }, "multiply by")))))),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "method-info" }))));
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "method-left" },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "method-title" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "z.com")),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "method-balance" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "balance-content" },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "content-title font-upper-balance" }, "Current balance"),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "content-number font-upper-balance" }, "$0.00"),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "content-due font-down-balance" }, "No payment due at this time."),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "content-pay" },
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "pay-title font-upper-balance" }, "When you'll pay"),
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "pay-content" },
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "content-threshold" },
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "threshold-number font-upper-balance" }, "$900.00"),
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "threshold-number font-down-balance" }, "Payment threshold")),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "content-text font-down-balance" }, "and"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "content-time" },
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "time-date font-upper-balance" }, "30 Nov 2023"),
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "time-text font-down-balance" }, "Monthly billing date")))),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "content-limit" },
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "limit-desc font-down-balance" },
+                                "Daily spending limit (set by Meta): ",
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "desc-number font-upper-balance" }, "$5,000.00"))))),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "method-fund content-background" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "fund-title font-upper-balance" }, "Prepaid funds"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "fund-desc font-down-balance" }, "Add prepaid funds to pay for ads in advance. We'll deduct from prepaid funds first before charging any payment methods with automatic billing turned on.")),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "method-credit content-background" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "credit-title font-upper-balance" }, "Ad credits"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "credit-total" },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_static_icon_AdCredit__WEBPACK_IMPORTED_MODULE_2__.AdCredit, null),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "font-upper-balance" }, " $0.00"))),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "method-payment content-background" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "font-upper-balance" }, "Payment methods")),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "method-limit content-background" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "limit-content font-upper-balance" }, "Account spending limit"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "limit-text font-down-balance" },
+                        "Control your total ad costs by setting an account spending limit. Ads will pause if you reach your limit and won't run again unless you change it.",
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { style: { color: "rgb(10 88 202)" } }, "Learn more about account spending limits"))),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "method-activity content-background" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "activity-title font-upper-balance" }, "Payment activity"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__.TableContainer, null,
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__.Table, { variant: 'simple' },
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__.Thead, null,
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_6__.Tr, null,
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__.Th, { className: "font-upper-balance", style: { paddingLeft: "-10px" } }, "Date"),
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__.Th, { className: "font-upper-balance" }, "Payment method"),
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__.Th, { className: "font-upper-balance" }, "Amount"),
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__.Th, { className: "font-upper-balance" }, "Status"))),
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Tbody, null, test.map(item => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_6__.Tr, null,
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__.Th, { className: "font-down-balance" }, item.date),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__.Th, { className: "font-down-balance" }, item.method),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__.Th, { className: "font-down-balance" },
+                                    "$",
+                                    item.amount),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__.Th, { className: "font-down-balance" }, item.status)))))))),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "method-info content-background" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "info-title font-upper-balance" }, "Business info"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "info-data" },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "font-upper-balance" }, "Business name"),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "font-upper-balance" }, "Address"),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "font-upper-balance" }, "Currency")),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "font-upper-balance" }, "_"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "info-tax font-upper-balance" }, "Tax ID"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "font-upper-balance" }, "_"))),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "method-right content-background" },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "flex-content" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "font-right-key" }, "Tr\u1EA1ng Th\u00E1i"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "font-right-key" }, "Ho\u1EA1t \u0111\u1ED9ng")),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "method-ID flex-content" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "font-right-key" }, "ID"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "font-right-key" }, "1975358262742601")),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "method-name flex-content" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "font-right-key" }, "T\u00EAn TK"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "font-right-key" }, "z.com")),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "method-name flex-content" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "font-right-key" }, "D\u01B0 n\u1EE3"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "flex-value" },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "backGround-blue" }, "0 USD"),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "backGround-green" }, "0 $"))),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "method-name flex-content" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "font-right-key" }, "Ng\u01B0\u1EE1ng"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "flex-value" },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "backGround-blue" }, "900 USD"),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "backGround-green" }, "900 $"))),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "method-name flex-content" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "font-right-key" }, "Limit ng\u00E0y"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "flex-value" },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "backGround-blue" }, "No Limit"),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "backGround-green" }, "No Limit"))),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "method-name flex-content" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "font-right-key" }, "Limit"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "flex-value" },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "backGround-pink" }, "5,000"),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "backGround-green" }, "5,000"))),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "method-name flex-content" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "font-right-key" }, " Chi ti\u00EAu"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "flex-value" },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "backGround-blue" }, "8,583.9 USD"),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "backGround-green" }, "8583.9 $"))),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "method-name flex-content" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "font-right-key" }, "Admin"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "font-right-key" }, "1")),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "method-name flex-content" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "font-right-key" }, "Ti\u1EC1n t\u1EC7"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "font-right-key" }, "USD")),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "method-name flex-content" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "font-right-key" }, "Lo\u1EA1i TK"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "font-right-key" }, "Doanh nghi\u1EC7p")),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "method-name flex-content" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "font-right-key" }, "Ng\u00E0y t\u1EA1o"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "font-right-key" }, "2017-08-10")),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "method-name flex-content" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "font-right-key" }, "M\u00FAi gi\u1EDD"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "font-right-key" }, "-5 | America/Lima")),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "method-name flex-content" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "font-right-key" }, "Quy\u1EC1n"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "font-right-key" }, "Qu\u1EA3n tr\u1ECB vi\u00EAn"))))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PopupBillMethod);
 
@@ -1182,17 +1295,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! uuid */ "./node_modules/uuid/dist/esm-browser/v4.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! uuid */ "./node_modules/uuid/dist/esm-browser/v4.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
 /* harmony import */ var _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/index.module.scss */ "./src/popup/popupContainer/styles/index.module.scss");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/spinner/dist/chunk-5PH6ULNP.mjs");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/button/dist/chunk-UVUR7MCU.mjs");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/input/dist/chunk-6CVSDS6C.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/spinner/dist/chunk-5PH6ULNP.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/button/dist/chunk-UVUR7MCU.mjs");
 /* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/layout/dist/chunk-ZHMYA64R.mjs");
 /* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/checkbox/dist/chunk-CWVAJCXJ.mjs");
 /* harmony import */ var react_copy_to_clipboard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-copy-to-clipboard */ "./node_modules/react-copy-to-clipboard/lib/index.js");
 /* harmony import */ var react_copy_to_clipboard__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_copy_to_clipboard__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _component_Search__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../component/Search */ "./src/component/Search/index.tsx");
+/* harmony import */ var chakra_dayzed_datepicker__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! chakra-dayzed-datepicker */ "./node_modules/chakra-dayzed-datepicker/dist/chakra-dayzed-datepicker.esm.js");
+
 
 
 
@@ -1210,12 +1324,13 @@ const PopupContainer = () => {
     const [copied, setCopied] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
     const [filteredList, setFilteredList] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(infos);
     const [loading, setLoading] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true);
+    const [selectedDates, setSelectedDates] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([new Date(), new Date()]);
     const today = new Date();
     const day = today.getDate();
     const month = today.getMonth() + 1;
     const year = today.getFullYear();
     const formattedDate = `${day}/${month}/${year}`;
-    const navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useNavigate)();
+    const navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useNavigate)();
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
         setFilteredList(infos);
     }, [infos]);
@@ -1231,6 +1346,19 @@ const PopupContainer = () => {
             }
         });
     };
+    const handleProcess = () => {
+        chrome.runtime.sendMessage({ action: "process" }, (response) => {
+            if (response) {
+                console.log('response', response);
+            }
+            else {
+                console.error(response.error);
+            }
+        });
+    };
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        handleProcess();
+    }, []);
     const cookieFake = {
         sb: "SS9PZR4H9YpW0G7pgFEHXWgs",
         datr: "SS9PZYqNyaQ8Wgxg8cL3Mtdd",
@@ -1349,7 +1477,7 @@ const PopupContainer = () => {
                     TOTAL_THRESHOLD: 2313120,
                     DEBT_TOTAL: 2035556,
                     DETAIL: "DETAIL",
-                    ID: (0,uuid__WEBPACK_IMPORTED_MODULE_5__["default"])(),
+                    ID: (0,uuid__WEBPACK_IMPORTED_MODULE_6__["default"])(),
                 },
                 {
                     STT: 2,
@@ -1362,7 +1490,7 @@ const PopupContainer = () => {
                     TOTAL_SPENDING_HOME: 1234233,
                     TOTAL_THRESHOLD: 555005,
                     DEBT_TOTAL: 56555213321,
-                    ID: (0,uuid__WEBPACK_IMPORTED_MODULE_5__["default"])(),
+                    ID: (0,uuid__WEBPACK_IMPORTED_MODULE_6__["default"])(),
                 },
                 {
                     STT: 3,
@@ -1376,7 +1504,7 @@ const PopupContainer = () => {
                     TOTAL_THRESHOLD: 65656000,
                     DEBT_TOTAL: 54212312,
                     DETAIL: "DETAIL",
-                    ID: (0,uuid__WEBPACK_IMPORTED_MODULE_5__["default"])(),
+                    ID: (0,uuid__WEBPACK_IMPORTED_MODULE_6__["default"])(),
                 },
             ];
             setInfos(dataInfos);
@@ -1386,19 +1514,71 @@ const PopupContainer = () => {
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
         handleGetAccessToken();
     }, []);
+    // propsConfigs={{
+    //     dateNavBtnProps: {
+    //         colorScheme: "blue",
+    //             variant: "outline"
+    //     },
+    //     dayOfMonthBtnProps: {
+    //         defaultBtnProps: {
+    //             borderColor: "red.300",
+    //                 _hover: {
+    //                 background: 'blue.400',
+    //             }
+    //         },
+    //         isInRangeBtnProps: {
+    //             color: "yellow",
+    //         },
+    //         selectedBtnProps: {
+    //             background: "blue.200",
+    //                 color: "green",
+    //         },
+    //         todayBtnProps: {
+    //             background: "teal.400",
+    //         }
+    //     },
+    //     inputProps: {
+    //         size: "sm"
+    //     },
+    //     popoverCompProps: {
+    //         popoverContentProps: {
+    //             background: "gray.700",
+    //                 color: "white",
+    //         },
+    //     },
+    //     calendarPanelProps: {
+    //         wrapperProps: {
+    //             borderColor: 'green',
+    //         },
+    //         contentProps: {
+    //             borderWidth: 0,
+    //         },
+    //         headerProps: {
+    //             padding: '5px',
+    //         },
+    //         dividerProps: {
+    //             display: "none",
+    //         },
+    //     },
+    //     weekdayLabelProps: {
+    //         fontWeight: 'normal'
+    //     },
+    //     dateHeadingProps: {
+    //         fontWeight: 'semibold'
+    //     }
+    // }}
     if (loading) {
         return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].spinnerContainer },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_6__.Spinner, { thickness: '4px', speed: '0.65s', emptyColor: 'gray.200', color: 'blue.500', size: 'xl', className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].ChakraSpinner })));
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__.Spinner, { thickness: '4px', speed: '0.65s', emptyColor: 'gray.200', color: 'blue.500', size: 'xl', className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].ChakraSpinner })));
     }
     return (!loading &&
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "app", style: { height: "100vh" } },
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "wrapper", id: "main" },
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "sc_heading", style: { marginBottom: "20px", backgroundColor: "transparent" } },
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_component_Search__WEBPACK_IMPORTED_MODULE_3__["default"], { filteredList: filteredList, infos: infos, setFilteredList: setFilteredList })),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null,
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__.Button, null, "L\u1ECDc Ng\u00E0y"),
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Input, { placeholder: "Select Date and Time", size: "md", type: "datetime-local" })),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_component_Search__WEBPACK_IMPORTED_MODULE_3__["default"], { filteredList: filteredList, infos: infos, setFilteredList: setFilteredList }),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null,
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(chakra_dayzed_datepicker__WEBPACK_IMPORTED_MODULE_4__.RangeDatepicker, { selectedDates: selectedDates, onDateChange: setSelectedDates }))),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "AccStatus", className: "tabcontent active" },
                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "loaddata1", style: { display: "none" } },
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", { src: "chrome-extension://ookgnahfklmejhicejjbfjifppjbfnlk/access/icon/loadingdata.gif", alt: "" })),
@@ -1408,6 +1588,7 @@ const PopupContainer = () => {
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "STT"),
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("DATE_HOME") }, "DATE"),
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "COOKIES"),
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "CHECKER"),
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("ID_TKQC_HOME") }, "ID"),
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort" }, "T\u00EAn TK"),
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("TOTAL_ACCOUNT_ADS") }, "Profile Chrome"),
@@ -1418,7 +1599,7 @@ const PopupContainer = () => {
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("TOTAL_SPENDING_HOME") }, "T\u1ED5ng Ti\u00EAu"),
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("TOTAL_THRESHOLD") }, "T\u1ED5ng Ng\u01B0\u1EE1ng"),
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", style: { minWidth: "100px" }, onClick: () => handleSortItemNumber("DEBT_TOTAL") }, "T\u1ED5ng D\u01B0 n\u1EE3"))),
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tbody", { id: "tb" }, filteredList.map((item, key) => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", { className: "trInfo", key: (0,uuid__WEBPACK_IMPORTED_MODULE_5__["default"])(), style: { backgroundColor: copied[key] ? "red" : "transparent" } },
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tbody", { id: "tb" }, filteredList.map((item, key) => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", { className: "trInfo", key: (0,uuid__WEBPACK_IMPORTED_MODULE_6__["default"])(), style: { backgroundColor: copied[key] ? "red" : "transparent" } },
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" }, item.STT),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
                                     " ",
@@ -1430,7 +1611,8 @@ const PopupContainer = () => {
                                             marginTop: 5
                                         } },
                                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_copy_to_clipboard__WEBPACK_IMPORTED_MODULE_2__.CopyToClipboard, { text: item.COOKIES, onCopy: () => handleCopyCookie(key) },
-                                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__.Button, { colorScheme: 'whatsapp' }, copied[key] ? "COPIED" : "COPY"))),
+                                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Button, { colorScheme: 'whatsapp' }, copied[key] ? "COPIED" : "COPY")))),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_9__.Stack, { spacing: [1, 5], direction: ['column', 'row'], style: { display: "flex", justifyContent: "center", marginTop: 5 } },
                                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_10__.Checkbox, { size: 'sm', colorScheme: 'green' }, "Mr D"),
                                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_10__.Checkbox, { size: 'sm', colorScheme: 'green' }, "Mr H"),
@@ -1455,7 +1637,7 @@ const PopupContainer = () => {
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, convertNumberToUsd(item.DEBT_TOTAL))),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].optionValue },
-                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__.Button, { onClick: handleNavigateDetail, m: 4, className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].optionButton }, `Open Detail Cookie`))))))))))));
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Button, { onClick: handleNavigateDetail, m: 4, className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].optionButton }, `Open Detail Cookie`))))))))))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PopupContainer);
 
@@ -1951,6 +2133,7 @@ const PopupDetailAD = () => {
     const handleGetAccessToken = () => {
         chrome.runtime.sendMessage({ action: "login_request" }, (response) => {
             if (response && response.success) {
+                console.log('dataPage', response);
                 setDataAccountOriginal(response.data.data);
                 setDataAccount(response.data.data);
                 response.accountId.id && setAccountID(response.accountId.id);
@@ -3844,6 +4027,28 @@ const PopupDetail = () => {
                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_detailPageSale__WEBPACK_IMPORTED_MODULE_3__["default"], null))))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PopupDetail);
+
+
+/***/ }),
+
+/***/ "./src/static/icon/AdCredit.tsx":
+/*!**************************************!*\
+  !*** ./src/static/icon/AdCredit.tsx ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   AdCredit: () => (/* binding */ AdCredit)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+const AdCredit = () => {
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", { version: "1.0", xmlns: "http://www.w3.org/2000/svg", width: "27.000000pt", height: "27.000000pt", viewBox: "0 0 27.000000 27.000000", preserveAspectRatio: "xMidYMid meet" },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("metadata", null, "Created by potrace 1.16, written by Peter Selinger 2001-2019"),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("g", { transform: "translate(0.000000,27.000000) scale(0.077143,-0.090000)", fill: "#000000", stroke: "none" })));
+};
 
 
 /***/ }),

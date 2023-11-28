@@ -11644,7 +11644,7 @@ module.exports = "data:image/svg+xml;charset=utf8,%3Csvg xmlns=%27http://www.w3.
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["vendors-node_modules_react-dom_client_js","vendors-node_modules_css-loader_dist_runtime_api_js-node_modules_css-loader_dist_runtime_sour-53fd68","vendors-node_modules_css-loader_dist_runtime_getUrl_js-node_modules_chakra-ui_react_dist_chun-8072a9","src_tabs_tabs_tsx"], () => (__webpack_require__("./src/popup/popup.tsx")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["vendors-node_modules_react-dom_client_js","vendors-node_modules_chakra-dayzed-datepicker_dist_chakra-dayzed-datepicker_esm_js-node_modul-254913","vendors-node_modules_css-loader_dist_runtime_getUrl_js-node_modules_chakra-ui_react_dist_chun-8072a9","src_tabs_tabs_tsx"], () => (__webpack_require__("./src/popup/popup.tsx")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

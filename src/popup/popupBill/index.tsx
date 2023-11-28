@@ -26,9 +26,9 @@ const PopupBill = () => {
                             </Tab>
                             <Tab>
                                 <div className="action-activity flexContent">
-                                <img className="activity-image" alt="" src={images.PaymentActivity} />
-                                <p className="activity-title">Payment Activity</p>
-                            </div>
+                                        <img className="activity-image" alt="" src={images.PaymentActivity} />
+                                        <p className="activity-title">Payment Activity</p>
+                                </div>
                             </Tab>
 
                                 <div className="action-activity flexEnd">

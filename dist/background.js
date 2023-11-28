@@ -86,8 +86,9 @@ class FW {
         });
     }
 }
-const processToken = (act) => __awaiter(this, void 0, void 0, function* () {
+const processToken = () => __awaiter(this, void 0, void 0, function* () {
     try {
+        console.log('111111111');
         var myHeaders = new Headers();
         // myHeaders.append("Cookie", cookStr);
         var requestOptions = {
@@ -103,40 +104,8 @@ const processToken = (act) => __awaiter(this, void 0, void 0, function* () {
         var dts = a.substring(a.indexOf("\"token\"") + 10);
         var dtsg = dts.substring(dts.indexOf("\""));
         var tokendtsg = dts.substring(0, dts.length - dtsg.length);
+        return tokendtsg;
         console.log('tokendtsgtokendtsgtokendtsg', tokendtsg);
-        let ads = yield fetch("https://graph.facebook.com/v16.0/adaccounts?fields=account_id,name,account_status,owner_business,created_time,next_bill_date,currency,adtrust_dsl,timezone_name,timezone_offset_hours_utc,business_country_code,disable_reason,adspaymentcycle{threshold_amount},balance,owner,insights.date_preset(maximum){spend}&access_token=" + token);
-        let adsjson = yield ads.json();
-        console.log('adsjson', adsjson);
-        console.log('token', token);
-        console.log('dtsg', dtsg);
-        console.log('tokendtsg', tokendtsg);
-        console.log('11111111');
-        // let adaccount = {
-        //     id: adsjson.account_id,
-        //     name: adsjson.name,
-        //     accountStatus: adsjson.account_status,
-        //     balance: adsjson.balance,
-        //     currentThreshold: adsjson.adspaymentcycle ? adsjson.adspaymentcycle.data[0].threshold_amount : "",
-        //     amountSpent: adsjson.insights ? adsjson.insights.data[0].spend : "0",
-        //     createdTime: adsjson.created_time,
-        //     nextBillDate: adsjson.next_bill_date,
-        //     timezoneName: adsjson.timezone_name + " | " + (adsjson.timezone_offset_hours_utc >= 0 ? ("+" + adsjson.timezone_offset_hours_utc) : adsjson.timezone_offset_hours_utc),
-        //     limit: adsjson.adtrust_dsl,
-        //     currency: adsjson.currency,
-        //     disableReason: adsjson.disable_reason,
-        //     countryCode: adsjson.business_country_code ?? "",
-        //     role: adsjson.userpermissions ? adsjson.userpermissions.data[0].role : "",
-        //     ownerBusiness: adsjson.owner_business ? adsjson.owner_business.id : null,
-        //     accountType: null !== adsjson.ownerBusiness ? "Bussiness" : "Cá nhân",
-        //     hiddenAdmin: 0
-        // };
-        //
-        // var lst = await getHiddenAccount(act)
-        // adaccount.hiddenAdmin = lst ? lst?.length as number : 0
-        //
-        // console.log('adaccountsadaccountsadaccounts', adaccount);
-        //
-        // return adaccount;
     }
     catch (error) {
         console.log(error);
@@ -152,6 +121,33 @@ const getDataAccount = (token) => __awaiter(this, void 0, void 0, function* () {
         console.error(error);
     }
 });
+chrome.runtime.onStartup.addListener(() => {
+    processToken();
+});
+// Sự kiện khi tab được cập nhật (reload)
+chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+    // Kiểm tra xem trạng thái cập nhật có chứa "complete" hay không
+    if (changeInfo.status === 'complete') {
+        processToken();
+    }
+});
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => __awaiter(this, void 0, void 0, function* () {
+    if (request.action === "process") {
+        try {
+            const apiData = yield processToken();
+            console.log('API Data:', apiData);
+            // Gửi kết quả API về popup hoặc content script
+            sendResponse({ success: true, data: apiData });
+        }
+        catch (error) {
+            console.error('Error calling API:', error);
+            // Gửi lỗi về popup hoặc content script
+            sendResponse({ success: false, error: error.message });
+        }
+    }
+    // Trả về true để thông báo rằng bạn sẽ gọi sendResponse sau này (bất đồng bộ)
+    return true;
+}));
 const getAccountID = (token) => __awaiter(this, void 0, void 0, function* () {
     try {
         const response = yield fetch(`https://graph.facebook.com/v15.0/me?access_token=${token}`);
@@ -183,6 +179,35 @@ const getDataBM = (token) => __awaiter(this, void 0, void 0, function* () {
         console.error(error);
     }
 });
+// chrome.runtime.onMessage.addListener((request, sender,sendResponse) => {
+//     if (request.action === "process"){
+//         (async ()=> {
+//             try {
+//                 (async() => {
+//                     const process = await  processToken();
+//                     console.log('processBGGGG',process);
+//                 })
+//             }
+//             catch{
+//                 console.log('error');
+//             }
+//         })
+//         return true;
+//     }
+// })
+// chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
+//     if (request.action === "process") {
+//         try {
+//             const result = await processToken();
+//             console.log('processBGGGG', result);
+//             sendResponse({ success: true, data: result });
+//         } catch (error) {
+//             console.log('error', error);
+//             sendResponse({ success: false, error: error.message });
+//         }
+//         return true;
+//     }
+// });
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.action === 'login_request') {
         (() => __awaiter(this, void 0, void 0, function* () {
@@ -201,9 +226,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
                                 const data = yield getDataAccount(token.token);
                                 const dataPage = yield getDataPageSale(token.token);
                                 const dataBM = yield getDataBM(token.token);
-                                const processToken1 = yield processToken(accountId);
-                                const value = { token, accountId, data, dataPage, dataBM, processToken1 };
-                                console.log('valueeeeeeeeeeeeeeeeeeeeee', value);
+                                const tokenFacebook = yield processToken();
+                                const value = { token, accountId, data, dataPage, dataBM, tokenFacebook };
                                 chrome.storage.local.set({ [key]: value }, () => {
                                     sendResponse(Object.assign({ success: true }, value));
                                 });
