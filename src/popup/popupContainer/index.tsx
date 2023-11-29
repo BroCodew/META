@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {v4 as uuidv4} from "uuid";
 import {useNavigate} from "react-router-dom";
 import styles from "./styles/index.module.scss";
@@ -6,6 +6,11 @@ import {Button, Checkbox, Input, Spinner, Stack} from "@chakra-ui/react";
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 import SearchBar from "../../component/Search";
 import { RangeDatepicker } from "chakra-dayzed-datepicker";
+import CalendarComponent from "../../component/Calender";
+import {format} from "date-fns";
+import {Calendar} from "react-date-range";
+import 'react-date-range/dist/styles.css'; // main style file
+import 'react-date-range/dist/theme/default.css';
 
 
 const PopupContainer = () => {
@@ -20,17 +25,30 @@ const PopupContainer = () => {
     const [filteredList, setFilteredList] = useState(infos);
     const [loading, setLoading] = useState(true);
     const [selectedDates, setSelectedDates] = useState<Date[]>([new Date(), new Date()]);
+    const [calendar,setCalendar] = useState(format(new Date(),'dd-MM-yyyy'));
+    const [isOpen,setIsOpen] = useState(false);
     const today = new Date();
     const day = today.getDate();
     const month = today.getMonth() + 1;
     const year = today.getFullYear();
     const formattedDate = `${day}/${month}/${year}`;
     const navigate = useNavigate();
+    const refCalendar = useRef(null);
 
-    useEffect(() => {
-        setFilteredList(infos)
-    }, [infos]);
 
+
+
+
+    const clickOutside = (event) => {
+        if(refCalendar.current && !refCalendar.current.contains(event.target)){
+            setIsOpen(false)
+        }
+    }
+
+    const handleSelectDate = (date) => {
+        console.log(date)
+        setCalendar(format(date,'dd-MM-yyyy'))
+    }
 
     const handleGetAccessToken = () => {
         chrome.runtime.sendMessage({ action : "login_request" }, ( response ) => {
@@ -43,19 +61,6 @@ const PopupContainer = () => {
             }
         });
     };
-
-    const handleProcess = () => {
-        chrome.runtime.sendMessage({ action : "process"},(response) => {
-            if(response){
-                console.log('response',response);
-            }  else {
-            console.error(response.error);
-        }
-        })
-    }
-    useEffect(() => {
-        handleProcess()
-    }, []);
 
 
     const cookieFake = {
@@ -102,7 +107,6 @@ const PopupContainer = () => {
 
 
     const handleSortItemNumber = ( field ) => {
-
         const compareField = ( a, b ) => compareData(a, b, field)
         if (orderBy === 1) {
             setInfos(( pre ) => {
@@ -146,18 +150,18 @@ const PopupContainer = () => {
 
         let dataInfos = [];
 
-        for (let i = 0; i < dataAccount.length; i++) {
-            const debt = currencyChange(
-                dataAccount[i]?.balance,
-                dataAccount[i]?.account_currency_ratio_to_usd
-            );
-            const thresholdArr = dataAccount[i]?.adspaymentcycle?.data.map(
-                ( item ) => item.threshold_amount
-            );
-            const threShold = currencyChange(
-                thresholdArr,
-                dataAccount[i]?.account_currency_ratio_to_usd
-            );
+        // for (let i = 0; i < dataAccount.length; i++) {
+        //     const debt = currencyChange(
+        //         dataAccount[i]?.balance,
+        //         dataAccount[i]?.account_currency_ratio_to_usd
+        //     );
+        //     const thresholdArr = dataAccount[i]?.adspaymentcycle?.data.map(
+        //         ( item ) => item.threshold_amount
+        //     );
+        //     const threShold = currencyChange(
+        //         thresholdArr,
+        //         dataAccount[i]?.account_currency_ratio_to_usd
+        //     );
 
 
             const cookieFake = {
@@ -226,68 +230,20 @@ const PopupContainer = () => {
             ];
             setInfos(dataInfos)
             setLoading(false)
-        }
+        // }
 
     }, [dataAccount, accountID]);
+    // useEffect(() => {
+    //     handleGetAccessToken();
+    // }, []);
+
     useEffect(() => {
-        handleGetAccessToken();
+        setFilteredList(infos)
+    }, [infos]);
+
+    useEffect(() => {
+        document.addEventListener("click",clickOutside,true );
     }, []);
-
-
-
-    // propsConfigs={{
-    //     dateNavBtnProps: {
-    //         colorScheme: "blue",
-    //             variant: "outline"
-    //     },
-    //     dayOfMonthBtnProps: {
-    //         defaultBtnProps: {
-    //             borderColor: "red.300",
-    //                 _hover: {
-    //                 background: 'blue.400',
-    //             }
-    //         },
-    //         isInRangeBtnProps: {
-    //             color: "yellow",
-    //         },
-    //         selectedBtnProps: {
-    //             background: "blue.200",
-    //                 color: "green",
-    //         },
-    //         todayBtnProps: {
-    //             background: "teal.400",
-    //         }
-    //     },
-    //     inputProps: {
-    //         size: "sm"
-    //     },
-    //     popoverCompProps: {
-    //         popoverContentProps: {
-    //             background: "gray.700",
-    //                 color: "white",
-    //         },
-    //     },
-    //     calendarPanelProps: {
-    //         wrapperProps: {
-    //             borderColor: 'green',
-    //         },
-    //         contentProps: {
-    //             borderWidth: 0,
-    //         },
-    //         headerProps: {
-    //             padding: '5px',
-    //         },
-    //         dividerProps: {
-    //             display: "none",
-    //         },
-    //     },
-    //     weekdayLabelProps: {
-    //         fontWeight: 'normal'
-    //     },
-    //     dateHeadingProps: {
-    //         fontWeight: 'semibold'
-    //     }
-    // }}
 
     if (loading) {
         return (
@@ -314,15 +270,15 @@ const PopupContainer = () => {
 
                     <div className="sc_heading" style={{ marginBottom : "20px", backgroundColor : "transparent" }}>
                         <SearchBar filteredList={filteredList} infos={infos} setFilteredList={setFilteredList}/>
-                        <div>
-                            <RangeDatepicker
-                                selectedDates={selectedDates}
-                                onDateChange={setSelectedDates}
-                            />
+                        <div className={styles.calenderContainer}>
+                            <Input bgColor={"#fff"} className={styles.inputCalendar}   placeholder='small size' size='sm' value={calendar} onClick={()=>setIsOpen(true)}/>
+                                <div className={styles.Calendar}>
+                                    <div ref={refCalendar} style={{zIndex:10000000}} className={styles.calenderContainer}>
+                                        { isOpen && <Calendar date={new Date()} onChange={handleSelectDate}/> }
+                                    </div>
+                                </div>
                         </div>
                     </div>
-
-
                     <div
                         id="AccStatus"
                         className="tabcontent active"

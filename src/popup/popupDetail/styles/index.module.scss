@@ -107,3 +107,16 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.tabListContainer{
+  display: flex;
+  justify-content: space-between;
+  .turnBack{
+    background-color: #ffff;
+    border-radius: 20px;
+  img{
+    width: 30px;
+    height: 35px;
+  }
+  }
+}

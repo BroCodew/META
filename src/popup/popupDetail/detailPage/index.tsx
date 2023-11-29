@@ -205,87 +205,77 @@ const PopupDetailAD = () => {
     };
 
 
-    const handleSortItemText = ( field ) => {
-        if (orderBy === "ASC") {
-            setInfos(infos.sort(( a, b ) => compare({
-                ...a,
-                PERMISSION_BM : a.PERMISSION_BM,
-                NAME_TK_AD : a.NAME_TK_AD,
-                PERMISSION_ACCOUNT : a.PERMISSION_ACCOUNT,
-                CITY : a.CITY,
-                COUNTRY : a.COUNTRY,
-                ACCOUNT_TYPE : a.ACCOUNT_TYPE,
-                PAYMENT_METHOD : a.PAYMENT_METHOD,
-            }, {
-                ...b,
-                PERMISSION_BM : b.PERMISSION_BM,
-                NAME_TK_AD : b.NAME_TK_AD,
-                PERMISSION_ACCOUNT : b.PERMISSION_ACCOUNT,
-                CITY : b.CITY,
-                COUNTRY : b.COUNTRY,
-                ACCOUNT_TYPE : b.ACCOUNT_TYPE,
-                PAYMENT_METHOD : b.PAYMENT_METHOD,
-            }, field)).reverse());
-            setOrderBy("DSC");
-        }
-        if (orderBy === "DSC") {
-            setInfos(infos.sort(( a, b ) => compare({
-                ...a, PERMISSION_BM : a.PERMISSION_BM,
-                NAME_TK_AD : a.NAME_TK_AD,
-                PERMISSION_ACCOUNT : a.PERMISSION_ACCOUNT,
-                CITY : a.CITY,
-                COUNTRY : a.COUNTRY,
-                ACCOUNT_TYPE : a.ACCOUNT_TYPE,
-                PAYMENT_METHOD : a.PAYMENT_METHOD,
-            }, {
-                ...b,
-                PERMISSION_BM : b.PERMISSION_BM,
-                NAME_TK_AD : b.NAME_TK_AD,
-                PERMISSION_ACCOUNT : b.PERMISSION_ACCOUNT,
-                CITY : b.CITY,
-                COUNTRY : b.COUNTRY,
-                ACCOUNT_TYPE : b.ACCOUNT_TYPE,
-                PAYMENT_METHOD : b.PAYMENT_METHOD,
-            }, field)));
-            setOrderBy("ASC");
-        }
-    };
+        const handleSortItemText = ( field ) => {
+            if (orderBy === "ASC") {
+                setInfos(infos.sort(( a, b ) => compare({
+                    ...a,
+                    PERMISSION_BM : a.PERMISSION_BM,
+                    NAME_TK_AD : a.NAME_TK_AD,
+                    PERMISSION_ACCOUNT : a.PERMISSION_ACCOUNT,
+                    CITY : a.CITY,
+                    COUNTRY : a.COUNTRY,
+                    ACCOUNT_TYPE : a.ACCOUNT_TYPE,
+                    PAYMENT_METHOD : a.PAYMENT_METHOD,
+                }, {
+                    ...b,
+                    PERMISSION_BM : b.PERMISSION_BM,
+                    NAME_TK_AD : b.NAME_TK_AD,
+                    PERMISSION_ACCOUNT : b.PERMISSION_ACCOUNT,
+                    CITY : b.CITY,
+                    COUNTRY : b.COUNTRY,
+                    ACCOUNT_TYPE : b.ACCOUNT_TYPE,
+                    PAYMENT_METHOD : b.PAYMENT_METHOD,
+                }, field)).reverse());
+                setOrderBy("DSC");
+            }
+            if (orderBy === "DSC") {
+                setInfos(infos.sort(( a, b ) => compare({
+                    ...a, PERMISSION_BM : a.PERMISSION_BM,
+                    NAME_TK_AD : a.NAME_TK_AD,
+                    PERMISSION_ACCOUNT : a.PERMISSION_ACCOUNT,
+                    CITY : a.CITY,
+                    COUNTRY : a.COUNTRY,
+                    ACCOUNT_TYPE : a.ACCOUNT_TYPE,
+                    PAYMENT_METHOD : a.PAYMENT_METHOD,
+                }, {
+                    ...b,
+                    PERMISSION_BM : b.PERMISSION_BM,
+                    NAME_TK_AD : b.NAME_TK_AD,
+                    PERMISSION_ACCOUNT : b.PERMISSION_ACCOUNT,
+                    CITY : b.CITY,
+                    COUNTRY : b.COUNTRY,
+                    ACCOUNT_TYPE : b.ACCOUNT_TYPE,
+                    PAYMENT_METHOD : b.PAYMENT_METHOD,
+                }, field)));
+                setOrderBy("ASC");
+            }
+        };
 
 
-    const handleSortPaymentMethod = ( field ) => {
-        const a = infos.filter(item => item.PAYMENT_METHOD === undefined);
-        const b = infos.filter(item => item.PAYMENT_METHOD !== undefined);
-        if (orderBy === "ASC") {
-            const dataSort = b.sort(( i, j ) => compare(i, j, field)).reverse();
-            const c = a.concat(dataSort);
-            setInfos(c);
-            setOrderBy("DSC");
-        }
-        if (orderBy === "DSC") {
-            const dataSort = b.sort(( i, j ) => compare(i, j, field));
-            const c = dataSort.concat(a);
-            setInfos(c);
-            setOrderBy("ASC");
-        }
-    };
+        const handleSortPaymentMethod = ( field ) => {
+            const a = infos.filter(item => item.PAYMENT_METHOD === undefined);
+            const b = infos.filter(item => item.PAYMENT_METHOD !== undefined);
+            if (orderBy === "ASC") {
+                const dataSort = b.sort(( i, j ) => compare(i, j, field)).reverse();
+                const c = a.concat(dataSort);
+                setInfos(c);
+                setOrderBy("DSC");
+            }
+            if (orderBy === "DSC") {
+                const dataSort = b.sort(( i, j ) => compare(i, j, field));
+                const c = dataSort.concat(a);
+                setInfos(c);
+                setOrderBy("ASC");
+            }
+        };
 
-    const handleChangeCurrency = () => {
-        setChangeCurrency(!changeCurrency);
-    }
-const handleGetBill = () => {
-navigate('/popup.html/bill');
-}
-    // function formatNumber(number) {
-    //     console.log ('number', number);
-    //     const formattedNumber = number.toLocaleString(undefined, {
-    //         minimumFractionDigits: 1,
-    //         maximumFractionDigits: 1,
-    //         useGrouping: true,
-    //     });
-    //
-    //     // Sử dụng regex để loại bỏ số 0 sau dấu thập phân
-    //     return formattedNumber.replace(/\.0$/, '');
-    // }
+        const handleChangeCurrency = () => {
+            setChangeCurrency(!changeCurrency);
+        }
+        const handleGetBill = () => {
+        navigate('/popup.html/bill');
+        }
+
 
     function formatNumber(so) {
         // Chuyển số thành chuỗi và tách phần nguyên và phần thập phân
@@ -1638,15 +1628,15 @@ navigate('/popup.html/bill');
             const width8 = td8.offsetWidth;
             const width9 = td9.offsetWidth;
             const width10 = td10.offsetWidth;
-            const width = width1 + width2 + width3 + width4 + width5;
+            const width = width1 + width2 + width3 + width4 ;
             setWidthMain(( prev ) => ({
                 ...prev,
                 widthTotal : width,
-                widthDebt : width6,
-                widthThresHold : width7,
-                widthLimit : width8,
-                widthLimitHidden : width9,
-                widthLimitTotalSpending : width10
+                widthDebt : width5,
+                widthThresHold : width6,
+                widthLimit : width7,
+                widthLimitHidden : width8,
+                widthLimitTotalSpending : width9
             }));
         }
     }
@@ -1691,7 +1681,7 @@ navigate('/popup.html/bill');
                                                setFilteredList={setFilteredList}/>
                                 </div>
                                 <div className="command_flex">
-                                    <Stack direction='row'>
+                                    <Stack direction='row' style={{display:"flex",alignItems:"center"}}>
                                         <Switch onChange={handleChangeCurrency} colorScheme='teal' size='lg'/>
                                         <span>Change USD</span>
                                     </Stack>
@@ -1727,12 +1717,7 @@ navigate('/popup.html/bill');
                                 >
                                     Trạng thái
                                 </th>
-                                <th className="sort"
-                                    onClick={() =>
-                                        handleSortItemNumber("DATE")
-                                    }
-                                >DATE
-                                </th>
+
                                 <th className="sort"
                                     onClick={() =>
                                         handleSortItemNumber("ID_TKQC_AD")
@@ -1851,7 +1836,6 @@ navigate('/popup.html/bill');
                                     <td className="tdInfo">
                                         <div className="tbstatus">{checkStatusBM(item.STATUS)}</div>
                                     </td>
-                                    <td className="tdInfo"> {item.DATE_AD}</td>
                                     <td className="tdInfo"> {item.ID_TKQC_AD}</td>
                                     <td className="tdInfo"
                                         style={{ textAlign : "left", overflow : "hidden" }}> {item.NAME_TK_AD}</td>

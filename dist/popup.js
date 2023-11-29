@@ -11452,7 +11452,7 @@ module.exports = "data:image/svg+xml;charset=utf8,%3Csvg xmlns=%27http://www.w3.
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
 /******/ 	
 /******/ 		// Flag the module as loaded
 /******/ 		module.loaded = true;
@@ -11644,7 +11644,7 @@ module.exports = "data:image/svg+xml;charset=utf8,%3Csvg xmlns=%27http://www.w3.
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["vendors-node_modules_react-dom_client_js","vendors-node_modules_chakra-dayzed-datepicker_dist_chakra-dayzed-datepicker_esm_js-node_modul-254913","vendors-node_modules_css-loader_dist_runtime_getUrl_js-node_modules_chakra-ui_react_dist_chun-8072a9","src_tabs_tabs_tsx"], () => (__webpack_require__("./src/popup/popup.tsx")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["vendors-node_modules_react-dom_client_js","vendors-node_modules_react-copy-to-clipboard_lib_index_js-node_modules_react-date-range_dist_-6fd183","vendors-node_modules_chakra-ui_react_dist_chunk-QAITB7GG_mjs","src_tabs_tabs_tsx-data_image_svg_xml_utf8_svg_width_279px_27_height_276px_27_viewBox_270_0_9_-7b4b7a"], () => (__webpack_require__("./src/popup/popup.tsx")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

@@ -5,6 +5,8 @@ import {Spinner, Tab, TabList, TabPanel, TabPanels, Tabs} from "@chakra-ui/react
 import PopupDetailAD from "./detailPage";
 import PopupDetailPageSale from "./detailPageSale";
 import PopupDetailBM from "./detailBM";
+import {images} from "../../static/icon";
+import {useNavigate} from "react-router-dom";
 
 const PopupDetail = () => {
     const [accessToken, setAccessToken] = useState("");
@@ -21,7 +23,7 @@ const PopupDetail = () => {
     const month = today.getMonth() + 1;
     const year = today.getFullYear();
     const formattedDate = `${day}/${month}/${year}`;
-
+    const navigate = useNavigate()
     const handleGetAccessToken = () => {
         chrome.runtime.sendMessage({ action : "login_request" }, ( response ) => {
             if (response && response.success) {
@@ -34,7 +36,9 @@ const PopupDetail = () => {
             }
         });
     };
-
+const hanldeTurnBack = () => {
+    navigate(-1)
+}
     const checkStatusBM = ( option ) => {
         switch (option) {
             case 1:
@@ -426,11 +430,17 @@ const PopupDetail = () => {
         !loading &&
         <>
             <Tabs variant='soft-rounded' colorScheme='green'>
-                <TabList className={styles.popupTabList} style={{ width : 157 }}>
-                    <Tab>AD</Tab>
-                    <Tab>BM</Tab>
-                    <Tab>PAGE</Tab>
-                </TabList>
+                <div className={styles.tabListContainer}>
+
+                    <TabList className={styles.popupTabList} style={{ width : 157 }}>
+                        <Tab>AD</Tab>
+                        <Tab>BM</Tab>
+                        <Tab>PAGE</Tab>
+                    </TabList>
+                    <div onClick={hanldeTurnBack} className={styles.turnBack}>
+                        <img src={images.TurnBack}/>
+                    </div>
+                </div>
 
                 <TabPanels>
                     <TabPanel style={{ padding : 0 }}>

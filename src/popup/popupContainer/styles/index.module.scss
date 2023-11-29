@@ -15,7 +15,7 @@
 
 .optionTitle {
   text-align: center;
-  border: 1px 0 solid #000 !important;
+  border: 1px solid #000 !important;
   box-shadow: 2px 2px 2px 2px #888888;
   color: rgb(51 51 51) !important;
   background-color: #fdfdfd;
@@ -25,7 +25,7 @@
 
 .optionValue {
   text-align: center;
-  border: 1px 0 solid #000 !important;
+  border: 1px solid #000 !important;
   box-shadow: 2px 2px 2px 2px #888888;
   color: rgb(102 102 102) !important;
   background-color: #fdfdfd;
@@ -56,4 +56,40 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+.Calendar{
+  //margin-top: 300px;
+  z-index: 10000000000000;
+}
+
+.calenderContainer{
+  display: flex;
+  flex-direction: column;
+  padding-top:50px ;
+margin-top: 200px;
+  position: relative;
+
+}
+.inputCalendar{
+  color: black !important;
+  border: 1px solid #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 3px;
+  border-radius: 10px;
+  height: 30px;
+  position: absolute;
+  left: 0px;
+  width: 200px;
+  top: -116px;
+  background-color: #ffff;
+
+}
+
+.Calendar{
+  position: absolute;
+  left: -150px;
+  top: -281px;
 }

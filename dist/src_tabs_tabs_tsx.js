@@ -288,7 +288,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `@charset "UTF-8";
 
 .oCjY3nNs6Rb7N4Sgbe2H {
   text-align: center;
-  border: 1px 0 solid #000 !important;
+  border: 1px solid #000 !important;
   box-shadow: 2px 2px 2px 2px #888888;
   color: rgb(51, 51, 51) !important;
   background-color: #fdfdfd;
@@ -298,7 +298,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `@charset "UTF-8";
 
 .MN5puIbk4n9IZJBN_g4Q {
   text-align: center;
-  border: 1px 0 solid #000 !important;
+  border: 1px solid #000 !important;
   box-shadow: 2px 2px 2px 2px #888888;
   color: rgb(102, 102, 102) !important;
   background-color: #fdfdfd;
@@ -327,7 +327,11 @@ ___CSS_LOADER_EXPORT___.push([module.id, `@charset "UTF-8";
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}`, "",{"version":3,"sources":["webpack://./src/popup/popupContainer/styles/index.module.scss"],"names":[],"mappings":"AAAA,gBAAgB;AAAhB;EACE,yBAAA;EAIA,gBAAA,EAAA,+BAAA;EACA,mBAAA;EACA,mBAAA;AADF;;AAIA;EAEE,WAAA;AAFF;;AAKA;EACE,kBAAA;EACA,mCAAA;EACA,mCAAA;EACA,iCAAA;EACA,yBAAA;EACA,0BAAA;EACA,mBAAA;AAFF;;AAKA;EACE,kBAAA;EACA,mCAAA;EACA,mCAAA;EACA,oCAAA;EACA,yBAAA;AAFF;;AAKA;EACE,8CAAA;EACA,sDAAA;EACA,oCAAA;AAFF;;AAMA;EACE,oDAAA;EACA,sDAAA;AAHF;;AAMA;EACE,aAAA;EACA,uBAAA;EACA,mBAAA;EACA,aAAA;AAHF;;AAOA;EACE,eAAA;EACA,QAAA;EACA,SAAA;EACA,gCAAA;AAJF","sourcesContent":[".optionContainer {\r\n  background-color: #fdfdfd;\r\n  //   height: 100vh;\r\n  //   width: 100vw;\r\n  //   display: block;\r\n  overflow-x: auto; /* Kích hoạt thanh cuộn ngang */\r\n  white-space: nowrap;\r\n  border-radius: 10px;\r\n}\r\n\r\n.optionHeader {\r\n  //   background-color: #1a0a72;\r\n  color: #000;\r\n}\r\n\r\n.optionTitle {\r\n  text-align: center;\r\n  border: 1px 0 solid #000 !important;\r\n  box-shadow: 2px 2px 2px 2px #888888;\r\n  color: rgb(51 51 51) !important;\r\n  background-color: #fdfdfd;\r\n  font-size: 15px !important;\r\n  line-height: 19.6px;\r\n}\r\n\r\n.optionValue {\r\n  text-align: center;\r\n  border: 1px 0 solid #000 !important;\r\n  box-shadow: 2px 2px 2px 2px #888888;\r\n  color: rgb(102 102 102) !important;\r\n  background-color: #fdfdfd;\r\n}\r\n\r\n.optionButton {\r\n  background-color: rgb(149 208 58) !important;\r\n  box-shadow: rgb(151 65 252 / 0.2) 0px 15px 30px -5px;\r\n  color: rgb(255 255 255) !important;\r\n  //   background-color: #000 !important;\r\n}\r\n\r\n.optionDrawer {\r\n  background-color: rgba(218, 109, 31, 0.5) !important;\r\n  box-shadow: rgb(151 65 252 / 0.2) 0px 15px 30px -5px;\r\n}\r\n\r\n.spinnerContainer {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  height: 100vh;\r\n  //background-color: #c5e7f7;\r\n}\r\n\r\n.ChakraSpinner {\r\n  position: fixed;\r\n  top: 50%;\r\n  left: 50%;\r\n  transform: translate(-50%, -50%);\r\n}\r\n"],"sourceRoot":""}]);
+}
+
+.ZyeXDJTopswUrkWEI38Q {
+  z-index: 10000000000000;
+}`, "",{"version":3,"sources":["webpack://./src/popup/popupContainer/styles/index.module.scss"],"names":[],"mappings":"AAAA,gBAAgB;AAAhB;EACE,yBAAA;EAIA,gBAAA,EAAA,+BAAA;EACA,mBAAA;EACA,mBAAA;AADF;;AAIA;EAEE,WAAA;AAFF;;AAKA;EACE,kBAAA;EACA,iCAAA;EACA,mCAAA;EACA,iCAAA;EACA,yBAAA;EACA,0BAAA;EACA,mBAAA;AAFF;;AAKA;EACE,kBAAA;EACA,iCAAA;EACA,mCAAA;EACA,oCAAA;EACA,yBAAA;AAFF;;AAKA;EACE,8CAAA;EACA,sDAAA;EACA,oCAAA;AAFF;;AAMA;EACE,oDAAA;EACA,sDAAA;AAHF;;AAMA;EACE,aAAA;EACA,uBAAA;EACA,mBAAA;EACA,aAAA;AAHF;;AAOA;EACE,eAAA;EACA,QAAA;EACA,SAAA;EACA,gCAAA;AAJF;;AAMA;EAEE,uBAAA;AAJF","sourcesContent":[".optionContainer {\r\n  background-color: #fdfdfd;\r\n  //   height: 100vh;\r\n  //   width: 100vw;\r\n  //   display: block;\r\n  overflow-x: auto; /* Kích hoạt thanh cuộn ngang */\r\n  white-space: nowrap;\r\n  border-radius: 10px;\r\n}\r\n\r\n.optionHeader {\r\n  //   background-color: #1a0a72;\r\n  color: #000;\r\n}\r\n\r\n.optionTitle {\r\n  text-align: center;\r\n  border: 1px solid #000 !important;\r\n  box-shadow: 2px 2px 2px 2px #888888;\r\n  color: rgb(51 51 51) !important;\r\n  background-color: #fdfdfd;\r\n  font-size: 15px !important;\r\n  line-height: 19.6px;\r\n}\r\n\r\n.optionValue {\r\n  text-align: center;\r\n  border: 1px solid #000 !important;\r\n  box-shadow: 2px 2px 2px 2px #888888;\r\n  color: rgb(102 102 102) !important;\r\n  background-color: #fdfdfd;\r\n}\r\n\r\n.optionButton {\r\n  background-color: rgb(149 208 58) !important;\r\n  box-shadow: rgb(151 65 252 / 0.2) 0px 15px 30px -5px;\r\n  color: rgb(255 255 255) !important;\r\n  //   background-color: #000 !important;\r\n}\r\n\r\n.optionDrawer {\r\n  background-color: rgba(218, 109, 31, 0.5) !important;\r\n  box-shadow: rgb(151 65 252 / 0.2) 0px 15px 30px -5px;\r\n}\r\n\r\n.spinnerContainer {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  height: 100vh;\r\n  //background-color: #c5e7f7;\r\n}\r\n\r\n.ChakraSpinner {\r\n  position: fixed;\r\n  top: 50%;\r\n  left: 50%;\r\n  transform: translate(-50%, -50%);\r\n}\r\n.Calendar{\r\n  //margin-top: 300px;\r\n  z-index: 10000000000000;\r\n}"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"optionContainer": `A2UUefaji4lTTiKiYU_T`,
@@ -337,7 +341,8 @@ ___CSS_LOADER_EXPORT___.locals = {
 	"optionButton": `Dx7u8KaO6weBx84OuNnE`,
 	"optionDrawer": `Kb1shqkmu2iSw3vMPkdK`,
 	"spinnerContainer": `NKqgGBZtj4aZk_fC5BPZ`,
-	"ChakraSpinner": `sNn1LJz7LDZe0eje9wOu`
+	"ChakraSpinner": `sNn1LJz7LDZe0eje9wOu`,
+	"Calendar": `ZyeXDJTopswUrkWEI38Q`
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -628,7 +633,20 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.rmlHjgVK3rNjg6YnxqxF {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}`, "",{"version":3,"sources":["webpack://./src/popup/popupDetail/styles/index.module.scss"],"names":[],"mappings":"AAAA;EACE,kBAAA;EACA,mCAAA;EACA,mCAAA;EACA,iCAAA;EACA,yBAAA;EACA,0BAAA;EACA,mBAAA;AACF;;AAEA;EACE,kBAAA;EACA,mCAAA;EACA,mCAAA;EACA,oCAAA;EACA,yBAAA;AACF;;AAEA;EACE,mBAAA;EACA,WAAA;EACA,eAAA;EACA,YAAA;EACA,YAAA;EACA,4BAAA;AACF;;AAEA;EAGE,uBAAA;EACA,8EAAA;AADF;;AAQA;EACE,WAAA;AALF;;AAQA;EACE,aAAA;EACA,uBAAA;EACA,mBAAA;AALF;AAOE;EACE,WAAA;EACA,YAAA;EACA,sBAAA;EACA,kBAAA;EACA,kBAAA;AALJ;AAQE;EACE,WAAA;AANJ;AASE;EACE,WAAA;EACA,YAAA;EACA,qBAAA;EACA,kBAAA;EACA,kBAAA;AAPJ;AAWE;EACE,UAAA;AATJ;AAaE;EACE,WAAA;EACA,YAAA;EACA,6BAAA;EACA,kBAAA;EACA,kBAAA;AAXJ;AAcE;EACE,kBAAA;AAZJ;;AAiBA;EACE,yBAAA;EACA,cAAA;EACA,iBAAA;EACA,iDAAA;EACA,mBAAA;AAdF;;AAiBA;EACE,aAAA;EACA,uBAAA;EACA,mBAAA;EACA,aAAA;EACA,yBAAA;AAdF;;AAiBA;EACE,eAAA;EACA,QAAA;EACA,SAAA;EACA,gCAAA;AAdF","sourcesContent":[".optionTitle {\r\n  text-align: center;\r\n  border: 1px 0 solid #000 !important;\r\n  box-shadow: 2px 2px 2px 2px #888888;\r\n  color: rgb(51 51 51) !important;\r\n  background-color: #fdfdfd;\r\n  font-size: 15px !important;\r\n  line-height: 19.6px;\r\n}\r\n\r\n.optionValue {\r\n  text-align: center;\r\n  border: 1px 0 solid #000 !important;\r\n  box-shadow: 2px 2px 2px 2px #888888;\r\n  color: rgb(102 102 102) !important;\r\n  background-color: #fdfdfd;\r\n}\r\n\r\n.accessToken {\r\n  border-radius: 10px;\r\n  color: #000;\r\n  font-size: 20px;\r\n  width: 180px;\r\n  height: 50px;\r\n  background-color: aquamarine;\r\n}\r\n\r\n.popupContainer {\r\n  // height: 100vh;\r\n  // width: 100vw;\r\n  margin: 50px !important;\r\n  background-color: -webkit-linear-gradient(\r\n                  bottom,\r\n                  #c471f5,\r\n                  #fa71cd\r\n  ) !important;\r\n}\r\n\r\n.optionHeader {\r\n  color: #000;\r\n}\r\n\r\n.statusAccount {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n\r\n  .liveIconLive {\r\n    width: 15px;\r\n    height: 15px;\r\n    background-color: blue;\r\n    margin-right: 10px;\r\n    border-radius: 8px;\r\n  }\r\n\r\n  .liveTextLive {\r\n    color: blue;\r\n  }\r\n\r\n  .liveIconDie {\r\n    width: 15px;\r\n    height: 15px;\r\n    background-color: red;\r\n    margin-right: 10px;\r\n    border-radius: 8px;\r\n\r\n  }\r\n\r\n  .liveTextDie {\r\n    color: red;\r\n\r\n  }\r\n\r\n  .liveIconDebt {\r\n    width: 15px;\r\n    height: 15px;\r\n    background-color: yellowgreen;\r\n    margin-right: 10px;\r\n    border-radius: 8px;\r\n  }\r\n\r\n  .liveTextDebt {\r\n    color: yellowgreen;\r\n\r\n  }\r\n}\r\n\r\n.popupTabList {\r\n  background-color: #f8fdfc;\r\n  color: #07a06b;\r\n  font-weight: bold;\r\n  border-bottom: 1px solid rgba(230, 232, 236, .8);\r\n  border-radius: 20px;\r\n}\r\n\r\n.spinnerContainer {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  height: 100vh;\r\n  background-color: #c5e7f7;\r\n}\r\n\r\n.ChakraSpinner {\r\n  position: fixed;\r\n  top: 50%;\r\n  left: 50%;\r\n  transform: translate(-50%, -50%);\r\n}\r\n"],"sourceRoot":""}]);
+}
+
+.YGFPiXYA0Fuh0LggGiPM {
+  display: flex;
+  justify-content: space-between;
+}
+.YGFPiXYA0Fuh0LggGiPM .DG62DJNLagV0v6xdtlkA {
+  background-color: white;
+  border-radius: 20px;
+}
+.YGFPiXYA0Fuh0LggGiPM .DG62DJNLagV0v6xdtlkA img {
+  width: 30px;
+  height: 35px;
+}`, "",{"version":3,"sources":["webpack://./src/popup/popupDetail/styles/index.module.scss"],"names":[],"mappings":"AAAA;EACE,kBAAA;EACA,mCAAA;EACA,mCAAA;EACA,iCAAA;EACA,yBAAA;EACA,0BAAA;EACA,mBAAA;AACF;;AAEA;EACE,kBAAA;EACA,mCAAA;EACA,mCAAA;EACA,oCAAA;EACA,yBAAA;AACF;;AAEA;EACE,mBAAA;EACA,WAAA;EACA,eAAA;EACA,YAAA;EACA,YAAA;EACA,4BAAA;AACF;;AAEA;EAGE,uBAAA;EACA,8EAAA;AADF;;AAQA;EACE,WAAA;AALF;;AAQA;EACE,aAAA;EACA,uBAAA;EACA,mBAAA;AALF;AAOE;EACE,WAAA;EACA,YAAA;EACA,sBAAA;EACA,kBAAA;EACA,kBAAA;AALJ;AAQE;EACE,WAAA;AANJ;AASE;EACE,WAAA;EACA,YAAA;EACA,qBAAA;EACA,kBAAA;EACA,kBAAA;AAPJ;AAWE;EACE,UAAA;AATJ;AAaE;EACE,WAAA;EACA,YAAA;EACA,6BAAA;EACA,kBAAA;EACA,kBAAA;AAXJ;AAcE;EACE,kBAAA;AAZJ;;AAiBA;EACE,yBAAA;EACA,cAAA;EACA,iBAAA;EACA,iDAAA;EACA,mBAAA;AAdF;;AAiBA;EACE,aAAA;EACA,uBAAA;EACA,mBAAA;EACA,aAAA;EACA,yBAAA;AAdF;;AAiBA;EACE,eAAA;EACA,QAAA;EACA,SAAA;EACA,gCAAA;AAdF;;AAiBA;EACE,aAAA;EACA,8BAAA;AAdF;AAeE;EACE,uBAAA;EACA,mBAAA;AAbJ;AAcE;EACE,WAAA;EACA,YAAA;AAZJ","sourcesContent":[".optionTitle {\r\n  text-align: center;\r\n  border: 1px 0 solid #000 !important;\r\n  box-shadow: 2px 2px 2px 2px #888888;\r\n  color: rgb(51 51 51) !important;\r\n  background-color: #fdfdfd;\r\n  font-size: 15px !important;\r\n  line-height: 19.6px;\r\n}\r\n\r\n.optionValue {\r\n  text-align: center;\r\n  border: 1px 0 solid #000 !important;\r\n  box-shadow: 2px 2px 2px 2px #888888;\r\n  color: rgb(102 102 102) !important;\r\n  background-color: #fdfdfd;\r\n}\r\n\r\n.accessToken {\r\n  border-radius: 10px;\r\n  color: #000;\r\n  font-size: 20px;\r\n  width: 180px;\r\n  height: 50px;\r\n  background-color: aquamarine;\r\n}\r\n\r\n.popupContainer {\r\n  // height: 100vh;\r\n  // width: 100vw;\r\n  margin: 50px !important;\r\n  background-color: -webkit-linear-gradient(\r\n                  bottom,\r\n                  #c471f5,\r\n                  #fa71cd\r\n  ) !important;\r\n}\r\n\r\n.optionHeader {\r\n  color: #000;\r\n}\r\n\r\n.statusAccount {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n\r\n  .liveIconLive {\r\n    width: 15px;\r\n    height: 15px;\r\n    background-color: blue;\r\n    margin-right: 10px;\r\n    border-radius: 8px;\r\n  }\r\n\r\n  .liveTextLive {\r\n    color: blue;\r\n  }\r\n\r\n  .liveIconDie {\r\n    width: 15px;\r\n    height: 15px;\r\n    background-color: red;\r\n    margin-right: 10px;\r\n    border-radius: 8px;\r\n\r\n  }\r\n\r\n  .liveTextDie {\r\n    color: red;\r\n\r\n  }\r\n\r\n  .liveIconDebt {\r\n    width: 15px;\r\n    height: 15px;\r\n    background-color: yellowgreen;\r\n    margin-right: 10px;\r\n    border-radius: 8px;\r\n  }\r\n\r\n  .liveTextDebt {\r\n    color: yellowgreen;\r\n\r\n  }\r\n}\r\n\r\n.popupTabList {\r\n  background-color: #f8fdfc;\r\n  color: #07a06b;\r\n  font-weight: bold;\r\n  border-bottom: 1px solid rgba(230, 232, 236, .8);\r\n  border-radius: 20px;\r\n}\r\n\r\n.spinnerContainer {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  height: 100vh;\r\n  background-color: #c5e7f7;\r\n}\r\n\r\n.ChakraSpinner {\r\n  position: fixed;\r\n  top: 50%;\r\n  left: 50%;\r\n  transform: translate(-50%, -50%);\r\n}\r\n\r\n.tabListContainer{\r\n  display: flex;\r\n  justify-content: space-between;\r\n  .turnBack{\r\n    background-color: #ffff;\r\n    border-radius: 20px;\r\n  img{\r\n    width: 30px;\r\n    height: 35px;\r\n  }\r\n  }\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"optionTitle": `rmlHjgVK3rNjg6YnxqxF`,
@@ -645,7 +663,9 @@ ___CSS_LOADER_EXPORT___.locals = {
 	"liveTextDebt": `DvihbrsTFM1gIh8ACBag`,
 	"popupTabList": `fZEz2N3etzh_S8y1CxIz`,
 	"spinnerContainer": `vt82hkWOa28Gdq0fiNJA`,
-	"ChakraSpinner": `Cnz892GWgdPwZa07Gtn2`
+	"ChakraSpinner": `Cnz892GWgdPwZa07Gtn2`,
+	"tabListContainer": `YGFPiXYA0Fuh0LggGiPM`,
+	"turnBack": `DG62DJNLagV0v6xdtlkA`
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -705,6 +725,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "d7931620c00665e03628364b28ff85ac.png");
+
+/***/ }),
+
+/***/ "./src/static/turnBack.png":
+/*!*********************************!*\
+  !*** ./src/static/turnBack.png ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "2f8a425bc9be0cf175a86ead193bcc77.png");
 
 /***/ }),
 
@@ -1295,17 +1329,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! uuid */ "./node_modules/uuid/dist/esm-browser/v4.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! uuid */ "./node_modules/uuid/dist/esm-browser/v4.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
 /* harmony import */ var _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/index.module.scss */ "./src/popup/popupContainer/styles/index.module.scss");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/spinner/dist/chunk-5PH6ULNP.mjs");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/button/dist/chunk-UVUR7MCU.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/spinner/dist/chunk-5PH6ULNP.mjs");
 /* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/layout/dist/chunk-ZHMYA64R.mjs");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/checkbox/dist/chunk-CWVAJCXJ.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/input/dist/chunk-6CVSDS6C.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/button/dist/chunk-UVUR7MCU.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/checkbox/dist/chunk-CWVAJCXJ.mjs");
 /* harmony import */ var react_copy_to_clipboard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-copy-to-clipboard */ "./node_modules/react-copy-to-clipboard/lib/index.js");
 /* harmony import */ var react_copy_to_clipboard__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_copy_to_clipboard__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _component_Search__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../component/Search */ "./src/component/Search/index.tsx");
-/* harmony import */ var chakra_dayzed_datepicker__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! chakra-dayzed-datepicker */ "./node_modules/chakra-dayzed-datepicker/dist/chakra-dayzed-datepicker.esm.js");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/format/index.js");
+/* harmony import */ var react_date_range__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-date-range */ "./node_modules/react-date-range/dist/index.js");
+
 
 
 
@@ -1325,15 +1362,24 @@ const PopupContainer = () => {
     const [filteredList, setFilteredList] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(infos);
     const [loading, setLoading] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true);
     const [selectedDates, setSelectedDates] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([new Date(), new Date()]);
+    const [calendar, setCalendar] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)((0,date_fns__WEBPACK_IMPORTED_MODULE_5__["default"])(new Date(), 'dd-MM-yyyy'));
+    const [isOpen, setIsOpen] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
     const today = new Date();
     const day = today.getDate();
     const month = today.getMonth() + 1;
     const year = today.getFullYear();
     const formattedDate = `${day}/${month}/${year}`;
-    const navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useNavigate)();
-    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-        setFilteredList(infos);
-    }, [infos]);
+    const navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_6__.useNavigate)();
+    const refCalendar = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+    const clickOutside = (event) => {
+        if (refCalendar.current && !refCalendar.current.contains(event.target)) {
+            setIsOpen(false);
+        }
+    };
+    const handleSelectDate = (date) => {
+        console.log(date);
+        setCalendar((0,date_fns__WEBPACK_IMPORTED_MODULE_5__["default"])(date, 'dd-MM-yyyy'));
+    };
     const handleGetAccessToken = () => {
         chrome.runtime.sendMessage({ action: "login_request" }, (response) => {
             if (response && response.success) {
@@ -1346,19 +1392,6 @@ const PopupContainer = () => {
             }
         });
     };
-    const handleProcess = () => {
-        chrome.runtime.sendMessage({ action: "process" }, (response) => {
-            if (response) {
-                console.log('response', response);
-            }
-            else {
-                console.error(response.error);
-            }
-        });
-    };
-    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-        handleProcess();
-    }, []);
     const cookieFake = {
         sb: "SS9PZR4H9YpW0G7pgFEHXWgs",
         datr: "SS9PZYqNyaQ8Wgxg8cL3Mtdd",
@@ -1438,138 +1471,95 @@ const PopupContainer = () => {
         }
     }, [detailParam]);
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-        var _a, _b, _c, _d, _e;
         let dataInfos = [];
-        for (let i = 0; i < dataAccount.length; i++) {
-            const debt = currencyChange((_a = dataAccount[i]) === null || _a === void 0 ? void 0 : _a.balance, (_b = dataAccount[i]) === null || _b === void 0 ? void 0 : _b.account_currency_ratio_to_usd);
-            const thresholdArr = (_d = (_c = dataAccount[i]) === null || _c === void 0 ? void 0 : _c.adspaymentcycle) === null || _d === void 0 ? void 0 : _d.data.map((item) => item.threshold_amount);
-            const threShold = currencyChange(thresholdArr, (_e = dataAccount[i]) === null || _e === void 0 ? void 0 : _e.account_currency_ratio_to_usd);
-            const cookieFake = {
-                sb: "SS9PZR4H9YpW0G7pgFEHXWgs",
-                datr: "SS9PZYqNyaQ8Wgxg8cL3Mtdd",
-                locale: "vi_VN",
-                c_user: "100045983811887",
-                xs: "34%3A9F64PgFRQVSDMw%3A2%3A1699688308%3A-1%3A7939%3A%3AAcWO44l763FnAPpvkN9cYoCfIO-2F_E5LAQLpiwz8w",
-                wd: "1020x923",
-                fr: "1LV2cQ5w7OjeQXY13.AWXbduuHs9y3L7UcnilsG_2AQFk.BlUan_.xm.AAA.0.0.BlUayT.AWVwG62htzQ",
-                presence: "C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1699851417154%2C%22v%22%3A1%7D"
-            };
-            const cookiesFake2 = {
-                sb: "g7xBZfn1sHbLcaZAfEeHY5LY",
-                datr: "g7xBZZTQlGTHLaOKnQN8wBa6",
-                locale: "vi_VN",
-                c_user: "100054281226202",
-                xs: "45%3A57SenU0v_LLjCA%3A2%3A1699859925%3A-1%3A8014",
-                fr: "1oXA4eTQubQwmjx1g.AWWxRWaqyxwSTScfDG99HhgGhf0.BlT0iO.WF.AAA.0.0.BlUc3W.AWXDDEmPepI",
-                presence: "C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1699859937792%2C%22v%22%3A1%7D",
-                wd: "1920x498"
-            };
-            dataInfos = [
-                {
-                    STT: 1,
-                    DATE_HOME: formattedDate,
-                    COOKIES: "Cookie",
-                    ID_TKQC_HOME: 573216737882876,
-                    NAME_TK_HOME: "Jenny",
-                    TOTAL_ACCOUNT_ADS: 4,
-                    TOTAL_BM: 20,
-                    TOTAL_SPENDING_HOME: 1234233,
-                    TOTAL_THRESHOLD: 2313120,
-                    DEBT_TOTAL: 2035556,
-                    DETAIL: "DETAIL",
-                    ID: (0,uuid__WEBPACK_IMPORTED_MODULE_6__["default"])(),
-                },
-                {
-                    STT: 2,
-                    DATE_HOME: formattedDate,
-                    COOKIES: 15610562311,
-                    ID_TKQC_HOME: 8573216737882871,
-                    NAME_TK_HOME: "ADAM",
-                    TOTAL_ACCOUNT_ADS: 9,
-                    TOTAL_BM: 1,
-                    TOTAL_SPENDING_HOME: 1234233,
-                    TOTAL_THRESHOLD: 555005,
-                    DEBT_TOTAL: 56555213321,
-                    ID: (0,uuid__WEBPACK_IMPORTED_MODULE_6__["default"])(),
-                },
-                {
-                    STT: 3,
-                    DATE_HOME: formattedDate,
-                    COOKIES: cookiesFake2.c_user,
-                    NAME_TK_HOME: "Charles",
-                    ID_TKQC_HOME: 4573216737882871,
-                    TOTAL_ACCOUNT_ADS: 199,
-                    TOTAL_BM: 150,
-                    TOTAL_SPENDING_HOME: 1234233,
-                    TOTAL_THRESHOLD: 65656000,
-                    DEBT_TOTAL: 54212312,
-                    DETAIL: "DETAIL",
-                    ID: (0,uuid__WEBPACK_IMPORTED_MODULE_6__["default"])(),
-                },
-            ];
-            setInfos(dataInfos);
-            setLoading(false);
-        }
+        // for (let i = 0; i < dataAccount.length; i++) {
+        //     const debt = currencyChange(
+        //         dataAccount[i]?.balance,
+        //         dataAccount[i]?.account_currency_ratio_to_usd
+        //     );
+        //     const thresholdArr = dataAccount[i]?.adspaymentcycle?.data.map(
+        //         ( item ) => item.threshold_amount
+        //     );
+        //     const threShold = currencyChange(
+        //         thresholdArr,
+        //         dataAccount[i]?.account_currency_ratio_to_usd
+        //     );
+        const cookieFake = {
+            sb: "SS9PZR4H9YpW0G7pgFEHXWgs",
+            datr: "SS9PZYqNyaQ8Wgxg8cL3Mtdd",
+            locale: "vi_VN",
+            c_user: "100045983811887",
+            xs: "34%3A9F64PgFRQVSDMw%3A2%3A1699688308%3A-1%3A7939%3A%3AAcWO44l763FnAPpvkN9cYoCfIO-2F_E5LAQLpiwz8w",
+            wd: "1020x923",
+            fr: "1LV2cQ5w7OjeQXY13.AWXbduuHs9y3L7UcnilsG_2AQFk.BlUan_.xm.AAA.0.0.BlUayT.AWVwG62htzQ",
+            presence: "C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1699851417154%2C%22v%22%3A1%7D"
+        };
+        const cookiesFake2 = {
+            sb: "g7xBZfn1sHbLcaZAfEeHY5LY",
+            datr: "g7xBZZTQlGTHLaOKnQN8wBa6",
+            locale: "vi_VN",
+            c_user: "100054281226202",
+            xs: "45%3A57SenU0v_LLjCA%3A2%3A1699859925%3A-1%3A8014",
+            fr: "1oXA4eTQubQwmjx1g.AWWxRWaqyxwSTScfDG99HhgGhf0.BlT0iO.WF.AAA.0.0.BlUc3W.AWXDDEmPepI",
+            presence: "C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1699859937792%2C%22v%22%3A1%7D",
+            wd: "1920x498"
+        };
+        dataInfos = [
+            {
+                STT: 1,
+                DATE_HOME: formattedDate,
+                COOKIES: "Cookie",
+                ID_TKQC_HOME: 573216737882876,
+                NAME_TK_HOME: "Jenny",
+                TOTAL_ACCOUNT_ADS: 4,
+                TOTAL_BM: 20,
+                TOTAL_SPENDING_HOME: 1234233,
+                TOTAL_THRESHOLD: 2313120,
+                DEBT_TOTAL: 2035556,
+                DETAIL: "DETAIL",
+                ID: (0,uuid__WEBPACK_IMPORTED_MODULE_7__["default"])(),
+            },
+            {
+                STT: 2,
+                DATE_HOME: formattedDate,
+                COOKIES: 15610562311,
+                ID_TKQC_HOME: 8573216737882871,
+                NAME_TK_HOME: "ADAM",
+                TOTAL_ACCOUNT_ADS: 9,
+                TOTAL_BM: 1,
+                TOTAL_SPENDING_HOME: 1234233,
+                TOTAL_THRESHOLD: 555005,
+                DEBT_TOTAL: 56555213321,
+                ID: (0,uuid__WEBPACK_IMPORTED_MODULE_7__["default"])(),
+            },
+            {
+                STT: 3,
+                DATE_HOME: formattedDate,
+                COOKIES: cookiesFake2.c_user,
+                NAME_TK_HOME: "Charles",
+                ID_TKQC_HOME: 4573216737882871,
+                TOTAL_ACCOUNT_ADS: 199,
+                TOTAL_BM: 150,
+                TOTAL_SPENDING_HOME: 1234233,
+                TOTAL_THRESHOLD: 65656000,
+                DEBT_TOTAL: 54212312,
+                DETAIL: "DETAIL",
+                ID: (0,uuid__WEBPACK_IMPORTED_MODULE_7__["default"])(),
+            },
+        ];
+        setInfos(dataInfos);
+        setLoading(false);
+        // }
     }, [dataAccount, accountID]);
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
         handleGetAccessToken();
     }, []);
-    // propsConfigs={{
-    //     dateNavBtnProps: {
-    //         colorScheme: "blue",
-    //             variant: "outline"
-    //     },
-    //     dayOfMonthBtnProps: {
-    //         defaultBtnProps: {
-    //             borderColor: "red.300",
-    //                 _hover: {
-    //                 background: 'blue.400',
-    //             }
-    //         },
-    //         isInRangeBtnProps: {
-    //             color: "yellow",
-    //         },
-    //         selectedBtnProps: {
-    //             background: "blue.200",
-    //                 color: "green",
-    //         },
-    //         todayBtnProps: {
-    //             background: "teal.400",
-    //         }
-    //     },
-    //     inputProps: {
-    //         size: "sm"
-    //     },
-    //     popoverCompProps: {
-    //         popoverContentProps: {
-    //             background: "gray.700",
-    //                 color: "white",
-    //         },
-    //     },
-    //     calendarPanelProps: {
-    //         wrapperProps: {
-    //             borderColor: 'green',
-    //         },
-    //         contentProps: {
-    //             borderWidth: 0,
-    //         },
-    //         headerProps: {
-    //             padding: '5px',
-    //         },
-    //         dividerProps: {
-    //             display: "none",
-    //         },
-    //     },
-    //     weekdayLabelProps: {
-    //         fontWeight: 'normal'
-    //     },
-    //     dateHeadingProps: {
-    //         fontWeight: 'semibold'
-    //     }
-    // }}
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        setFilteredList(infos);
+    }, [infos]);
     if (loading) {
         return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].spinnerContainer },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__.Spinner, { thickness: '4px', speed: '0.65s', emptyColor: 'gray.200', color: 'blue.500', size: 'xl', className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].ChakraSpinner })));
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Spinner, { thickness: '4px', speed: '0.65s', emptyColor: 'gray.200', color: 'blue.500', size: 'xl', className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].ChakraSpinner })));
     }
     return (!loading &&
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
@@ -1577,8 +1567,11 @@ const PopupContainer = () => {
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "wrapper", id: "main" },
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "sc_heading", style: { marginBottom: "20px", backgroundColor: "transparent" } },
                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_component_Search__WEBPACK_IMPORTED_MODULE_3__["default"], { filteredList: filteredList, infos: infos, setFilteredList: setFilteredList }),
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null,
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(chakra_dayzed_datepicker__WEBPACK_IMPORTED_MODULE_4__.RangeDatepicker, { selectedDates: selectedDates, onDateChange: setSelectedDates }))),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_9__.Stack, { spacing: 3 },
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_10__.Input, { bgColor: "#fff", className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].inputCalendar, placeholder: 'small size', size: 'sm', value: calendar, onClick: () => setIsOpen(true) })),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].Calendar },
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { style: { zIndex: 10000000 }, className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].calenderContainer },
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { ref: refCalendar }, isOpen && react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_date_range__WEBPACK_IMPORTED_MODULE_4__.Calendar, { date: new Date(), onChange: handleSelectDate }))))),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "AccStatus", className: "tabcontent active" },
                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "loaddata1", style: { display: "none" } },
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", { src: "chrome-extension://ookgnahfklmejhicejjbfjifppjbfnlk/access/icon/loadingdata.gif", alt: "" })),
@@ -1599,7 +1592,7 @@ const PopupContainer = () => {
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("TOTAL_SPENDING_HOME") }, "T\u1ED5ng Ti\u00EAu"),
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("TOTAL_THRESHOLD") }, "T\u1ED5ng Ng\u01B0\u1EE1ng"),
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", style: { minWidth: "100px" }, onClick: () => handleSortItemNumber("DEBT_TOTAL") }, "T\u1ED5ng D\u01B0 n\u1EE3"))),
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tbody", { id: "tb" }, filteredList.map((item, key) => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", { className: "trInfo", key: (0,uuid__WEBPACK_IMPORTED_MODULE_6__["default"])(), style: { backgroundColor: copied[key] ? "red" : "transparent" } },
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tbody", { id: "tb" }, filteredList.map((item, key) => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", { className: "trInfo", key: (0,uuid__WEBPACK_IMPORTED_MODULE_7__["default"])(), style: { backgroundColor: copied[key] ? "red" : "transparent" } },
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" }, item.STT),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
                                     " ",
@@ -1611,12 +1604,12 @@ const PopupContainer = () => {
                                             marginTop: 5
                                         } },
                                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_copy_to_clipboard__WEBPACK_IMPORTED_MODULE_2__.CopyToClipboard, { text: item.COOKIES, onCopy: () => handleCopyCookie(key) },
-                                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Button, { colorScheme: 'whatsapp' }, copied[key] ? "COPIED" : "COPY")))),
+                                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_11__.Button, { colorScheme: 'whatsapp' }, copied[key] ? "COPIED" : "COPY")))),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_9__.Stack, { spacing: [1, 5], direction: ['column', 'row'], style: { display: "flex", justifyContent: "center", marginTop: 5 } },
-                                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_10__.Checkbox, { size: 'sm', colorScheme: 'green' }, "Mr D"),
-                                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_10__.Checkbox, { size: 'sm', colorScheme: 'green' }, "Mr H"),
-                                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_10__.Checkbox, { size: 'sm', colorScheme: 'green' }, "Mr A"))),
+                                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_12__.Checkbox, { size: 'sm', colorScheme: 'green' }, "Mr D"),
+                                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_12__.Checkbox, { size: 'sm', colorScheme: 'green' }, "Mr H"),
+                                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_12__.Checkbox, { size: 'sm', colorScheme: 'green' }, "Mr A"))),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo", style: { textAlign: "center", overflow: "hidden" } },
                                     " ",
                                     item.ID_TKQC_HOME),
@@ -1637,7 +1630,7 @@ const PopupContainer = () => {
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, convertNumberToUsd(item.DEBT_TOTAL))),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].optionValue },
-                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Button, { onClick: handleNavigateDetail, m: 4, className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].optionButton }, `Open Detail Cookie`))))))))))));
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_11__.Button, { onClick: handleNavigateDetail, m: 4, className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].optionButton }, `Open Detail Cookie`))))))))))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PopupContainer);
 
@@ -3652,7 +3645,7 @@ const PopupDetailAD = () => {
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "command_flex" },
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_component_Search__WEBPACK_IMPORTED_MODULE_2__["default"], { filteredList: filteredList, infos: infos, setFilteredList: setFilteredList })),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "command_flex" },
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__.Stack, { direction: 'row' },
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__.Stack, { direction: 'row', style: { display: "flex", alignItems: "center" } },
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__.Switch, { onChange: handleChangeCurrency, colorScheme: 'teal', size: 'lg' }),
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "Change USD")),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "command_btn", id: "btn_export", onClick: handleReloadStorage },
@@ -3666,7 +3659,6 @@ const PopupDetailAD = () => {
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", null,
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("STT") }, "STT"),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("STATUS") }, "Tr\u1EA1ng th\u00E1i"),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("DATE") }, "DATE"),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemNumber("ID_TKQC_AD") }, "ID"),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", { className: "sort", onClick: () => handleSortItemText("NAME_TK_AD") },
                                     "T\u00EAn TK",
@@ -3689,9 +3681,6 @@ const PopupDetailAD = () => {
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" }, item.STT),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "tbstatus" }, checkStatusBM(item.STATUS))),
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
-                                " ",
-                                item.DATE_AD),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
                                 " ",
                                 item.ID_TKQC_AD),
@@ -3767,16 +3756,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/index.module.scss */ "./src/popup/popupDetail/styles/index.module.scss");
-/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! uuid */ "./node_modules/uuid/dist/esm-browser/v4.js");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/spinner/dist/chunk-5PH6ULNP.mjs");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/tabs/dist/chunk-GTRZJDIL.mjs");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/tabs/dist/chunk-BXDFYXZJ.mjs");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/tabs/dist/chunk-IAXSQ4X2.mjs");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/tabs/dist/chunk-4YMKQ5D4.mjs");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/tabs/dist/chunk-KGTDXOFZ.mjs");
+/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! uuid */ "./node_modules/uuid/dist/esm-browser/v4.js");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/spinner/dist/chunk-5PH6ULNP.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/tabs/dist/chunk-GTRZJDIL.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/tabs/dist/chunk-BXDFYXZJ.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/tabs/dist/chunk-IAXSQ4X2.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/tabs/dist/chunk-4YMKQ5D4.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/tabs/dist/chunk-KGTDXOFZ.mjs");
 /* harmony import */ var _detailPage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./detailPage */ "./src/popup/popupDetail/detailPage/index.tsx");
 /* harmony import */ var _detailPageSale__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./detailPageSale */ "./src/popup/popupDetail/detailPageSale/index.tsx");
 /* harmony import */ var _detailBM__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./detailBM */ "./src/popup/popupDetail/detailBM/index.tsx");
+/* harmony import */ var _static_icon__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../static/icon */ "./src/static/icon/index.tsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+
+
 
 
 
@@ -3798,6 +3791,7 @@ const PopupDetail = () => {
     const month = today.getMonth() + 1;
     const year = today.getFullYear();
     const formattedDate = `${day}/${month}/${year}`;
+    const navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_6__.useNavigate)();
     const handleGetAccessToken = () => {
         chrome.runtime.sendMessage({ action: "login_request" }, (response) => {
             if (response && response.success) {
@@ -3810,6 +3804,9 @@ const PopupDetail = () => {
                 console.error(response.error);
             }
         });
+    };
+    const hanldeTurnBack = () => {
+        navigate(-1);
     };
     const checkStatusBM = (option) => {
         switch (option) {
@@ -4054,7 +4051,7 @@ const PopupDetail = () => {
                     ID_BM: (_t = (_s = dataAccount[i]) === null || _s === void 0 ? void 0 : _s.owner_business) === null || _t === void 0 ? void 0 : _t.id,
                     PAYMENT_METHOD: (_w = (_v = (_u = dataAccount[i]) === null || _u === void 0 ? void 0 : _u.all_payment_methods) === null || _v === void 0 ? void 0 : _v.pm_credit_card) === null || _w === void 0 ? void 0 : _w.data.map((item) => item === null || item === void 0 ? void 0 : item.display_string),
                     TIME_ZONE: `${(_x = dataAccount[i]) === null || _x === void 0 ? void 0 : _x.timezone_offset_hours_utc}  -  ${(_y = dataAccount[i]) === null || _y === void 0 ? void 0 : _y.timezone_name} `,
-                    ID: (0,uuid__WEBPACK_IMPORTED_MODULE_5__["default"])(),
+                    ID: (0,uuid__WEBPACK_IMPORTED_MODULE_7__["default"])(),
                     CURRENCY_RATIO_USD: (_z = dataAccount[i]) === null || _z === void 0 ? void 0 : _z.account_currency_ratio_to_usd
                 });
             }
@@ -4067,21 +4064,24 @@ const PopupDetail = () => {
     }, []);
     if (loading) {
         return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].spinnerContainer },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_6__.Spinner, { thickness: '4px', speed: '0.65s', emptyColor: 'gray.200', color: 'blue.500', size: 'xl', className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].ChakraSpinner })));
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Spinner, { thickness: '4px', speed: '0.65s', emptyColor: 'gray.200', color: 'blue.500', size: 'xl', className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].ChakraSpinner })));
     }
     return (!loading &&
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__.Tabs, { variant: 'soft-rounded', colorScheme: 'green' },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.TabList, { className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].popupTabList, style: { width: 157 } },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_9__.Tab, null, "AD"),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_9__.Tab, null, "BM"),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_9__.Tab, null, "PAGE")),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_10__.TabPanels, null,
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_11__.TabPanel, { style: { padding: 0 } },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_9__.Tabs, { variant: 'soft-rounded', colorScheme: 'green' },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].tabListContainer },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_10__.TabList, { className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].popupTabList, style: { width: 157 } },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_11__.Tab, null, "AD"),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_11__.Tab, null, "BM"),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_11__.Tab, null, "PAGE")),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { onClick: hanldeTurnBack, className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].turnBack },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", { src: _static_icon__WEBPACK_IMPORTED_MODULE_5__.images.TurnBack }))),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_12__.TabPanels, null,
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_13__.TabPanel, { style: { padding: 0 } },
                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_detailPage__WEBPACK_IMPORTED_MODULE_2__["default"], null)),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_11__.TabPanel, { style: { padding: 0 } },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_13__.TabPanel, { style: { padding: 0 } },
                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_detailBM__WEBPACK_IMPORTED_MODULE_4__["default"], null)),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_11__.TabPanel, { style: { padding: 0 } },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_13__.TabPanel, { style: { padding: 0 } },
                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_detailPageSale__WEBPACK_IMPORTED_MODULE_3__["default"], null))))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PopupDetail);
@@ -4171,6 +4171,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _paymentactivity_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../paymentactivity.png */ "./src/static/paymentactivity.png");
 /* harmony import */ var _showAction_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../showAction.png */ "./src/static/showAction.png");
 /* harmony import */ var _paymentCredit_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../paymentCredit.png */ "./src/static/paymentCredit.png");
+/* harmony import */ var _turnBack_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../turnBack.png */ "./src/static/turnBack.png");
+
 
 
 
@@ -4179,7 +4181,8 @@ const images = {
     PaymentMethod: _paymentmethod_png__WEBPACK_IMPORTED_MODULE_0__["default"],
     PaymentActivity: _paymentactivity_png__WEBPACK_IMPORTED_MODULE_1__["default"],
     ShowAction: _showAction_png__WEBPACK_IMPORTED_MODULE_2__["default"],
-    PaymentCredit: _paymentCredit_png__WEBPACK_IMPORTED_MODULE_3__["default"]
+    PaymentCredit: _paymentCredit_png__WEBPACK_IMPORTED_MODULE_3__["default"],
+    TurnBack: _turnBack_png__WEBPACK_IMPORTED_MODULE_4__["default"]
 };
 
 
