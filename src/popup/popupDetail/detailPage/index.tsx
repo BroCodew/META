@@ -38,9 +38,7 @@ const PopupDetailAD = () => {
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentItems = infos.slice(indexOfFirstItem, indexOfLastItem);
     const navigate = useNavigate();
-    useEffect(() => {
-        setFilteredList(infos)
-    }, [infos]);
+
     const handleGetAccessToken = () => {
         chrome.runtime.sendMessage({ action : "login_request" }, ( response ) => {
             if (response && response.success) {
@@ -87,19 +85,7 @@ const PopupDetailAD = () => {
             return "-";
         }
     }
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const result = await getLimit(tokenFdtg,accountID);
-                setLimit(result);
-                console.log("Limit value:", result);
-            } catch (error) {
-                console.error("Error in fetchData:", error);
-            }
-        };
 
-        fetchData();
-    }, []);
     console.log("Limit value:", 1111111);
 
     const checkStatusBM = ( option ) => {
@@ -203,6 +189,8 @@ const PopupDetailAD = () => {
         }
 
     };
+
+    console.log('infos', infos);
 
 
         const handleSortItemText = ( field ) => {
@@ -1604,6 +1592,20 @@ const PopupDetailAD = () => {
         handleGetAccessToken();
     }, []);
 
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const result = await getLimit(tokenFdtg,accountID);
+                setLimit(result);
+                console.log("Limit value:", result);
+            } catch (error) {
+                console.error("Error in fetchData:", error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
     const updateSize = () => {
         const td1 = document.querySelector('.tdInfo:nth-child(1)') as HTMLElement;
         const td2 = document.querySelector('.tdInfo:nth-child(2)') as HTMLElement;
@@ -1642,22 +1644,17 @@ const PopupDetailAD = () => {
     }
 
     useEffect(() => {
-        const intervalId = setInterval(updateSize, 1000);
+        const intervalId = setInterval(updateSize, 10);
         const cleanup = () => {
             clearInterval(intervalId);
             console.log('Interval cleared after 2 seconds.');
         };
-        const timeoutId = setTimeout(cleanup, 100000);
+        const timeoutId = setTimeout(cleanup, 2000);
         return () => {
             clearTimeout(timeoutId);
             cleanup();
         };
-    }, [infos, widthMain.widthTotal,
-        widthMain.widthDebt,
-        widthMain.widthThresHold,
-        widthMain.widthLimit,
-        widthMain.widthLimitHidden,
-        widthMain.widthLimitTotalSpending]);
+    }, [ changeCurrency]);
 
 
     useEffect(() => {
@@ -1666,6 +1663,9 @@ const PopupDetailAD = () => {
         }, true);
     }, []);
 
+    useEffect(() => {
+        setFilteredList(infos)
+    }, [infos]);
 
     return (
 
@@ -1907,7 +1907,7 @@ const PopupDetailAD = () => {
                                     backgroundColor : "#133c40",
                                     borderRight : "1px solid #ccc"
                                 }}>
-                                {formatNumber(infos.reduce(( total, item ) => total + item.DEBT, 0))}
+                                ${formatNumber(infos.reduce(( total, item ) => total + item.DEBT_USD, 0))}
                             </td>
                             <td className="tdInfo"
                                 style={{
@@ -1915,7 +1915,7 @@ const PopupDetailAD = () => {
                                     backgroundColor : "#133c40",
                                     borderRight : "1px solid #ccc"
                                 }}>
-                                {formatNumber(infos.reduce(( total, item ) => total + item.DEBT, 0))}
+                                ${formatNumber(infos.reduce(( total, item ) => total + item.THRESHOLD_USD, 0))}
                             </td>
                             <td className="tdInfo"
                                 style={{
@@ -1923,7 +1923,7 @@ const PopupDetailAD = () => {
                                     backgroundColor : "#133c40",
                                     borderRight : "1px solid #ccc"
                                 }}>
-                                {formatNumber(infos.reduce(( total, item ) => total + item.DEBT, 0))}
+                                ${formatNumber(infos.reduce(( total, item ) => total + item.LIMIT_USD, 0))}
                             </td>
                             <td className="tdInfo"
                                 style={{
@@ -1931,13 +1931,13 @@ const PopupDetailAD = () => {
                                     backgroundColor : "#133c40",
                                     borderRight : "1px solid #ccc"
                                 }}>
-                                {formatNumber(infos.reduce(( total, item ) => total + item.DEBT, 0))}
+                                ${formatNumber(infos.reduce(( total, item ) => total + item.LIMIT_USD, 0))}
                             </td>
                             <td className="tdInfo" style={{
                                 width : `${widthMain.widthLimitTotalSpending}px`,
                                 backgroundColor : "#133c40"
                             }}>
-                                {formatNumber(infos.reduce(( total, item ) => total + item.DEBT, 0))}
+                                ${formatNumber(infos.reduce(( total, item ) => total + item.TOTAL_SPENDING_USD, 0))}
                             </td>
                         </tr>
                         </tbody>

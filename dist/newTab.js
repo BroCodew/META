@@ -243,7 +243,7 @@ root.render(react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_rou
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["vendors-node_modules_react-dom_client_js","vendors-node_modules_react-copy-to-clipboard_lib_index_js-node_modules_react-date-range_dist_-6fd183","src_tabs_tabs_tsx-data_image_svg_xml_utf8_svg_width_279px_27_height_276px_27_viewBox_270_0_9_-7b4b7a"], () => (__webpack_require__("./src/tabs/index.tsx")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["vendors-node_modules_react-dom_client_js","vendors-node_modules_react-copy-to-clipboard_lib_index_js-node_modules_react-date-range_dist_-a7c0b3","src_tabs_tabs_tsx-data_image_svg_xml_utf8_svg_width_279px_27_height_276px_27_viewBox_270_0_9_-7b4b7a"], () => (__webpack_require__("./src/tabs/index.tsx")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

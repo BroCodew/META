@@ -170,7 +170,7 @@ const PopupDetailPageSale = () => {
                 <div className="wrapper" id="main" style={{ padding : 0 }}>
                     <div className="sc_heading" style={{ padding : 0 }}>
                         <div className="command">
-                            <div className="command_head" style={{ backgroundColor : "#023302" }}>
+                            <div className="command_head" style={{ backgroundColor : "#2b3054" }}>
                                 <div className="command_flex">
                                     <SearchBar filteredList={filteredList} infos={infos}
                                                setFilteredList={setFilteredList}/>

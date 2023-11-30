@@ -42,7 +42,30 @@
     border-bottom: 1px solid #e6e6e6;
 }
 
+.activity-id{
+  display: flex;
+  justify-content: space-between;
+  .id-threshold{
+    display: flex;
+    .threshold-data{
+      text-align: right;
+      margin-right: 15px;
+    }
+    .threshold-button{
+      background-color: #aac9ff;
+      color: #3384ed94;
+      font-weight: 700;
+      padding: 0 15px;
+    }
+  }
+}
 
 
-
-
+.background-paid{
+  background-color: rgb(218 242 194);
+  color: rgb(57 115 0);
+  border-radius: 10px;
+  text-align: center;
+  font-size: 9px;
+  padding: 2px 7px;
+}

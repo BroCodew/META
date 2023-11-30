@@ -61,7 +61,34 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.bill-activity-container {
   background-color: #aac9ff;
   color: #1877f2;
   font-weight: 700;
-}`, "",{"version":3,"sources":["webpack://./src/popup/popupBill/billComponent/billActivity/index.scss"],"names":[],"mappings":"AAAA;EACE,iBAAA;EACA,aAAA;EACA,sBAAA;AACF;;AAEA;EACE,cAAA;EACA,eAAA;EACA,gBAAA;AACF;;AAEA;EACE,cAAA;EACA,eAAA;AACF;;AAEA;EACE,oCAAA;EACA,kBAAA;EACA,kBAAA;EACA,gBAAA;AACF;;AAEA;EACE,cAAA;AACF;AAAE;EAEE,cAAA;EACA,eAAA;EACA,gBAAA;EACA,gBAAA;AACJ;;AAGA;EAMI,gCAAA;AALJ;AAAG;EACE,yBAAA;EACA,cAAA;EACA,gBAAA;AAEL","sourcesContent":[".bill-activity-container{\r\n  margin-left: 20px;\r\n  display: flex;\r\n  flex-direction: column;\r\n}\r\n\r\n.font-upper-balance{\r\n  color:#212529;\r\n  font-size: 16px;\r\n  font-weight: 700;\r\n}\r\n\r\n.font-down-balance{\r\n  color:#212529;\r\n  font-size: 13px;\r\n}\r\n\r\n.content-background{\r\n  background-color: rgb(255 255 255);\r\n  padding: 10px 15px;\r\n  border-radius: 7px;\r\n  margin-top: 10px;\r\n}\r\n\r\n.activity-title{\r\n  padding-top: 0;\r\n  p{\r\n\r\n    color:#212529;\r\n    font-size: 16px;\r\n    font-weight: 500;\r\n    line-height: 1.2;\r\n  }\r\n}\r\n\r\n.activity-account {\r\n   .account-button{\r\n     background-color: #aac9ff;\r\n     color: #1877f2;\r\n     font-weight: 700;\r\n   }\r\n    border-bottom: 1px solid #e6e6e6;\r\n}\r\n\r\n\r\n\r\n\r\n\r\n"],"sourceRoot":""}]);
+}
+
+.activity-id {
+  display: flex;
+  justify-content: space-between;
+}
+.activity-id .id-threshold {
+  display: flex;
+}
+.activity-id .id-threshold .threshold-data {
+  text-align: right;
+  margin-right: 15px;
+}
+.activity-id .id-threshold .threshold-button {
+  background-color: #aac9ff;
+  color: rgba(51, 132, 237, 0.5803921569);
+  font-weight: 700;
+  padding: 0 15px;
+}
+
+.background-paid {
+  background-color: rgb(218, 242, 194);
+  color: rgb(57, 115, 0);
+  border-radius: 10px;
+  text-align: center;
+  font-size: 9px;
+  padding: 2px 7px;
+}`, "",{"version":3,"sources":["webpack://./src/popup/popupBill/billComponent/billActivity/index.scss"],"names":[],"mappings":"AAAA;EACE,iBAAA;EACA,aAAA;EACA,sBAAA;AACF;;AAEA;EACE,cAAA;EACA,eAAA;EACA,gBAAA;AACF;;AAEA;EACE,cAAA;EACA,eAAA;AACF;;AAEA;EACE,oCAAA;EACA,kBAAA;EACA,kBAAA;EACA,gBAAA;AACF;;AAEA;EACE,cAAA;AACF;AAAE;EAEE,cAAA;EACA,eAAA;EACA,gBAAA;EACA,gBAAA;AACJ;;AAGA;EAMI,gCAAA;AALJ;AAAG;EACE,yBAAA;EACA,cAAA;EACA,gBAAA;AAEL;;AAGA;EACE,aAAA;EACA,8BAAA;AAAF;AACE;EACE,aAAA;AACJ;AAAI;EACE,iBAAA;EACA,kBAAA;AAEN;AAAI;EACE,yBAAA;EACA,uCAAA;EACA,gBAAA;EACA,eAAA;AAEN;;AAIA;EACE,oCAAA;EACA,sBAAA;EACA,mBAAA;EACA,kBAAA;EACA,cAAA;EACA,gBAAA;AADF","sourcesContent":[".bill-activity-container{\r\n  margin-left: 20px;\r\n  display: flex;\r\n  flex-direction: column;\r\n}\r\n\r\n.font-upper-balance{\r\n  color:#212529;\r\n  font-size: 16px;\r\n  font-weight: 700;\r\n}\r\n\r\n.font-down-balance{\r\n  color:#212529;\r\n  font-size: 13px;\r\n}\r\n\r\n.content-background{\r\n  background-color: rgb(255 255 255);\r\n  padding: 10px 15px;\r\n  border-radius: 7px;\r\n  margin-top: 10px;\r\n}\r\n\r\n.activity-title{\r\n  padding-top: 0;\r\n  p{\r\n\r\n    color:#212529;\r\n    font-size: 16px;\r\n    font-weight: 500;\r\n    line-height: 1.2;\r\n  }\r\n}\r\n\r\n.activity-account {\r\n   .account-button{\r\n     background-color: #aac9ff;\r\n     color: #1877f2;\r\n     font-weight: 700;\r\n   }\r\n    border-bottom: 1px solid #e6e6e6;\r\n}\r\n\r\n.activity-id{\r\n  display: flex;\r\n  justify-content: space-between;\r\n  .id-threshold{\r\n    display: flex;\r\n    .threshold-data{\r\n      text-align: right;\r\n      margin-right: 15px;\r\n    }\r\n    .threshold-button{\r\n      background-color: #aac9ff;\r\n      color: #3384ed94;\r\n      font-weight: 700;\r\n      padding: 0 15px;\r\n    }\r\n  }\r\n}\r\n\r\n\r\n.background-paid{\r\n  background-color: rgb(218 242 194);\r\n  color: rgb(57 115 0);\r\n  border-radius: 10px;\r\n  text-align: center;\r\n  font-size: 9px;\r\n  padding: 2px 7px;\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1279,14 +1306,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.scss */ "./src/popup/popupBill/billComponent/billActivity/index.scss");
 /* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/button/dist/chunk-UVUR7MCU.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/select/dist/chunk-3RSXBRAN.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/table/dist/chunk-OA6OURRG.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/table/dist/chunk-GEJVU65N.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/table/dist/chunk-DRZNIHMG.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/table/dist/chunk-GIQFRSD6.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/table/dist/chunk-MGVPL3OH.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/table/dist/chunk-J4QO5GAJ.mjs");
 
 
 
 const PopupActivity = () => {
     const test = [
-        { date: "20/10", method: "Visa-1", amount: 0.03, status: "paid" },
-        { date: "20/10", method: "Visa-1", amount: 0.03, status: "paid" },
-        { date: "20/10", method: "Visa-1", amount: 0.03, status: "paid" }
+        { transactionID: 5369323996512901 - 11185455, date: "20/10", amount: 0.03, method: "Visa-1", status: "paid", invoiceID: "FBADS-202-102321273" },
+        { transactionID: 5369323996512901 - 11185455, date: "20/10", amount: 0.03, method: "Visa-1", status: "paid", invoiceID: "FBADS-202-102321273" },
+        { transactionID: 5369323996512901 - 11185455, date: "20/10", amount: 0.03, method: "Visa-1", status: "paid", invoiceID: "FBADS-202-102321273" },
     ];
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "bill-activity-container" },
@@ -1294,15 +1328,40 @@ const PopupActivity = () => {
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { style: { fontSize: "20px", fontWeight: 700 } }, "Payment activity")),
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "activity-account content-background" },
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.Button, { className: "account-button" }, "Ad account")),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "activity-id" },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null,
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Ad account"),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "1975358262742601")),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null,
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null,
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Current balance"),
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "$0.00")),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.Button, { className: "account-button" }, "Pay now"))))));
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "activity-id content-background" },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "id-account" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "font-down-balance" }, "Ad account"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "font-upper-balance" }, "1975358262742601")),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "id-threshold" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "threshold-data" },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "font-down-balance" }, "Current balance"),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: "data-number font-upper-balance" }, "$0.00")),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.Button, { className: "threshold-button", size: "large" }, "Pay now"))),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "activity-action content-background" },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_3__.Select, { placeholder: 'Transactions' },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", { value: 'option1' }, "Transactions"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", { value: 'option2' }, "Account spending limit"))),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "activity-transaction content-background" },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_4__.TableContainer, null,
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__.Table, { variant: 'simple', __css: { 'table-layout': 'fixed', width: 'full' } },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_6__.Thead, null,
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__.Tr, null,
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Th, { className: "font-upper-balance", style: { paddingLeft: "-10px", fontWeight: "800" } }, "Transaction ID"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Th, { className: "font-upper-balance", style: { paddingLeft: "-10px", fontWeight: "800" } }, "Date"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Th, { className: "font-upper-balance", style: { fontWeight: "800" } }, "Amount"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Th, { className: "font-upper-balance", style: { fontWeight: "800" } }, "Payment method"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Th, { className: "font-upper-balance", style: { fontWeight: "800" } }, "VAT invoice ID"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Th, { className: "font-upper-balance", style: { fontWeight: "800" } }, "Payment status"))),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_9__.Tbody, null, test.map(item => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_7__.Tr, null,
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Th, { className: "font-down-balance", style: { fontWeight: "500" } }, item.transactionID),
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Th, { className: "font-down-balance", style: { fontWeight: "500" } }, item.date),
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Th, { className: "font-down-balance", style: { fontWeight: "500" } },
+                                "$",
+                                item.amount),
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Th, { className: "font-down-balance ", style: { fontWeight: "500" } }, item.method),
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Th, { className: "font-down-balance", style: { fontWeight: "500" } }, item.invoiceID),
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Th, { style: { fontWeight: "500" } },
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "font-down-balance background-paid" }, item.status))))))))))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PopupActivity);
 
@@ -1494,7 +1553,7 @@ const PopupBill = () => {
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "bill-container" },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "bill-header" }, "Billing & payments"),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "bill-body" },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "bill-body", style: { height: "100vh" } },
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "bill-title" },
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "title-tab" },
                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__.Tabs, { variant: 'soft-rounded' },
@@ -1881,11 +1940,9 @@ const PopupDetailBM = () => {
         setFilteredList(infos);
     }, [infos]);
     const checkStatusBM = (status) => {
-        return status === 1 ? (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: _detailPage_styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].statusAccount },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: _detailPage_styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].liveIconLive }),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: _detailPage_styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].liveTextLive }, "LIVE"))) : (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: _detailPage_styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].statusAccount },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: _detailPage_styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].liveIconDie }),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: _detailPage_styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].liveTextDie }, "DIE")));
+        return status === 1 ? (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: _detailPage_styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].statusAccountLive },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: _detailPage_styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].liveTextLive }, "Ho\u1EA1t \u0110\u1ED9ng"))) : (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: _detailPage_styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].statusAccountDie },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: _detailPage_styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].liveTextDie }, "V\u00F4 Hi\u1EC7u")));
     };
     const handleGetData = () => {
         chrome.runtime.sendMessage({ action: "login_request" }, (response) => {
@@ -1985,7 +2042,7 @@ const PopupDetailBM = () => {
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "wrapper", id: "main" },
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "sc_heading", style: { padding: 0 } },
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "command" },
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "command_head", style: { backgroundColor: "#023302" } },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "command_head", style: { backgroundColor: "#2b3054" } },
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "command_flex" },
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_component_Search__WEBPACK_IMPORTED_MODULE_2__["default"], { filteredList: filteredList, infos: infos, setFilteredList: setFilteredList })),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "command_flex" },
@@ -2207,7 +2264,7 @@ const PopupDetailPageSale = () => {
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "wrapper", id: "main", style: { padding: 0 } },
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "sc_heading", style: { padding: 0 } },
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "command" },
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "command_head", style: { backgroundColor: "#023302" } },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "command_head", style: { backgroundColor: "#2b3054" } },
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "command_flex" },
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_component_Search__WEBPACK_IMPORTED_MODULE_3__["default"], { filteredList: filteredList, infos: infos, setFilteredList: setFilteredList })),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "command_flex" },
@@ -2343,9 +2400,6 @@ const PopupDetailAD = () => {
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentItems = infos.slice(indexOfFirstItem, indexOfLastItem);
     const navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useNavigate)();
-    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-        setFilteredList(infos);
-    }, [infos]);
     const handleGetAccessToken = () => {
         chrome.runtime.sendMessage({ action: "login_request" }, (response) => {
             if (response && response.success) {
@@ -2393,19 +2447,6 @@ const PopupDetailAD = () => {
             return "-";
         }
     });
-    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-        const fetchData = () => __awaiter(void 0, void 0, void 0, function* () {
-            try {
-                const result = yield getLimit(tokenFdtg, accountID);
-                setLimit(result);
-                console.log("Limit value:", result);
-            }
-            catch (error) {
-                console.error("Error in fetchData:", error);
-            }
-        });
-        fetchData();
-    }, []);
     console.log("Limit value:", 1111111);
     const checkStatusBM = (option) => {
         switch (option) {
@@ -2453,6 +2494,7 @@ const PopupDetailAD = () => {
             setOrderBy("ASC");
         }
     };
+    console.log('infos', infos);
     const handleSortItemText = (field) => {
         if (orderBy === "ASC") {
             setInfos(infos.sort((a, b) => compare(Object.assign(Object.assign({}, a), { PERMISSION_BM: a.PERMISSION_BM, NAME_TK_AD: a.NAME_TK_AD, PERMISSION_ACCOUNT: a.PERMISSION_ACCOUNT, CITY: a.CITY, COUNTRY: a.COUNTRY, ACCOUNT_TYPE: a.ACCOUNT_TYPE, PAYMENT_METHOD: a.PAYMENT_METHOD }), Object.assign(Object.assign({}, b), { PERMISSION_BM: b.PERMISSION_BM, NAME_TK_AD: b.NAME_TK_AD, PERMISSION_ACCOUNT: b.PERMISSION_ACCOUNT, CITY: b.CITY, COUNTRY: b.COUNTRY, ACCOUNT_TYPE: b.ACCOUNT_TYPE, PAYMENT_METHOD: b.PAYMENT_METHOD }), field)).reverse());
@@ -3789,6 +3831,19 @@ const PopupDetailAD = () => {
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
         handleGetAccessToken();
     }, []);
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        const fetchData = () => __awaiter(void 0, void 0, void 0, function* () {
+            try {
+                const result = yield getLimit(tokenFdtg, accountID);
+                setLimit(result);
+                console.log("Limit value:", result);
+            }
+            catch (error) {
+                console.error("Error in fetchData:", error);
+            }
+        });
+        fetchData();
+    }, []);
     const updateSize = () => {
         const td1 = document.querySelector('.tdInfo:nth-child(1)');
         const td2 = document.querySelector('.tdInfo:nth-child(2)');
@@ -3816,27 +3871,25 @@ const PopupDetailAD = () => {
         }
     };
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-        const intervalId = setInterval(updateSize, 1000);
+        const intervalId = setInterval(updateSize, 10);
         const cleanup = () => {
             clearInterval(intervalId);
             console.log('Interval cleared after 2 seconds.');
         };
-        const timeoutId = setTimeout(cleanup, 100000);
+        const timeoutId = setTimeout(cleanup, 2000);
         return () => {
             clearTimeout(timeoutId);
             cleanup();
         };
-    }, [infos, widthMain.widthTotal,
-        widthMain.widthDebt,
-        widthMain.widthThresHold,
-        widthMain.widthLimit,
-        widthMain.widthLimitHidden,
-        widthMain.widthLimitTotalSpending]);
+    }, [changeCurrency]);
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
         window.addEventListener('resize', function (event) {
             updateSize();
         }, true);
     }, []);
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        setFilteredList(infos);
+    }, [infos]);
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "app", style: { padding: 0 } },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "wrapper", id: "main" },
@@ -3918,26 +3971,36 @@ const PopupDetailAD = () => {
                                     width: `${widthMain.widthDebt}px`,
                                     backgroundColor: "#133c40",
                                     borderRight: "1px solid #ccc"
-                                } }, formatNumber(infos.reduce((total, item) => total + item.DEBT, 0))),
+                                } },
+                                "$",
+                                formatNumber(infos.reduce((total, item) => total + item.DEBT_USD, 0))),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo", style: {
                                     width: `${widthMain.widthThresHold}px`,
                                     backgroundColor: "#133c40",
                                     borderRight: "1px solid #ccc"
-                                } }, formatNumber(infos.reduce((total, item) => total + item.DEBT, 0))),
+                                } },
+                                "$",
+                                formatNumber(infos.reduce((total, item) => total + item.THRESHOLD_USD, 0))),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo", style: {
                                     width: `${widthMain.widthLimit}px`,
                                     backgroundColor: "#133c40",
                                     borderRight: "1px solid #ccc"
-                                } }, formatNumber(infos.reduce((total, item) => total + item.DEBT, 0))),
+                                } },
+                                "$",
+                                formatNumber(infos.reduce((total, item) => total + item.LIMIT_USD, 0))),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo", style: {
                                     width: `${widthMain.widthLimitHidden}px`,
                                     backgroundColor: "#133c40",
                                     borderRight: "1px solid #ccc"
-                                } }, formatNumber(infos.reduce((total, item) => total + item.DEBT, 0))),
+                                } },
+                                "$",
+                                formatNumber(infos.reduce((total, item) => total + item.LIMIT_USD, 0))),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo", style: {
                                     width: `${widthMain.widthLimitTotalSpending}px`,
                                     backgroundColor: "#133c40"
-                                } }, formatNumber(infos.reduce((total, item) => total + item.DEBT, 0))))))))));
+                                } },
+                                "$",
+                                formatNumber(infos.reduce((total, item) => total + item.TOTAL_SPENDING_USD, 0))))))))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PopupDetailAD);
 

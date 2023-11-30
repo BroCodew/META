@@ -12,7 +12,7 @@ const PopupBill = () => {
         <>
         <div className="bill-container">
             <div className="bill-header">Billing & payments</div>
-            <div className="bill-body">
+            <div className="bill-body" style={{height:"100vh"}}>
             <div className="bill-title">
                 <div className={"title-tab"}>
                     <Tabs variant='soft-rounded'  >

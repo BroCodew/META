@@ -92,4 +92,39 @@
   text-align: left;
 }
 
+.statusAccountLive{
+  background-color:rgba(84,244,166,.289);
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  .liveTextLive {
+    margin-left: 1px;
+
+
+    color: #07a107;
+  }
+}
+
+.statusAccountDie{
+  background-color:rgba(255,0,0,.135);
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  .liveTextDie {
+    margin-left: 1px;
+    color: red;
+  }
+}
+
+
 

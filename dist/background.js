@@ -202,35 +202,6 @@ const getDataBM = (token) => __awaiter(this, void 0, void 0, function* () {
         console.error(error);
     }
 });
-// chrome.runtime.onMessage.addListener((request, sender,sendResponse) => {
-//     if (request.action === "process"){
-//         (async ()=> {
-//             try {
-//                 (async() => {
-//                     const process = await  processToken();
-//                     console.log('processBGGGG',process);
-//                 })
-//             }
-//             catch{
-//                 console.log('error');
-//             }
-//         })
-//         return true;
-//     }
-// })
-// chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
-//     if (request.action === "process") {
-//         try {
-//             const result = await processToken();
-//             console.log('processBGGGG', result);
-//             sendResponse({ success: true, data: result });
-//         } catch (error) {
-//             console.log('error', error);
-//             sendResponse({ success: false, error: error.message });
-//         }
-//         return true;
-//     }
-// });
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.action === 'login_request') {
         (() => __awaiter(this, void 0, void 0, function* () {

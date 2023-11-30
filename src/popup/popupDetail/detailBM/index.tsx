@@ -21,14 +21,12 @@ const PopupDetailBM = () => {
     }, [infos]);
     const checkStatusBM = ( status ) => {
         return status === 1 ? (
-            <div className={styles.statusAccount}>
-                <p className={styles.liveIconLive}></p>
-                <p className={styles.liveTextLive}>LIVE</p>
+            <div className={styles.statusAccountLive}>
+                <p className={styles.liveTextLive}>Hoạt Động</p>
             </div>
         ) : (
-            <div className={styles.statusAccount}>
-                <p className={styles.liveIconDie}></p>
-                <p className={styles.liveTextDie}>DIE</p>
+            <div className={styles.statusAccountDie}>
+                <p className={styles.liveTextDie}>Vô Hiệu</p>
             </div>
         );
     }
@@ -145,7 +143,7 @@ const PopupDetailBM = () => {
                 <div className="wrapper" id="main">
                     <div className="sc_heading" style={{ padding : 0 }}>
                         <div className="command">
-                            <div className="command_head" style={{ backgroundColor : "#023302" }}>
+                            <div className="command_head" style={{ backgroundColor : "#2b3054" }}>
                                 <div className="command_flex">
                                     <SearchBar filteredList={filteredList} infos={infos}
                                                setFilteredList={setFilteredList}/>
