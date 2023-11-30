@@ -94,7 +94,7 @@ const PopupBillMethod = () => {
                                            <Th className={"font-down-balance"}>{item.date}</Th>
                                            <Th className={"font-down-balance"}>{item.method}</Th>
                                            <Th className={"font-down-balance"}>${item.amount}</Th>
-                                           <Th className={"font-down-balance"}>{item.status}</Th>
+                                           <Th className={"font-down-balance background-paid"} style={{width:1}}>{item.status}</Th>
 
                                        </Tr>
                                    ))}

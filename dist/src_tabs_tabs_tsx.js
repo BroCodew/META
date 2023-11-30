@@ -331,7 +331,38 @@ ___CSS_LOADER_EXPORT___.push([module.id, `@charset "UTF-8";
 
 .ZyeXDJTopswUrkWEI38Q {
   z-index: 10000000000000;
-}`, "",{"version":3,"sources":["webpack://./src/popup/popupContainer/styles/index.module.scss"],"names":[],"mappings":"AAAA,gBAAgB;AAAhB;EACE,yBAAA;EAIA,gBAAA,EAAA,+BAAA;EACA,mBAAA;EACA,mBAAA;AADF;;AAIA;EAEE,WAAA;AAFF;;AAKA;EACE,kBAAA;EACA,iCAAA;EACA,mCAAA;EACA,iCAAA;EACA,yBAAA;EACA,0BAAA;EACA,mBAAA;AAFF;;AAKA;EACE,kBAAA;EACA,iCAAA;EACA,mCAAA;EACA,oCAAA;EACA,yBAAA;AAFF;;AAKA;EACE,8CAAA;EACA,sDAAA;EACA,oCAAA;AAFF;;AAMA;EACE,oDAAA;EACA,sDAAA;AAHF;;AAMA;EACE,aAAA;EACA,uBAAA;EACA,mBAAA;EACA,aAAA;AAHF;;AAOA;EACE,eAAA;EACA,QAAA;EACA,SAAA;EACA,gCAAA;AAJF;;AAMA;EAEE,uBAAA;AAJF","sourcesContent":[".optionContainer {\r\n  background-color: #fdfdfd;\r\n  //   height: 100vh;\r\n  //   width: 100vw;\r\n  //   display: block;\r\n  overflow-x: auto; /* Kích hoạt thanh cuộn ngang */\r\n  white-space: nowrap;\r\n  border-radius: 10px;\r\n}\r\n\r\n.optionHeader {\r\n  //   background-color: #1a0a72;\r\n  color: #000;\r\n}\r\n\r\n.optionTitle {\r\n  text-align: center;\r\n  border: 1px solid #000 !important;\r\n  box-shadow: 2px 2px 2px 2px #888888;\r\n  color: rgb(51 51 51) !important;\r\n  background-color: #fdfdfd;\r\n  font-size: 15px !important;\r\n  line-height: 19.6px;\r\n}\r\n\r\n.optionValue {\r\n  text-align: center;\r\n  border: 1px solid #000 !important;\r\n  box-shadow: 2px 2px 2px 2px #888888;\r\n  color: rgb(102 102 102) !important;\r\n  background-color: #fdfdfd;\r\n}\r\n\r\n.optionButton {\r\n  background-color: rgb(149 208 58) !important;\r\n  box-shadow: rgb(151 65 252 / 0.2) 0px 15px 30px -5px;\r\n  color: rgb(255 255 255) !important;\r\n  //   background-color: #000 !important;\r\n}\r\n\r\n.optionDrawer {\r\n  background-color: rgba(218, 109, 31, 0.5) !important;\r\n  box-shadow: rgb(151 65 252 / 0.2) 0px 15px 30px -5px;\r\n}\r\n\r\n.spinnerContainer {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  height: 100vh;\r\n  //background-color: #c5e7f7;\r\n}\r\n\r\n.ChakraSpinner {\r\n  position: fixed;\r\n  top: 50%;\r\n  left: 50%;\r\n  transform: translate(-50%, -50%);\r\n}\r\n.Calendar{\r\n  //margin-top: 300px;\r\n  z-index: 10000000000000;\r\n}"],"sourceRoot":""}]);
+}
+
+.xDZMznqY5wpo5SaVlb5O {
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+  margin-top: 200px;
+  position: relative;
+}
+
+.QWFpafi80awD_0LvV9ca {
+  color: black !important;
+  border: 1px solid #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 3px;
+  border-radius: 10px;
+  height: 30px;
+  position: absolute;
+  left: 0px;
+  width: 200px;
+  top: -116px;
+  background-color: white;
+}
+
+.ZyeXDJTopswUrkWEI38Q {
+  position: absolute;
+  left: -150px;
+  top: -281px;
+}`, "",{"version":3,"sources":["webpack://./src/popup/popupContainer/styles/index.module.scss"],"names":[],"mappings":"AAAA,gBAAgB;AAAhB;EACE,yBAAA;EAIA,gBAAA,EAAA,+BAAA;EACA,mBAAA;EACA,mBAAA;AADF;;AAIA;EAEE,WAAA;AAFF;;AAKA;EACE,kBAAA;EACA,iCAAA;EACA,mCAAA;EACA,iCAAA;EACA,yBAAA;EACA,0BAAA;EACA,mBAAA;AAFF;;AAKA;EACE,kBAAA;EACA,iCAAA;EACA,mCAAA;EACA,oCAAA;EACA,yBAAA;AAFF;;AAKA;EACE,8CAAA;EACA,sDAAA;EACA,oCAAA;AAFF;;AAMA;EACE,oDAAA;EACA,sDAAA;AAHF;;AAMA;EACE,aAAA;EACA,uBAAA;EACA,mBAAA;EACA,aAAA;AAHF;;AAOA;EACE,eAAA;EACA,QAAA;EACA,SAAA;EACA,gCAAA;AAJF;;AAMA;EAEE,uBAAA;AAJF;;AAOA;EACE,aAAA;EACA,sBAAA;EACA,iBAAA;EACF,iBAAA;EACE,kBAAA;AAJF;;AAOA;EACE,uBAAA;EACA,sBAAA;EACA,aAAA;EACA,uBAAA;EACA,mBAAA;EACA,kBAAA;EACA,YAAA;EACA,mBAAA;EACA,YAAA;EACA,kBAAA;EACA,SAAA;EACA,YAAA;EACA,WAAA;EACA,uBAAA;AAJF;;AAQA;EACE,kBAAA;EACA,YAAA;EACA,WAAA;AALF","sourcesContent":[".optionContainer {\r\n  background-color: #fdfdfd;\r\n  //   height: 100vh;\r\n  //   width: 100vw;\r\n  //   display: block;\r\n  overflow-x: auto; /* Kích hoạt thanh cuộn ngang */\r\n  white-space: nowrap;\r\n  border-radius: 10px;\r\n}\r\n\r\n.optionHeader {\r\n  //   background-color: #1a0a72;\r\n  color: #000;\r\n}\r\n\r\n.optionTitle {\r\n  text-align: center;\r\n  border: 1px solid #000 !important;\r\n  box-shadow: 2px 2px 2px 2px #888888;\r\n  color: rgb(51 51 51) !important;\r\n  background-color: #fdfdfd;\r\n  font-size: 15px !important;\r\n  line-height: 19.6px;\r\n}\r\n\r\n.optionValue {\r\n  text-align: center;\r\n  border: 1px solid #000 !important;\r\n  box-shadow: 2px 2px 2px 2px #888888;\r\n  color: rgb(102 102 102) !important;\r\n  background-color: #fdfdfd;\r\n}\r\n\r\n.optionButton {\r\n  background-color: rgb(149 208 58) !important;\r\n  box-shadow: rgb(151 65 252 / 0.2) 0px 15px 30px -5px;\r\n  color: rgb(255 255 255) !important;\r\n  //   background-color: #000 !important;\r\n}\r\n\r\n.optionDrawer {\r\n  background-color: rgba(218, 109, 31, 0.5) !important;\r\n  box-shadow: rgb(151 65 252 / 0.2) 0px 15px 30px -5px;\r\n}\r\n\r\n.spinnerContainer {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  height: 100vh;\r\n  //background-color: #c5e7f7;\r\n}\r\n\r\n.ChakraSpinner {\r\n  position: fixed;\r\n  top: 50%;\r\n  left: 50%;\r\n  transform: translate(-50%, -50%);\r\n}\r\n.Calendar{\r\n  //margin-top: 300px;\r\n  z-index: 10000000000000;\r\n}\r\n\r\n.calenderContainer{\r\n  display: flex;\r\n  flex-direction: column;\r\n  padding-top:50px ;\r\nmargin-top: 200px;\r\n  position: relative;\r\n\r\n}\r\n.inputCalendar{\r\n  color: black !important;\r\n  border: 1px solid #000;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  text-align: center;\r\n  padding: 3px;\r\n  border-radius: 10px;\r\n  height: 30px;\r\n  position: absolute;\r\n  left: 0px;\r\n  width: 200px;\r\n  top: -116px;\r\n  background-color: #ffff;\r\n\r\n}\r\n\r\n.Calendar{\r\n  position: absolute;\r\n  left: -150px;\r\n  top: -281px;\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"optionContainer": `A2UUefaji4lTTiKiYU_T`,
@@ -342,7 +373,9 @@ ___CSS_LOADER_EXPORT___.locals = {
 	"optionDrawer": `Kb1shqkmu2iSw3vMPkdK`,
 	"spinnerContainer": `NKqgGBZtj4aZk_fC5BPZ`,
 	"ChakraSpinner": `sNn1LJz7LDZe0eje9wOu`,
-	"Calendar": `ZyeXDJTopswUrkWEI38Q`
+	"Calendar": `ZyeXDJTopswUrkWEI38Q`,
+	"calenderContainer": `xDZMznqY5wpo5SaVlb5O`,
+	"inputCalendar": `QWFpafi80awD_0LvV9ca`
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1333,15 +1366,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
 /* harmony import */ var _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/index.module.scss */ "./src/popup/popupContainer/styles/index.module.scss");
 /* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/spinner/dist/chunk-5PH6ULNP.mjs");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/layout/dist/chunk-ZHMYA64R.mjs");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/input/dist/chunk-6CVSDS6C.mjs");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/button/dist/chunk-UVUR7MCU.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/input/dist/chunk-6CVSDS6C.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/button/dist/chunk-UVUR7MCU.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/layout/dist/chunk-ZHMYA64R.mjs");
 /* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/checkbox/dist/chunk-CWVAJCXJ.mjs");
 /* harmony import */ var react_copy_to_clipboard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-copy-to-clipboard */ "./node_modules/react-copy-to-clipboard/lib/index.js");
 /* harmony import */ var react_copy_to_clipboard__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_copy_to_clipboard__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _component_Search__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../component/Search */ "./src/component/Search/index.tsx");
 /* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/format/index.js");
-/* harmony import */ var react_date_range__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-date-range */ "./node_modules/react-date-range/dist/index.js");
+Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-date-range'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-date-range/dist/styles.css'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-date-range/dist/theme/default.css'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 
 
 
@@ -1350,6 +1385,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+ // main style file
 
 const PopupContainer = () => {
     const [detailParam, setDetailParam] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
@@ -1551,12 +1588,15 @@ const PopupContainer = () => {
         setLoading(false);
         // }
     }, [dataAccount, accountID]);
-    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-        handleGetAccessToken();
-    }, []);
+    // useEffect(() => {
+    //     handleGetAccessToken();
+    // }, []);
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
         setFilteredList(infos);
     }, [infos]);
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        document.addEventListener("click", clickOutside, true);
+    }, []);
     if (loading) {
         return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].spinnerContainer },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_8__.Spinner, { thickness: '4px', speed: '0.65s', emptyColor: 'gray.200', color: 'blue.500', size: 'xl', className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].ChakraSpinner })));
@@ -1567,11 +1607,10 @@ const PopupContainer = () => {
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "wrapper", id: "main" },
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "sc_heading", style: { marginBottom: "20px", backgroundColor: "transparent" } },
                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_component_Search__WEBPACK_IMPORTED_MODULE_3__["default"], { filteredList: filteredList, infos: infos, setFilteredList: setFilteredList }),
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_9__.Stack, { spacing: 3 },
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_10__.Input, { bgColor: "#fff", className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].inputCalendar, placeholder: 'small size', size: 'sm', value: calendar, onClick: () => setIsOpen(true) })),
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].Calendar },
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { style: { zIndex: 10000000 }, className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].calenderContainer },
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { ref: refCalendar }, isOpen && react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_date_range__WEBPACK_IMPORTED_MODULE_4__.Calendar, { date: new Date(), onChange: handleSelectDate }))))),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].calenderContainer },
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_9__.Input, { bgColor: "#fff", className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].inputCalendar, placeholder: 'small size', size: 'sm', value: calendar, onClick: () => setIsOpen(true) }),
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].Calendar },
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { ref: refCalendar, style: { zIndex: 10000000 }, className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].calenderContainer }, isOpen && react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-date-range'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), { date: new Date(), onChange: handleSelectDate }))))),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "AccStatus", className: "tabcontent active" },
                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "loaddata1", style: { display: "none" } },
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", { src: "chrome-extension://ookgnahfklmejhicejjbfjifppjbfnlk/access/icon/loadingdata.gif", alt: "" })),
@@ -1604,9 +1643,9 @@ const PopupContainer = () => {
                                             marginTop: 5
                                         } },
                                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_copy_to_clipboard__WEBPACK_IMPORTED_MODULE_2__.CopyToClipboard, { text: item.COOKIES, onCopy: () => handleCopyCookie(key) },
-                                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_11__.Button, { colorScheme: 'whatsapp' }, copied[key] ? "COPIED" : "COPY")))),
+                                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_10__.Button, { colorScheme: 'whatsapp' }, copied[key] ? "COPIED" : "COPY")))),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
-                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_9__.Stack, { spacing: [1, 5], direction: ['column', 'row'], style: { display: "flex", justifyContent: "center", marginTop: 5 } },
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_11__.Stack, { spacing: [1, 5], direction: ['column', 'row'], style: { display: "flex", justifyContent: "center", marginTop: 5 } },
                                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_12__.Checkbox, { size: 'sm', colorScheme: 'green' }, "Mr D"),
                                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_12__.Checkbox, { size: 'sm', colorScheme: 'green' }, "Mr H"),
                                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_12__.Checkbox, { size: 'sm', colorScheme: 'green' }, "Mr A"))),
@@ -1630,7 +1669,7 @@ const PopupContainer = () => {
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, convertNumberToUsd(item.DEBT_TOTAL))),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].optionValue },
-                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_11__.Button, { onClick: handleNavigateDetail, m: 4, className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].optionButton }, `Open Detail Cookie`))))))))))));
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_10__.Button, { onClick: handleNavigateDetail, m: 4, className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].optionButton }, `Open Detail Cookie`))))))))))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PopupContainer);
 
@@ -2273,17 +2312,6 @@ const PopupDetailAD = () => {
     const handleGetBill = () => {
         navigate('/popup.html/bill');
     };
-    // function formatNumber(number) {
-    //     console.log ('number', number);
-    //     const formattedNumber = number.toLocaleString(undefined, {
-    //         minimumFractionDigits: 1,
-    //         maximumFractionDigits: 1,
-    //         useGrouping: true,
-    //     });
-    //
-    //     // Sử dụng regex để loại bỏ số 0 sau dấu thập phân
-    //     return formattedNumber.replace(/\.0$/, '');
-    // }
     function formatNumber(so) {
         // Chuyển số thành chuỗi và tách phần nguyên và phần thập phân
         let [phanNguyen, phanThapPhan] = parseFloat(so).toFixed(2).toString().split('.');
@@ -3610,8 +3638,8 @@ const PopupDetailAD = () => {
             const width8 = td8.offsetWidth;
             const width9 = td9.offsetWidth;
             const width10 = td10.offsetWidth;
-            const width = width1 + width2 + width3 + width4 + width5;
-            setWidthMain((prev) => (Object.assign(Object.assign({}, prev), { widthTotal: width, widthDebt: width6, widthThresHold: width7, widthLimit: width8, widthLimitHidden: width9, widthLimitTotalSpending: width10 })));
+            const width = width1 + width2 + width3 + width4;
+            setWidthMain((prev) => (Object.assign(Object.assign({}, prev), { widthTotal: width, widthDebt: width5, widthThresHold: width6, widthLimit: width7, widthLimitHidden: width8, widthLimitTotalSpending: width9 })));
         }
     };
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {

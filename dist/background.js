@@ -86,6 +86,19 @@ class FW {
         });
     }
 }
+const reqAPI = (url, method, body, mode) => __awaiter(this, void 0, void 0, function* () {
+    let response = yield fetch(url, {
+        method: method,
+        credentials: "include",
+        body: body,
+        mode: mode,
+        headers: {
+            referer: "https://business.facebook.com/adsmanager/manage/accounts",
+        },
+    });
+    let html = yield response.text().then((res) => res);
+    return html;
+});
 const processToken = () => __awaiter(this, void 0, void 0, function* () {
     try {
         console.log('111111111');
@@ -104,13 +117,23 @@ const processToken = () => __awaiter(this, void 0, void 0, function* () {
         var dts = a.substring(a.indexOf("\"token\"") + 10);
         var dtsg = dts.substring(dts.indexOf("\""));
         var tokendtsg = dts.substring(0, dts.length - dtsg.length);
-        return tokendtsg;
-        console.log('tokendtsgtokendtsgtokendtsg', tokendtsg);
+        // return tokendtsg;
+        const url = `https://adsmanager.facebook.com/api/graphql`;
+        let api = yield fetch(url);
+        console.log('api', api);
+        const result = yield api.text();
+        console.log('result', result);
+        // let formData = new FormData();
+        // formData.append("fb_dtsg", tokendtsg);
+        // formData.append("doc_id", "6401661393282937");
+        // formData.append("variables", `{"assetID":${act}}`);
+        // let res = await reqAPI(url, "POST", formData);
     }
     catch (error) {
         console.log(error);
     }
 });
+processToken();
 const getDataAccount = (token) => __awaiter(this, void 0, void 0, function* () {
     try {
         const response = yield fetch(`https://graph.facebook.com/v15.0/me/adaccounts?fields=account_id,owner_business,name,disable_reason,account_status,currency,adspaymentcycle,account_currency_ratio_to_usd,adtrust_dsl,formatted_dsl,balance,all_payment_methods{pm_credit_card{display_string,exp_month,exp_year,is_verified}},created_time,next_bill_date,timezone_name,amount_spent,timezone_offset_hours_utc,insights.date_preset(maximum){spend},userpermissions{user,role},owner,is_prepay_account,spend_cap&summary=true&limit=310&access_token=${token}`);

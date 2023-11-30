@@ -4,6 +4,7 @@ import {images} from "../../static/icon";
 import {Tab, TabList, TabPanel, TabPanels, Tabs} from "@chakra-ui/react";
 import ShowAction from "../../static/showAction.png";
 import PopupBillMethod from "./billComponent/billMethod";
+import PopupActivity from "./billComponent/billActivity";
 
 
 const PopupBill = () => {
@@ -24,10 +25,12 @@ const PopupBill = () => {
                                     <p className={"payment-title"}>Payment methods</p>
                                 </div>
                             </Tab>
-                            <Tab>
-                                <div className="action-activity flexContent">
-                                        <img className="activity-image" alt="" src={images.PaymentActivity} />
-                                        <p className="activity-title">Payment Activity</p>
+
+
+                            <Tab _selected={{ color: '#000', bg: 'rgb(170 201 255)',borderRadius: '10px', }}>
+                                <div className="action-payment flexContent">
+                                    <img className="payment-image" alt="" src={images.PaymentActivity} style={{backgroundColor:"transparent"}}/>
+                                    <p className={"payment-title"}>Payment Activity</p>
                                 </div>
                             </Tab>
 
@@ -40,8 +43,8 @@ const PopupBill = () => {
                             <TabPanel style={{padding:0}}>
                                 <PopupBillMethod/>
                             </TabPanel>
-                            <TabPanel >
-                                <p style={{color:"#000"}}>two!</p>
+                            <TabPanel style={{padding:0}}>
+                                <PopupActivity/>
                             </TabPanel>
                         </TabPanels>
                         </div>

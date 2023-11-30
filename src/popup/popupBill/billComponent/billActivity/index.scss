@@ -1,0 +1,48 @@
+.bill-activity-container{
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.font-upper-balance{
+  color:#212529;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.font-down-balance{
+  color:#212529;
+  font-size: 13px;
+}
+
+.content-background{
+  background-color: rgb(255 255 255);
+  padding: 10px 15px;
+  border-radius: 7px;
+  margin-top: 10px;
+}
+
+.activity-title{
+  padding-top: 0;
+  p{
+
+    color:#212529;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+}
+
+.activity-account {
+   .account-button{
+     background-color: #aac9ff;
+     color: #1877f2;
+     font-weight: 700;
+   }
+    border-bottom: 1px solid #e6e6e6;
+}
+
+
+
+
+
