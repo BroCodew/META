@@ -1644,12 +1644,12 @@ const PopupDetailAD = () => {
     }
 
     useEffect(() => {
-        const intervalId = setInterval(updateSize, 10);
+        const intervalId = setInterval(updateSize, 100);
         const cleanup = () => {
             clearInterval(intervalId);
             console.log('Interval cleared after 2 seconds.');
         };
-        const timeoutId = setTimeout(cleanup, 2000);
+        const timeoutId = setTimeout(cleanup, 200);
         return () => {
             clearTimeout(timeoutId);
             cleanup();

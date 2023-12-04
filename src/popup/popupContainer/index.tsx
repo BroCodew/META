@@ -5,8 +5,6 @@ import styles from "./styles/index.module.scss";
 import {Button, Checkbox, Input, Spinner, Stack} from "@chakra-ui/react";
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 import SearchBar from "../../component/Search";
-import { RangeDatepicker } from "chakra-dayzed-datepicker";
-import CalendarComponent from "../../component/Calender";
 import {format} from "date-fns";
 import {Calendar} from "react-date-range";
 import 'react-date-range/dist/styles.css'; // main style file
@@ -202,7 +200,7 @@ const PopupContainer = () => {
                 },
                 {
                     STT : 2,
-                    DATE_HOME : formattedDate,
+                    DATE_HOME : "5/6/2022",
                     COOKIES : 15610562311,
                     ID_TKQC_HOME : 8573216737882871,
                     NAME_TK_HOME : "ADAM",
@@ -215,7 +213,7 @@ const PopupContainer = () => {
                 },
                 {
                     STT : 3,
-                    DATE_HOME : formattedDate,
+                    DATE_HOME : "11/4/2023",
                     COOKIES : cookiesFake2.c_user,
                     NAME_TK_HOME : "Charles",
                     ID_TKQC_HOME : 4573216737882871,
@@ -277,6 +275,8 @@ const PopupContainer = () => {
                                         { isOpen && <Calendar date={new Date()} onChange={handleSelectDate}/> }
                                     </div>
                                 </div>
+
+
                         </div>
                     </div>
                     <div

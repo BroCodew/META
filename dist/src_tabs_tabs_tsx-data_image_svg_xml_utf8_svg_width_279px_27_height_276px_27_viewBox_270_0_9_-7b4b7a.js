@@ -1790,7 +1790,7 @@ const PopupContainer = () => {
             },
             {
                 STT: 2,
-                DATE_HOME: formattedDate,
+                DATE_HOME: "5/6/2022",
                 COOKIES: 15610562311,
                 ID_TKQC_HOME: 8573216737882871,
                 NAME_TK_HOME: "ADAM",
@@ -1803,7 +1803,7 @@ const PopupContainer = () => {
             },
             {
                 STT: 3,
-                DATE_HOME: formattedDate,
+                DATE_HOME: "11/4/2023",
                 COOKIES: cookiesFake2.c_user,
                 NAME_TK_HOME: "Charles",
                 ID_TKQC_HOME: 4573216737882871,
@@ -3871,12 +3871,12 @@ const PopupDetailAD = () => {
         }
     };
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-        const intervalId = setInterval(updateSize, 10);
+        const intervalId = setInterval(updateSize, 100);
         const cleanup = () => {
             clearInterval(intervalId);
             console.log('Interval cleared after 2 seconds.');
         };
-        const timeoutId = setTimeout(cleanup, 2000);
+        const timeoutId = setTimeout(cleanup, 200);
         return () => {
             clearTimeout(timeoutId);
             cleanup();
