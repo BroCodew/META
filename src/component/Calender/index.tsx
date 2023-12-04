@@ -29,7 +29,6 @@ const CalendarComponent = () => {
             <Button>Hôm qua</Button>
             <Button>All time</Button>
             <Stack spacing={3}>
-
                 <Input bgColor={"#fff"} className={styles.inputCalendar}   placeholder='small size' size='sm' value={calendar} onClick={()=>setIsOpen(true)}/>
             </Stack>
             <div ref={refCalendar}>

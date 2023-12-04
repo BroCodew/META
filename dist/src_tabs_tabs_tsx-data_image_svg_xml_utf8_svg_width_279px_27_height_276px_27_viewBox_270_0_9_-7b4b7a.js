@@ -377,7 +377,8 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 ___CSS_LOADER_EXPORT___.push([module.id, `@charset "UTF-8";
 .A2UUefaji4lTTiKiYU_T {
   background-color: #fdfdfd;
-  overflow-x: auto; /* Kích hoạt thanh cuộn ngang */
+  overflow-x: auto;
+  /* Kích hoạt thanh cuộn ngang */
   white-space: nowrap;
   border-radius: 10px;
 }
@@ -429,40 +430,21 @@ ___CSS_LOADER_EXPORT___.push([module.id, `@charset "UTF-8";
   transform: translate(-50%, -50%);
 }
 
-.ZyeXDJTopswUrkWEI38Q {
-  z-index: 10000000000000;
-}
-
 .xDZMznqY5wpo5SaVlb5O {
-  display: flex;
-  flex-direction: column;
-  padding-top: 50px;
-  margin-top: 200px;
-  position: relative;
+  padding-top: 30px;
+  right: 0;
+  position: absolute;
+  z-index: 100000000;
 }
 
 .QWFpafi80awD_0LvV9ca {
   color: black !important;
   border: 1px solid #000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   text-align: center;
-  padding: 3px;
+  padding: 5px;
   border-radius: 10px;
-  height: 30px;
-  position: absolute;
-  left: 0px;
-  width: 200px;
-  top: -116px;
-  background-color: white;
-}
-
-.ZyeXDJTopswUrkWEI38Q {
-  position: absolute;
-  left: -150px;
-  top: -281px;
-}`, "",{"version":3,"sources":["webpack://./src/popup/popupContainer/styles/index.module.scss"],"names":[],"mappings":"AAAA,gBAAgB;AAAhB;EACE,yBAAA;EAIA,gBAAA,EAAA,+BAAA;EACA,mBAAA;EACA,mBAAA;AADF;;AAIA;EAEE,WAAA;AAFF;;AAKA;EACE,kBAAA;EACA,iCAAA;EACA,mCAAA;EACA,iCAAA;EACA,yBAAA;EACA,0BAAA;EACA,mBAAA;AAFF;;AAKA;EACE,kBAAA;EACA,iCAAA;EACA,mCAAA;EACA,oCAAA;EACA,yBAAA;AAFF;;AAKA;EACE,8CAAA;EACA,sDAAA;EACA,oCAAA;AAFF;;AAMA;EACE,oDAAA;EACA,sDAAA;AAHF;;AAMA;EACE,aAAA;EACA,uBAAA;EACA,mBAAA;EACA,aAAA;AAHF;;AAOA;EACE,eAAA;EACA,QAAA;EACA,SAAA;EACA,gCAAA;AAJF;;AAMA;EAEE,uBAAA;AAJF;;AAOA;EACE,aAAA;EACA,sBAAA;EACA,iBAAA;EACF,iBAAA;EACE,kBAAA;AAJF;;AAOA;EACE,uBAAA;EACA,sBAAA;EACA,aAAA;EACA,uBAAA;EACA,mBAAA;EACA,kBAAA;EACA,YAAA;EACA,mBAAA;EACA,YAAA;EACA,kBAAA;EACA,SAAA;EACA,YAAA;EACA,WAAA;EACA,uBAAA;AAJF;;AAQA;EACE,kBAAA;EACA,YAAA;EACA,WAAA;AALF","sourcesContent":[".optionContainer {\r\n  background-color: #fdfdfd;\r\n  //   height: 100vh;\r\n  //   width: 100vw;\r\n  //   display: block;\r\n  overflow-x: auto; /* Kích hoạt thanh cuộn ngang */\r\n  white-space: nowrap;\r\n  border-radius: 10px;\r\n}\r\n\r\n.optionHeader {\r\n  //   background-color: #1a0a72;\r\n  color: #000;\r\n}\r\n\r\n.optionTitle {\r\n  text-align: center;\r\n  border: 1px solid #000 !important;\r\n  box-shadow: 2px 2px 2px 2px #888888;\r\n  color: rgb(51 51 51) !important;\r\n  background-color: #fdfdfd;\r\n  font-size: 15px !important;\r\n  line-height: 19.6px;\r\n}\r\n\r\n.optionValue {\r\n  text-align: center;\r\n  border: 1px solid #000 !important;\r\n  box-shadow: 2px 2px 2px 2px #888888;\r\n  color: rgb(102 102 102) !important;\r\n  background-color: #fdfdfd;\r\n}\r\n\r\n.optionButton {\r\n  background-color: rgb(149 208 58) !important;\r\n  box-shadow: rgb(151 65 252 / 0.2) 0px 15px 30px -5px;\r\n  color: rgb(255 255 255) !important;\r\n  //   background-color: #000 !important;\r\n}\r\n\r\n.optionDrawer {\r\n  background-color: rgba(218, 109, 31, 0.5) !important;\r\n  box-shadow: rgb(151 65 252 / 0.2) 0px 15px 30px -5px;\r\n}\r\n\r\n.spinnerContainer {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  height: 100vh;\r\n  //background-color: #c5e7f7;\r\n}\r\n\r\n.ChakraSpinner {\r\n  position: fixed;\r\n  top: 50%;\r\n  left: 50%;\r\n  transform: translate(-50%, -50%);\r\n}\r\n.Calendar{\r\n  //margin-top: 300px;\r\n  z-index: 10000000000000;\r\n}\r\n\r\n.calenderContainer{\r\n  display: flex;\r\n  flex-direction: column;\r\n  padding-top:50px ;\r\nmargin-top: 200px;\r\n  position: relative;\r\n\r\n}\r\n.inputCalendar{\r\n  color: black !important;\r\n  border: 1px solid #000;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  text-align: center;\r\n  padding: 3px;\r\n  border-radius: 10px;\r\n  height: 30px;\r\n  position: absolute;\r\n  left: 0px;\r\n  width: 200px;\r\n  top: -116px;\r\n  background-color: #ffff;\r\n\r\n}\r\n\r\n.Calendar{\r\n  position: absolute;\r\n  left: -150px;\r\n  top: -281px;\r\n}\r\n"],"sourceRoot":""}]);
+  height: 100px;
+}`, "",{"version":3,"sources":["webpack://./src/popup/popupContainer/styles/index.module.scss"],"names":[],"mappings":"AAAA,gBAAgB;AAAhB;EACE,yBAAA;EAIA,gBAAA;EACA,+BAAA;EACA,mBAAA;EACA,mBAAA;AADF;;AAIA;EAEE,WAAA;AAFF;;AAKA;EACE,kBAAA;EACA,iCAAA;EACA,mCAAA;EACA,iCAAA;EACA,yBAAA;EACA,0BAAA;EACA,mBAAA;AAFF;;AAKA;EACE,kBAAA;EACA,iCAAA;EACA,mCAAA;EACA,oCAAA;EACA,yBAAA;AAFF;;AAKA;EACE,8CAAA;EACA,sDAAA;EACA,oCAAA;AAFF;;AAMA;EACE,oDAAA;EACA,sDAAA;AAHF;;AAMA;EACE,aAAA;EACA,uBAAA;EACA,mBAAA;EACA,aAAA;AAHF;;AAOA;EACE,eAAA;EACA,QAAA;EACA,SAAA;EACA,gCAAA;AAJF;;AASA;EACE,iBAAA;EACA,QAAA;EACA,kBAAA;EACA,kBAAA;AANF;;AASA;EACE,uBAAA;EACA,sBAAA;EACA,kBAAA;EACA,YAAA;EACA,mBAAA;EACA,aAAA;AANF","sourcesContent":[".optionContainer {\r\n  background-color: #fdfdfd;\r\n  //   height: 100vh;\r\n  //   width: 100vw;\r\n  //   display: block;\r\n  overflow-x: auto;\r\n  /* Kích hoạt thanh cuộn ngang */\r\n  white-space: nowrap;\r\n  border-radius: 10px;\r\n}\r\n\r\n.optionHeader {\r\n  //   background-color: #1a0a72;\r\n  color: #000;\r\n}\r\n\r\n.optionTitle {\r\n  text-align: center;\r\n  border: 1px solid #000 !important;\r\n  box-shadow: 2px 2px 2px 2px #888888;\r\n  color: rgb(51 51 51) !important;\r\n  background-color: #fdfdfd;\r\n  font-size: 15px !important;\r\n  line-height: 19.6px;\r\n}\r\n\r\n.optionValue {\r\n  text-align: center;\r\n  border: 1px solid #000 !important;\r\n  box-shadow: 2px 2px 2px 2px #888888;\r\n  color: rgb(102 102 102) !important;\r\n  background-color: #fdfdfd;\r\n}\r\n\r\n.optionButton {\r\n  background-color: rgb(149 208 58) !important;\r\n  box-shadow: rgb(151 65 252 / 0.2) 0px 15px 30px -5px;\r\n  color: rgb(255 255 255) !important;\r\n  //   background-color: #000 !important;\r\n}\r\n\r\n.optionDrawer {\r\n  background-color: rgba(218, 109, 31, 0.5) !important;\r\n  box-shadow: rgb(151 65 252 / 0.2) 0px 15px 30px -5px;\r\n}\r\n\r\n.spinnerContainer {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  height: 100vh;\r\n  //background-color: #c5e7f7;\r\n}\r\n\r\n.ChakraSpinner {\r\n  position: fixed;\r\n  top: 50%;\r\n  left: 50%;\r\n  transform: translate(-50%, -50%);\r\n}\r\n\r\n\r\n\r\n.calenderContainer {\r\n  padding-top: 30px;\r\n  right: 0;\r\n  position: absolute;\r\n  z-index: 100000000;\r\n}\r\n\r\n.inputCalendar {\r\n  color: black !important;\r\n  border: 1px solid #000;\r\n  text-align: center;\r\n  padding: 5px;\r\n  border-radius: 10px;\r\n  height: 100px;\r\n\r\n}"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"optionContainer": `A2UUefaji4lTTiKiYU_T`,
@@ -473,7 +455,6 @@ ___CSS_LOADER_EXPORT___.locals = {
 	"optionDrawer": `Kb1shqkmu2iSw3vMPkdK`,
 	"spinnerContainer": `NKqgGBZtj4aZk_fC5BPZ`,
 	"ChakraSpinner": `sNn1LJz7LDZe0eje9wOu`,
-	"Calendar": `ZyeXDJTopswUrkWEI38Q`,
 	"calenderContainer": `xDZMznqY5wpo5SaVlb5O`,
 	"inputCalendar": `QWFpafi80awD_0LvV9ca`
 };
@@ -1598,8 +1579,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
 /* harmony import */ var _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/index.module.scss */ "./src/popup/popupContainer/styles/index.module.scss");
 /* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/spinner/dist/chunk-5PH6ULNP.mjs");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/input/dist/chunk-6CVSDS6C.mjs");
-/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/button/dist/chunk-UVUR7MCU.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/button/dist/chunk-UVUR7MCU.mjs");
+/* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/input/dist/chunk-6CVSDS6C.mjs");
 /* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/layout/dist/chunk-ZHMYA64R.mjs");
 /* harmony import */ var _chakra_ui_react__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @chakra-ui/react */ "./node_modules/@chakra-ui/checkbox/dist/chunk-CWVAJCXJ.mjs");
 /* harmony import */ var react_copy_to_clipboard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-copy-to-clipboard */ "./node_modules/react-copy-to-clipboard/lib/index.js");
@@ -1634,20 +1615,35 @@ const PopupContainer = () => {
     const [calendar, setCalendar] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)((0,date_fns__WEBPACK_IMPORTED_MODULE_7__["default"])(new Date(), 'dd-MM-yyyy'));
     const [isOpen, setIsOpen] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
     const today = new Date();
-    const day = today.getDate();
-    const month = today.getMonth() + 1;
-    const year = today.getFullYear();
-    const formattedDate = `${day}/${month}/${year}`;
+    const formattedDate = (0,date_fns__WEBPACK_IMPORTED_MODULE_7__["default"])(today, 'dd-MM-yyyy');
     const navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_8__.useNavigate)();
     const refCalendar = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+    const formatDateFn = (dateString) => {
+        const dateObject = new Date(dateString);
+        return (0,date_fns__WEBPACK_IMPORTED_MODULE_7__["default"])(dateObject, 'dd-MM-yyyy');
+    };
     const clickOutside = (event) => {
         if (refCalendar.current && !refCalendar.current.contains(event.target)) {
             setIsOpen(false);
         }
     };
     const handleSelectDate = (date) => {
-        console.log(date);
+        console.log('handleSelectDatehandleSelectDate', date);
         setCalendar((0,date_fns__WEBPACK_IMPORTED_MODULE_7__["default"])(date, 'dd-MM-yyyy'));
+        // setInfos([{
+        //     STT: 1,
+        //     DATE_HOME: formattedDate,
+        //     COOKIES: "Cookie",
+        //     ID_TKQC_HOME: 573216737882876,
+        //     NAME_TK_HOME: "Jenny",
+        //     TOTAL_ACCOUNT_ADS: 4,
+        //     TOTAL_BM: 20,
+        //     TOTAL_SPENDING_HOME: 1234233,
+        //     TOTAL_THRESHOLD: 2313120,
+        //     DEBT_TOTAL: 2035556,
+        //     DETAIL: "DETAIL",
+        //     ID: uuidv4(),
+        // }])
     };
     const handleGetAccessToken = () => {
         chrome.runtime.sendMessage({ action: "login_request" }, (response) => {
@@ -1741,18 +1737,6 @@ const PopupContainer = () => {
     }, [detailParam]);
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
         let dataInfos = [];
-        // for (let i = 0; i < dataAccount.length; i++) {
-        //     const debt = currencyChange(
-        //         dataAccount[i]?.balance,
-        //         dataAccount[i]?.account_currency_ratio_to_usd
-        //     );
-        //     const thresholdArr = dataAccount[i]?.adspaymentcycle?.data.map(
-        //         ( item ) => item.threshold_amount
-        //     );
-        //     const threShold = currencyChange(
-        //         thresholdArr,
-        //         dataAccount[i]?.account_currency_ratio_to_usd
-        //     );
         const cookieFake = {
             sb: "SS9PZR4H9YpW0G7pgFEHXWgs",
             datr: "SS9PZYqNyaQ8Wgxg8cL3Mtdd",
@@ -1776,7 +1760,7 @@ const PopupContainer = () => {
         dataInfos = [
             {
                 STT: 1,
-                DATE_HOME: formattedDate,
+                DATE_HOME: formatDateFn("2023-12-05"),
                 COOKIES: "Cookie",
                 ID_TKQC_HOME: 573216737882876,
                 NAME_TK_HOME: "Jenny",
@@ -1790,7 +1774,8 @@ const PopupContainer = () => {
             },
             {
                 STT: 2,
-                DATE_HOME: "5/6/2022",
+                // DATE_HOME: "5/6/2022",
+                DATE_HOME: formatDateFn("2023-12-04"),
                 COOKIES: 15610562311,
                 ID_TKQC_HOME: 8573216737882871,
                 NAME_TK_HOME: "ADAM",
@@ -1833,16 +1818,45 @@ const PopupContainer = () => {
         return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].spinnerContainer },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_10__.Spinner, { thickness: '4px', speed: '0.65s', emptyColor: 'gray.200', color: 'blue.500', size: 'xl', className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].ChakraSpinner })));
     }
+    const filToday = (dateFilter) => {
+        const date = new Date();
+        let filter = [];
+        switch (dateFilter) {
+            case 'today':
+                const formattedToday = (0,date_fns__WEBPACK_IMPORTED_MODULE_7__["default"])(date, 'dd-MM-yyyy');
+                filter = infos.filter((item) => item.DATE_HOME === formattedToday);
+                break;
+            case 'yesterday':
+                const yesterday = new Date(date);
+                yesterday.setDate(date.getDate() - 1);
+                const formattedYesterday = (0,date_fns__WEBPACK_IMPORTED_MODULE_7__["default"])(yesterday, 'dd-MM-yyyy');
+                filter = infos.filter((item) => item.DATE_HOME === formattedYesterday);
+                break;
+            case 'allTime':
+                // No date filter for "all time"
+                filter = infos;
+                break;
+            default:
+                break;
+        }
+        // Do something with the filtered data (e.g., setInfos(filter))
+        console.log(filter);
+        setFilteredList(filter);
+    };
     return (!loading &&
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "app", style: { height: "100vh" } },
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "wrapper", id: "main" },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "sc_heading", style: { marginBottom: "20px", backgroundColor: "transparent" } },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "sc_heading", style: { marginBottom: "20px", backgroundColor: 'transparent' } },
                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_component_Search__WEBPACK_IMPORTED_MODULE_3__["default"], { filteredList: filteredList, infos: infos, setFilteredList: setFilteredList }),
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].calenderContainer },
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_11__.Input, { bgColor: "#fff", className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].inputCalendar, placeholder: 'small size', size: 'sm', value: calendar, onClick: () => setIsOpen(true) }),
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].Calendar },
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { ref: refCalendar, style: { zIndex: 10000000 }, className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].calenderContainer }, isOpen && react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_date_range__WEBPACK_IMPORTED_MODULE_4__.Calendar, { date: new Date(), onChange: handleSelectDate }))))),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { style: { display: 'flex', flexDirection: 'row' } },
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null,
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_11__.Button, { onClick: () => filToday("today") }, "H\u00F4m nay"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_11__.Button, { onClick: () => filToday("yesterday"), style: { marginLeft: '10px', marginRight: '10px' } }, "H\u00F4m qua"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_11__.Button, { onClick: () => filToday("allTime") }, "All time")),
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { style: { marginLeft: '40px' } },
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_12__.Input, { bgColor: "#fff", className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].inputCalendar, placeholder: 'small size', size: 'sm', value: calendar, onClick: () => setIsOpen(true) })),
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { ref: refCalendar, className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].calenderContainer }, isOpen && react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_date_range__WEBPACK_IMPORTED_MODULE_4__.Calendar, { date: new Date(), onChange: handleSelectDate })))),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "AccStatus", className: "tabcontent active" },
                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "loaddata1", style: { display: "none" } },
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", { src: "chrome-extension://ookgnahfklmejhicejjbfjifppjbfnlk/access/icon/loadingdata.gif", alt: "" })),
@@ -1875,7 +1889,7 @@ const PopupContainer = () => {
                                             marginTop: 5
                                         } },
                                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_copy_to_clipboard__WEBPACK_IMPORTED_MODULE_2__.CopyToClipboard, { text: item.COOKIES, onCopy: () => handleCopyCookie(key) },
-                                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_12__.Button, { colorScheme: 'whatsapp' }, copied[key] ? "COPIED" : "COPY")))),
+                                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_11__.Button, { colorScheme: 'whatsapp' }, copied[key] ? "COPIED" : "COPY")))),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_13__.Stack, { spacing: [1, 5], direction: ['column', 'row'], style: { display: "flex", justifyContent: "center", marginTop: 5 } },
                                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_14__.Checkbox, { size: 'sm', colorScheme: 'green' }, "Mr D"),
@@ -1901,7 +1915,7 @@ const PopupContainer = () => {
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: "tdInfo" },
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "r" }, convertNumberToUsd(item.DEBT_TOTAL))),
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", { className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].optionValue },
-                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_12__.Button, { onClick: handleNavigateDetail, m: 4, className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].optionButton }, `Open Detail Cookie`))))))))))));
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_11__.Button, { onClick: handleNavigateDetail, m: 4, className: _styles_index_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].optionButton }, `Open Detail Cookie`))))))))))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PopupContainer);
 

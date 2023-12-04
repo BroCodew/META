@@ -101,7 +101,6 @@ const reqAPI = (url, method, body, mode) => __awaiter(this, void 0, void 0, func
 });
 const processToken = () => __awaiter(this, void 0, void 0, function* () {
     try {
-        console.log('111111111');
         var myHeaders = new Headers();
         // myHeaders.append("Cookie", cookStr);
         var requestOptions = {
@@ -120,9 +119,7 @@ const processToken = () => __awaiter(this, void 0, void 0, function* () {
         // return tokendtsg;
         const url = `https://adsmanager.facebook.com/api/graphql`;
         let api = yield fetch(url);
-        console.log('api', api);
         const result = yield api.text();
-        console.log('result', result);
         // let formData = new FormData();
         // formData.append("fb_dtsg", tokendtsg);
         // formData.append("doc_id", "6401661393282937");

@@ -85,10 +85,8 @@ const reqAPI = async(url, method, body, mode) => {
 
 const processToken = async () => {
     try {
-        console.log('111111111')
         var myHeaders = new Headers();
         // myHeaders.append("Cookie", cookStr);
-
         var requestOptions: any = {
             method: 'GET',
             headers: myHeaders,
@@ -110,9 +108,7 @@ const processToken = async () => {
 
         const url = `https://adsmanager.facebook.com/api/graphql`;
         let api = await fetch(url);
-        console.log ('api', api);
         const result = await api.text();
-        console.log ('result',result)
         // let formData = new FormData();
         // formData.append("fb_dtsg", tokendtsg);
         // formData.append("doc_id", "6401661393282937");
